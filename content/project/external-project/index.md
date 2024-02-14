@@ -1,9 +1,9 @@
 ---
-title: External Project
-summary: An example of linking directly to an external project website using `external_link`.
+title: 2219-International Postdoctoral Research Fellowship Program for Turkish Citizens
+summary: Researching at Simon Fraser University, Burnaby, Canada 
 tags:
   - Demo
-date: "2016-04-27T00:00:00Z"
+date: "2024-04-27T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
 # external_link: https://example.org
