@@ -1,6 +1,6 @@
 ---
 title: 2219-International Postdoctoral Research Fellowship Program for Turkish Citizens
-#summary: An example of using the in-built project page.
+summary: Simon Fraser University
 tags:
   - Tubitak
 date: '2024-04-27T00:00:00Z'
