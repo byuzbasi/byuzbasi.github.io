@@ -3,7 +3,7 @@ title: Tubitak 2219 - International Postdoctoral Research Fellowship Program for
 summary: ....
 tags:
   - Tubitak
-date: '2024-07-27T00:00:00Z' - '2025-07-27T00:00:00Z'
+date: '2024-07-27T00:00:00Z'
 
 # Optional external URL for project (replaces project detail page).
 # external_link: ''
