@@ -1,6 +1,6 @@
 ---
-title: Tubitak 2219-International Postdoctoral Research Fellowship Program for Turkish Citizens
-summary: Simon Fraser University, Canada.
+title: Tubitak 2214-A - International Research Fellowship Programme for PhD Students
+summary: Brock University, Canada.
 tags:
   - Tubitak
 date: '2016-04-27T00:00:00Z'

@@ -1,6 +1,6 @@
 ---
-title: Tubitak 2219-International Postdoctoral Research Fellowship Program for Turkish Citizens
-summary: Simon Fraser University, Canada.
+title: Tubitak 3005 - Innovative Solutions Research Projects Support Program in Social Sciences and Humanities
+summary: Inonu University.
 tags:
   - Tubitak
 date: '2016-04-27T00:00:00Z'
