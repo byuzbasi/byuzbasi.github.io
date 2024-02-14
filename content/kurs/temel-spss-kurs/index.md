@@ -10,10 +10,10 @@ summary: İnönü Üniversitsi
 * Sunumlar ve uygulama verileri ders günü veya bir gün öncesinden buradan indirebilebilir.
     * Hafta 1: 12 Şubat 2024 tarihli ders için gerekli dökümanlar aşağıdadır. 
     	* [Sunum](Presentation1.pdf)
-	* [Veri_n20_csv](veri_n20.csv)
-	* [Veri_n20_SPSS](veri_n20.sav)
-	* [Ders 1 erişim linki](https://drive.google.com/file/d/1jtnQiVN22a04edWJfHJhgZBJIUI3RcBJ/view?usp=sharing)
-	* [Ders 2 erişim linki](https://drive.google.com/file/d/19xHDcxsjsvKWK26MeYGUjU2oLRgTlGOK/view?usp=sharing)
+    	* [Veri_n20_csv](veri_n20.csv)
+      	* [Veri_n20_SPSS](veri_n20.sav)
+      	* [Ders 1 erişim linki](https://drive.google.com/file/d/1jtnQiVN22a04edWJfHJhgZBJIUI3RcBJ/view?usp=sharing)
+      	* [Ders 2 erişim linki](https://drive.google.com/file/d/19xHDcxsjsvKWK26MeYGUjU2oLRgTlGOK/view?usp=sharing)
     * Hafta 2: 
     * Hafta 3: 
     * Hafta 4: 
