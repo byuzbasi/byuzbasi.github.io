@@ -31,7 +31,7 @@ bio: My main research interests include shrinkage estimation, spatial regression
 interests:
   - Statistical Learning
   - Machine Learning
-  - Big data High Dimensional Data
+  - Big data
   - High Dimensional Data
   - Spatial Data
 
@@ -68,26 +68,6 @@ skills:
         percent: 95
         icon: database
         icon_pack: fas
-  - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
-    items:
-      - name: Hiking
-        description: ''
-        percent: 60
-        icon: person-hiking
-        icon_pack: fas
-      - name: Swimming
-        description: ''
-        percent: 100
-        icon: cat
-        icon_pack: fas
-      - name: Travelling
-        description: ''
-        percent: 80
-        icon: camera-retro
-        icon_pack: fas
-
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
