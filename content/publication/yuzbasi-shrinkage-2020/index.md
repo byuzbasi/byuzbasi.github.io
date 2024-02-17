@@ -10,6 +10,8 @@ publishDate: '2024-02-14T10:54:40.625168Z'
 publication_types:
 - article-journal
 publication: '*International Statistical Review*'
+# Display this page in the Featured widget?
+featured: true
 doi: 10.1111/insr.12351
 abstract: Summary In this study, we suggest pretest and shrinkage methods based on
   the generalised ridge regression estimation that is suitable for both multicollinear

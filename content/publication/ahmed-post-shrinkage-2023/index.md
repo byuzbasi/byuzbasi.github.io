@@ -10,6 +10,8 @@ publishDate: '2024-02-14T11:17:25.641158Z'
 publication_types:
 - book
 publication: '*CRC Press*'
+# Display this page in the Featured widget?
+featured: true
 links:
 - name: URL
   url: 
