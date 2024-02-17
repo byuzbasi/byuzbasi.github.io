@@ -8,6 +8,8 @@ publishDate: '2024-02-14T10:54:40.633210Z'
 publication_types:
 - chapter
 publication: '*Big Data and Information Theory*'
+# Display this page in the Featured widget?
+featured: true
 links:
 - name: URL
   url: 
