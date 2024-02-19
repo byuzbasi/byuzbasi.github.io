@@ -16,7 +16,7 @@ summary: İnönü Üniversitsi
 	    * [Ders 2 erişim linki](https://drive.google.com/file/d/19xHDcxsjsvKWK26MeYGUjU2oLRgTlGOK/view?usp=sharing)
     * Hafta 2: 19 Şubat 2024 tarihli ders için gerekli dökümanlar aşağıdadır.
       * [Sunum](Presentation2.pdf) 
-      * [Veri_n20_csv](bebek_dogum.csv)
+      * [bebek_dogum_csv](bebek_dogum.csv)
       * [Ders erişim linki](https://drive.google.com/file/d/1cyctUmI984XLd4qvm1kfnqG1C3o16yDG/view?usp=sharing) 
     * Hafta 3: 
     * Hafta 4: 
