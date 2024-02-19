@@ -175,7 +175,7 @@ sections:
       # For Showcase view, flip alternate rows?
       flip_alt_rows: false
   - block: collection
-    content:
+    content: featured
       title: Recent Publications
       text: |-
         {{% callout note %}}
@@ -189,7 +189,7 @@ sections:
       columns: '2'
       view: citation
   - block: collection
-    id: featured
+    id: 
     content:
       title: Featured Publications
       filters:
