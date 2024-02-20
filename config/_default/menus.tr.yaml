@@ -4,7 +4,7 @@
 #   The weight parameter defines the order that the links will appear in.
 
 main:
-  - name: Home
+  - name: Anasayfa
     url: '#about'
     weight: 10
   - name: Kurs
@@ -13,13 +13,13 @@ main:
   - name: Projeler
     url: '#projects'
     weight: 30
-  - name: Talks
+  - name: Davetli Konuşmalar
     url: '#talks'
     weight: 40
-  - name: Publications
+  - name: Yayınlar
     url: '#featured'
     weight: 50
-  - name: Contact
+  - name: İletişim
     url: '#contact'
     weight: 60
 
