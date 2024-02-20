@@ -10,7 +10,7 @@ main:
   - name: Kurs
     url: '#kurs'
     weight: 20
-  - name: Projects
+  - name: Projeler
     url: '#projects'
     weight: 30
   - name: Talks
