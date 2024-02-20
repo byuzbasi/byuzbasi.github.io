@@ -13,7 +13,7 @@ main:
   - name: Projeler
     url: '#projects'
     weight: 30
-  - name: Davetli Konuşmalar
+  - name: Konuşmalar
     url: '#talks'
     weight: 40
   - name: Yayınlar
