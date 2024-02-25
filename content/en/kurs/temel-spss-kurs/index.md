@@ -19,6 +19,8 @@ summary: İnönü Üniversitsi
       * [bebek_dogum_csv](bebek_dogum.csv)
       * [Ders erişim linki](https://drive.google.com/file/d/1cyctUmI984XLd4qvm1kfnqG1C3o16yDG/view?usp=sharing) 
     * Hafta 3: 
+      * [Sunum](Presentation3.pdf) 
+      * [hafta3_yp_csv](hafta3_yp.csv)
     * Hafta 4: 
     * Hafta 5: 
     * Hafta 6:
