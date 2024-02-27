@@ -18,9 +18,10 @@ summary: İnönü Üniversitsi
       * [Sunum](Presentation2.pdf) 
       * [bebek_dogum_csv](bebek_dogum.csv)
       * [Ders erişim linki](https://drive.google.com/file/d/1cyctUmI984XLd4qvm1kfnqG1C3o16yDG/view?usp=sharing) 
-    * Hafta 3: 
+    * Hafta 3: 26 Şubat 2024 tarihli ders için gerekli dökümanlar aşağıdadır.
       * [Sunum](Presentation3.pdf) 
       * [hafta3_yp_csv](hafta3_yp.csv)
+      * [Ders 3 erişim linki](https://drive.google.com/file/d/17X5A9bubmLMj6Os-oYKNoVyVBWamxL6x/view?usp=sharing)
     * Hafta 4: 
     * Hafta 5: 
     * Hafta 6:
