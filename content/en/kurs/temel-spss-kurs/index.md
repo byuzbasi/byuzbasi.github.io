@@ -22,7 +22,9 @@ summary: İnönü Üniversitsi
       * [Sunum](Presentation3.pdf) 
       * [hafta3_yp_csv](hafta3_yp.csv)
       * [Ders 3 erişim linki](https://drive.google.com/file/d/17X5A9bubmLMj6Os-oYKNoVyVBWamxL6x/view?usp=sharing)
-    * Hafta 4: 
+    * Hafta 4: 4 Mart 2024 tarihli ders için gerekli dökümanlar aşağıdadır.
+      * [Sunum](Presentation4.pdf) 
+      * [hafta4_yp_csv](hafta4_yp.csv)
     * Hafta 5: 
     * Hafta 6:
 
