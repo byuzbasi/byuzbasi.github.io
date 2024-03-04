@@ -25,6 +25,7 @@ summary: İnönü Üniversitsi
     * Hafta 4: 4 Mart 2024 tarihli ders için gerekli dökümanlar aşağıdadır.
       * [Sunum](Presentation4.pdf) 
       * [hafta4_yp_csv](hafta4_yp.csv)
+      * [Ders 4 erişim linki](https://drive.google.com/file/d/1vy4Sbi4VYy8uZ_gPg51h3nVhSvO9sXJn/view?usp=sharing)
     * Hafta 5: 
     * Hafta 6:
 
