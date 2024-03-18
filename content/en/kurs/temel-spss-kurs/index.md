@@ -29,5 +29,11 @@ summary: İnönü Üniversitsi
     * Hafta 5: 11 Mart 2024 tarihli ders için gerekli dökümanlar aşağıdadır.
       * [Sunum](Presentation5.pdf) 
       * [Ders 5 erişim linki](https://drive.google.com/file/d/1qTNE88f0JGamJPwqSjqBkwG9Ia6M3hES/view?usp=sharing) 
-    * Hafta 6:
+    * Hafta 6: 18 Mart 2024 tarihli ders için gerekli dökümanlar aşağıdadır.
+      * [Sunum](Presentation6.pdf)
+      * [Veri1](hafta6_yp.csv)  
+      * [Veri1_modeller](regresyon_modelleri.txt)
+      * [Veri2](hafta6_advertising.csv)
+      * [Two_way_anova_syntax](Syntax1_two_way_anova.sps) Bu kısım Veri 2 için, satışların factor1 ve factor2 için iki yönlü (faktöriyel) ANOVA analizinde faktörlerin etkileşimi için farklılıkları analiz etmede kullanılan bir kod.
+        
 
