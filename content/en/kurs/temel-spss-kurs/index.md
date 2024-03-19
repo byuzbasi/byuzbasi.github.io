@@ -37,7 +37,8 @@ summary: İnönü Üniversitsi
       * [Two_way_anova_syntax](Syntax1_two_way_anova.sps) Bu kısım Veri 2 için, satışların factor1 ve factor2 için iki yönlü (faktöriyel) ANOVA analizinde faktörlerin etkileşimi için farklılıkları analiz etmede kullanılan bir kod.
     * Hafta 6 Ek: Faktör Analizi
       * [Sunum](Presentation7.pdf)
-      * [Veri3](hafta6_factor.csv)  
+      * [Veri3](hafta6_factor.csv)
+      * [Son hafta Ders Erişim Linki](https://drive.google.com/file/d/1aH4zoMl-cufs4g06Knm23eJzPxYkd40O/view?usp=sharing)  
 
         
 
