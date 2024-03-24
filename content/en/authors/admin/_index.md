@@ -17,7 +17,7 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: Professor of Statistics - Elected Member of International Statistical Institute 2023 
+role: Professor of Statistics - Assocociate Professor of Econometrics - Elected Member of International Statistical Institute 2023 
 
 # Organizations/Affiliations to show in About widget
 organizations:
