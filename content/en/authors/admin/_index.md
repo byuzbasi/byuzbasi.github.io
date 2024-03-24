@@ -66,7 +66,7 @@ skills:
       - name: SPSS
         description: ''
         percent: 85
-        icon: database
+        icon: spss
         icon_pack: fas
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
