@@ -62,6 +62,13 @@ sections:
       #   Leave `date_end` empty if it's your current employer.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
+        - title: Associate Professor of Econometrics
+          company: Inonu University
+          company_url: ''
+          # company_logo: org-gc
+          location: Malatya, Turkey
+          date_start: '2024-03-22'
+          date_end: ''
         - title: Professor of Statistics
           company: Inonu University
           company_url: ''
