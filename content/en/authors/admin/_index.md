@@ -53,7 +53,7 @@ education:
 skills:
   - name: Technical
     items:
-      - name: R
+      - name: R Programming
         description: ''
         percent: 86
         icon: rstudio
@@ -63,7 +63,7 @@ skills:
         percent: 80
         icon: chart-line
         icon_pack: fas
-      - name: SPSS
+      - name: SPSS data Analysis
         description: ''
         percent: 85
         icon: spss
