@@ -55,17 +55,17 @@ skills:
     items:
       - name: R
         description: ''
-        percent: 80
-        icon: python
+        percent: 86
+        icon: rstudio
         icon_pack: fab
       - name: Data Science
         description: ''
-        percent: 100
+        percent: 80
         icon: chart-line
         icon_pack: fas
       - name: SPSS
         description: ''
-        percent: 95
+        percent: 85
         icon: database
         icon_pack: fas
 # Social/Academic Networking
@@ -106,11 +106,11 @@ highlight_name: true
 ---
 
 The focus of my research started with improving parameter estimation. I and my co-authors have published papers related to shrinkage and pretest estimations in linear and partially linear models. We also combined these techniques with some robust estimations. Furthermore, I have been working on
-improving penalized estimation methods, especially for high-dimensional problems and Big Data. Such problems can be found in areas like computer science, biometrics,  nance, network security, social media analysis, and industrial applications. High-dimensional data brings not only new opportunities to the understanding of data but also new challenges to data analysis, such as noise accumulation,
+improving penalized estimation methods, especially for high-dimensional problems and Big Data. Such problems can be found in areas like computer science, biometrics,  finance, economics, network security, social media analysis, and industrial applications. High-dimensional data brings not only new opportunities to the understanding of data but also new challenges to data analysis, such as noise accumulation,
 spurious correlations, heavy computational cost, and algorithmic instability. In order to tackle
 these challenges, I have been working on not only developing the theory but also implementing
 algorithms in the R and C++ languages. I am also professionally working on coding my studies in
-R for publishing in CRAN.
+R for publishing in CRAN. 
 
 I am also deeply interested in doing collaborative research in each area rather than just in my
 main interest.
