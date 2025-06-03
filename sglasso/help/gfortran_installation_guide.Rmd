@@ -100,7 +100,7 @@ If the command is not found, restart your Terminal or reinstall from the correct
 Once `gfortran` is properly installed, try compiling a package from source:
 
 ```r
-install.packages("devtools", type = "source")
+install.packages("devtools")
 devtools::install_github("byuzbasi/sglasso")
 ```
 
