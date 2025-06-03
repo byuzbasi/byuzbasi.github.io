@@ -5,6 +5,8 @@ author: "Bahadir Yuzbasi"
 date: "`r Sys.Date()`"
 output: 
   html_document:
+    self_contained: true
+output_dir: "docs/help"
 ---
 
 # Introduction
