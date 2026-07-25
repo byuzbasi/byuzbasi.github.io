@@ -1,0 +1,89 @@
+person:
+  name: Prof. Dr. Bahadır Yüzbaşı
+  orcid: 0000-0002-6196-3201
+  title: Professor of Statistics and Econometrics
+  institution: İnönü Üniversitesi, Ekonometri Bölümü
+  email: bahadir.yuzbasi@inonu.edu.tr
+  scholar: https://scholar.google.com.tr/citations?user=XTmhw_cAAAAJ&hl=tr&oi=ao
+  scopus: https://www.scopus.com/authid/detail.uri?authorId=55581057800
+  web_of_science: https://www.webofscience.com/wos/author/record/288269
+metrics:
+  publications: 93
+  wos_publications: 35
+  scopus_publications: 31
+  wos_citations: 213
+  wos_h_index: 10
+  scopus_citations: 440
+  scopus_h_index: 14
+  source: AVESİS, July 2026
+appointments:
+  - role: Sessional Instructor
+    institution: Simon Fraser University, Department of Statistics and Actuarial Science
+    location: Burnaby, Canada
+    period: Jan–May 2025
+    detail: Applied Discrete Data Analysis (STAT 475 / STAT 675)
+  - role: Visiting Professor
+    institution: Simon Fraser University, Department of Statistics and Actuarial Science
+    location: Burnaby, Canada
+    period: Jul 2024–Jul 2025
+    detail: Machine Learning for Functional Data with Prof. Jiguo Cao
+  - role: Professor of Statistics
+    institution: İnönü University, Department of Econometrics
+    location: Malatya, Türkiye
+    period: 2023–present
+  - role: Visiting Associate Professor
+    institution: The University of British Columbia, Department of Statistics
+    location: Vancouver, Canada
+    period: Feb–Aug 2019
+    detail: Robust Penalized Estimation in Network Data with Prof. Ruben H. Zamar
+  - role: Associate Professor of Statistics
+    institution: İnönü University, Department of Econometrics
+    location: Malatya, Türkiye
+    period: 2017–2023
+  - role: Visiting Assistant Professor
+    institution: Brock University, Department of Mathematics & Statistics
+    location: St. Catharines, Canada
+    period: May–Jun 2016
+    detail: High-Dimensional Estimation Strategies with Prof. S. Ejaz Ahmed
+projects:
+  - title: Machine Learning for Functional Data
+    funder: TÜBİTAK 2219 International Postdoctoral Research Scholarship
+    period: 2024–2025
+    role: Coordinator
+    host: Simon Fraser University, Department of Statistics and Actuarial Science
+    budget: 31,200 USD
+    outputs: []
+  - title: Investigation of Domestic and Foreign Migration of Van Province by Geographically Weighted Regression Method
+    funder: TÜBİTAK 3005
+    project_number: 122G128
+    period: 01 Oct 2022–05 Apr 2024
+    role: Coordinator
+    budget: 327,137 TRY
+    outputs: []
+  - title: Shrinkage and Penalized Estimation Strategies
+    funder: TÜBİTAK 2214-A International Research Fellowship Programme for PhD Students
+    period: 2013–2014
+    role: Coordinator
+    host: Brock University, Department of Mathematics and Statistics
+    budget: 15,600 USD
+    outputs: []
+  - title: Robust Regularization and Gaussian Graphical Models
+    funder: İnönü University International Bilateral Cooperation Project
+    project_number: SUA-2019-1629
+    period: Feb–Aug 2019
+    role: Coordinator
+    host: The University of British Columbia, Department of Statistics
+    budget: 7,500 USD
+    outputs: []
+  - title: Pretest and Stein-type Estimation in Linear Quantile Regression Models
+    funder: İnönü University Scientific Research Project
+    project_number: SBA-2017-946
+    period: Dec 2017–Sep 2018
+    role: Coordinator
+    outputs: []
+  - title: Liu-type Estimation in Linear Regression Models
+    funder: Necmettin Erbakan University Scientific Research Project
+    project_number: 171215001
+    period: Mar–Dec 2017
+    role: Researcher
+    outputs: []

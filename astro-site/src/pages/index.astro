@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import bibtexParse from 'bibtex-parse-js';
+
+const bib = fs.readFileSync(path.resolve('../publications.bib'), 'utf8');
+const publications = bibtexParse.toJSON(bib).map((p) => ({
+  title: p.entryTags.title?.replace(/[{}]/g, '') ?? 'Untitled',
+  year: p.entryTags.year ?? '', doi: p.entryTags.doi ?? '',
+  venue: p.entryTags.journal ?? p.entryTags.booktitle ?? '',
+})).filter(p => p.title !== 'Untitled').sort((a,b) => Number(b.year) - Number(a.year));
+const projects = [
+  ['TÜBİTAK 2219', 'Machine Learning for Functional Data', '2024–2025 · Coordinator · Simon Fraser University'],
+  ['TÜBİTAK 3005 · 122G128', "Van İli İç ve Dış Göçünün Coğrafi Ağırlıklı Regresyonla İncelenmesi", '2022–2024 · Coordinator'],
+  ['TÜBİTAK 2214-A', 'Shrinkage and Penalized Estimation Strategies', '2013–2014 · Coordinator · Brock University'],
+  ['SUA-2019-1629', 'Robust Regularization and Gaussian Graphical Models', '2019 · Coordinator · UBC'],
+];
+---
+<Base>
+  <header class="nav"><a class="brand" href="#top">Bahadır Yüzbaşı</a><nav><a href="#yayinlar">Yayınlar</a><a href="#projeler">Projeler</a><a href="#dersler">Dersler</a><a href="#tecrube">Tecrübe</a><a class="cv" href="/uploads/Resume_Bahadir_Yuzbasi.pdf">CV</a></nav></header>
+  <main id="top">
+    <section class="hero"><p class="eyebrow">PROF. DR. BAHADIR YÜZBAŞI · İNÖNÜ ÜNİVERSİTESİ</p><h1>İstatistiksel yöntemler,<br/><em>anlaşılır araştırma.</em></h1><p class="intro">Yüksek boyutlu, mekânsal ve fonksiyonel veriler için istatistiksel öğrenme, shrinkage ve cezalı tahmin yöntemleri geliştiriyorum.</p><div class="actions"><a class="primary" href="#yayinlar">Yayınları incele</a><a href="https://orcid.org/0000-0002-6196-3201">ORCID profili ↗</a></div></section>
+    <section class="metrics" aria-label="Araştırma metrikleri"><div><b>93</b><span>yayın</span></div><div><b>440</b><span>Scopus atfı</span></div><div><b>14</b><span>Scopus h-indeksi</span></div><div><b>10</b><span>WoS h-indeksi</span></div></section>
+    <section class="split"><div><p class="eyebrow">ARAŞTIRMA</p><h2>Kuram ile uygulama arasında.</h2></div><p>Çalışmalarım; makine öğrenmesi, mekânsal istatistik, fonksiyonel veri analizi, elastic shape analysis, shrinkage tahmini ve yüksek boyutlu veri problemlerini kapsar. R ve C++ ile yeniden üretilebilir araştırma yazılımları geliştiriyorum.</p></section>
+    <section id="yayinlar"><div class="section-head"><div><p class="eyebrow">YAYINLAR</p><h2>Yayınlar ve atıflar</h2></div><a href="https://scholar.google.com.tr/citations?user=XTmhw_cAAAAJ&hl=tr&oi=ao">Google Scholar ↗</a></div><p class="muted">Bir yayına tıklayarak DOI sayfasına gidin; atıf sayıları OpenAlex üzerinden güncellenir.</p><div class="publication-list">{publications.map((p) => <article class="publication" data-doi={p.doi}><span>{p.year}</span><div><h3>{p.doi ? <a href={`https://doi.org/${p.doi}`}>{p.title}</a> : p.title}</h3><p>{p.venue}</p></div><small class="citations">{p.doi ? 'Atıf yükleniyor…' : ''}</small></article>)}</div></section>
+    <section id="projeler" class="projects"><p class="eyebrow">ARAŞTIRMA FONLARI</p><h2>Projeler ve çıktılar</h2><div class="project-grid">{projects.map(([fund, title, detail]) => <article><p>{fund}</p><h3>{title}</h3><span>{detail}</span><a href="#iletisim">Çıktılar yakında →</a></article>)}</div></section>
+    <section id="dersler" class="split"><div><p class="eyebrow">ÖĞRETİM</p><h2>Dersler ve kaynaklar</h2></div><p>Sunumlar, uygulama veri setleri, SPSS/R kodları ve ders kayıtları için yapılandırılmış bir kaynak merkezi. <a href="/kurs/">Mevcut ders materyallerine git →</a></p></section>
+    <section id="tecrube" class="experience"><p class="eyebrow">AKADEMİK TECRÜBE</p><h2>Uluslararası araştırma ve öğretim.</h2><ol><li><b>2024–2025</b><span>Visiting Professor · Simon Fraser University</span></li><li><b>2023–</b><span>Professor of Statistics · İnönü University</span></li><li><b>2019</b><span>Visiting Associate Professor · University of British Columbia</span></li><li><b>2016</b><span>Visiting Assistant Professor · Brock University</span></li></ol></section>
+    <footer id="iletisim"><div><b>İş birliği için</b><a href="mailto:bahadir.yuzbasi@inonu.edu.tr">bahadir.yuzbasi@inonu.edu.tr</a></div><p>© {new Date().getFullYear()} Bahadır Yüzbaşı</p></footer>
+  </main>
+  <script is:inline>{`document.querySelectorAll('.publication[data-doi]').forEach(async el => { const doi=el.dataset.doi; try { const r=await fetch('https://api.openalex.org/works/https://doi.org/'+encodeURIComponent(doi)); const d=await r.json(); el.querySelector('.citations').textContent=(d.cited_by_count ?? 0)+' atıf'; } catch { el.querySelector('.citations').textContent='DOI ↗'; } });`}</script>
+</Base>
