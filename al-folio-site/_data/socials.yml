@@ -1,0 +1,13 @@
+# this file contains the social media links and usernames of the author
+# the socials will be displayed in the order they are defined here
+# for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
+email: bahadir.yuzbasi@inonu.edu.tr
+github_username: byuzbasi
+orcid_id: 0000-0002-6196-3201
+scholar_userid: XTmhw_cAAAAJ
+research_gate_profile: Bahadir_Yuezbasi
+rss_icon: false
+custom_social:
+  logo: https://upload.wikimedia.org/wikipedia/commons/7/7f/Web_of_Science_logo.svg
+  title: Web of Science
+  url: https://www.webofscience.com/wos/author/record/288269

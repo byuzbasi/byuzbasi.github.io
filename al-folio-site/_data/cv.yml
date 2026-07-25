@@ -1,0 +1,114 @@
+cv:
+  name: Bahadır Yüzbaşı
+  label: Professor of Statistics and Econometrics
+  email: bahadir.yuzbasi@inonu.edu.tr
+  location: Malatya, Türkiye
+  summary: Professor whose research develops shrinkage, pretest and penalized estimation methods for high-dimensional, spatial and functional data.
+
+  social_networks:
+    - network: ORCID
+      username: 0000-0002-6196-3201
+    - network: GitHub
+      username: byuzbasi
+    - network: Google Scholar
+      username: XTmhw_cAAAAJ
+
+  sections:
+    Academic appointments:
+      - company: İnönü University, Department of Econometrics
+        position: Professor of Statistics
+        location: Malatya, Türkiye
+        start_date: 2023
+        summary: Research and teaching in statistics, econometrics and data science.
+      - company: Simon Fraser University, Department of Statistics and Actuarial Science
+        position: Visiting Professor
+        location: Burnaby, Canada
+        start_date: 2024-07
+        end_date: 2025-07
+        summary: Research on machine learning for functional data.
+      - company: Simon Fraser University, Department of Statistics and Actuarial Science
+        position: Sessional Instructor
+        location: Burnaby, Canada
+        start_date: 2025-01
+        end_date: 2025-05
+        highlights:
+          - STAT 475/675
+      - company: İnönü University, Department of Econometrics
+        position: Associate Professor of Statistics
+        location: Malatya, Türkiye
+        start_date: 2017
+        end_date: 2023
+      - company: The University of British Columbia, Department of Statistics
+        position: Visiting Associate Professor
+        location: Vancouver, Canada
+        start_date: 2019-02
+        end_date: 2019-08
+        summary: Research on robust penalized estimation.
+      - company: İnönü University, Department of Econometrics
+        position: Assistant Professor of Statistics
+        location: Malatya, Türkiye
+        start_date: 2015
+        end_date: 2017
+      - company: Brock University, Department of Mathematics and Statistics
+        position: Visiting Assistant Professor
+        location: St. Catharines, Canada
+        start_date: 2016-05
+        end_date: 2016-06
+
+    Education:
+      - institution: İnönü University
+        location: Malatya, Türkiye
+        area: Mathematics
+        studyType: PhD, taught in English
+        start_date: 2010
+        end_date: 2014
+        highlights:
+          - "Thesis: Penalty and non-penalty estimation strategies for linear and partially linear models."
+      - institution: Fırat University
+        location: Elazığ, Türkiye
+        area: Mathematics
+        studyType: MSc
+        start_date: 2008
+        end_date: 2010
+        highlights:
+          - "Thesis: Generalized Statistical Convergence."
+      - institution: Fırat University
+        location: Elazığ, Türkiye
+        area: Mathematics
+        studyType: BSc
+        start_date: 2004
+        end_date: 2008
+
+    Research funding:
+      - name: Machine Learning for Functional Data
+        summary: TÜBİTAK 2219 International Postdoctoral Research Scholarship; coordinator; Simon Fraser University; USD 31,200.
+        start_date: 2024
+        end_date: 2025
+      - name: Investigation of Domestic and Foreign Migration of Van Province by Geographically Weighted Regression Method
+        summary: TÜBİTAK 3005, project 122G128; coordinator; TRY 327,137.
+        start_date: 2022-10
+        end_date: 2024-04
+      - name: Shrinkage and Penalized Estimation Strategies
+        summary: TÜBİTAK 2214-A; coordinator; Brock University; USD 15,600.
+        start_date: 2013
+        end_date: 2014
+      - name: Robust Regularization and Gaussian Graphical Models
+        summary: İnönü University bilateral project SUA-2019-1629; coordinator; University of British Columbia.
+        start_date: 2019-02
+        end_date: 2019-08
+
+    Selected software:
+      - name: sglasso
+        summary: R package, developed with C++ and RcppArmadillo.
+      - name: rbridge
+        summary: Restricted bridge estimation R package, developed with C++ and RcppArmadillo.
+
+    Professional memberships:
+      - name: International Statistical Institute
+        summary: Elected member, 2023–present.
+
+    Research interests:
+      - name: Statistical learning and high-dimensional inference
+      - name: Functional and spatial data analysis
+      - name: Shrinkage, pretest and penalized estimation
+      - name: Reproducible R/C++ statistical software

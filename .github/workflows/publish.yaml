@@ -18,38 +18,37 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build website
+  # Build al-folio website
   build:
-    if: github.repository_owner != 'HugoBlox'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          # Fetch history for Hugo's .GitInfo and .Lastmod
-          fetch-depth: 0
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: astro-site/package-lock.json
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: al-folio-site
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Build with Astro
+      - name: Prepare academic sources
         run: |
-          npm ci
-          npm run build
-        working-directory: astro-site
+          cp publications.bib al-folio-site/_bibliography/papers.bib
+          mkdir -p al-folio-site/assets/files/kurs
+          cp -R content/en/kurs/temel-spss-kurs al-folio-site/assets/files/kurs/
+      - name: Build with Jekyll
+        run: |
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        working-directory: al-folio-site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./astro-site/dist
+          path: ./al-folio-site/_site
 
   # Deploy website to GitHub Pages hosting
   deploy:
-    if: github.repository_owner != 'HugoBlox'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
