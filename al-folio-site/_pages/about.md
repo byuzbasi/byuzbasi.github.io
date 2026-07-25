@@ -4,11 +4,11 @@ title: Hakkımda
 permalink: /
 subtitle: Profesör · İstatistik ve Ekonometri · İnönü Üniversitesi
 
-selected_papers: true
+selected_papers: false
 social: true
 
 announcements:
-  enabled: true
+  enabled: false
   scrollable: false
   limit: 3
 
