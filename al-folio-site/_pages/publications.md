@@ -47,8 +47,9 @@ nav_order: 1
           const destination = work.doi || work.id;
           const venue = work.primary_location && work.primary_location.source ? work.primary_location.source.display_name : '';
           const date = work.publication_date || work.publication_year || '';
+          const periodical = `${venue}${venue && date ? ', ' : ''}${date}`;
           return `<li><span class="title"><a href="${escapeHtml(destination)}" target="_blank" rel="noopener">${escapeHtml(work.display_name)}</a></span>` +
-            `<span class="periodical">${escapeHtml(venue)}${venue && date ? ', ' : ''}${escapeHtml(date)}</span>` +
+            `${periodical ? ` <span class="periodical">${escapeHtml(periodical)}</span>` : ''}` +
             ` <span class="links">· <a href="/citations/">${work.cited_by_count || 0} atıf</a></span></li>`;
         }).join('');
       })
