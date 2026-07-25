@@ -49,7 +49,7 @@ nav_order: 1
           const date = work.publication_date || work.publication_year || '';
           return `<li><span class="title"><a href="${escapeHtml(destination)}" target="_blank" rel="noopener">${escapeHtml(work.display_name)}</a></span>` +
             `<span class="periodical">${escapeHtml(venue)}${venue && date ? ', ' : ''}${escapeHtml(date)}</span>` +
-            `<span class="links"><a href="/citations/">${work.cited_by_count || 0} atıf</a></span></li>`;
+            ` <span class="links">· <a href="/citations/">${work.cited_by_count || 0} atıf</a></span></li>`;
         }).join('');
       })
       .catch(() => {

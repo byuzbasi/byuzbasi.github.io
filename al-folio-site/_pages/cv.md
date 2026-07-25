@@ -3,7 +3,7 @@ layout: cv
 permalink: /cv/
 title: Akademik Geçmiş
 nav: true
-nav_order: 5
+nav_order: 6
 cv_format: rendercv # options: rendercv, jsonresume
 description: Eğitim, atamalar, projeler ve seçilmiş akademik çıktılar.
 toc:
