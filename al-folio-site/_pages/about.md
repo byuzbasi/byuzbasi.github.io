@@ -46,27 +46,23 @@ Yayınlar sayfasındaki kayıtlar ana BibTeX dosyasından üretilir; her yayın�
 
 <section class="featured-works" aria-labelledby="featured-works-title">
   <p class="section-eyebrow">SEÇİLMİŞ ÇALIŞMALAR</p>
-  <h2 id="featured-works-title">Kitaplar ve makaleler</h2>
-  <div class="featured-works__grid">
-    {% assign selected_works = site.data.featured_works | where: "featured", true | sort: "order" %}
-    {% for work in selected_works %}
-      <article class="featured-work{% if work.kind == 'book' %} featured-work--book{% endif %}">
-        <p class="featured-work__type">{{ work.type }}</p>
-        <h3><a href="{{ work.url }}" target="_blank" rel="noopener">{{ work.title }}</a></h3>
-        <p class="featured-work__authors">{{ work.authors }}</p>
-        {% if work.description %}<p>{{ work.description }}</p>{% endif %}
-        {% if work.doi_url %}<p class="featured-work__links"><a href="{{ work.doi_url }}" target="_blank" rel="noopener">Kitap DOI</a></p>{% endif %}
-        {% if work.reviews %}
-          <div class="featured-work__reviews">
-            <p>Uluslararası dergi değerlendirmeleri</p>
-            <ul>
-              {% for review in work.reviews %}
-                <li><a href="{{ review.url }}" target="_blank" rel="noopener">{{ review.journal }} — {{ review.reviewer }} ({{ review.year }})</a></li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endif %}
-      </article>
-    {% endfor %}
-  </div>
+  <h2 id="featured-works-title">Kitaplar</h2>
+  <article class="featured-work featured-work--book">
+    <div class="featured-work__citation">{% bibliography --query @book[selected=true] %}</div>
+    {% assign book = site.data.featured_works.books.ahmed_post-shrinkage_2023 %}
+    <p class="featured-work__links"><a href="{{ book.publisher_url }}" target="_blank" rel="noopener">Yayınevi sayfası</a></p>
+    <div class="featured-work__reviews">
+      <p>Uluslararası dergi değerlendirmeleri</p>
+      <ul>
+        {% for review in book.reviews %}
+          <li><a href="{{ review.url }}" target="_blank" rel="noopener">{{ review.journal }} — {{ review.reviewer }} ({{ review.year }})</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </article>
+
+  <h2 class="featured-works__articles-title">Seçilmiş yayınlar</h2>
+  <article class="featured-work featured-work--publications">
+    <div class="featured-work__citation">{% bibliography --query @article[selected=true] %}</div>
+  </article>
 </section>

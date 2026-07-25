@@ -1,47 +1,20 @@
-- featured: true
-  order: 1
-  kind: book
-  type: Kitap · Chapman & Hall/CRC · 2023
-  title: Post-Shrinkage Strategies in Statistical and Machine Learning for High Dimensional Data
-  authors: Syed Ejaz Ahmed · Feryaal Ahmed · Bahadır Yüzbaşı
-  description: Yüksek boyutlu veri için post-shrinkage, istatistiksel öğrenme ve makine öğrenmesi yöntemleri.
-  url: https://www.routledge.com/Post-Shrinkage-Strategies-in-Statistical-and-Machine-Learning-for-High-Dimensional-Data/Ahmed-Ahmed-Yuzbasi/p/book/9780367763442
-  doi_url: https://doi.org/10.1201/9781003170259
-  reviews:
-    - journal: Technometrics
-      reviewer: Abdulkadir Hussein
-      year: 2023
-      url: https://doi.org/10.1080/00401706.2023.2262896
-    - journal: International Statistical Review
-      reviewer: Ravindra Khattree
-      year: 2024
-      url: https://doi.org/10.1111/insr.12584
-    - journal: Journal of Applied Statistics
-      reviewer: Shuangzhe Liu & Tiefeng Ma
-      year: 2024
-      url: https://doi.org/10.1080/02664763.2023.2286426
-    - journal: Australian & New Zealand Journal of Statistics
-      reviewer: Paul Kabaila
-      year: 2025
-      url: https://doi.org/10.1111/anzs.12432
-
-- featured: true
-  order: 2
-  type: International Statistical Review · 2020
-  title: Shrinkage Estimation Strategies in Generalised Ridge Regression Models
-  authors: Bahadır Yüzbaşı · Mohammad Arashi · S. Ejaz Ahmed
-  url: https://doi.org/10.1111/insr.12351
-
-- featured: true
-  order: 3
-  type: Journal of Statistical Computation and Simulation · 2021
-  title: 'SLASSO: a scaled LASSO for multicollinear situations'
-  authors: Mohammad Arashi · Yasin Asar · Bahadır Yüzbaşı
-  url: https://doi.org/10.1080/00949655.2021.1924174
-
-- featured: true
-  order: 4
-  type: Soft Computing · 2021
-  title: Penalized Regression via the Restricted Bridge Estimator
-  authors: Bahadır Yüzbaşı · Mohammad Arashi · Fikri Akdeniz
-  url: https://doi.org/10.1007/s00500-021-05763-9
+books:
+  ahmed_post-shrinkage_2023:
+    publisher_url: https://www.routledge.com/Post-Shrinkage-Strategies-in-Statistical-and-Machine-Learning-for-High-Dimensional-Data/Ahmed-Ahmed-Yuzbasi/p/book/9780367763442
+    reviews:
+      - journal: Technometrics
+        reviewer: Abdulkadir Hussein
+        year: 2023
+        url: https://doi.org/10.1080/00401706.2023.2262896
+      - journal: International Statistical Review
+        reviewer: Ravindra Khattree
+        year: 2024
+        url: https://doi.org/10.1111/insr.12584
+      - journal: Journal of Applied Statistics
+        reviewer: Shuangzhe Liu & Tiefeng Ma
+        year: 2024
+        url: https://doi.org/10.1080/02664763.2023.2286426
+      - journal: Australian & New Zealand Journal of Statistics
+        reviewer: Paul Kabaila
+        year: 2025
+        url: https://doi.org/10.1111/anzs.12432
