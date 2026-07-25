@@ -124,8 +124,35 @@
 .featured-work__reviews ul { margin: 0; padding-left: 1.15rem; }
 .featured-work__reviews li { margin: 0.22rem 0; font-size: 0.88rem; }
 
+.project-intro {
+  margin: 0.5rem 0 2.4rem;
+  padding: 2rem 2.1rem;
+  border-left: 5px solid #1f6f78;
+  background: linear-gradient(120deg, #f4faf9, #fffdf7);
+}
+.project-intro h1 { margin: 0 0 0.65rem; }
+.project-intro p:last-child { max-width: 52rem; margin-bottom: 0; font-size: 1.05rem; line-height: 1.65; }
+.project-list { display: grid; gap: 1.2rem; }
+.research-project { padding: 1.6rem; border: 1px solid rgba(15, 55, 78, 0.16); border-radius: 0.45rem; background: #fff; }
+.research-project__header { display: grid; gap: 0.35rem; }
+.research-project__header h2 { margin: 0; font-size: 1.28rem; line-height: 1.35; }
+.research-project__status, .research-project__funder { margin: 0; }
+.research-project__status { color: #91702d; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
+.research-project__funder { color: #436166; font-size: 0.94rem; font-weight: 650; }
+.research-project__focus { margin: 1rem 0; line-height: 1.6; }
+.research-project__facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem 1.4rem; margin: 0; padding-top: 1rem; border-top: 1px solid rgba(15, 55, 78, 0.1); }
+.research-project__facts div { min-width: 0; }
+.research-project__facts dt { color: #69787a; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.research-project__facts dd { margin: 0.16rem 0 0; line-height: 1.45; }
+.research-project__outputs { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(15, 55, 78, 0.1); }
+.research-project__outputs h3 { margin: 0 0 0.55rem; font-size: 1rem; }
+.research-project__outputs ul { margin: 0; padding-left: 1.2rem; }
+.research-project__outputs li { margin-bottom: 0.4rem; line-height: 1.45; }
+
 @media (max-width: 720px) {
   .academic-hero { grid-template-columns: 1fr; }
   .academic-hero__copy { min-height: 0; }
   .academic-hero__image { min-height: 12rem; }
+  .project-intro, .research-project { padding: 1.25rem; }
+  .research-project__facts { grid-template-columns: 1fr; }
 }

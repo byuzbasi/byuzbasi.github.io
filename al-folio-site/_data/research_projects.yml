@@ -1,0 +1,61 @@
+- title: Functional Data için Makine Öğrenmesi
+  funder: TÜBİTAK 2219 Uluslararası Doktora Sonrası Araştırma Burs Programı
+  period: 2024–2025 · 12 ay
+  role: Yürütücü
+  institution: Simon Fraser University · Statistics and Actuarial Science · Kanada
+  budget: 31.200 USD
+  focus: Fonksiyonel veri analizi ve istatistiksel öğrenmenin kesişiminde makine öğrenmesi yöntemleri.
+  status: Uluslararası araştırma bursu
+
+- title: Van İlinin İç ve Dış Göçünün Coğrafi Ağırlıklı Regresyon ile İncelenmesi
+  funder: TÜBİTAK 3005 · Sosyal ve Beşeri Bilimlerde Yenilikçi Çözümler Araştırma Projeleri Destek Programı
+  number: 122G128
+  period: 1 Ekim 2022 – 5 Nisan 2024
+  role: Yürütücü
+  institution: Türkiye
+  budget: 327.137 TL
+  focus: Van ilindeki göç süreçlerinin coğrafi ağırlıklı regresyon yöntemleriyle incelenmesi.
+  status: Tamamlandı
+  outputs:
+    - Sosyo-Gelişmişlik Düzeyi ile Göç Arasındaki İlişki: Van İli Üzerine Bir Araştırma · The Migration Conference 2023
+    - Ekonomik Yetersizlik ile Göç Arasındaki İlişkinin Ampirik Analizi: Van İlinden Kanıtlar · The Migration Conference 2023
+    - Van İlinin Göç Sonrası Uyum Sürecinde Eğitim Etkisi · 2nd International Artificial Intelligence and Social Sciences Congress, 2023
+    - The Effect of Climate and Geography on Migration to Van Province · CMES-2023
+    - Migration to Van Province to Access a Better Life · CMES-2023
+
+- title: Küçültme ve Cezalı Kestirim Stratejileri
+  funder: TÜBİTAK 2214-A · Uluslararası Doktora Araştırma Burs Programı
+  period: 2013–2014 · 12 ay
+  role: Yürütücü
+  institution: Brock University · Mathematics and Statistics · Kanada
+  budget: 15.600 USD
+  focus: Doğrusal ve yüksek boyutlu regresyon için küçültme, ön-test ve cezalı kestirim stratejileri.
+  status: Uluslararası araştırma bursu
+
+- title: Sağlam Düzenlileştirme ve Gaussian Grafiksel Modeller
+  funder: İnönü Üniversitesi · Uluslararası İkili İş Birliği Projesi
+  number: SUA-2019-1629
+  period: Şubat 2019 – Ağustos 2019
+  role: Yürütücü
+  institution: University of British Columbia · Department of Statistics · Kanada
+  budget: 7.500 USD
+  focus: Sağlam cezalı kestirim ve Gaussian grafiksel modeller için yöntem geliştirme.
+  status: Tamamlandı
+
+- title: Doğrusal Kantil Regresyonda Ön-Test ve Stein Tipi Kestirim
+  funder: İnönü Üniversitesi · Bilimsel Araştırma Projesi
+  number: SBA-2017-946
+  period: Aralık 2017 – Eylül 2018
+  role: Yürütücü
+  institution: İnönü Üniversitesi
+  focus: Kantil regresyon modellerinde ön-test ve Stein tipi kestirim yöntemlerinin geliştirilmesi.
+  status: Tamamlandı
+
+- title: Doğrusal Regresyon Modellerinde Liu Tipi Kestirim
+  funder: Necmettin Erbakan Üniversitesi · Bilimsel Araştırma Projesi
+  number: 171215001
+  period: Mart 2017 – Aralık 2017
+  role: Araştırmacı
+  institution: Necmettin Erbakan Üniversitesi
+  focus: Çoklu doğrusal bağlantı altında Liu tipi kestirim yaklaşımlarının incelenmesi.
+  status: Tamamlandı
