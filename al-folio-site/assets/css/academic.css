@@ -105,7 +105,21 @@
   line-height: 1.65;
 }
 
-.featured-work__links span { margin-left: 0.8rem; color: #5b686a; }
+.featured-work__reviews {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(15, 55, 78, 0.12);
+}
+
+.featured-work__reviews p {
+  margin: 0 0 0.35rem;
+  color: #5b686a;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.featured-work__reviews ul { margin: 0; padding-left: 1.15rem; }
+.featured-work__reviews li { margin: 0.22rem 0; font-size: 0.88rem; }
 
 @media (max-width: 720px) {
   .academic-hero { grid-template-columns: 1fr; }

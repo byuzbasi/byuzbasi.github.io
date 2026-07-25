@@ -48,27 +48,25 @@ Yayınlar sayfasındaki kayıtlar ana BibTeX dosyasından üretilir; her yayın�
   <p class="section-eyebrow">SEÇİLMİŞ ÇALIŞMALAR</p>
   <h2 id="featured-works-title">Kitaplar ve makaleler</h2>
   <div class="featured-works__grid">
-    <article class="featured-work featured-work--book">
-      <p class="featured-work__type">KİTAP · CHAPMAN &amp; HALL/CRC · 2023</p>
-      <h3><a href="https://www.routledge.com/Post-Shrinkage-Strategies-in-Statistical-and-Machine-Learning-for-High-Dimensional-Data/Ahmed-Ahmed-Yuzbasi/p/book/9780367763442" target="_blank" rel="noopener">Post-Shrinkage Strategies in Statistical and Machine Learning for High Dimensional Data</a></h3>
-      <p class="featured-work__authors">Syed Ejaz Ahmed · Feryaal Ahmed · Bahadır Yüzbaşı</p>
-      <p>Yüksek boyutlu veri için post-shrinkage, istatistiksel öğrenme ve makine öğrenmesi yöntemleri.</p>
-      <p class="featured-work__links"><a href="https://doi.org/10.1201/9781003170259" target="_blank" rel="noopener">Kitap DOI</a><span>4 uluslararası dergi değerlendirmesi:</span> <a href="https://doi.org/10.1080/00401706.2023.2262896" target="_blank" rel="noopener">Technometrics</a>, <a href="https://doi.org/10.1111/insr.12584" target="_blank" rel="noopener">International Statistical Review</a>, <a href="https://doi.org/10.1080/02664763.2023.2286426" target="_blank" rel="noopener">Journal of Applied Statistics</a>, <a href="https://doi.org/10.1111/anzs.12432" target="_blank" rel="noopener">ANZJS</a></p>
-    </article>
-    <article class="featured-work">
-      <p class="featured-work__type">INTERNATIONAL STATISTICAL REVIEW · 2020</p>
-      <h3><a href="https://doi.org/10.1111/insr.12351" target="_blank" rel="noopener">Shrinkage Estimation Strategies in Generalised Ridge Regression Models</a></h3>
-      <p class="featured-work__authors">Bahadır Yüzbaşı · Mohammad Arashi · S. Ejaz Ahmed</p>
-    </article>
-    <article class="featured-work">
-      <p class="featured-work__type">JOURNAL OF STATISTICAL COMPUTATION AND SIMULATION · 2021</p>
-      <h3><a href="https://doi.org/10.1080/00949655.2021.1924174" target="_blank" rel="noopener">SLASSO: a scaled LASSO for multicollinear situations</a></h3>
-      <p class="featured-work__authors">Mohammad Arashi · Yasin Asar · Bahadır Yüzbaşı</p>
-    </article>
-    <article class="featured-work">
-      <p class="featured-work__type">SOFT COMPUTING · 2021</p>
-      <h3><a href="https://doi.org/10.1007/s00500-021-05763-9" target="_blank" rel="noopener">Penalized Regression via the Restricted Bridge Estimator</a></h3>
-      <p class="featured-work__authors">Bahadır Yüzbaşı · Mohammad Arashi · Fikri Akdeniz</p>
-    </article>
+    {% assign selected_works = site.data.featured_works | where: "featured", true | sort: "order" %}
+    {% for work in selected_works %}
+      <article class="featured-work{% if work.kind == 'book' %} featured-work--book{% endif %}">
+        <p class="featured-work__type">{{ work.type }}</p>
+        <h3><a href="{{ work.url }}" target="_blank" rel="noopener">{{ work.title }}</a></h3>
+        <p class="featured-work__authors">{{ work.authors }}</p>
+        {% if work.description %}<p>{{ work.description }}</p>{% endif %}
+        {% if work.doi_url %}<p class="featured-work__links"><a href="{{ work.doi_url }}" target="_blank" rel="noopener">Kitap DOI</a></p>{% endif %}
+        {% if work.reviews %}
+          <div class="featured-work__reviews">
+            <p>Uluslararası dergi değerlendirmeleri</p>
+            <ul>
+              {% for review in work.reviews %}
+                <li><a href="{{ review.url }}" target="_blank" rel="noopener">{{ review.journal }} — {{ review.reviewer }} ({{ review.year }})</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
   </div>
 </section>
