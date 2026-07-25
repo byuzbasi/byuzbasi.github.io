@@ -17,34 +17,34 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: Professor of Statistics - Elected Member of International Statistical Institute 2023 
+role: İstatistik Profesörü · Uluslararası İstatistik Enstitüsü Seçilmiş Üyesi
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: Inonu University, Malatya, Turkey
+  - name: İnönü Üniversitesi, Malatya, Türkiye
     url: https://www.inonu.edu.tr/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My main research interests include shrinkage estimation, spatial regression, high-dimensional statistics, big data, and machine learning methods.
+bio: Araştırmalarım shrinkage tahmini, mekânsal regresyon, yüksek boyutlu istatistik, büyük veri ve makine öğrenmesi yöntemlerine odaklanır.
 
 # Interests to show in About widget
 interests:
-  - Statistical Learning
-  - Machine Learning
-  - Big data
-  - High Dimensional Data
-  - Spatial Data
+  - İstatistiksel Öğrenme
+  - Makine Öğrenmesi
+  - Büyük Veri
+  - Yüksek Boyutlu Veri
+  - Mekânsal Veri
 
 # Education to show in About widget
 education:
   courses:
-    - course: PhD in Applied Mathematics
-      institution: Inonu University
+    - course: Uygulamalı Matematik Doktora
+      institution: İnönü Üniversitesi
       year: 2014
-    - course: M.S. in Mathematics
+    - course: Matematik Yüksek Lisans
       institution: Fırat University
       year: 2010
-    - course: BSc in Mathematics
+    - course: Matematik Lisans
       institution: Fırat University
       year: 2008
 
@@ -75,7 +75,7 @@ skills:
 social:
   - icon: envelope
     icon_pack: fas
-    link: '/#contact'
+    link: '/#iletisim'
   - icon: twitter
     icon_pack: fab
     link: https://twitter.com/BahadirYuzbasi
@@ -96,22 +96,14 @@ social:
   # and uncomment the lines below.
   - icon: cv
     icon_pack: ai
-    link: uploads/resume.pdf
+    link: https://byuzbasi.github.io/uploads/Resume_Bahadir_Yuzbasi.pdf
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
 
-The focus of my research started with improving parameter estimation. I and my co-authors have published papers related to shrinkage and pretest estimations in linear and partially linear models. We also combined these techniques with some robust estimations. Furthermore, I have been working on
-improving penalized estimation methods, especially for high-dimensional problems and Big Data. Such problems can be found in areas like computer science, biometrics,  nance, network security, social media analysis, and industrial applications. High-dimensional data brings not only new opportunities to the understanding of data but also new challenges to data analysis, such as noise accumulation,
-spurious correlations, heavy computational cost, and algorithmic instability. In order to tackle
-these challenges, I have been working on not only developing the theory but also implementing
-algorithms in the R and C++ languages. I am also professionally working on coding my studies in
-R for publishing in CRAN.
+Çalışmalarım, doğrusal ve kısmi doğrusal modellerde parametre tahminini iyileştirmeye yönelik shrinkage ve pretest yöntemlerinden hareketle şekillendi. Bu yöntemleri sağlam tahmin yaklaşımlarıyla birleştirerek, özellikle yüksek boyutlu veri ve büyük veri problemleri için ceza tabanlı tahmin yöntemleri geliştiriyorum.
 
-I am also deeply interested in doing collaborative research in each area rather than just in my
-main interest.
+Araştırmalarım kuramsal sonuçlarla sınırlı değil; önerilen yöntemleri R ve C++ ile uygulanabilir araçlara dönüştürmeye önem veriyorum. Bilgisayar bilimleri, biyometri, finans, ekonomi, ağ güvenliği, sosyal medya analizi ve endüstriyel uygulamalardaki karmaşık veri yapıları için açık ve yeniden üretilebilir çözümler üretmeyi hedefliyorum.
 
-<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=Ivy4oMrbYlVA0vsY8bFA4LKLiBP2TRvpN8ub_uN1km8&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=0f0404"></script>
-
-{style="text-align: justify;"}
+Disiplinler arası araştırma iş birliklerine ve lisansüstü öğrenci projelerine açığım.
