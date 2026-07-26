@@ -12,6 +12,7 @@ description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Prof. Dr. Bahadır Yüzbaşı'nın istatistik, ekonometri ve veri bilimi alanındaki akademik sayfası.
 footer_text: >
   © 2026 Bahadır Yüzbaşı · <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a> ile oluşturuldu.
+  <script data-goatcounter="https://bahadiryuzbasi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 keywords: Bahadır Yüzbaşı, istatistik, ekonometri, veri bilimi, makine öğrenmesi, functional data analysis
 lang: tr
 icon: ∑
