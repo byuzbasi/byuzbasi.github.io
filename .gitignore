@@ -9,3 +9,9 @@ node_modules/
 go.sum
 .hugo_build.lock
 .Rproj.user
+.Rhistory
+.DS_Store
+
+# Local Astro build artifacts
+astro-site/.astro/
+astro-site/dist/
