@@ -16,6 +16,7 @@ Araştırma yazılımım; istatistiksel yöntemi, açık kaynak kodu ve yeniden 
 Yüksek boyutlu verilerde küçültme ve cezalı kestirim araştırmaları için geliştirilen R paketi. Hesaplama çekirdeğinde **C++** ve **RcppArmadillo** kullanılır.
 
 - [GitHub kaynak kodu](https://github.com/byuzbasi/sglasso)
+- İlgili makale: [Penalized Regression via the Restricted Bridge Estimator](https://doi.org/10.1080/00031305.2026.2709494)
 - Teknolojiler: R · C++ · RcppArmadillo
 
 ### rbridge — Restricted Bridge Estimation
