@@ -149,6 +149,87 @@
 .research-project__outputs ul { margin: 0; padding-left: 1.2rem; }
 .research-project__outputs li { margin-bottom: 0.4rem; line-height: 1.45; }
 
+/* al-folio applies the selected colour scheme through data-theme. Keep custom
+   academic cards within the same palette instead of leaving pale surfaces in
+   dark mode. */
+html[data-theme="dark"] .research-software,
+body[data-theme="dark"] .research-software,
+html.dark .research-software,
+body.dark .research-software {
+  background: #132b3c;
+  color: #e7f0ef;
+}
+
+html[data-theme="dark"] .featured-work,
+body[data-theme="dark"] .featured-work,
+html.dark .featured-work,
+body.dark .featured-work,
+html[data-theme="dark"] .research-project,
+body[data-theme="dark"] .research-project,
+html.dark .research-project,
+body.dark .research-project {
+  border-color: rgba(186, 215, 211, 0.25);
+  background: #112838;
+  color: #edf5f4;
+}
+
+html[data-theme="dark"] .featured-work--book,
+body[data-theme="dark"] .featured-work--book,
+html.dark .featured-work--book,
+body.dark .featured-work--book {
+  border-color: rgba(243, 201, 109, 0.7);
+  background: linear-gradient(120deg, #162c3a, #183b42);
+}
+
+html[data-theme="dark"] .featured-work--publications,
+body[data-theme="dark"] .featured-work--publications,
+html.dark .featured-work--publications,
+body.dark .featured-work--publications {
+  background: #112838;
+}
+
+html[data-theme="dark"] .project-intro,
+body[data-theme="dark"] .project-intro,
+html.dark .project-intro,
+body.dark .project-intro {
+  background: linear-gradient(120deg, #132d38, #1b303e);
+  color: #edf5f4;
+}
+
+html[data-theme="dark"] .featured-work__authors,
+body[data-theme="dark"] .featured-work__authors,
+html.dark .featured-work__authors,
+body.dark .featured-work__authors,
+html[data-theme="dark"] .featured-work__reviews p,
+body[data-theme="dark"] .featured-work__reviews p,
+html.dark .featured-work__reviews p,
+body.dark .featured-work__reviews p,
+html[data-theme="dark"] .research-project__funder,
+body[data-theme="dark"] .research-project__funder,
+html.dark .research-project__funder,
+body.dark .research-project__funder,
+html[data-theme="dark"] .research-project__facts dt,
+body[data-theme="dark"] .research-project__facts dt,
+html.dark .research-project__facts dt,
+body.dark .research-project__facts dt {
+  color: #c5d9d7;
+}
+
+html[data-theme="dark"] .featured-work__reviews,
+body[data-theme="dark"] .featured-work__reviews,
+html.dark .featured-work__reviews,
+body.dark .featured-work__reviews,
+html[data-theme="dark"] .research-project__facts,
+body[data-theme="dark"] .research-project__facts,
+html.dark .research-project__facts,
+body.dark .research-project__facts,
+html[data-theme="dark"] .research-project__outputs,
+body[data-theme="dark"] .research-project__outputs,
+html.dark .research-project__outputs,
+body.dark .research-project__outputs {
+  border-color: rgba(186, 215, 211, 0.18);
+}
+
 @media (max-width: 720px) {
   .academic-hero { grid-template-columns: 1fr; }
   .academic-hero__copy { min-height: 0; }
