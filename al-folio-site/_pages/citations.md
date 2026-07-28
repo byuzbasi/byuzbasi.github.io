@@ -7,6 +7,8 @@ nav: true
 nav_order: 2
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+
 <div id="citation-summary" class="mb-4" aria-live="polite">Atıf verileri yükleniyor…</div>
 <div id="citation-list"></div>
 

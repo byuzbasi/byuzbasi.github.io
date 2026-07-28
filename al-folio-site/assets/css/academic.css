@@ -320,6 +320,10 @@
 .cv-interests { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 0; padding: 0; list-style: none; }
 .cv-interests li { padding: 0.45rem 0.75rem; border: 1px solid rgba(31, 111, 120, 0.24); border-radius: 999px; color: #315b64; font-size: 0.92rem; }
 
+#citation-list .table { margin-bottom: 0; }
+#citation-list .table th { color: #315b64; font-weight: 700; }
+#citation-list .table td, #citation-list .table th { vertical-align: middle; }
+
 .featured-work h3 {
   margin: 0 0 0.8rem;
   font-size: 1.15rem;
@@ -529,6 +533,26 @@ html[data-theme="dark"] .cv-interests li,
 body[data-theme="dark"] .cv-interests li,
 html.dark .cv-interests li,
 body.dark .cv-interests li { border-color: rgba(142, 213, 231, 0.38); color: #c5d9d7; }
+html[data-theme="dark"] #citation-list .table,
+body[data-theme="dark"] #citation-list .table,
+html.dark #citation-list .table,
+body.dark #citation-list .table { color: #e7f0ef; }
+html[data-theme="dark"] #citation-list .table td,
+body[data-theme="dark"] #citation-list .table td,
+html.dark #citation-list .table td,
+body.dark #citation-list .table td,
+html[data-theme="dark"] #citation-list .table th,
+body[data-theme="dark"] #citation-list .table th,
+html.dark #citation-list .table th,
+body.dark #citation-list .table th { border-color: rgba(186, 215, 211, 0.18); }
+html[data-theme="dark"] #citation-list .table th,
+body[data-theme="dark"] #citation-list .table th,
+html.dark #citation-list .table th,
+body.dark #citation-list .table th { color: #c5d9d7; }
+html[data-theme="dark"] #citation-summary .text-muted,
+body[data-theme="dark"] #citation-summary .text-muted,
+html.dark #citation-summary .text-muted,
+body.dark #citation-summary .text-muted { color: #b7cbc9 !important; }
 
 html[data-theme="dark"] .project-intro,
 body[data-theme="dark"] .project-intro,
