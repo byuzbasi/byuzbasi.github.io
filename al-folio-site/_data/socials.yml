@@ -8,6 +8,6 @@ scholar_userid: XTmhw_cAAAAJ
 research_gate_profile: Bahadir_Yuezbasi
 rss_icon: false
 custom_social:
-  logo: https://upload.wikimedia.org/wikipedia/commons/7/7f/Web_of_Science_logo.svg
+  logo: /assets/img/web-of-science.svg
   title: Web of Science
   url: https://www.webofscience.com/wos/author/record/288269

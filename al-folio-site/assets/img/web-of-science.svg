@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Web of Science">
+  <circle cx="48" cy="48" r="46" fill="#173e52"/>
+  <path d="M23 27h9l5 30 7-22h8l7 22 5-30h9l-8 42h-9l-8-23-8 23h-9z" fill="#f6faf9"/>
+  <text x="48" y="83" fill="#f3c96d" font-family="Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle">WoS</text>
+</svg>
