@@ -63,7 +63,6 @@ Yayınlar sayfasındaki kayıtlar ana BibTeX dosyasından üretilir; her yayın�
 
   <h2 class="featured-works__articles-title">Seçilmiş yayınlar</h2>
   <article class="featured-work featured-work--publications">
-    <div class="featured-work__citation">{% bibliography --query @article[selected=true] %}</div>
-    <div class="featured-work__citation">{% bibliography --query @incollection[selected=true] %}</div>
+    <div class="featured-work__citation">{% bibliography --query @*[selected=true] %}</div>
   </article>
 </section>
