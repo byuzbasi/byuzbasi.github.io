@@ -596,6 +596,16 @@ body.dark .research-project__outputs {
   border-color: rgba(186, 215, 211, 0.18);
 }
 
+@media (max-width: 991.98px) {
+  .navbar {
+    opacity: 1 !important;
+  }
+
+  .navbar-collapse {
+    background: var(--global-bg-color);
+  }
+}
+
 @media (max-width: 720px) {
   .academic-hero { grid-template-columns: 1fr; }
   .academic-hero__copy { min-height: 0; }

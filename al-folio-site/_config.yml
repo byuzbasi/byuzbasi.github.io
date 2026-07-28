@@ -11,7 +11,7 @@ contact_note: >
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Prof. Dr. Bahadır Yüzbaşı'nın istatistik, ekonometri ve veri bilimi alanındaki akademik sayfası.
 footer_text: >
-  © 2026 Bahadır Yüzbaşı · <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a> ile oluşturuldu.
+  <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a> altyapısıyla.
   <script data-goatcounter="https://bahadiryuzbasi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 keywords: Bahadır Yüzbaşı, istatistik, ekonometri, veri bilimi, makine öğrenmesi, functional data analysis
 lang: tr
@@ -19,7 +19,7 @@ icon: ∑
 
 url: https://byuzbasi.github.io
 baseurl: ""
-last_updated: true
+last_updated: false
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
 
@@ -83,7 +83,7 @@ al_folio:
 # -----------------------------------------------------------------------------
 
 navbar_fixed: true
-footer_fixed: true
+footer_fixed: false
 search_enabled: true
 socials_in_search: true
 posts_in_search: true

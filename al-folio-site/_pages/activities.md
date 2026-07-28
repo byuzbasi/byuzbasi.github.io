@@ -7,6 +7,8 @@ nav: true
 nav_order: 4
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+
 ## Davetli konuşmalar ve seminerler
 
 - **2026 — The Second Sharjah International Conference on Mathematical Sciences (UOS-SICMS26)**, University of Sharjah, Birleşik Arap Emirlikleri. Davetli konuşmacı. [Etkinlik sayfası](https://www.sharjah.ac.ae/Conferences/SICMS26)

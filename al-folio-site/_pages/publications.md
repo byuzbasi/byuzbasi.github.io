@@ -7,6 +7,8 @@ nav: true
 nav_order: 1
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+
 <!-- _pages/publications.md -->
 
 <!-- Bibsearch Feature -->

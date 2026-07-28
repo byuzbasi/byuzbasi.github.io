@@ -26,7 +26,7 @@ latest_posts:
     <h2>Karmaşık verideki yapıyı görünür kılmak.</h2>
     <p>Yüksek boyutlu, uzamsal ve fonksiyonel veriler için güvenilir çıkarım, öğrenme ve öngörü.</p>
   </div>
-  <img class="academic-hero__image" src="{{ '/assets/img/statistical-landscape.svg' | relative_url }}" alt="Kontur çizgileri, regresyon doğrusu ve veri noktalarından oluşan soyut istatistiksel peyzaj">
+  <img class="academic-hero__image" src="{{ '/assets/img/statistical-landscape.svg' | relative_url }}" alt="Küçültme yolları, fonksiyonel veri eğrileri ve uzamsal konturları birbirine bağlayan altın çizgiden oluşan istatistiksel kompozisyon">
 </section>
 
 İstatistiği, belirsizliği ortadan kaldıran değil; onu ölçülebilir, yorumlanabilir ve karar vermede kullanılabilir hâle getiren bir düşünme biçimi olarak görüyorum. İnönü Üniversitesi Ekonometri Bölümünde İstatistik Profesörüyüm.

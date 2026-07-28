@@ -7,6 +7,8 @@ nav: true
 nav_order: 5
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+
 Araştırma yazılımım; istatistiksel yöntemi, açık kaynak kodu ve yeniden üretilebilir uygulamayı birlikte ele alır. R paketlerinde C++ ve RcppArmadillo kullanarak hesaplama performansını destekliyorum; Python’ı veri işleme, makine öğrenmesi ve araştırma iş akışlarında kullanıyorum.
 
 ## R paketleri
