@@ -19,10 +19,27 @@ nav_order: 1
   <ol id="openalex-publications" class="bibliography"></ol>
 </section>
 
-<div class="publications">
+<div class="publications publications-by-type">
+  <section class="publications-by-type__section" aria-labelledby="journal-articles-title">
+    <h2 id="journal-articles-title">Hakemli makaleler</h2>
+    {% bibliography --query @article %}
+  </section>
 
-{% bibliography %}
+  <section class="publications-by-type__section" aria-labelledby="books-title">
+    <h2 id="books-title">Kitaplar</h2>
+    {% bibliography --query @book %}
+  </section>
 
+  <section class="publications-by-type__section" aria-labelledby="book-chapters-title">
+    <h2 id="book-chapters-title">Kitap bölümleri</h2>
+    {% bibliography --query @incollection %}
+  </section>
+
+  <section class="publications-by-type__section" aria-labelledby="other-works-title">
+    <h2 id="other-works-title">Bildiriler ve diğer çalışmalar</h2>
+    {% bibliography --query @inproceedings %}
+    {% bibliography --query @misc %}
+  </section>
 </div>
 
 <script>
