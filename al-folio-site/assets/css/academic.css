@@ -285,10 +285,17 @@
 .cv-profile__contact div:last-child { padding-bottom: 0; border-bottom: 0; }
 .cv-profile__contact dt { color: #69787a; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .cv-profile__contact dd { margin: 0.14rem 0 0; font-size: 0.94rem; line-height: 1.45; }
-.cv-section { margin: 0 0 3rem; scroll-margin-top: 7rem; }
+.cv-section {
+  margin: 0 0 2.2rem;
+  padding: 1.35rem 1.55rem 0.3rem;
+  border: 1px solid rgba(31, 111, 120, 0.16);
+  border-radius: 0.35rem;
+  background: linear-gradient(180deg, #f8fbfa 0, #ffffff 8rem);
+  scroll-margin-top: 7rem;
+}
 .cv-section > h2 {
-  margin: 0 0 0.75rem;
-  padding-bottom: 0.65rem;
+  margin: 0 -1.55rem 0.75rem;
+  padding: 0 1.55rem 0.75rem;
   border-bottom: 2px solid rgba(31, 111, 120, 0.28);
   color: #173e52;
   font-family: var(--global-serif-font);
@@ -475,6 +482,13 @@ body.dark .cv-profile {
   border-color: rgba(186, 215, 211, 0.25);
   background: #112838;
 }
+html[data-theme="dark"] .cv-section,
+body[data-theme="dark"] .cv-section,
+html.dark .cv-section,
+body.dark .cv-section {
+  border-color: rgba(186, 215, 211, 0.2);
+  background: linear-gradient(180deg, #132b3c 0, #112838 8rem);
+}
 html[data-theme="dark"] .cv-profile h2,
 body[data-theme="dark"] .cv-profile h2,
 html.dark .cv-profile h2,
@@ -565,5 +579,7 @@ body.dark .research-project__outputs {
   .project-intro, .research-project { padding: 1.25rem; }
   .research-project__facts { grid-template-columns: 1fr; }
   .cv-profile { grid-template-columns: 1fr; padding: 1.35rem; }
+  .cv-section { padding: 1.2rem 1.25rem 0.2rem; }
+  .cv-section > h2 { margin-right: -1.25rem; margin-left: -1.25rem; padding-right: 1.25rem; padding-left: 1.25rem; }
   .cv-entry { grid-template-columns: 1fr; gap: 0.3rem; }
 }
