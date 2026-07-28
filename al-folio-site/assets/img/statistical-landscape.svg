@@ -1,47 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
-  <title id="title">İstatistiksel öğrenme peyzajı</title>
-  <desc id="desc">Kontur çizgileri, regresyon doğrusu ve veri noktalarından oluşan soyut bir istatistiksel görsel.</desc>
+  <title id="title">Karmaşık veride yapıyı görünür kılmak</title>
+  <desc id="desc">Küçültme yolları, fonksiyonel veri eğrileri ve uzamsal konturları birleştiren soyut istatistiksel kompozisyon.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#071d31"/>
-      <stop offset=".55" stop-color="#0c3551"/>
-      <stop offset="1" stop-color="#0b5262"/>
+      <stop offset=".58" stop-color="#0a344b"/>
+      <stop offset="1" stop-color="#0b5661"/>
     </linearGradient>
-    <radialGradient id="glow" cx="76%" cy="28%" r="66%">
-      <stop offset="0" stop-color="#50d5cc" stop-opacity=".32"/>
-      <stop offset="1" stop-color="#50d5cc" stop-opacity="0"/>
+    <radialGradient id="field" cx="79%" cy="43%" r="54%">
+      <stop offset="0" stop-color="#54d3c7" stop-opacity=".22"/>
+      <stop offset=".7" stop-color="#54d3c7" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#54d3c7" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M48 0H0V48" fill="none" stroke="#d8f2ec" stroke-opacity=".10" stroke-width="1"/>
+    <linearGradient id="gold" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#d7a84b"/>
+      <stop offset=".5" stop-color="#f3c96d"/>
+      <stop offset="1" stop-color="#ffe09a"/>
+    </linearGradient>
+    <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M52 0H0V52" fill="none" stroke="#d8f2ec" stroke-opacity=".055" stroke-width="1"/>
     </pattern>
-    <filter id="blur"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="16"/></filter>
   </defs>
+
   <rect width="1200" height="560" fill="url(#bg)"/>
-  <rect width="1200" height="560" fill="url(#glow)"/>
+  <rect width="1200" height="560" fill="url(#field)"/>
   <rect width="1200" height="560" fill="url(#grid)"/>
-  <g fill="none" stroke="#a3e7dc" stroke-opacity=".32" stroke-width="2">
-    <path d="M-30 430C120 250 245 510 410 350S675 145 810 322s245 62 420-170"/>
-    <path d="M-30 370C125 190 270 455 430 300S700 95 835 270s238 64 395-164"/>
-    <path d="M-30 310C135 130 285 395 460 250S720 40 860 215s230 53 370-126"/>
-    <path d="M-30 490C105 315 225 555 390 415S635 205 785 380s265 60 445-150"/>
+
+  <!-- Coefficient paths converging under shrinkage. -->
+  <g fill="none" stroke="#a8e4dc" stroke-linecap="round">
+    <path d="M42 92C168 120 278 188 443 274" stroke-opacity=".24" stroke-width="2"/>
+    <path d="M42 164C176 179 294 222 443 274" stroke-opacity=".32" stroke-width="2"/>
+    <path d="M42 238C190 240 310 251 443 274" stroke-opacity=".42" stroke-width="2.4"/>
+    <path d="M42 468C168 430 292 352 443 274" stroke-opacity=".24" stroke-width="2"/>
+    <path d="M42 394C178 374 302 321 443 274" stroke-opacity=".32" stroke-width="2"/>
+    <path d="M42 322C192 314 316 294 443 274" stroke-opacity=".42" stroke-width="2.4"/>
   </g>
-  <g stroke="#f4c66b" stroke-width="4" stroke-linecap="round">
-    <path d="M110 431L1038 122"/>
+  <g fill="#bfeee8" fill-opacity=".72">
+    <circle cx="85" cy="174" r="4"/><circle cx="151" cy="408" r="4"/><circle cx="223" cy="213" r="3.5"/>
+    <circle cx="292" cy="342" r="4"/><circle cx="361" cy="259" r="3.5"/><circle cx="443" cy="274" r="6"/>
   </g>
-  <g fill="#f8d785">
-    <circle cx="150" cy="414" r="7"/><circle cx="228" cy="392" r="6"/><circle cx="306" cy="358" r="8"/>
-    <circle cx="390" cy="340" r="6"/><circle cx="458" cy="294" r="7"/><circle cx="534" cy="272" r="5"/>
-    <circle cx="615" cy="231" r="8"/><circle cx="692" cy="218" r="6"/><circle cx="764" cy="178" r="7"/>
-    <circle cx="850" cy="161" r="5"/><circle cx="932" cy="125" r="8"/><circle cx="1006" cy="105" r="6"/>
+
+  <!-- Functional observations as a restrained family of curves. -->
+  <g fill="none" stroke="#9cddd5" stroke-width="2.2">
+    <path d="M415 338C550 190 676 400 809 250S1039 131 1228 294" stroke-opacity=".34"/>
+    <path d="M415 303C549 154 682 366 816 218S1042 102 1228 258" stroke-opacity=".48"/>
+    <path d="M415 374C552 229 672 438 800 287S1032 168 1228 332" stroke-opacity=".22"/>
   </g>
-  <g fill="#bfeee8" fill-opacity=".9">
-    <circle cx="189" cy="321" r="4"/><circle cx="271" cy="440" r="4"/><circle cx="347" cy="290" r="4"/>
-    <circle cx="428" cy="391" r="4"/><circle cx="505" cy="205" r="4"/><circle cx="583" cy="335" r="4"/>
-    <circle cx="664" cy="146" r="4"/><circle cx="740" cy="305" r="4"/><circle cx="822" cy="106" r="4"/>
-    <circle cx="901" cy="256" r="4"/><circle cx="981" cy="72" r="4"/>
+
+  <!-- Spatial field contours and observations. -->
+  <g fill="none" stroke="#b8ebe4" stroke-opacity=".18" stroke-width="2">
+    <path d="M790 90C889 26 1055 62 1099 151s-25 204-138 220-218-62-204-160 18-94 33-121z"/>
+    <path d="M826 125c74-45 190-22 221 47s-20 151-105 159-158-52-147-122 18-62 31-84z"/>
+    <path d="M869 162c47-27 119-9 135 35s-17 91-68 94-93-37-83-78 8-32 16-51z"/>
   </g>
-  <g fill="#dff8f4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing="2">
-    <text x="76" y="78">INFERENCE</text><text x="882" y="505">PREDICTION</text>
+  <g fill="#c6f0ea">
+    <circle cx="829" cy="154" r="4"/><circle cx="900" cy="110" r="3.5"/><circle cx="973" cy="182" r="4"/>
+    <circle cx="1043" cy="131" r="3.5"/><circle cx="1110" cy="236" r="4"/><circle cx="888" cy="315" r="3.5"/>
   </g>
-  <circle cx="938" cy="124" r="42" fill="#f4c66b" fill-opacity=".12" filter="url(#blur)"/>
+
+  <!-- A single inferential thread ties the three structures together. -->
+  <path d="M124 419C284 375 354 318 443 274s185-72 281-35 188 23 356-104" fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-width="4"/>
+  <g fill="#f3c96d">
+    <circle cx="124" cy="419" r="6"/><circle cx="443" cy="274" r="7"/><circle cx="724" cy="239" r="6"/><circle cx="1080" cy="135" r="7"/>
+  </g>
+  <circle cx="1020" cy="164" r="58" fill="#f3c96d" fill-opacity=".08" filter="url(#soft)"/>
 </svg>

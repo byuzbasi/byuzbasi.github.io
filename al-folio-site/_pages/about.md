@@ -23,19 +23,19 @@ latest_posts:
 <section class="academic-hero" aria-label="İstatistik, ekonometri ve veri bilimi araştırma görseli">
   <div class="academic-hero__copy">
     <p class="academic-hero__eyebrow">İSTATİSTİK · EKONOMETRİ · VERİ BİLİMİ</p>
-    <h2>Belirsizlikten ölçülebilir içgörüye.</h2>
-    <p>İstatistiksel çıkarım, makine öğrenmesi ve karmaşık veri yapıları için sağlam yöntemler.</p>
+    <h2>Karmaşık verideki yapıyı görünür kılmak.</h2>
+    <p>Yüksek boyutlu, uzamsal ve fonksiyonel veriler için güvenilir çıkarım, öğrenme ve öngörü.</p>
   </div>
   <img class="academic-hero__image" src="{{ '/assets/img/statistical-landscape.svg' | relative_url }}" alt="Kontur çizgileri, regresyon doğrusu ve veri noktalarından oluşan soyut istatistiksel peyzaj">
 </section>
 
-İnönü Üniversitesi Ekonometri Bölümünde İstatistik Profesörüyüm. Araştırmalarım yüksek boyutlu, uzamsal ve fonksiyonel veriler için **cezalı, küçültme ve ön-test kestirim yöntemleri** geliştirir. İstatistiksel öğrenme, fonksiyonel veri analizi, elastik şekil analizi ve yeniden üretilebilir bilimsel yazılım geliştirme çalışma alanlarım arasındadır.
+İstatistiği, belirsizliği ortadan kaldıran değil; onu ölçülebilir, yorumlanabilir ve karar vermede kullanılabilir hâle getiren bir düşünme biçimi olarak görüyorum. İnönü Üniversitesi Ekonometri Bölümünde İstatistik Profesörüyüm.
 
-Kuramsal yöntemleri simülasyon, gerçek veri analizi ve açık kaynaklı R/C++ yazılımlarıyla birleştiriyorum. Uygulamalar; ekonomi, biyometri, sosyal bilimler ve dijital platformlar gibi farklı alanlara uzanıyor.
+Araştırmalarımın merkezinde, yüksek boyutlu ve güçlü ilişkiler içeren veri yapıları için küçültme, ön-test ve penalize kestirim yöntemleri geliştirmek yer alıyor. Bu yaklaşımı uzamsal ve fonksiyonel verilere, istatistiksel öğrenmeye ve elastik şekil analizine taşıyorum.
 
-Araştırma alanlarım: makine öğrenmesi, uzamsal istatistik, fonksiyonel veri analizi, yüksek boyutlu veri, penalize regresyon ve büyük veri analitiği.
+Benim için iyi bir istatistiksel yöntem yalnızca kuramsal olarak güçlü değil; aynı zamanda hesaplanabilir, yeniden üretilebilir ve gerçek bir probleme temas edebilir olmalıdır. Bu nedenle kuramsal sonuçları simülasyon çalışmaları, gerçek veri analizleri ve açık kaynaklı R, Python ve C++ yazılımlarıyla birlikte geliştiriyorum.
 
-Yayınlar sayfasındaki kayıtlar ana BibTeX dosyasından üretilir; her yayının ayrıntı görünümünde DOI, atıf ve dış veri tabanı bağlantılarına yer verilir.
+Çalışmalarım ekonomi, biyometri, sosyal bilimler ve dijital platform uygulamalarına uzanırken ortak hedef aynı kalıyor: karmaşık veriden güvenilir ve ölçülebilir bilgi üretmek.
 
 <section class="research-software" aria-labelledby="research-software-title">
   <p class="section-eyebrow">ARAŞTIRMA YAZILIMI</p>
