@@ -8,6 +8,8 @@ cv_format: rendercv # options: rendercv, jsonresume
 description: Eğitim, atamalar, projeler ve seçilmiş akademik çıktılar.
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+
 {% assign profile = site.data.cv.cv %}
 {% assign appointments = profile.sections["Akademik atamalar"] %}
 {% assign education = profile.sections["Eğitim ve akademik unvanlar"] %}
