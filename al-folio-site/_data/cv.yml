@@ -3,7 +3,7 @@ cv:
   label: Professor of Statistics and Econometrics
   email: bahadir.yuzbasi@inonu.edu.tr
   location: Malatya, Türkiye
-  summary: Professor whose research develops shrinkage, pretest and penalized estimation methods for high-dimensional, spatial and functional data.
+  summary: İstatistik ve ekonometride; yüksek boyutlu, uzamsal ve fonksiyonel veriler için shrinkage, pretest ve penalize kestirim yöntemleri geliştiren profesör.
 
   social_networks:
     - network: ORCID
@@ -14,7 +14,7 @@ cv:
       username: XTmhw_cAAAAJ
 
   sections:
-    Academic appointments:
+    Akademik atamalar:
       - company: İnönü University, Department of Econometrics
         position: Professor of Statistics
         location: Malatya, Türkiye
@@ -54,8 +54,30 @@ cv:
         location: St. Catharines, Canada
         start_date: 2016-05
         end_date: 2016-06
+        summary: High-dimensional estimation strategies with Prof. S. Ejaz Ahmed.
+      - company: Brock University, Department of Mathematics and Statistics
+        position: Visiting International Scholar (PhD Research)
+        location: St. Catharines, Canada
+        start_date: 2013
+        end_date: 2014
+        summary: Shrinkage and penalized estimation strategies with Prof. S. Ejaz Ahmed.
+      - company: İnönü University, Department of Econometrics
+        position: Research Assistant
+        location: Malatya, Türkiye
+        start_date: 2009
+        end_date: 2014
 
-    Education:
+    Eğitim ve akademik unvanlar:
+      - institution: Interuniversity Council (ÜAK)
+        area: Econometrics
+        studyType: Associate Professorship Degree
+        start_date: 2024-03
+        end_date: 2024-03
+      - institution: Interuniversity Council (ÜAK)
+        area: Statistics
+        studyType: Associate Professorship Degree
+        start_date: 2017-12
+        end_date: 2017-12
       - institution: İnönü University
         location: Malatya, Türkiye
         area: Mathematics
@@ -79,7 +101,7 @@ cv:
         start_date: 2004
         end_date: 2008
 
-    Research funding:
+    Projeler, burslar ve ödüller:
       - name: Machine Learning for Functional Data
         summary: TÜBİTAK 2219 International Postdoctoral Research Scholarship; coordinator; Simon Fraser University; USD 31,200.
         start_date: 2024
@@ -96,19 +118,39 @@ cv:
         summary: İnönü University bilateral project SUA-2019-1629; coordinator; University of British Columbia.
         start_date: 2019-02
         end_date: 2019-08
+      - name: Pretest and Stein-type Estimation in Linear Quantile Regression Models
+        summary: İnönü University Scientific Research Project SBA-2017-946; coordinator.
+        start_date: 2017-12
+        end_date: 2018-09
+      - name: Liu-type Estimation in Linear Regression Models
+        summary: Necmettin Erbakan University Scientific Research Project 171215001; researcher.
+        start_date: 2017-03
+        end_date: 2017-12
+      - name: Fields Institute Congress Attendance Grant
+        summary: The Fields Institute, University of Toronto, Canada.
+        start_date: 2016
+        end_date: 2016
 
-    Selected software:
+    Yazılım ve teknik yetkinlikler:
       - name: sglasso
-        summary: R package, developed with C++ and RcppArmadillo.
+        summary: R paketi; C++ ve RcppArmadillo ile yüksek performanslı hesaplama.
       - name: rbridge
-        summary: Restricted bridge estimation R package, developed with C++ and RcppArmadillo.
+        summary: Restricted bridge estimation için R paketi; C++ ve RcppArmadillo ile geliştirilmiştir.
+      - name: Python
+        summary: İstatistiksel hesaplama, makine öğrenmesi, veri hazırlama ve yeniden üretilebilir araştırma iş akışları.
+      - name: SPSS
+        summary: Sosyal bilimler ve tıbbi araştırmalar için uygulamalı istatistiksel analiz ve programlama.
 
-    Professional memberships:
+    Mesleki üyelikler:
       - name: International Statistical Institute
         summary: Elected member, 2023–present.
 
-    Research interests:
+    Bibliyometrik özet:
+      - name: AVESİS kaydı
+        summary: "93 yayın; 35 Web of Science ve 31 Scopus indeksli yayın; 213 Web of Science atfı (h-indeksi 10); 440 Scopus atfı (h-indeksi 14). Kaynak: AVESİS, Temmuz 2026."
+
+    Araştırma alanları:
       - name: Statistical learning and high-dimensional inference
       - name: Functional and spatial data analysis
       - name: Shrinkage, pretest and penalized estimation
-      - name: Reproducible R/C++ statistical software
+      - name: Reproducible R/C++/Python statistical software
