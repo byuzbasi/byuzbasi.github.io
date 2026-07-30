@@ -530,7 +530,7 @@ html[lang="en"] .academic-hero__eyebrow {
   overflow-x: auto;
 }
 .research-project__positions {
-  min-width: 39rem;
+  min-width: 27rem;
   width: 100%;
   border-collapse: collapse;
   font-size: 0.84rem;
@@ -546,11 +546,6 @@ html[lang="en"] .academic-hero__eyebrow {
   background: rgba(31, 111, 120, 0.08);
   color: #315b64;
   font-weight: 700;
-}
-.research-project__graduate-total {
-  margin: 0.8rem 0 0;
-  color: #40595c;
-  font-size: 0.88rem;
 }
 .research-project__candidate-grid {
   display: grid;
@@ -879,10 +874,6 @@ html[data-theme="dark"] .research-project__member p:last-child,
 body[data-theme="dark"] .research-project__member p:last-child,
 html.dark .research-project__member p:last-child,
 body.dark .research-project__member p:last-child,
-html[data-theme="dark"] .research-project__graduate-total,
-body[data-theme="dark"] .research-project__graduate-total,
-html.dark .research-project__graduate-total,
-body.dark .research-project__graduate-total,
 html[data-theme="dark"] .research-project__application-note,
 body[data-theme="dark"] .research-project__application-note,
 html.dark .research-project__application-note,

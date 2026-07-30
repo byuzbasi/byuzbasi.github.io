@@ -17,7 +17,6 @@
     {% assign project_status = project.status %}
     {% assign project_outputs = project.outputs %}
     {% assign project_outputs_note = project.outputs_note %}
-    {% assign project_graduate_budget = project.graduate_budget %}
     {% assign project_opportunity_status = project.opportunity_status %}
     {% assign project_candidate_profile = project.candidate_profile %}
     {% assign project_scholarship_conditions = project.scholarship_conditions %}
@@ -33,7 +32,6 @@
       {% assign project_status = project.status_en %}
       {% assign project_outputs = project.outputs_en %}
       {% assign project_outputs_note = project.outputs_note_en %}
-      {% assign project_graduate_budget = project.graduate_budget_en %}
       {% assign project_opportunity_status = project.opportunity_status_en %}
       {% assign project_candidate_profile = project.candidate_profile_en %}
       {% assign project_scholarship_conditions = project.scholarship_conditions_en %}
@@ -102,37 +100,25 @@
                   <th scope="col">{% if current_lang == 'en' %}Level{% else %}Düzey{% endif %}</th>
                   <th scope="col">{% if current_lang == 'en' %}Positions{% else %}Sayı{% endif %}</th>
                   <th scope="col">{% if current_lang == 'en' %}Duration{% else %}Süre{% endif %}</th>
-                  <th scope="col">{% if current_lang == 'en' %}Monthly amount{% else %}Aylık tutar{% endif %}</th>
-                  <th scope="col">{% if current_lang == 'en' %}Planned total{% else %}Planlanan toplam{% endif %}</th>
                 </tr>
               </thead>
               <tbody>
                 {% for position in project.graduate_positions %}
                   {% assign position_level = position.level %}
                   {% assign position_duration = position.duration %}
-                  {% assign position_monthly = position.monthly %}
-                  {% assign position_total = position.total %}
                   {% if current_lang == 'en' %}
                     {% assign position_level = position.level_en %}
                     {% assign position_duration = position.duration_en %}
-                    {% assign position_monthly = position.monthly_en %}
-                    {% assign position_total = position.total_en %}
                   {% endif %}
                   <tr>
                     <td>{{ position_level }}</td>
                     <td>{{ position.count }}</td>
                     <td>{{ position_duration }}</td>
-                    <td>{{ position_monthly }}</td>
-                    <td>{{ position_total }}</td>
                   </tr>
                 {% endfor %}
               </tbody>
             </table>
           </div>
-          <p class="research-project__graduate-total">
-            <strong>{% if current_lang == 'en' %}Total graduate scholarship budget requested:{% else %}Talep edilen toplam bursiyer bütçesi:{% endif %}</strong>
-            {{ project_graduate_budget }}
-          </p>
           <div class="research-project__candidate-grid">
             <div>
               <h4>{% if current_lang == 'en' %}Suggested candidate profile{% else %}Önerilen aday profili{% endif %}</h4>
@@ -145,10 +131,10 @@
           </div>
           <p class="research-project__application-note">
             {% if current_lang == 'en' %}
-              The durations and amounts above reflect the submitted project budget and remain subject to the final project agreement and current TÜBİTAK rules.
+              The planned positions and durations remain subject to the final project agreement and current TÜBİTAK rules.
               Interested candidates may contact <a href="mailto:{{ project.contact_email }}">{{ project.contact_email }}</a>.
             {% else %}
-              Yukarıdaki süre ve tutarlar başvuru bütçesindeki planlamayı gösterir; nihai proje sözleşmesine ve yürürlükteki TÜBİTAK kurallarına tabidir.
+              Yukarıdaki kadro ve süreler başvuru planlamasını gösterir; nihai proje sözleşmesine ve yürürlükteki TÜBİTAK kurallarına tabidir.
               İlgilenen adaylar <a href="mailto:{{ project.contact_email }}">{{ project.contact_email }}</a> adresinden iletişime geçebilir.
             {% endif %}
           </p>

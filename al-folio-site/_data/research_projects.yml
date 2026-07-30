@@ -49,42 +49,28 @@
       role_en: Researcher
       institution: Fırat Üniversitesi
       institution_en: Fırat University
-    - name: Doç. Dr. Tayfur Bayat
-      name_en: Associate Professor Tayfur Bayat
+    - name: Prof. Dr. Tayfur Bayat
+      name_en: Professor Tayfur Bayat
       role: Araştırmacı
       role_en: Researcher
       institution: İnönü Üniversitesi
       institution_en: İnönü University
-  graduate_budget: 2.115.000 TL
-  graduate_budget_en: TRY 2,115,000
   graduate_positions:
     - level: Yüksek lisans
       level_en: Master's
       count: 2
       duration: 12 ay
       duration_en: 12 months
-      monthly: 22.500 TL/ay
-      monthly_en: TRY 22,500/month
-      total: 540.000 TL
-      total_en: TRY 540,000
     - level: Yüksek lisans
       level_en: Master's
       count: 1
       duration: 18 ay
       duration_en: 18 months
-      monthly: 22.500 TL/ay
-      monthly_en: TRY 22,500/month
-      total: 405.000 TL
-      total_en: TRY 405,000
     - level: Doktora
       level_en: PhD
       count: 2
       duration: 18 ay
       duration_en: 18 months
-      monthly: 32.500 TL/ay
-      monthly_en: TRY 32,500/month
-      total: 1.170.000 TL
-      total_en: TRY 1,170,000
   opportunity_status: Planlanan bursiyer kadroları · İlgilenen adaylar iletişime geçebilir.
   opportunity_status_en: Planned graduate scholarship positions · Interested candidates are welcome to get in touch.
   candidate_profile:
