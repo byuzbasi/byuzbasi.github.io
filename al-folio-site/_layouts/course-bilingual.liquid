@@ -1,0 +1,68 @@
+---
+layout: page
+---
+{% assign current_lang = page.lang | default: site.lang %}
+{% assign locale = site.data.i18n[current_lang] %}
+<div class="course">
+  {% if page.instructor or page.term or page.location or page.time %}
+    <div class="course-info">
+      {% if page.instructor %}<p><strong>{{ locale.instructor }}:</strong> {{ page.instructor }}</p>{% endif %}
+      {% if page.term %}<p><strong>{{ locale.term }}:</strong> {{ page.term }}</p>{% endif %}
+      {% if page.location %}<p><strong>{{ locale.location }}:</strong> {{ page.location }}</p>{% endif %}
+      {% if page.time %}<p><strong>{{ locale.time }}:</strong> {{ page.time }}</p>{% endif %}
+    </div>
+  {% endif %}
+
+  {{ content }}
+
+  {% if page.schedule %}
+    {% assign has_dates = false %}
+    {% for entry in page.schedule %}
+      {% if entry.date %}{% assign has_dates = true %}{% endif %}
+    {% endfor %}
+    <h2>{{ locale.schedule }}</h2>
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>{{ locale.week }}</th>
+            {% if has_dates %}<th>{{ locale.date }}</th>{% endif %}
+            <th>{{ locale.topic }}</th>
+            <th>{{ locale.materials }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entry in page.schedule %}
+            <tr>
+              <td>{{ entry.week }}</td>
+              {% if has_dates %}<td>{{ entry.date }}</td>{% endif %}
+              <td>
+                {% if entry.topic %}<strong>{{ entry.topic }}</strong>{% endif %}
+                {% if entry.description %}<div class="schedule-description">{{ entry.description | markdownify }}</div>{% endif %}
+              </td>
+              <td>
+                {% if entry.materials %}
+                  <ul class="schedule-materials">
+                    {% for material in entry.materials %}
+                      <li>
+                        {% if material.url %}
+                          {% if material.url contains '://' %}
+                            <a href="{{ material.url }}" target="_blank" rel="noopener">{{ material.name }}</a>
+                          {% else %}
+                            <a href="{{ material.url | relative_url }}" target="_blank" rel="noopener">{{ material.name }}</a>
+                          {% endif %}
+                        {% else %}
+                          {{ material.name }}
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endif %}
+</div>

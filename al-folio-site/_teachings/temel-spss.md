@@ -1,7 +1,9 @@
 ---
-layout: course
+layout: course-bilingual
 title: Temel SPSS Kursu
 description: Uygulamalı veri analizi, temel istatistik ve SPSS ile raporlama.
+lang: tr
+translation_key: basic-spss
 instructor: Prof. Dr. Bahadır Yüzbaşı
 year: 2026
 term: Kaynak arşivi

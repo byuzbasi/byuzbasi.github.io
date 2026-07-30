@@ -1,0 +1,88 @@
+{% assign current_lang = page.lang | default: site.lang %}
+{% assign citations_url = '/citations/' %}
+{% if current_lang == 'en' %}
+  {% assign citations_url = '/en/citations/' %}
+{% endif %}
+
+{% include bib_search.liquid %}
+
+<section class="mb-5" aria-labelledby="openalex-publications-title">
+  <h2 id="openalex-publications-title">{% if current_lang == 'en' %}Recent publications{% else %}Son yayınlar{% endif %}</h2>
+  <p id="openalex-publications-status" class="text-muted">
+    {% if current_lang == 'en' %}Loading recent publications from the ORCID record…{% else %}ORCID kaydından güncel yayınlar yükleniyor…{% endif %}
+  </p>
+  <ol id="openalex-publications" class="bibliography"></ol>
+</section>
+
+<div class="publications publications-by-type">
+  <section class="publications-by-type__section" aria-labelledby="journal-articles-title">
+    <h2 id="journal-articles-title">{% if current_lang == 'en' %}Peer-reviewed articles{% else %}Hakemli makaleler{% endif %}</h2>
+    {% bibliography --query @article %}
+  </section>
+
+  <section class="publications-by-type__section" aria-labelledby="books-title">
+    <h2 id="books-title">{% if current_lang == 'en' %}Books{% else %}Kitaplar{% endif %}</h2>
+    {% bibliography --query @book %}
+  </section>
+
+  <section class="publications-by-type__section" aria-labelledby="book-chapters-title">
+    <h2 id="book-chapters-title">{% if current_lang == 'en' %}Book chapters{% else %}Kitap bölümleri{% endif %}</h2>
+    {% bibliography --query @incollection %}
+  </section>
+
+  <section class="publications-by-type__section" aria-labelledby="other-works-title">
+    <h2 id="other-works-title">{% if current_lang == 'en' %}Proceedings and other works{% else %}Bildiriler ve diğer çalışmalar{% endif %}</h2>
+    {% bibliography --query @inproceedings %}
+    {% bibliography --query @misc %}
+  </section>
+</div>
+
+<script>
+  (() => {
+    const language = '{{ current_lang }}';
+    const citationsUrl = '{{ citations_url | relative_url }}';
+    const copy = language === 'en'
+      ? {
+          success: 'Most recent records matched through ORCID · Source: OpenAlex.',
+          failure: 'Recent publications are temporarily unavailable; please use the BibTeX archive below.',
+          citations: 'citations'
+        }
+      : {
+          success: 'ORCID ile eşleşen en güncel kayıtlar · Kaynak: OpenAlex.',
+          failure: 'Güncel yayınlar şu an yüklenemedi; aşağıdaki BibTeX arşivi kullanılabilir.',
+          citations: 'atıf'
+        };
+    const status = document.getElementById('openalex-publications-status');
+    const list = document.getElementById('openalex-publications');
+    const escapeHtml = (value) => String(value || '').replace(/[&<>'"]/g, (character) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+    }[character]));
+
+    fetch('https://api.openalex.org/authors/orcid:0000-0002-6196-3201')
+      .then((response) => {
+        if (!response.ok) throw new Error('OpenAlex request failed');
+        return response.json();
+      })
+      .then((author) => fetch(`https://api.openalex.org/works?filter=authorships.author.id:${author.id}&per-page=12&sort=publication_date:desc`))
+      .then((response) => {
+        if (!response.ok) throw new Error('OpenAlex request failed');
+        return response.json();
+      })
+      .then((data) => {
+        const works = data.results || [];
+        status.textContent = copy.success;
+        list.innerHTML = works.map((work) => {
+          const destination = work.doi || work.id;
+          const venue = work.primary_location && work.primary_location.source ? work.primary_location.source.display_name : '';
+          const date = work.publication_date || work.publication_year || '';
+          const periodical = `${venue}${venue && date ? ', ' : ''}${date}`;
+          return `<li><span class="title"><a href="${escapeHtml(destination)}" target="_blank" rel="noopener">${escapeHtml(work.display_name)}</a></span>` +
+            `${periodical ? ` <span class="periodical">${escapeHtml(periodical)}</span>` : ''}` +
+            ` <span class="links">· <a href="${citationsUrl}">${work.cited_by_count || 0} ${copy.citations}</a></span></li>`;
+        }).join('');
+      })
+      .catch(() => {
+        status.textContent = copy.failure;
+      });
+  })();
+</script>

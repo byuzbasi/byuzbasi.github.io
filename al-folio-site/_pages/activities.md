@@ -5,9 +5,9 @@ title: Akademik Etkinlikler
 description: Davetli konuşmalar, konferans sunumları ve bilimsel komite görevleri.
 nav: true
 nav_order: 4
+lang: tr
+translation_key: activities
 ---
-
-<link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
 
 ## Davetli konuşmalar ve seminerler
 

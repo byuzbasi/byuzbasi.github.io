@@ -1,7 +1,10 @@
 ---
-layout: about
+layout: about-bilingual
 title: Hakkımda
 permalink: /
+lang: tr
+translation_key: about
+display_name: Prof. Dr. Bahadır Yüzbaşı
 subtitle: >
   İstatistik ve Ekonometri Profesörü · İnönü Üniversitesi<br>
   <em>Uluslararası İstatistik Enstitüsü Seçilmiş Üyesi (2023–)</em>
@@ -17,8 +20,6 @@ announcements:
 latest_posts:
   enabled: false
 ---
-
-<link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
 
 <section class="academic-hero" aria-label="İstatistik, ekonometri ve veri bilimi araştırma görseli">
   <div class="academic-hero__copy">

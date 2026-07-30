@@ -1,0 +1,150 @@
+{% assign current_lang = page.lang | default: site.lang %}
+{% if current_lang == 'en' %}
+  {% assign profile = site.data.cv_en.cv %}
+  {% assign appointments = profile.sections["Academic appointments"] %}
+  {% assign education = profile.sections["Education and academic qualifications"] %}
+  {% assign funding = profile.sections["Projects, fellowships and awards"] %}
+  {% assign software = profile.sections["Software and technical expertise"] %}
+  {% assign memberships = profile.sections["Professional memberships"] %}
+  {% assign metrics = profile.sections["Bibliometric summary"] %}
+  {% assign interests = profile.sections["Research interests"] %}
+  {% assign profile_eyebrow = "ACADEMIC PROFILE" %}
+  {% assign university_label = "University" %}
+  {% assign email_label = "Email" %}
+  {% assign location_label = "Location" %}
+  {% assign profiles_label = "Profiles" %}
+  {% assign appointments_label = "Academic appointments" %}
+  {% assign education_label = "Education and academic qualifications" %}
+  {% assign funding_label = "Projects, fellowships and awards" %}
+  {% assign software_label = "Software and technical expertise" %}
+  {% assign memberships_label = "Professional memberships" %}
+  {% assign metrics_label = "Bibliometric summary" %}
+  {% assign interests_label = "Research interests" %}
+  {% assign present_label = "present" %}
+  {% assign download_label = "Download CV (PDF)" %}
+  {% assign download_aria = "Download Bahadır Yüzbaşı's academic CV as a PDF" %}
+{% else %}
+  {% assign profile = site.data.cv.cv %}
+  {% assign appointments = profile.sections["Akademik atamalar"] %}
+  {% assign education = profile.sections["Eğitim ve akademik unvanlar"] %}
+  {% assign funding = profile.sections["Projeler, burslar ve ödüller"] %}
+  {% assign software = profile.sections["Yazılım ve teknik yetkinlikler"] %}
+  {% assign memberships = profile.sections["Mesleki üyelikler"] %}
+  {% assign metrics = profile.sections["Bibliyometrik özet"] %}
+  {% assign interests = profile.sections["Araştırma alanları"] %}
+  {% assign profile_eyebrow = "AKADEMİK ÖZET" %}
+  {% assign university_label = "Üniversite" %}
+  {% assign email_label = "E-posta" %}
+  {% assign location_label = "Konum" %}
+  {% assign profiles_label = "Profiller" %}
+  {% assign appointments_label = "Akademik atamalar" %}
+  {% assign education_label = "Eğitim ve akademik unvanlar" %}
+  {% assign funding_label = "Projeler, burslar ve ödüller" %}
+  {% assign software_label = "Yazılım ve teknik yetkinlikler" %}
+  {% assign memberships_label = "Mesleki üyelikler" %}
+  {% assign metrics_label = "Bibliyometrik özet" %}
+  {% assign interests_label = "Araştırma alanları" %}
+  {% assign present_label = "günümüz" %}
+  {% assign download_label = "CV’yi indir (PDF, İngilizce)" %}
+  {% assign download_aria = "Bahadır Yüzbaşı'nın İngilizce akademik CV dosyasını PDF olarak indir" %}
+{% endif %}
+
+<div class="cv-page">
+  <section class="cv-profile" aria-labelledby="cv-profile-title">
+    <div>
+      <p class="section-eyebrow">{{ profile_eyebrow }}</p>
+      <h2 id="cv-profile-title">{{ profile.name }}</h2>
+      <p class="cv-profile__label">{{ profile.label }}</p>
+      <p class="cv-profile__summary">{{ profile.summary }}</p>
+      <p class="cv-profile__actions">
+        <a
+          class="cv-download"
+          href="{{ '/assets/files/Bahadir-Yuzbasi-CV.pdf' | relative_url }}"
+          download
+          aria-label="{{ download_aria }}"
+        >{{ download_label }} <span aria-hidden="true">↓</span></a>
+      </p>
+    </div>
+    <dl class="cv-profile__contact">
+      <div><dt>{{ university_label }}</dt><dd>{{ profile.university }}</dd></div>
+      <div><dt>{{ email_label }}</dt><dd><a href="mailto:{{ profile.email }}">{{ profile.email }}</a></dd></div>
+      <div><dt>{{ location_label }}</dt><dd>{{ profile.location }}</dd></div>
+      <div>
+        <dt>{{ profiles_label }}</dt>
+        <dd>
+          <a href="https://orcid.org/{{ profile.social_networks[0].username }}" target="_blank" rel="noopener">ORCID</a> ·
+          <a href="https://scholar.google.com/citations?user={{ profile.social_networks[2].username }}" target="_blank" rel="noopener">Google Scholar</a> ·
+          <a href="https://github.com/{{ profile.social_networks[1].username }}" target="_blank" rel="noopener">GitHub</a>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="cv-section" id="{% if current_lang == 'en' %}academic-appointments{% else %}akademik-atamalar{% endif %}" aria-labelledby="appointments-title">
+    <h2 id="appointments-title">{{ appointments_label }}</h2>
+    {% for entry in appointments %}
+      <article class="cv-entry">
+        <p class="cv-entry__dates">{{ entry.start_date }}{% if entry.end_date %} – {{ entry.end_date }}{% else %} – {{ present_label }}{% endif %}</p>
+        <div class="cv-entry__content">
+          <h3>{{ entry.position }}</h3>
+          <p class="cv-entry__institution">{{ entry.company }}{% if entry.location %} · {{ entry.location }}{% endif %}</p>
+          {% if entry.summary %}<p>{{ entry.summary }}</p>{% endif %}
+          {% if entry.highlights %}<ul>{% for highlight in entry.highlights %}<li>{{ highlight }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="cv-section" id="{% if current_lang == 'en' %}education-and-qualifications{% else %}egitim-ve-akademik-unvanlar{% endif %}" aria-labelledby="education-title">
+    <h2 id="education-title">{{ education_label }}</h2>
+    {% for entry in education %}
+      <article class="cv-entry">
+        <p class="cv-entry__dates">{{ entry.start_date }}{% if entry.end_date and entry.end_date != entry.start_date %} – {{ entry.end_date }}{% endif %}</p>
+        <div class="cv-entry__content">
+          <h3>{{ entry.studyType }}{% if entry.area %} · {{ entry.area }}{% endif %}</h3>
+          <p class="cv-entry__institution">{{ entry.institution }}{% if entry.location %} · {{ entry.location }}{% endif %}</p>
+          {% if entry.highlights %}<ul>{% for highlight in entry.highlights %}<li>{{ highlight }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="cv-section" id="{% if current_lang == 'en' %}projects-fellowships-and-awards{% else %}projeler-burslar-ve-oduller{% endif %}" aria-labelledby="funding-title">
+    <h2 id="funding-title">{{ funding_label }}</h2>
+    {% for entry in funding %}
+      <article class="cv-entry">
+        <p class="cv-entry__dates">{{ entry.start_date }}{% if entry.end_date and entry.end_date != entry.start_date %} – {{ entry.end_date }}{% endif %}</p>
+        <div class="cv-entry__content">
+          <h3>{{ entry.name }}</h3>
+          <p>{{ entry.summary }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="cv-section" id="{% if current_lang == 'en' %}software-and-technical-expertise{% else %}yazilim-ve-teknik-yetkinlikler{% endif %}" aria-labelledby="software-title">
+    <h2 id="software-title">{{ software_label }}</h2>
+    <div class="cv-compact-list">
+      {% for entry in software %}<article><h3>{{ entry.name }}</h3><p>{{ entry.summary }}</p></article>{% endfor %}
+    </div>
+  </section>
+
+  <section class="cv-section" id="{% if current_lang == 'en' %}professional-memberships{% else %}mesleki-uyelikler{% endif %}" aria-labelledby="memberships-title">
+    <h2 id="memberships-title">{{ memberships_label }}</h2>
+    <div class="cv-compact-list">
+      {% for entry in memberships %}<article><h3>{{ entry.name }}</h3><p>{{ entry.summary }}</p></article>{% endfor %}
+    </div>
+  </section>
+
+  <section class="cv-section" id="{% if current_lang == 'en' %}bibliometric-summary{% else %}bibliyometrik-ozet{% endif %}" aria-labelledby="metrics-title">
+    <h2 id="metrics-title">{{ metrics_label }}</h2>
+    <div class="cv-compact-list">
+      {% for entry in metrics %}<article><h3>{{ entry.name }}</h3><p>{{ entry.summary }}</p></article>{% endfor %}
+    </div>
+  </section>
+
+  <section class="cv-section" id="{% if current_lang == 'en' %}research-interests{% else %}arastirma-alanlari{% endif %}" aria-labelledby="interests-title">
+    <h2 id="interests-title">{{ interests_label }}</h2>
+    <ul class="cv-interests">{% for entry in interests %}<li>{{ entry.name }}</li>{% endfor %}</ul>
+  </section>
+</div>

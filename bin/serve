@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repository_root="$(cd -- "${script_dir}/.." && pwd)"
+site_root="${repository_root}/al-folio-site"
+course_source="${repository_root}/content/en/kurs/temel-spss-kurs"
+course_target="${site_root}/assets/files/kurs/temel-spss-kurs"
+
+cp "${repository_root}/publications.bib" "${site_root}/_bibliography/papers.bib"
+mkdir -p "${course_target}"
+
+if command -v rsync >/dev/null 2>&1; then
+  rsync -a --delete "${course_source}/" "${course_target}/"
+else
+  cp -R "${course_source}/." "${course_target}/"
+fi
+
+if [[ -x /opt/homebrew/opt/ruby@3.3/bin/ruby ]]; then
+  ruby_bin="/opt/homebrew/opt/ruby@3.3/bin"
+elif [[ -x /usr/local/opt/ruby@3.3/bin/ruby ]]; then
+  ruby_bin="/usr/local/opt/ruby@3.3/bin"
+fi
+
+if [[ -n "${ruby_bin:-}" ]]; then
+  gem_bin="$("${ruby_bin}/ruby" -e 'print Gem.user_dir')/bin"
+  export PATH="${ruby_bin}:${gem_bin}:${PATH}"
+  ruby_command="${ruby_bin}/ruby"
+else
+  ruby_command="$(command -v ruby)"
+fi
+
+host_arch="$(uname -m)"
+ruby_arch="$("${ruby_command}" -e 'print RUBY_PLATFORM')"
+
+if [[ "${host_arch}" == "arm64" && "${ruby_arch}" == x86_64-* ]]; then
+  sass_version="$(sed -n 's/^    sass-embedded (\([0-9][^-)]*\)-arm64-darwin)$/\1/p' "${site_root}/Gemfile.lock" | head -n 1)"
+  if [[ -z "${sass_version}" ]]; then
+    printf 'Could not determine the locked ARM Sass version from %s.\n' "${site_root}/Gemfile.lock" >&2
+    exit 1
+  fi
+
+  cache_root="${site_root}/.local-cache"
+  sass_package="sass-embedded-${sass_version}-arm64-darwin"
+  sass_gem="${cache_root}/${sass_package}.gem"
+  sass_root="${cache_root}/${sass_package}"
+  expected_sha="$(sed -n "s/^  sass-embedded (${sass_version}-arm64-darwin) sha256=//p" "${site_root}/Gemfile.lock" | head -n 1)"
+  if [[ -z "${expected_sha}" ]]; then
+    printf 'Could not find the checksum for %s in %s.\n' "${sass_package}" "${site_root}/Gemfile.lock" >&2
+    exit 1
+  fi
+
+  if [[ ! -x "${sass_root}/lib/sass/dart-sass/src/dart" ]]; then
+    mkdir -p "${cache_root}"
+    (
+      cd "${cache_root}"
+      gem fetch sass-embedded --version "${sass_version}" --platform arm64-darwin --clear-sources --source https://rubygems.org
+    )
+
+    actual_sha="$(shasum -a 256 "${sass_gem}" | awk '{print $1}')"
+    if [[ "${actual_sha}" != "${expected_sha}" ]]; then
+      printf 'Checksum verification failed for %s.\n' "${sass_gem}" >&2
+      exit 1
+    fi
+
+    gem unpack "${sass_gem}" --target "${cache_root}" >/dev/null
+  fi
+
+  export BYUZBASI_SASS_ARM64_ROOT="${sass_root}"
+  export RUBYOPT="-r${repository_root}/bin/sass-arm64-compat.rb${RUBYOPT:+ ${RUBYOPT}}"
+fi
+
+cd "${site_root}"
+exec bundle exec jekyll serve --livereload "$@"

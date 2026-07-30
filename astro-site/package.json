@@ -1,8 +1,0 @@
-{
-  "name": "bahadir-yuzbasi-academic-site",
-  "private": true,
-  "type": "module",
-  "scripts": { "build": "astro build", "dev": "astro dev" },
-  "dependencies": { "@astrojs/sitemap": "^3.7.2", "astro": "^5.15.1", "bibtex-parse-js": "^0.0.24" },
-  "devDependencies": {}
-}

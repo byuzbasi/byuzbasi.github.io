@@ -1,61 +1,340 @@
-- title: Functional Data için Makine Öğrenmesi
-  funder: TÜBİTAK 2219 Uluslararası Doktora Sonrası Araştırma Burs Programı
-  period: 2024–2025 · 12 ay
+- id: tubitak-1001-buyuk-mekansal-veri
+  featured: true
+  title: Büyük Mekânsal Verilerde Heterojenlik Probleminin Açıklanabilir ve Denetimli Makine Öğrenmesi ile Modellenmesi
+  title_en: Modeling Heterogeneity in Big Spatial Data with Explainable and Supervised Machine Learning
+  funder: TÜBİTAK 1001 · Bilimsel ve Teknolojik Araştırma Projelerini Destekleme Programı
+  funder_en: TÜBİTAK 1001 · Scientific and Technological Research Projects Funding Programme
+  period: 36 ay
+  period_en: 36 months
   role: Yürütücü
-  institution: Simon Fraser University · Statistics and Actuarial Science · Kanada
-  budget: 31.200 USD
-  focus: Fonksiyonel veri analizi ve istatistiksel öğrenmenin kesişiminde makine öğrenmesi yöntemleri.
-  status: Uluslararası araştırma bursu
+  role_en: Principal investigator
+  institution: İnönü Üniversitesi
+  institution_en: İnönü University
+  budget: 2.979.000 TL · PTİ ve kurum hissesi hariç
+  budget_en: TRY 2,979,000 · excluding project incentive payments and institutional share
+  budget_label: Başvuruda talep edilen bütçe
+  budget_label_en: Budget requested in the application
+  focus: Açıklanabilir ve denetimli makine öğrenmesiyle büyük mekânsal verilerde heterojenliğin modellenmesi; bölgesel enerji yoğunluğu, hava kirliliği ve sosyo-ekonomik göstergeler için yorumlanabilir ve politika odaklı yöntemlerin geliştirilmesi.
+  focus_en: Explainable and supervised machine-learning methods for modeling heterogeneity in big spatial data, with interpretable and policy-oriented applications to regional energy intensity, air pollution and socio-economic indicators.
+  status: Kabul edildi · 2026-1
+  status_en: Accepted · 2026-1
+  team:
+    - name: Prof. Dr. Bahadır Yüzbaşı
+      name_en: Professor Bahadır Yüzbaşı
+      role: Proje yürütücüsü
+      role_en: Principal investigator
+      institution: İnönü Üniversitesi
+      institution_en: İnönü University
+    - name: Prof. Dr. Ayşe Metin Karakaş
+      name_en: Professor Ayşe Metin Karakaş
+      role: Araştırmacı
+      role_en: Researcher
+      institution: Bitlis Eren Üniversitesi
+      institution_en: Bitlis Eren University
+    - name: Doç. Dr. Ebru Cavlak Aslan
+      name_en: Associate Professor Ebru Cavlak Aslan
+      role: Araştırmacı
+      role_en: Researcher
+      institution: Fırat Üniversitesi
+      institution_en: Fırat University
+    - name: Doç. Dr. Fehmi Aslan
+      name_en: Associate Professor Fehmi Aslan
+      role: Araştırmacı
+      role_en: Researcher
+      institution: Malatya Turgut Özal Üniversitesi
+      institution_en: Malatya Turgut Özal University
+    - name: Prof. Dr. Hasan Bulut
+      name_en: Professor Hasan Bulut
+      role: Araştırmacı
+      role_en: Researcher
+      institution: Fırat Üniversitesi
+      institution_en: Fırat University
+    - name: Doç. Dr. Tayfur Bayat
+      name_en: Associate Professor Tayfur Bayat
+      role: Araştırmacı
+      role_en: Researcher
+      institution: İnönü Üniversitesi
+      institution_en: İnönü University
+  graduate_budget: 2.115.000 TL
+  graduate_budget_en: TRY 2,115,000
+  graduate_positions:
+    - level: Yüksek lisans
+      level_en: Master's
+      count: 2
+      duration: 12 ay
+      duration_en: 12 months
+      monthly: 22.500 TL/ay
+      monthly_en: TRY 22,500/month
+      total: 540.000 TL
+      total_en: TRY 540,000
+    - level: Yüksek lisans
+      level_en: Master's
+      count: 1
+      duration: 18 ay
+      duration_en: 18 months
+      monthly: 22.500 TL/ay
+      monthly_en: TRY 22,500/month
+      total: 405.000 TL
+      total_en: TRY 405,000
+    - level: Doktora
+      level_en: PhD
+      count: 2
+      duration: 18 ay
+      duration_en: 18 months
+      monthly: 32.500 TL/ay
+      monthly_en: TRY 32,500/month
+      total: 1.170.000 TL
+      total_en: TRY 1,170,000
+  opportunity_status: Planlanan bursiyer kadroları · İlgilenen adaylar iletişime geçebilir.
+  opportunity_status_en: Planned graduate scholarship positions · Interested candidates are welcome to get in touch.
+  candidate_profile:
+    - İstatistik, ekonometri, matematik, veri bilimi, bilgisayar bilimleri veya ilgili bir alanda yüksek lisans ya da doktora öğrencisi olmak.
+    - Eğitim alanı veya tez konusu itibarıyla proje konusuyla ilişkili olmak.
+    - R veya Python ile programlama; makine öğrenmesi, mekânsal veri analizi ya da yeniden üretilebilir araştırmaya ilgi duymak.
+    - Kısa özgeçmiş, transkript ve araştırma ilgisini açıklayan kısa bir metin sunmak.
+  candidate_profile_en:
+    - Be enrolled in a master's or PhD programme in statistics, econometrics, mathematics, data science, computer science or a related field.
+    - Have a field of study or thesis topic related to the project.
+    - Have an interest in R or Python programming, machine learning, spatial data analysis or reproducible research.
+    - Provide a short CV, transcript and brief statement of research interests.
+  scholarship_conditions:
+    - TÜBİTAK'ın aynı anda birden fazla projede bursiyer olmaya ilişkin hükümleri uygulanır.
+    - BİDEB'den kısmi burs alanlara proje kapsamında ayrıca burs ödemesi yapılamaz.
+    - Fiilî burs tutarı; öğrencinin çalışma durumu, nihai proje sözleşmesi ve yürürlükteki TÜBİTAK kurallarına göre belirlenir.
+  scholarship_conditions_en:
+    - TÜBİTAK rules on holding scholarships in more than one project apply.
+    - Students receiving a partial BİDEB scholarship cannot receive an additional scholarship from this project.
+    - Actual payments depend on employment status, the final project agreement and the TÜBİTAK rules in force.
+  contact_email: bahadir.yuzbasi@inonu.edu.tr
+  outputs_note: Proje yeni kabul edildi. Makale, sunum, yazılım ve diğer araştırma çıktıları üretildikçe burada proje ile ilişkilendirilecektir.
+  outputs_note_en: The project has recently been accepted. Articles, presentations, software and other research outputs will be linked here as they become available.
 
-- title: Van İlinin İç ve Dış Göçünün Coğrafi Ağırlıklı Regresyon ile İncelenmesi
+- id: tubitak-2219-functional-data
+  title: Functional Data için Makine Öğrenmesi
+  title_en: Machine Learning for Functional Data
+  funder: TÜBİTAK 2219 Uluslararası Doktora Sonrası Araştırma Burs Programı
+  funder_en: TÜBİTAK 2219 International Postdoctoral Research Fellowship Programme
+  period: 2024–2025 · 12 ay
+  period_en: 2024–2025 · 12 months
+  role: Yürütücü
+  role_en: Principal investigator
+  institution: Simon Fraser University · Statistics and Actuarial Science · Kanada
+  institution_en: Simon Fraser University · Department of Statistics and Actuarial Science · Canada
+  budget: 31.200 USD
+  budget_en: USD 31,200
+  focus: Fonksiyonel veri analizi ve istatistiksel öğrenmenin kesişiminde makine öğrenmesi yöntemleri.
+  focus_en: Machine-learning methods at the intersection of functional data analysis and statistical learning.
+  status: Uluslararası araştırma bursu
+  status_en: International research fellowship
+
+- id: tubitak-3005-van-migration
+  title: Van İlinin İç ve Dış Göçünün Coğrafi Ağırlıklı Regresyon ile İncelenmesi
+  title_en: Investigation of Internal and International Migration in Van Province Using Geographically Weighted Regression
   funder: TÜBİTAK 3005 · Sosyal ve Beşeri Bilimlerde Yenilikçi Çözümler Araştırma Projeleri Destek Programı
+  funder_en: TÜBİTAK 3005 · Innovative Solutions in Social Sciences and Humanities Research Projects Support Programme
   number: 122G128
   period: 1 Ekim 2022 – 5 Nisan 2024
+  period_en: 1 October 2022 – 5 April 2024
   role: Yürütücü
+  role_en: Principal investigator
   institution: Türkiye
+  institution_en: Türkiye
   budget: 327.137 TL
+  budget_en: TRY 327,137
   focus: Van ilindeki göç süreçlerinin coğrafi ağırlıklı regresyon yöntemleriyle incelenmesi.
+  focus_en: An empirical investigation of migration processes in Van Province using geographically weighted regression.
   status: Tamamlandı
+  status_en: Completed
   outputs:
-    - Sosyo-Gelişmişlik Düzeyi ile Göç Arasındaki İlişki: Van İli Üzerine Bir Araştırma · The Migration Conference 2023
-    - Ekonomik Yetersizlik ile Göç Arasındaki İlişkinin Ampirik Analizi: Van İlinden Kanıtlar · The Migration Conference 2023
-    - Van İlinin Göç Sonrası Uyum Sürecinde Eğitim Etkisi · 2nd International Artificial Intelligence and Social Sciences Congress, 2023
-    - The Effect of Climate and Geography on Migration to Van Province · CMES-2023
-    - Migration to Van Province to Access a Better Life · CMES-2023
+    - type: Makale
+      title: "Examining The Role of Job by Geographically Weighted Poisson Regression in The Post-Migration Adaptation Process: The Case of Van"
+      venue: Yüzüncü Yıl Üniversitesi Sosyal Bilimler Enstitüsü Dergisi
+      year: 2023
+      url: https://dergipark.org.tr/en/pub/yyusbed/issue/80768/1349348
+    - type: Makale
+      title: Study of the Factors Influencing Cultural Similarity in the Post-Migration Adaptation Process in the Province of Van Using the GWR Method
+      venue: Journal of Geography
+      year: 2024
+      url: https://doi.org/10.26650/JGEOG2024-1353398
+    - type: Makale
+      title: The Role of Socio-Economic Development Level in Van Province on Migration
+      venue: Sinop Üniversitesi Sosyal Bilimler Dergisi
+      year: 2026
+      url: https://dergipark.org.tr/en/pub/sinopusd/article/1773142
+    - type: Makale
+      title: Analysis of Van Province's Migration from Iran by Geographically Weighted Regression Method
+      venue: Uluslararası İlişkiler
+      year: 2026
+      url: https://doi.org/10.33458/uidergisi.1853672
+    - type: Kitap bölümü
+      title: "Examining the Effect of Education on the Post-Migration Adaptation Process with the Geographically Weighted Poisson Regression Method: Van Example"
+      venue: Globalization and Migration · Chapter 8 · Holistence Publications
+      year: 2023
+    - type: Sunum
+      title: "Sosyo-Gelişmişlik Düzeyi ile Göç Arasındaki İlişki: Van İli Üzerine Bir Araştırma"
+      venue: The Migration Conference
+      year: 2023
+    - type: Sunum
+      title: "Ekonomik Yetersizlik ile Göç Arasındaki İlişkinin Ampirik Analizi: Van İlinden Kanıtlar"
+      venue: The Migration Conference
+      year: 2023
+    - type: Sunum
+      title: Van İlinin Göç Sonrası Uyum Sürecinde Eğitim Etkisi
+      venue: 2nd International Artificial Intelligence and Social Sciences Congress
+      year: 2023
+    - type: Sunum
+      title: The Effect of Climate and Geography on Migration to Van Province
+      venue: CMES
+      year: 2023
+    - type: Sunum
+      title: Migration to Van Province to Access a Better Life
+      venue: CMES
+      year: 2023
+    - type: Sunum
+      title: Van İlinin Eğitim İmkânsızlıkları Nedeniyle Aldığı Göçün Coğrafi Ağırlıklı Poisson Regresyon Yöntemiyle İncelenmesi
+      venue: 2nd International Artificial Intelligence and Social Sciences Congress
+      year: 2023
+    - type: Sunum
+      title: "Investigation of Work Effect in the Post-Migration Adaptation Process by Geographically Weighted Poisson Regression: The Case of Van"
+      venue: CMES
+      year: 2023
+    - type: Sunum
+      title: "Examining the Factors Affecting Cultural Similarity in the Post-Migration Adaptation Process by Geographically Weighted Regression Method: The Case of Van Province"
+      venue: The Migration Conference
+      year: 2023
+    - type: Sunum
+      title: "Investigation of Migration due to Social Environmental Pressure by Geographical Regression: The Example of Van Province"
+      venue: The Migration Conference
+      year: 2023
+  outputs_en:
+    - type: Article
+      title: "Examining The Role of Job by Geographically Weighted Poisson Regression in The Post-Migration Adaptation Process: The Case of Van"
+      venue: Yüzüncü Yıl University Journal of Social Sciences Institute
+      year: 2023
+      url: https://dergipark.org.tr/en/pub/yyusbed/issue/80768/1349348
+    - type: Article
+      title: Study of the Factors Influencing Cultural Similarity in the Post-Migration Adaptation Process in the Province of Van Using the GWR Method
+      venue: Journal of Geography
+      year: 2024
+      url: https://doi.org/10.26650/JGEOG2024-1353398
+    - type: Article
+      title: The Role of Socio-Economic Development Level in Van Province on Migration
+      venue: Sinop University Journal of Social Sciences
+      year: 2026
+      url: https://dergipark.org.tr/en/pub/sinopusd/article/1773142
+    - type: Article
+      title: Analysis of Van Province's Migration from Iran by Geographically Weighted Regression Method
+      venue: International Relations
+      year: 2026
+      url: https://doi.org/10.33458/uidergisi.1853672
+    - type: Book chapter
+      title: "Examining the Effect of Education on the Post-Migration Adaptation Process with the Geographically Weighted Poisson Regression Method: Van Example"
+      venue: Globalization and Migration · Chapter 8 · Holistence Publications
+      year: 2023
+    - type: Presentation
+      title: "Sosyo-Gelişmişlik Düzeyi ile Göç Arasındaki İlişki: Van İli Üzerine Bir Araştırma [in Turkish]"
+      venue: The Migration Conference
+      year: 2023
+    - type: Presentation
+      title: "Ekonomik Yetersizlik ile Göç Arasındaki İlişkinin Ampirik Analizi: Van İlinden Kanıtlar [in Turkish]"
+      venue: The Migration Conference
+      year: 2023
+    - type: Presentation
+      title: Van İlinin Göç Sonrası Uyum Sürecinde Eğitim Etkisi [in Turkish]
+      venue: 2nd International Artificial Intelligence and Social Sciences Congress
+      year: 2023
+    - type: Presentation
+      title: The Effect of Climate and Geography on Migration to Van Province
+      venue: CMES
+      year: 2023
+    - type: Presentation
+      title: Migration to Van Province to Access a Better Life
+      venue: CMES
+      year: 2023
+    - type: Presentation
+      title: Van İlinin Eğitim İmkânsızlıkları Nedeniyle Aldığı Göçün Coğrafi Ağırlıklı Poisson Regresyon Yöntemiyle İncelenmesi [in Turkish]
+      venue: 2nd International Artificial Intelligence and Social Sciences Congress
+      year: 2023
+    - type: Presentation
+      title: "Investigation of Work Effect in the Post-Migration Adaptation Process by Geographically Weighted Poisson Regression: The Case of Van"
+      venue: CMES
+      year: 2023
+    - type: Presentation
+      title: "Examining the Factors Affecting Cultural Similarity in the Post-Migration Adaptation Process by Geographically Weighted Regression Method: The Case of Van Province"
+      venue: The Migration Conference
+      year: 2023
+    - type: Presentation
+      title: "Investigation of Migration due to Social Environmental Pressure by Geographical Regression: The Example of Van Province"
+      venue: The Migration Conference
+      year: 2023
 
-- title: Küçültme ve Cezalı Kestirim Stratejileri
+- id: tubitak-2214a-shrinkage
+  title: Küçültme ve Cezalı Kestirim Stratejileri
+  title_en: Shrinkage and Penalized Estimation Strategies
   funder: TÜBİTAK 2214-A · Uluslararası Doktora Araştırma Burs Programı
+  funder_en: TÜBİTAK 2214-A · International Research Fellowship Programme for PhD Students
   period: 2013–2014 · 12 ay
+  period_en: 2013–2014 · 12 months
   role: Yürütücü
+  role_en: Principal investigator
   institution: Brock University · Mathematics and Statistics · Kanada
+  institution_en: Brock University · Department of Mathematics and Statistics · Canada
   budget: 15.600 USD
+  budget_en: USD 15,600
   focus: Doğrusal ve yüksek boyutlu regresyon için küçültme, ön-test ve cezalı kestirim stratejileri.
+  focus_en: Shrinkage, pretest and penalized estimation strategies for linear and high-dimensional regression.
   status: Uluslararası araştırma bursu
+  status_en: International research fellowship
 
-- title: Sağlam Düzenlileştirme ve Gaussian Grafiksel Modeller
+- id: inonu-ubc-robust-regularization
+  title: Sağlam Düzenlileştirme ve Gaussian Grafiksel Modeller
+  title_en: Robust Regularization and Gaussian Graphical Models
   funder: İnönü Üniversitesi · Uluslararası İkili İş Birliği Projesi
+  funder_en: İnönü University · International Bilateral Cooperation Project
   number: SUA-2019-1629
   period: Şubat 2019 – Ağustos 2019
+  period_en: February 2019 – August 2019
   role: Yürütücü
+  role_en: Principal investigator
   institution: University of British Columbia · Department of Statistics · Kanada
+  institution_en: University of British Columbia · Department of Statistics · Canada
   budget: 7.500 USD
+  budget_en: USD 7,500
   focus: Sağlam cezalı kestirim ve Gaussian grafiksel modeller için yöntem geliştirme.
+  focus_en: Methodological development for robust penalized estimation and Gaussian graphical models.
   status: Tamamlandı
+  status_en: Completed
 
-- title: Doğrusal Kantil Regresyonda Ön-Test ve Stein Tipi Kestirim
+- id: inonu-quantile-regression
+  title: Doğrusal Kantil Regresyonda Ön-Test ve Stein Tipi Kestirim
+  title_en: Pretest and Stein-type Estimation in Linear Quantile Regression Models
   funder: İnönü Üniversitesi · Bilimsel Araştırma Projesi
+  funder_en: İnönü University · Scientific Research Project
   number: SBA-2017-946
   period: Aralık 2017 – Eylül 2018
+  period_en: December 2017 – September 2018
   role: Yürütücü
+  role_en: Principal investigator
   institution: İnönü Üniversitesi
+  institution_en: İnönü University
   focus: Kantil regresyon modellerinde ön-test ve Stein tipi kestirim yöntemlerinin geliştirilmesi.
+  focus_en: Development of pretest and Stein-type estimation methods for quantile regression models.
   status: Tamamlandı
+  status_en: Completed
 
-- title: Doğrusal Regresyon Modellerinde Liu Tipi Kestirim
+- id: neu-liu-estimation
+  title: Doğrusal Regresyon Modellerinde Liu Tipi Kestirim
+  title_en: Liu-type Estimation in Linear Regression Models
   funder: Necmettin Erbakan Üniversitesi · Bilimsel Araştırma Projesi
+  funder_en: Necmettin Erbakan University · Scientific Research Project
   number: 171215001
   period: Mart 2017 – Aralık 2017
+  period_en: March 2017 – December 2017
   role: Araştırmacı
+  role_en: Researcher
   institution: Necmettin Erbakan Üniversitesi
+  institution_en: Necmettin Erbakan University
   focus: Çoklu doğrusal bağlantı altında Liu tipi kestirim yaklaşımlarının incelenmesi.
+  focus_en: Investigation of Liu-type estimation approaches under multicollinearity.
   status: Tamamlandı
+  status_en: Completed

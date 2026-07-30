@@ -3,17 +3,20 @@
 # -----------------------------------------------------------------------------
 
 title: blank
-first_name: Prof. Dr. Bahadır
+first_name: Bahadır
 middle_name:
 last_name: Yüzbaşı
 contact_note: >
   İnönü Üniversitesi, Ekonometri Bölümü · Malatya, Türkiye
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Prof. Dr. Bahadır Yüzbaşı'nın istatistik, ekonometri ve veri bilimi alanındaki akademik sayfası.
+description_en: >
+  Academic website of Bahadır Yüzbaşı, Professor of Statistics and Econometrics, featuring research, publications, projects, software and teaching.
 footer_text: >
-  <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a> altyapısıyla.
+  Powered by <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a>.
   <script data-goatcounter="https://bahadiryuzbasi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-keywords: Bahadır Yüzbaşı, istatistik, ekonometri, veri bilimi, makine öğrenmesi, functional data analysis
+keywords: Bahadır Yüzbaşı, statistics, econometrics, data science, machine learning, functional data analysis, spatial statistics, high-dimensional inference
+keywords_en: Bahadır Yüzbaşı, statistics, econometrics, data science, machine learning, functional data analysis, spatial statistics, high-dimensional inference
 lang: tr
 icon: ∑
 
@@ -97,9 +100,9 @@ max_width: 930px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
+og_image: /assets/img/og/bahadir-yuzbasi-academic-profile.png
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification

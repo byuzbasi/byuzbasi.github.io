@@ -1,0 +1,168 @@
+{% assign current_lang = page.lang | default: site.lang %}
+{% assign locale = site.data.i18n[current_lang] %}
+{% assign translated_content = site.pages | concat: site.teachings %}
+{% assign home_url = '/' %}
+{% if current_lang == 'en' %}
+  {% assign home_url = '/en/' %}
+{% endif %}
+{% assign about_title = '' %}
+{% for candidate in site.pages %}
+  {% if candidate.translation_key == 'about' and candidate.lang == current_lang %}
+    {% assign about_title = candidate.nav_title | default: candidate.title %}
+  {% endif %}
+{% endfor %}
+{% assign target_lang = 'en' %}
+{% if current_lang == 'en' %}
+  {% assign target_lang = 'tr' %}
+{% endif %}
+{% assign alternate_url = nil %}
+{% for candidate in translated_content %}
+  {% if page.translation_key and candidate.translation_key == page.translation_key and candidate.lang == target_lang %}
+    {% assign alternate_url = candidate.url %}
+  {% endif %}
+{% endfor %}
+{% unless alternate_url %}
+  {% if target_lang == 'en' %}
+    {% assign alternate_url = '/en/' %}
+  {% else %}
+    {% assign alternate_url = '/' %}
+  {% endif %}
+{% endunless %}
+
+<header>
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
+    <div class="container">
+      {% if page.translation_key != 'about' %}
+        <a class="navbar-brand title font-weight-lighter" href="{{ home_url | relative_url }}">
+          <span class="font-weight-bold">{{ locale.brand_bold }}</span>
+          {{ locale.brand_light }}
+        </a>
+      {% elsif site.enable_navbar_social %}
+        <div class="navbar-brand social">{% social_links %}</div>
+      {% endif %}
+
+      <button
+        class="navbar-toggler collapsed navbar-toggler-main"
+        type="button"
+        data-nav-toggle="navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="{{ locale.nav_toggle }}"
+      >
+        <span class="sr-only">{{ locale.nav_toggle }}</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav">
+        <ul class="navbar-nav navbar-menu-list flex-nowrap">
+          <li class="nav-item {% if page.translation_key == 'about' %}active{% endif %}">
+            <a class="nav-link" href="{{ home_url | relative_url }}">
+              {{- about_title -}}
+              {% if page.translation_key == 'about' %}
+                <span class="sr-only">({{ locale.current_page }})</span>
+              {% endif %}
+            </a>
+          </li>
+
+          {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+          {% for p in sorted_pages %}
+            {% if p.nav and p.autogen == null and p.lang == current_lang %}
+              {% if p.dropdown %}
+                {% assign has_active_child = false %}
+                {% for child in p.children %}
+                  {% if page.title == child.title %}
+                    {% assign has_active_child = true %}
+                  {% endif %}
+                {% endfor %}
+                <li class="nav-item dropdown {% if page.translation_key == p.translation_key or has_active_child %}active{% endif %}">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-nav-dropdown-toggle="true"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    {{- p.title -}}
+                    {% if page.translation_key == p.translation_key or has_active_child %}
+                      <span class="sr-only">({{ locale.current_page }})</span>
+                    {% endif %}
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    {% for child in p.children %}
+                      {% if child.title == 'divider' %}
+                        <div class="dropdown-divider"></div>
+                      {% else %}
+                        <a
+                          class="dropdown-item {% if page.title == child.title %}active{% endif %}"
+                          href="{% if child.permalink contains '://' %}{{ child.permalink }}{% else %}{{ child.permalink | relative_url }}{% endif %}"
+                        >
+                          {{- child.title -}}
+                        </a>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </li>
+              {% else %}
+                <li class="nav-item {% if page.translation_key == p.translation_key %}active{% endif %}">
+                  {%- if p.permalink contains '://' -%}
+                    {%- assign nav_url = p.permalink -%}
+                  {%- else -%}
+                    {%- assign nav_url = p.url -%}
+                  {%- endif %}
+                  <a class="nav-link" href="{{ nav_url | relative_url }}">
+                    {{- p.nav_title | default: p.title -}}
+                    {% if page.translation_key == p.translation_key %}
+                      <span class="sr-only">({{ locale.current_page }})</span>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          <li class="nav-item language-switcher">
+            <div class="nav-link language-switcher__inner" aria-label="{{ locale.language_label }}">
+              {% if current_lang == 'tr' %}
+                <span class="language-switcher__current" lang="tr" aria-current="true">TR</span>
+                <span class="language-switcher__separator" aria-hidden="true">·</span>
+                <a href="{{ alternate_url | relative_url }}" hreflang="en" lang="en">EN</a>
+              {% else %}
+                <a href="{{ alternate_url | relative_url }}" hreflang="tr" lang="tr">TR</a>
+                <span class="language-switcher__separator" aria-hidden="true">·</span>
+                <span class="language-switcher__current" lang="en" aria-current="true">EN</span>
+              {% endif %}
+            </div>
+          </li>
+
+          {% if site.search_enabled %}
+            <li class="nav-item">
+              <button id="search-toggle" type="button" title="{{ locale.search_title }}" aria-label="{{ locale.search_label }}">
+                <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
+              </button>
+            </li>
+          {% endif %}
+          {% if site.enable_darkmode %}
+            <li class="toggle-container">
+              <button id="light-toggle" type="button" title="{{ locale.theme_title }}" aria-label="{{ locale.theme_label }}">
+                <i class="fa-half-sun-moon" id="light-toggle-system"></i>
+                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
+                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+              </button>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% if site.enable_progressbar %}
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  {% endif %}
+</header>

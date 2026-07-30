@@ -1,0 +1,192 @@
+{% assign current_lang = page.lang | default: site.lang %}
+<section class="project-intro" aria-label="{{ page.title }}">
+  <p class="section-eyebrow">{{ page.intro_eyebrow }}</p>
+  <p>{{ page.intro_text }}</p>
+</section>
+
+<section class="project-list" aria-label="{% if current_lang == 'en' %}Research projects{% else %}Araştırma projeleri{% endif %}">
+  {% for project in site.data.research_projects %}
+    {% assign project_title = project.title %}
+    {% assign project_funder = project.funder %}
+    {% assign project_period = project.period %}
+    {% assign project_role = project.role %}
+    {% assign project_institution = project.institution %}
+    {% assign project_budget = project.budget %}
+    {% assign project_budget_label = project.budget_label | default: 'Destek' %}
+    {% assign project_focus = project.focus %}
+    {% assign project_status = project.status %}
+    {% assign project_outputs = project.outputs %}
+    {% assign project_outputs_note = project.outputs_note %}
+    {% assign project_graduate_budget = project.graduate_budget %}
+    {% assign project_opportunity_status = project.opportunity_status %}
+    {% assign project_candidate_profile = project.candidate_profile %}
+    {% assign project_scholarship_conditions = project.scholarship_conditions %}
+    {% if current_lang == 'en' %}
+      {% assign project_title = project.title_en %}
+      {% assign project_funder = project.funder_en %}
+      {% assign project_period = project.period_en %}
+      {% assign project_role = project.role_en %}
+      {% assign project_institution = project.institution_en %}
+      {% assign project_budget = project.budget_en %}
+      {% assign project_budget_label = project.budget_label_en | default: 'Funding' %}
+      {% assign project_focus = project.focus_en %}
+      {% assign project_status = project.status_en %}
+      {% assign project_outputs = project.outputs_en %}
+      {% assign project_outputs_note = project.outputs_note_en %}
+      {% assign project_graduate_budget = project.graduate_budget_en %}
+      {% assign project_opportunity_status = project.opportunity_status_en %}
+      {% assign project_candidate_profile = project.candidate_profile_en %}
+      {% assign project_scholarship_conditions = project.scholarship_conditions_en %}
+    {% endif %}
+    {% assign project_index = forloop.index %}
+    <article
+      {% if project.id %}id="{{ project.id }}"{% endif %}
+      class="research-project{% if project.featured %} research-project--featured{% endif %}"
+    >
+      <div class="research-project__header">
+        <p class="research-project__status">{{ project_status }}</p>
+        <h2>{{ project_title }}</h2>
+        <p class="research-project__funder">{{ project_funder }}</p>
+      </div>
+      <p class="research-project__focus">{{ project_focus }}</p>
+      <dl class="research-project__facts">
+        {% if project.number %}
+          <div><dt>{% if current_lang == 'en' %}Project no.{% else %}Proje no.{% endif %}</dt><dd>{{ project.number }}</dd></div>
+        {% endif %}
+        <div><dt>{% if current_lang == 'en' %}Period{% else %}Dönem{% endif %}</dt><dd>{{ project_period }}</dd></div>
+        <div><dt>{% if current_lang == 'en' %}Role{% else %}Rol{% endif %}</dt><dd>{{ project_role }}</dd></div>
+        <div><dt>{% if current_lang == 'en' %}Institution{% else %}Kurum{% endif %}</dt><dd>{{ project_institution }}</dd></div>
+        {% if project_budget %}
+          <div><dt>{{ project_budget_label }}</dt><dd>{{ project_budget }}</dd></div>
+        {% endif %}
+      </dl>
+      {% if project.team %}
+        <section class="research-project__team" aria-labelledby="project-team-{{ project_index }}">
+          <h3 id="project-team-{{ project_index }}">{% if current_lang == 'en' %}Project team{% else %}Proje ekibi{% endif %}</h3>
+          <div class="research-project__team-grid">
+            {% for member in project.team %}
+              {% assign member_name = member.name %}
+              {% assign member_role = member.role %}
+              {% assign member_institution = member.institution %}
+              {% if current_lang == 'en' %}
+                {% assign member_name = member.name_en %}
+                {% assign member_role = member.role_en %}
+                {% assign member_institution = member.institution_en %}
+              {% endif %}
+              <div class="research-project__member">
+                <p class="research-project__member-name">{{ member_name }}</p>
+                <p>{{ member_role }} · {{ member_institution }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+      {% if project.graduate_positions %}
+        <section class="research-project__opportunities" aria-labelledby="graduate-opportunities-{{ project_index }}">
+          <div class="research-project__opportunities-header">
+            <div>
+              <p class="section-eyebrow">{% if current_lang == 'en' %}GRADUATE OPPORTUNITIES{% else %}LİSANSÜSTÜ FIRSATLARI{% endif %}</p>
+              <h3 id="graduate-opportunities-{{ project_index }}">
+                {% if current_lang == 'en' %}Planned graduate scholarship positions{% else %}Planlanan lisansüstü bursiyer kadroları{% endif %}
+              </h3>
+            </div>
+            <p class="research-project__opportunity-status">{{ project_opportunity_status }}</p>
+          </div>
+          <div class="research-project__positions-wrap">
+            <table class="research-project__positions">
+              <caption class="sr-only">
+                {% if current_lang == 'en' %}Graduate scholarship positions in the project application{% else %}Proje başvurusunda planlanan lisansüstü bursiyer kadroları{% endif %}
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">{% if current_lang == 'en' %}Level{% else %}Düzey{% endif %}</th>
+                  <th scope="col">{% if current_lang == 'en' %}Positions{% else %}Sayı{% endif %}</th>
+                  <th scope="col">{% if current_lang == 'en' %}Duration{% else %}Süre{% endif %}</th>
+                  <th scope="col">{% if current_lang == 'en' %}Monthly amount{% else %}Aylık tutar{% endif %}</th>
+                  <th scope="col">{% if current_lang == 'en' %}Planned total{% else %}Planlanan toplam{% endif %}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for position in project.graduate_positions %}
+                  {% assign position_level = position.level %}
+                  {% assign position_duration = position.duration %}
+                  {% assign position_monthly = position.monthly %}
+                  {% assign position_total = position.total %}
+                  {% if current_lang == 'en' %}
+                    {% assign position_level = position.level_en %}
+                    {% assign position_duration = position.duration_en %}
+                    {% assign position_monthly = position.monthly_en %}
+                    {% assign position_total = position.total_en %}
+                  {% endif %}
+                  <tr>
+                    <td>{{ position_level }}</td>
+                    <td>{{ position.count }}</td>
+                    <td>{{ position_duration }}</td>
+                    <td>{{ position_monthly }}</td>
+                    <td>{{ position_total }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <p class="research-project__graduate-total">
+            <strong>{% if current_lang == 'en' %}Total graduate scholarship budget requested:{% else %}Talep edilen toplam bursiyer bütçesi:{% endif %}</strong>
+            {{ project_graduate_budget }}
+          </p>
+          <div class="research-project__candidate-grid">
+            <div>
+              <h4>{% if current_lang == 'en' %}Suggested candidate profile{% else %}Önerilen aday profili{% endif %}</h4>
+              <ul>{% for item in project_candidate_profile %}<li>{{ item }}</li>{% endfor %}</ul>
+            </div>
+            <div>
+              <h4>{% if current_lang == 'en' %}Scholarship conditions{% else %}Burs koşulları{% endif %}</h4>
+              <ul>{% for item in project_scholarship_conditions %}<li>{{ item }}</li>{% endfor %}</ul>
+            </div>
+          </div>
+          <p class="research-project__application-note">
+            {% if current_lang == 'en' %}
+              The durations and amounts above reflect the submitted project budget and remain subject to the final project agreement and current TÜBİTAK rules.
+              Interested candidates may contact <a href="mailto:{{ project.contact_email }}">{{ project.contact_email }}</a>.
+            {% else %}
+              Yukarıdaki süre ve tutarlar başvuru bütçesindeki planlamayı gösterir; nihai proje sözleşmesine ve yürürlükteki TÜBİTAK kurallarına tabidir.
+              İlgilenen adaylar <a href="mailto:{{ project.contact_email }}">{{ project.contact_email }}</a> adresinden iletişime geçebilir.
+            {% endif %}
+          </p>
+        </section>
+      {% endif %}
+      {% if project_outputs %}
+        <div class="research-project__outputs">
+          <h3>{% if current_lang == 'en' %}Related outputs{% else %}İlişkili çıktılar{% endif %}</h3>
+          <ul class="research-project__output-list">
+            {% for output in project_outputs %}
+              <li>
+                {% if output.title %}
+                  <span class="research-project__output-type">{{ output.type }}</span>
+                  <span class="research-project__output-citation">
+                    {% if output.url %}
+                      <a href="{{ output.url }}" target="_blank" rel="noopener">{{ output.title }}</a>
+                    {% else %}
+                      {{ output.title }}
+                    {% endif %}
+                    {% if output.venue or output.year %}
+                      <span class="research-project__output-meta">
+                        {% if output.venue %}{{ output.venue }}{% endif %}{% if output.venue and output.year %} · {% endif %}{% if output.year %}{{ output.year }}{% endif %}
+                      </span>
+                    {% endif %}
+                  </span>
+                {% else %}
+                  {{ output }}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% elsif project_outputs_note %}
+        <div class="research-project__outputs research-project__outputs--note">
+          <h3>{% if current_lang == 'en' %}Project outputs{% else %}Proje çıktıları{% endif %}</h3>
+          <p>{{ project_outputs_note }}</p>
+        </div>
+      {% endif %}
+    </article>
+  {% endfor %}
+</section>

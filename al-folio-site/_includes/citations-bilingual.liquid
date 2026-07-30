@@ -1,0 +1,65 @@
+{% assign current_lang = page.lang | default: site.lang %}
+<div id="citation-summary" class="mb-4" aria-live="polite">
+  {% if current_lang == 'en' %}Loading citation data…{% else %}Atıf verileri yükleniyor…{% endif %}
+</div>
+<div id="citation-list"></div>
+
+<script>
+  (() => {
+    const language = '{{ current_lang }}';
+    const copy = language === 'en'
+      ? {
+          works: 'works and',
+          citations: 'total citations.',
+          source: 'Source: OpenAlex; refreshed whenever this page is opened.',
+          publication: 'Publication',
+          year: 'Year',
+          citation: 'Citations',
+          record: 'Record',
+          failure: 'Citation data are temporarily unavailable. Please try again later or use the Google Scholar profile.'
+        }
+      : {
+          works: 'çalışma ve',
+          citations: 'toplam atıf.',
+          source: 'Kaynak: OpenAlex; sayfa her açıldığında yenilenir.',
+          publication: 'Yayın',
+          year: 'Yıl',
+          citation: 'Atıf',
+          record: 'Kayıt',
+          failure: 'Atıf verisi şu an yüklenemedi. Lütfen daha sonra tekrar deneyin veya Google Scholar profilini kullanın.'
+        };
+    const authorUrl = 'https://api.openalex.org/authors/orcid:0000-0002-6196-3201';
+    const summary = document.getElementById('citation-summary');
+    const list = document.getElementById('citation-list');
+    const escapeHtml = (value) => String(value || '').replace(/[&<>'"]/g, (character) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+    }[character]));
+
+    fetch(authorUrl)
+      .then((response) => {
+        if (!response.ok) throw new Error('OpenAlex request failed');
+        return response.json();
+      })
+      .then((author) => fetch(`https://api.openalex.org/works?filter=authorships.author.id:${author.id}&per-page=100&sort=cited_by_count:desc`)
+        .then((response) => {
+          if (!response.ok) throw new Error('OpenAlex request failed');
+          return response.json();
+        })
+        .then((works) => ({ author, works: works.results || [] })))
+      .then(({ author, works }) => {
+        summary.innerHTML = `<p><strong>${author.works_count}</strong> ${copy.works} <strong>${author.cited_by_count}</strong> ${copy.citations} ` +
+          `<span class="text-muted">${copy.source}</span></p>`;
+        const rows = works.map((work) => {
+          const url = work.doi || work.id;
+          const year = work.publication_year || '—';
+          return `<tr><td>${escapeHtml(work.display_name)}</td><td>${year}</td><td>${work.cited_by_count || 0}</td>` +
+            `<td><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${copy.record}</a></td></tr>`;
+        }).join('');
+        list.innerHTML = `<div class="table-responsive"><table class="table table-sm">` +
+          `<thead><tr><th>${copy.publication}</th><th>${copy.year}</th><th>${copy.citation}</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`;
+      })
+      .catch(() => {
+        summary.innerHTML = `<p>${copy.failure}</p>`;
+      });
+  })();
+</script>

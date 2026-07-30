@@ -1,17 +1,30 @@
 # IDEs
 .idea/
 
-# Hugo
-resources/
-public/
-jsconfig.json
+# Jekyll and Bundler
+al-folio-site/_site/
+al-folio-site/.jekyll-cache/
+al-folio-site/.jekyll-metadata
+al-folio-site/.local-cache/
+al-folio-site/vendor/bundle/
+al-folio-site/assets/files/kurs/
+.bundle/
+vendor/bundle/
 node_modules/
-go.sum
-.hugo_build.lock
+__pycache__/
+*.py[cod]
+
+# Local R and LaTeX outputs
 .Rproj.user
 .Rhistory
-.DS_Store
+Rplots.pdf
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
 
-# Local Astro build artifacts
-astro-site/.astro/
-astro-site/dist/
+# Operating system files
+.DS_Store

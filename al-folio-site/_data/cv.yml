@@ -1,9 +1,10 @@
 cv:
   name: Bahadır Yüzbaşı
-  label: Professor of Statistics and Econometrics
+  label: İstatistik ve Ekonometri Profesörü
+  university: İnönü Üniversitesi
   email: bahadir.yuzbasi@inonu.edu.tr
   location: Malatya, Türkiye
-  summary: İstatistik ve ekonometride; yüksek boyutlu, uzamsal ve fonksiyonel veriler için shrinkage, pretest ve penalize kestirim yöntemleri geliştiren profesör.
+  summary: Yüksek boyutlu, uzamsal ve fonksiyonel veriler için küçültme, ön-test ve penalize kestirim yöntemleri geliştiren İstatistik ve Ekonometri Profesörü.
 
   social_networks:
     - network: ORCID
@@ -15,119 +16,122 @@ cv:
 
   sections:
     Akademik atamalar:
-      - company: İnönü University, Department of Econometrics
-        position: Professor of Statistics
+      - company: İnönü Üniversitesi, Ekonometri Bölümü
+        position: İstatistik Profesörü
         location: Malatya, Türkiye
         start_date: 2023
-        summary: Research and teaching in statistics, econometrics and data science.
-      - company: Simon Fraser University, Department of Statistics and Actuarial Science
-        position: Visiting Professor
-        location: Burnaby, Canada
+        summary: İstatistik, ekonometri ve veri bilimi alanlarında araştırma ve öğretim.
+      - company: Simon Fraser University, İstatistik ve Aktüerya Bilimi Bölümü
+        position: Misafir Profesör
+        location: Burnaby, Kanada
         start_date: 2024-07
         end_date: 2025-07
-        summary: Research on machine learning for functional data.
-      - company: Simon Fraser University, Department of Statistics and Actuarial Science
-        position: Sessional Instructor
-        location: Burnaby, Canada
+        summary: Fonksiyonel veriler için makine öğrenmesi üzerine araştırma.
+      - company: Simon Fraser University, İstatistik ve Aktüerya Bilimi Bölümü
+        position: Dönemsel Öğretim Elemanı
+        location: Burnaby, Kanada
         start_date: 2025-01
         end_date: 2025-05
         highlights:
           - STAT 475/675
-      - company: İnönü University, Department of Econometrics
-        position: Associate Professor of Statistics
+      - company: İnönü Üniversitesi, Ekonometri Bölümü
+        position: İstatistik Doçenti
         location: Malatya, Türkiye
         start_date: 2017
         end_date: 2023
-      - company: The University of British Columbia, Department of Statistics
-        position: Visiting Associate Professor
-        location: Vancouver, Canada
+      - company: The University of British Columbia, İstatistik Bölümü
+        position: Misafir Doçent
+        location: Vancouver, Kanada
         start_date: 2019-02
         end_date: 2019-08
-        summary: Research on robust penalized estimation.
-      - company: İnönü University, Department of Econometrics
-        position: Assistant Professor of Statistics
+        summary: Sağlam penalize kestirim üzerine araştırma.
+      - company: İnönü Üniversitesi, Ekonometri Bölümü
+        position: İstatistik Yardımcı Doçenti
         location: Malatya, Türkiye
         start_date: 2015
         end_date: 2017
-      - company: Brock University, Department of Mathematics and Statistics
-        position: Visiting Assistant Professor
-        location: St. Catharines, Canada
+      - company: Brock University, Matematik ve İstatistik Bölümü
+        position: Misafir Yardımcı Doçent
+        location: St. Catharines, Kanada
         start_date: 2016-05
         end_date: 2016-06
-        summary: High-dimensional estimation strategies with Prof. S. Ejaz Ahmed.
-      - company: Brock University, Department of Mathematics and Statistics
-        position: Visiting International Scholar (PhD Research)
-        location: St. Catharines, Canada
+        summary: Prof. S. Ejaz Ahmed ile yüksek boyutlu kestirim stratejileri üzerine araştırma.
+      - company: Brock University, Matematik ve İstatistik Bölümü
+        position: Uluslararası Misafir Araştırmacı (Doktora Araştırması)
+        location: St. Catharines, Kanada
         start_date: 2013
         end_date: 2014
-        summary: Shrinkage and penalized estimation strategies with Prof. S. Ejaz Ahmed.
-      - company: İnönü University, Department of Econometrics
-        position: Research Assistant
+        summary: Prof. S. Ejaz Ahmed ile küçültme ve penalize kestirim stratejileri üzerine araştırma.
+      - company: İnönü Üniversitesi, Ekonometri Bölümü
+        position: Araştırma Görevlisi
         location: Malatya, Türkiye
         start_date: 2009
         end_date: 2014
 
     Eğitim ve akademik unvanlar:
-      - institution: Interuniversity Council (ÜAK)
-        area: Econometrics
-        studyType: Associate Professorship Degree
+      - institution: Üniversitelerarası Kurul (ÜAK)
+        area: Ekonometri
+        studyType: Doçentlik
         start_date: 2024-03
         end_date: 2024-03
-      - institution: Interuniversity Council (ÜAK)
-        area: Statistics
-        studyType: Associate Professorship Degree
+      - institution: Üniversitelerarası Kurul (ÜAK)
+        area: İstatistik
+        studyType: Doçentlik
         start_date: 2017-12
         end_date: 2017-12
-      - institution: İnönü University
+      - institution: İnönü Üniversitesi
         location: Malatya, Türkiye
-        area: Mathematics
-        studyType: PhD, taught in English
+        area: Matematik
+        studyType: Doktora, İngilizce
         start_date: 2010
         end_date: 2014
         highlights:
-          - "Thesis: Penalty and non-penalty estimation strategies for linear and partially linear models."
-      - institution: Fırat University
+          - "Tez: Doğrusal ve kısmen doğrusal modeller için cezalı ve cezasız kestirim stratejileri."
+      - institution: Fırat Üniversitesi
         location: Elazığ, Türkiye
-        area: Mathematics
-        studyType: MSc
+        area: Matematik
+        studyType: Yüksek Lisans
         start_date: 2008
         end_date: 2010
         highlights:
-          - "Thesis: Generalized Statistical Convergence."
-      - institution: Fırat University
+          - "Tez: Genelleştirilmiş İstatistiksel Yakınsaklık."
+      - institution: Fırat Üniversitesi
         location: Elazığ, Türkiye
-        area: Mathematics
-        studyType: BSc
+        area: Matematik
+        studyType: Lisans
         start_date: 2004
         end_date: 2008
 
     Projeler, burslar ve ödüller:
-      - name: Machine Learning for Functional Data
-        summary: TÜBİTAK 2219 International Postdoctoral Research Scholarship; coordinator; Simon Fraser University; USD 31,200.
+      - name: Büyük Mekânsal Verilerde Heterojenlik Probleminin Açıklanabilir ve Denetimli Makine Öğrenmesi ile Modellenmesi
+        summary: TÜBİTAK 1001, 2026-1; kabul edildi; yürütücü; 36 ay; başvuruda talep edilen bütçe 2.979.000 TL.
+        start_date: 2026
+      - name: Fonksiyonel Veriler için Makine Öğrenmesi
+        summary: TÜBİTAK 2219 Uluslararası Doktora Sonrası Araştırma Bursu; yürütücü; Simon Fraser University; 31.200 USD.
         start_date: 2024
         end_date: 2025
-      - name: Investigation of Domestic and Foreign Migration of Van Province by Geographically Weighted Regression Method
-        summary: TÜBİTAK 3005, project 122G128; coordinator; TRY 327,137.
+      - name: Van İlinin İç ve Dış Göçünün Coğrafi Ağırlıklı Regresyon ile İncelenmesi
+        summary: TÜBİTAK 3005, proje 122G128; yürütücü; 327.137 TL.
         start_date: 2022-10
         end_date: 2024-04
-      - name: Shrinkage and Penalized Estimation Strategies
-        summary: TÜBİTAK 2214-A; coordinator; Brock University; USD 15,600.
+      - name: Küçültme ve Cezalı Kestirim Stratejileri
+        summary: TÜBİTAK 2214-A; yürütücü; Brock University; 15.600 USD.
         start_date: 2013
         end_date: 2014
-      - name: Robust Regularization and Gaussian Graphical Models
-        summary: İnönü University bilateral project SUA-2019-1629; coordinator; University of British Columbia.
+      - name: Sağlam Düzenlileştirme ve Gaussian Grafiksel Modeller
+        summary: İnönü Üniversitesi ikili iş birliği projesi SUA-2019-1629; yürütücü; University of British Columbia.
         start_date: 2019-02
         end_date: 2019-08
-      - name: Pretest and Stein-type Estimation in Linear Quantile Regression Models
-        summary: İnönü University Scientific Research Project SBA-2017-946; coordinator.
+      - name: Doğrusal Kantil Regresyonda Ön-Test ve Stein Tipi Kestirim
+        summary: İnönü Üniversitesi Bilimsel Araştırma Projesi SBA-2017-946; yürütücü.
         start_date: 2017-12
         end_date: 2018-09
-      - name: Liu-type Estimation in Linear Regression Models
-        summary: Necmettin Erbakan University Scientific Research Project 171215001; researcher.
+      - name: Doğrusal Regresyon Modellerinde Liu Tipi Kestirim
+        summary: Necmettin Erbakan Üniversitesi Bilimsel Araştırma Projesi 171215001; araştırmacı.
         start_date: 2017-03
         end_date: 2017-12
-      - name: Fields Institute Congress Attendance Grant
-        summary: The Fields Institute, University of Toronto, Canada.
+      - name: Fields Institute Kongre Katılım Desteği
+        summary: The Fields Institute, University of Toronto, Kanada.
         start_date: 2016
         end_date: 2016
 
@@ -143,14 +147,14 @@ cv:
 
     Mesleki üyelikler:
       - name: International Statistical Institute
-        summary: Elected member, 2023–present.
+        summary: Seçilmiş üye, 2023–günümüz.
 
     Bibliyometrik özet:
       - name: AVESİS kaydı
         summary: "93 yayın; 35 Web of Science ve 31 Scopus indeksli yayın; 213 Web of Science atfı (h-indeksi 10); 440 Scopus atfı (h-indeksi 14). Kaynak: AVESİS, Temmuz 2026."
 
     Araştırma alanları:
-      - name: Statistical learning and high-dimensional inference
-      - name: Functional and spatial data analysis
-      - name: Shrinkage, pretest and penalized estimation
-      - name: Reproducible R/C++/Python statistical software
+      - name: İstatistiksel öğrenme ve yüksek boyutlu çıkarım
+      - name: Fonksiyonel ve uzamsal veri analizi
+      - name: Küçültme, ön-test ve penalize kestirim
+      - name: Yeniden üretilebilir R/C++/Python istatistik yazılımı

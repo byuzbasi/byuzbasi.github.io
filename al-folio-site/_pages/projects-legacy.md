@@ -4,6 +4,7 @@ title: Projeler
 permalink: /projects/
 nav: false
 sitemap: false
+lang: tr
 ---
 
 <meta http-equiv="refresh" content="0; url={{ '/research-projects/' | relative_url }}">

@@ -1,0 +1,47 @@
+name: Propose OpenAlex publication updates
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: openalex-publication-sync
+  cancel-in-progress: false
+
+jobs:
+  propose-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test the bibliography synchronizer
+        run: python -m unittest tools/test_sync_openalex_publications.py
+
+      - name: Append publications missing from OpenAlex
+        run: python tools/sync_openalex_publications.py
+
+      - name: Open a review pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/openalex-publications
+          delete-branch: true
+          commit-message: "chore: propose OpenAlex publication updates"
+          title: "Review OpenAlex publication updates"
+          body: |
+            OpenAlex found publication records that are not yet present in the curated bibliography.
+
+            Please check authors, publication type, journal or book title, volume, issue, pages and DOI before merging. Existing records and `selected = {true}` choices are preserved byte-for-byte.
+          add-paths: |
+            publications.bib
+            al-folio-site/_bibliography/papers.bib

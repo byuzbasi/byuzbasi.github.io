@@ -1,0 +1,49 @@
+tr:
+  brand_bold: Prof. Dr. Bahadır
+  brand_light: Yüzbaşı
+  nav_toggle: Menüyü aç veya kapat
+  search_title: Ara
+  search_label: Aramayı aç
+  theme_title: Temayı değiştir
+  theme_label: Renk temasını değiştir
+  language_label: Dil seçimi
+  current_page: mevcut sayfa
+  contact_note: İnönü Üniversitesi, Ekonometri Bölümü · Malatya, Türkiye
+  news: Haberler
+  latest_posts: Son yazılar
+  selected_publications: Seçilmiş yayınlar
+  instructor: Eğitmen
+  term: Dönem
+  location: Yer
+  time: Saat
+  schedule: Program
+  week: Hafta
+  date: Tarih
+  topic: Konu
+  materials: Materyaller
+  no_courses: Henüz ders kaydı bulunmuyor.
+
+en:
+  brand_bold: Bahadır
+  brand_light: Yüzbaşı, PhD
+  nav_toggle: Toggle navigation
+  search_title: Search
+  search_label: Open search
+  theme_title: Change theme
+  theme_label: Change colour theme
+  language_label: Language selection
+  current_page: current page
+  contact_note: İnönü University, Department of Econometrics · Malatya, Türkiye
+  news: News
+  latest_posts: Latest posts
+  selected_publications: Selected publications
+  instructor: Instructor
+  term: Term
+  location: Location
+  time: Time
+  schedule: Schedule
+  week: Week
+  date: Date
+  topic: Topic
+  materials: Materials
+  no_courses: No courses are available yet.

@@ -1,0 +1,29 @@
+name: Bahadır Yüzbaşı
+honorific_prefix: Prof. Dr.
+honorific_suffix: PhD
+job_title: Professor of Statistics and Econometrics
+image: https://byuzbasi.github.io/assets/img/bahadir-yuzbasi.jpg
+works_for:
+  name: İnönü University
+  url: https://www.inonu.edu.tr/
+member_of:
+  name: International Statistical Institute
+  url: https://isi-web.org/
+same_as:
+  - https://orcid.org/0000-0002-6196-3201
+  - https://scholar.google.com/citations?user=XTmhw_cAAAAJ
+  - https://github.com/byuzbasi
+  - https://avesis.inonu.edu.tr/bahadir.yuzbasi
+  - https://www.webofscience.com/wos/author/record/288269
+  - https://www.scopus.com/authid/detail.uri?authorId=55581057800
+  - https://www.researchgate.net/profile/Bahadir_Yuezbasi
+knows_about:
+  - Statistical inference
+  - Econometrics
+  - Machine learning
+  - High-dimensional data
+  - Shrinkage and penalized estimation
+  - Spatial statistics
+  - Functional data analysis
+  - Elastic shape analysis
+  - Reproducible statistical software
