@@ -12,6 +12,7 @@
           works: 'works and',
           citations: 'total citations.',
           source: 'Source: OpenAlex; refreshed whenever this page is opened.',
+          uniqueRecords: 'deduplicated records in the list.',
           publication: 'Publication',
           year: 'Year',
           citation: 'Citations',
@@ -22,6 +23,7 @@
           works: 'çalışma ve',
           citations: 'toplam atıf.',
           source: 'Kaynak: OpenAlex; sayfa her açıldığında yenilenir.',
+          uniqueRecords: 'benzersiz kayıt listeleniyor.',
           publication: 'Yayın',
           year: 'Yıl',
           citation: 'Atıf',
@@ -34,6 +36,47 @@
     const escapeHtml = (value) => String(value || '').replace(/[&<>'"]/g, (character) => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
     }[character]));
+    const normaliseDoi = (value) => String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/^https?:\/\/(dx\.)?doi\.org\//, '');
+    const normaliseTitle = (value) => String(value || '')
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+    const workKey = (work) => {
+      const doi = normaliseDoi(work.doi);
+      if (doi) return `doi:${doi}`;
+      const title = normaliseTitle(work.display_name || work.title);
+      if (!title) return `id:${work.id}`;
+      return `title:${title}|${work.publication_year || ''}`;
+    };
+    const workScore = (work) => (
+      (Number(work.cited_by_count) || 0) * 100
+      + (normaliseDoi(work.doi) ? 10 : 0)
+      + (work.primary_location && work.primary_location.source ? 1 : 0)
+    );
+    const deduplicateWorks = (works) => {
+      const unique = new Map();
+      works.forEach((work) => {
+        const key = workKey(work);
+        const existing = unique.get(key);
+        if (!existing || workScore(work) > workScore(existing)) unique.set(key, work);
+      });
+      return [...unique.values()].sort((left, right) =>
+        (Number(right.cited_by_count) || 0) - (Number(left.cited_by_count) || 0)
+      );
+    };
+    const safeUrl = (value) => {
+      try {
+        const url = new URL(value);
+        return ['https:', 'http:'].includes(url.protocol) ? url.href : '';
+      } catch (_) {
+        return '';
+      }
+    };
 
     fetch(authorUrl)
       .then((response) => {
@@ -47,13 +90,17 @@
         })
         .then((works) => ({ author, works: works.results || [] })))
       .then(({ author, works }) => {
+        const uniqueWorks = deduplicateWorks(works);
         summary.innerHTML = `<p><strong>${author.works_count}</strong> ${copy.works} <strong>${author.cited_by_count}</strong> ${copy.citations} ` +
-          `<span class="text-muted">${copy.source}</span></p>`;
-        const rows = works.map((work) => {
-          const url = work.doi || work.id;
+          `<span class="text-muted">${copy.source} ${uniqueWorks.length} ${copy.uniqueRecords}</span></p>`;
+        const rows = uniqueWorks.map((work) => {
+          const url = safeUrl(work.doi || work.id);
           const year = work.publication_year || '—';
+          const record = url
+            ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${copy.record}</a>`
+            : '—';
           return `<tr><td>${escapeHtml(work.display_name)}</td><td>${year}</td><td>${work.cited_by_count || 0}</td>` +
-            `<td><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${copy.record}</a></td></tr>`;
+            `<td>${record}</td></tr>`;
         }).join('');
         list.innerHTML = `<div class="table-responsive"><table class="table table-sm">` +
           `<thead><tr><th>${copy.publication}</th><th>${copy.year}</th><th>${copy.citation}</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`;

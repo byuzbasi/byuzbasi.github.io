@@ -1,0 +1,55 @@
+{% assign current_lang = page.lang | default: site.lang %}
+<section class="academic-impact" aria-labelledby="academic-impact-title">
+  {% if current_lang == 'en' %}
+    <p class="section-eyebrow">ACADEMIC IMPACT</p>
+    <h2 id="academic-impact-title">Research at a glance</h2>
+  {% else %}
+    <p class="section-eyebrow">AKADEMİK ETKİ</p>
+    <h2 id="academic-impact-title">Bir bakışta araştırma</h2>
+  {% endif %}
+
+  <div class="academic-impact__grid">
+    <article class="academic-impact__item">
+      <p class="academic-impact__value">ISI</p>
+      <p>{% if current_lang == 'en' %}Elected Member since 2023{% else %}Seçilmiş üye · 2023–{% endif %}</p>
+    </article>
+    <article class="academic-impact__item">
+      <p class="academic-impact__value">1001</p>
+      <p>{% if current_lang == 'en' %}TÜBİTAK research project · 2026{% else %}TÜBİTAK araştırma projesi · 2026{% endif %}</p>
+    </article>
+    <article class="academic-impact__item">
+      <p class="academic-impact__value academic-impact__value--tools">R · Python · C++</p>
+      <p>{% if current_lang == 'en' %}Open-source research software{% else %}Açık kaynaklı araştırma yazılımı{% endif %}</p>
+    </article>
+    <article class="academic-impact__item">
+      <p class="academic-impact__value" id="home-openalex-citations">…</p>
+      <p>{% if current_lang == 'en' %}OpenAlex citations{% else %}OpenAlex atıfları{% endif %}</p>
+    </article>
+  </div>
+  <p class="academic-impact__note" id="home-openalex-status">
+    {% if current_lang == 'en' %}Citation count is updated whenever this page is opened.{% else %}Atıf sayısı sayfa her açıldığında güncellenir.{% endif %}
+  </p>
+</section>
+
+<script>
+  (() => {
+    const target = document.getElementById('home-openalex-citations');
+    const status = document.getElementById('home-openalex-status');
+    const language = '{{ current_lang }}';
+    const formatter = new Intl.NumberFormat(language === 'en' ? 'en-GB' : 'tr-TR');
+    const updateLabel = language === 'en' ? 'Updated from OpenAlex.' : 'OpenAlex üzerinden güncellendi.';
+
+    fetch('https://api.openalex.org/authors/orcid:0000-0002-6196-3201')
+      .then((response) => {
+        if (!response.ok) throw new Error('OpenAlex request failed');
+        return response.json();
+      })
+      .then((author) => {
+        target.textContent = formatter.format(author.cited_by_count || 0);
+        status.textContent = updateLabel;
+      })
+      .catch(() => {
+        target.textContent = '—';
+      });
+  })();
+</script>

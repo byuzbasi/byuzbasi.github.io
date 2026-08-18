@@ -32,13 +32,17 @@ latest_posts:
   <img class="academic-hero__image" src="{{ '/assets/img/statistical-landscape.svg' | relative_url }}" alt="Statistical composition connecting shrinkage paths, functional data curves and spatial contours with a gold inferential thread">
 </section>
 
-I view statistics not as a way to eliminate uncertainty, but as a discipline that makes uncertainty measurable, interpretable and useful for decision-making. I am a Professor of Statistics in the Department of Econometrics at İnönü University.
+I am Professor of Statistics in the Department of Econometrics at İnönü University. I develop shrinkage, pretest and penalized estimation methods for high-dimensional, spatial and functional data, connecting them with statistical learning and elastic shape analysis.
 
-My research centres on shrinkage, pretest and penalized estimation methods for high-dimensional data with strongly correlated structures. I extend these ideas to spatial and functional data, statistical learning and elastic shape analysis.
+I develop theory alongside simulation studies, real-data analyses and open-source software in R, Python and C++. My work focuses on producing reliable, interpretable insight from complex data in economics, biometry, the social sciences and digital platforms.
 
-For me, a strong statistical method should be not only theoretically sound, but also computationally tractable, reproducible and connected to a substantive problem. I therefore develop theory alongside simulation studies, real-data analyses and open-source software in R, Python and C++.
+<div class="profile-actions" aria-label="Quick access">
+  <a class="profile-action profile-action--primary" href="{{ '/en/publications/' | relative_url }}">Selected publications <span aria-hidden="true">→</span></a>
+  <a class="profile-action" href="{{ '/en/projects/#tubitak-1001-buyuk-mekansal-veri' | relative_url }}">TÜBİTAK 1001 project <span aria-hidden="true">→</span></a>
+  <a class="profile-action" href="{{ '/assets/files/Bahadir-Yuzbasi-CV.pdf' | relative_url }}" download>Download CV <span aria-hidden="true">↓</span></a>
+</div>
 
-My applications span economics, biometry, the social sciences and digital platforms, while pursuing a common objective: turning complex data into reliable, quantifiable insight.
+{% include academic-impact.liquid %}
 
 <section class="research-software" aria-labelledby="research-software-title">
   <p class="section-eyebrow">RESEARCH SOFTWARE</p>

@@ -30,13 +30,17 @@ latest_posts:
   <img class="academic-hero__image" src="{{ '/assets/img/statistical-landscape.svg' | relative_url }}" alt="Küçültme yolları, fonksiyonel veri eğrileri ve uzamsal konturları birbirine bağlayan altın çizgiden oluşan istatistiksel kompozisyon">
 </section>
 
-İstatistiği, belirsizliği ortadan kaldıran değil; onu ölçülebilir, yorumlanabilir ve karar vermede kullanılabilir hâle getiren bir düşünme biçimi olarak görüyorum. İnönü Üniversitesi Ekonometri Bölümünde İstatistik Profesörüyüm.
+İnönü Üniversitesi Ekonometri Bölümünde İstatistik Profesörüyüm. Yüksek boyutlu, uzamsal ve fonksiyonel veriler için küçültme, ön-test ve penalize kestirim yöntemleri geliştiriyor; bu yöntemleri istatistiksel öğrenme ve elastik şekil analiziyle birleştiriyorum.
 
-Araştırmalarımın merkezinde, yüksek boyutlu ve güçlü ilişkiler içeren veri yapıları için küçültme, ön-test ve penalize kestirim yöntemleri geliştirmek yer alıyor. Bu yaklaşımı uzamsal ve fonksiyonel verilere, istatistiksel öğrenmeye ve elastik şekil analizine taşıyorum.
+Kuramsal sonuçları simülasyon, gerçek veri analizleri ve açık kaynaklı R, Python ve C++ yazılımlarıyla birlikte geliştiriyorum. Çalışmalarım ekonomi, biyometri, sosyal bilimler ve dijital platformlarda karmaşık veriden güvenilir, yorumlanabilir bilgi üretmeye odaklanıyor.
 
-Benim için iyi bir istatistiksel yöntem yalnızca kuramsal olarak güçlü değil; aynı zamanda hesaplanabilir, yeniden üretilebilir ve gerçek bir probleme temas edebilir olmalıdır. Bu nedenle kuramsal sonuçları simülasyon çalışmaları, gerçek veri analizleri ve açık kaynaklı R, Python ve C++ yazılımlarıyla birlikte geliştiriyorum.
+<div class="profile-actions" aria-label="Hızlı erişim">
+  <a class="profile-action profile-action--primary" href="{{ '/publications/' | relative_url }}">Seçilmiş yayınlar <span aria-hidden="true">→</span></a>
+  <a class="profile-action" href="{{ '/research-projects/#tubitak-1001-buyuk-mekansal-veri' | relative_url }}">TÜBİTAK 1001 projesi <span aria-hidden="true">→</span></a>
+  <a class="profile-action" href="{{ '/assets/files/Bahadir-Yuzbasi-CV.pdf' | relative_url }}" download>CV’yi indir <span aria-hidden="true">↓</span></a>
+</div>
 
-Çalışmalarım ekonomi, biyometri, sosyal bilimler ve dijital platform uygulamalarına uzanırken ortak hedef aynı kalıyor: karmaşık veriden güvenilir ve ölçülebilir bilgi üretmek.
+{% include academic-impact.liquid %}
 
 <section class="research-software" aria-labelledby="research-software-title">
   <p class="section-eyebrow">ARAŞTIRMA YAZILIMI</p>
