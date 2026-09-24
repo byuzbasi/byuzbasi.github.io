@@ -23,6 +23,8 @@ from typing import Any, Iterable
 
 
 OPENALEX_API = "https://api.openalex.org"
+PRIMARY_ORCID = "0000-0002-6196-3201"
+PRIMARY_AUTHOR_ID = "A5047176817"
 AUTO_IMPORT_HEADER = "% BEGIN OPENALEX AUTO-IMPORTS"
 AUTO_IMPORT_FOOTER = "% END OPENALEX AUTO-IMPORTS"
 SUPPORTED_TYPES = {
@@ -69,7 +71,10 @@ def api_get(url: str, *, timeout: int = 45) -> dict[str, Any]:
 
 
 def fetch_openalex_works(orcid: str) -> list[dict[str, Any]]:
-    author_url = f"{OPENALEX_API}/authors/orcid:{urllib.parse.quote(orcid)}"
+    # OpenAlex currently associates this ORCID with multiple author records.
+    # Pin the verified primary record; retain ORCID lookup for custom runs.
+    author_key = PRIMARY_AUTHOR_ID if orcid == PRIMARY_ORCID else f"orcid:{orcid}"
+    author_url = f"{OPENALEX_API}/authors/{urllib.parse.quote(author_key, safe=':')}"
     author = api_get(author_url)
     author_id = author.get("id")
     if not author_id:

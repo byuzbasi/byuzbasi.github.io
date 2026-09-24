@@ -58,7 +58,7 @@
       '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
     }[character]));
 
-    fetch('https://api.openalex.org/authors/orcid:0000-0002-6196-3201')
+    fetch('https://api.openalex.org/authors/A5047176817')
       .then((response) => {
         if (!response.ok) throw new Error('OpenAlex request failed');
         return response.json();

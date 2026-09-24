@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
+from unittest.mock import patch
 
 from tools import sync_openalex_publications as sync
 
@@ -47,6 +48,17 @@ class OpenAlexBibSyncTests(unittest.TestCase):
     def test_auto_import_block_is_idempotent_for_empty_update(self):
         bib = "@article{existing,\n\ttitle = {Existing},\n}\n"
         self.assertEqual(sync.append_entries(bib, []), bib)
+
+    def test_primary_orcid_uses_verified_openalex_author(self):
+        with patch.object(sync, "api_get", side_effect=[
+            {"id": f"https://openalex.org/{sync.PRIMARY_AUTHOR_ID}"},
+            {"results": [self.work], "meta": {}},
+        ]) as get:
+            self.assertEqual(sync.fetch_openalex_works(sync.PRIMARY_ORCID), [self.work])
+
+        self.assertEqual(get.call_args_list[0].args[0],
+                         f"{sync.OPENALEX_API}/authors/{sync.PRIMARY_AUTHOR_ID}")
+        self.assertIn(sync.PRIMARY_AUTHOR_ID, get.call_args_list[1].args[0])
 
 
 if __name__ == "__main__":
