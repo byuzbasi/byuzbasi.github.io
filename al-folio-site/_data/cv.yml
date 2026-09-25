@@ -104,8 +104,20 @@ cv:
 
     Projeler, burslar ve ödüller:
       - name: Büyük Mekânsal Verilerde Heterojenlik Probleminin Açıklanabilir ve Denetimli Makine Öğrenmesi ile Modellenmesi
-        summary: TÜBİTAK 1001, 2026-1; kabul edildi; yürütücü; 36 ay; başvuruda talep edilen bütçe 2.979.000 TL.
+        summary: TÜBİTAK 1001, proje 126K746; yürütücü; destek kararı 7 Ağustos 2026; 36 ay.
         start_date: 2026
+      - name: Yapay Zeka Kullanılarak Geliştirilen Türkçe Vergi Uyumu Ölçeğinin Geçerlilik ve Güvenilirlik Analizi
+        summary: İnönü Üniversitesi BAP, SBA-2026-4833; araştırmacı; yürüyen proje.
+        start_date: 2026-04-01
+        end_date: 2027-04-01
+      - name: Türkiye'de Yolsuzluk Algısının Siyasal Davranışlar Üzerindeki Etkilerinin Analizi
+        summary: İnönü Üniversitesi BAP, SBA-2026-4536; araştırmacı; yürüyen proje.
+        start_date: 2026-02-17
+        end_date: 2027-02-17
+      - name: Karmaşık Veri Yapıları için Ölçeklendirilmiş Küçültme Stratejisi
+        summary: İnönü Üniversitesi BAP, SBA-2025-4340; yürütücü; yürüyen proje.
+        start_date: 2025-11-13
+        end_date: 2026-11-13
       - name: Fonksiyonel Veriler için Makine Öğrenmesi
         summary: TÜBİTAK 2219 Uluslararası Doktora Sonrası Araştırma Bursu; yürütücü; Simon Fraser University; 31.200 USD.
         start_date: 2024
@@ -120,12 +132,12 @@ cv:
         end_date: 2014
       - name: Sağlam Düzenlileştirme ve Gaussian Grafiksel Modeller
         summary: İnönü Üniversitesi ikili iş birliği projesi SUA-2019-1629; yürütücü; University of British Columbia.
-        start_date: 2019-02
-        end_date: 2019-08
+        start_date: 2019-01-22
+        end_date: 2019-12-20
       - name: Doğrusal Kantil Regresyonda Ön-Test ve Stein Tipi Kestirim
         summary: İnönü Üniversitesi Bilimsel Araştırma Projesi SBA-2017-946; yürütücü.
         start_date: 2017-12
-        end_date: 2018-09
+        end_date: 2018-11-21
       - name: Doğrusal Regresyon Modellerinde Liu Tipi Kestirim
         summary: Necmettin Erbakan Üniversitesi Bilimsel Araştırma Projesi 171215001; araştırmacı.
         start_date: 2017-03
@@ -137,7 +149,7 @@ cv:
 
     Yazılım ve teknik yetkinlikler:
       - name: sglasso
-        summary: R paketi; C++ ve RcppArmadillo ile yüksek performanslı hesaplama.
+        summary: "R/C++ paketi. Kaynak makale: Yüzbaşı ve Cao (2026), Collinear Groupwise Selection via Scaled Group Lasso, The American Statistician. DOI: 10.1080/00031305.2026.2709494."
       - name: rbridge
         summary: Restricted bridge estimation için R paketi; C++ ve RcppArmadillo ile geliştirilmiştir.
       - name: Python
@@ -151,8 +163,11 @@ cv:
 
     Bibliyometrik özet:
       - name: AVESİS kaydı
-        summary: "93 yayın; 35 Web of Science ve 31 Scopus indeksli yayın; 213 Web of Science atfı (h-indeksi 10); 440 Scopus atfı (h-indeksi 14). Kaynak: AVESİS, Temmuz 2026."
+        summary: "94 yayın; 35 Web of Science ve 31 Scopus indeksli yayın; 213 Web of Science atfı (h-indeksi 10); 440 Scopus atfı (h-indeksi 14). Kaynak: AVESİS, 25 Eylül 2026."
 
+    Kitap değerlendirmeleri:
+      - name: Using R for Introductory Statistics in Social Sciences
+        summary: "Mark A. Perkins'in kitabı üzerine değerlendirme. International Statistical Review; SCIE, Q1. Kabul edildi; yayın lisansı imzalandı."
     Araştırma alanları:
       - name: İstatistiksel öğrenme ve yüksek boyutlu çıkarım
       - name: Fonksiyonel ve uzamsal veri analizi

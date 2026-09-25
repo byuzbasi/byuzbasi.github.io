@@ -12,9 +12,9 @@ translation_key: activities
 
 ## Invited talks and seminars
 
-- **2026 — The Second Sharjah International Conference on Mathematical Sciences (UOS-SICMS26)**, University of Sharjah, United Arab Emirates. Invited speaker. [Conference website](https://www.sharjah.ac.ae/Conferences/SICMS26)
+- **14–15 January 2026 — The Second Sharjah International Conference on Mathematical Sciences (UOS-SICMS26)**, University of Sharjah, United Arab Emirates. Invited speaker. [Conference website](https://www.sharjah.ac.ae/Conferences/SICMS26) [Official programme](https://conferences.sharjah.ac.ae/ords/appsadm/r/152/files/static/v280/SICMS26_PROGRAM.pdf)
 - **2026 — A Hybrid Regularization Framework for Correlated Feature Selection in High-Dimensional Data**, 15th Conference on High Dimensional Data Analysis (HDDA-XV), İstanbul Medipol University. Invited speaker. [Conference website](https://hdda2026.medipol.edu.tr)
-- **2025 — Groupwise Feature Selection in High-Dimensional Data**, International Conference on Statistics and Data Science, Vancouver, Canada. Invited speaker.
+- **23–25 June 2025 — Groupwise Feature Selection in High-Dimensional Data**, International Conference on Statistics and Data Science, Vancouver, Canada. Invited speaker. [Official programme](https://icsds.github.io/2025/assets/program_ICSDS2025.pdf)
 - **2019 — Lq-type Penalty Estimation Under the Linear Restriction**, Department of Statistics seminar, University of British Columbia, Vancouver, Canada.
 - **2016 — 44th Annual Meeting of the Statistical Society of Canada**, Brock University, Canada. Invited speaker. [Talk record](https://ssc.ca/en/2016-some-applications-james-stein-shrinkage-estimation#by)
 - **2016 — Stein-type Generalized Ridge Regression in High-Dimensional Sparse Models**, HDDA-VI, Fields Institute, Toronto, Canada. Invited speaker.
@@ -26,7 +26,7 @@ translation_key: activities
 | 2023 | Liu Estimation on Geographically Weighted Regression | IV. International Applied Statistics Congress, Sarajevo |
 | 2023 | Minkowski Distance on Geographically Weighted Regression | IV. International Applied Statistics Congress, Sarajevo |
 | 2022 | Big Data Analytics via Penalized Estimation | 6th International Conference on Computational Mathematics and Engineering Sciences |
-| 2020 | LAD, LASSO and Related Strategies in Regression Models | ICMSEM 2019, Springer Proceedings |
+| 2019 | LAD, LASSO and Related Strategies in Regression Models | ICMSEM 2019, Springer Proceedings (2020) |
 | 2018 | L1 Correlation-Based Penalty in High-Dimensional Quantile Regression | BigDIA, IEEE |
 | 2017 | Pretest and Stein-Type Estimations in Quantile Regression Model | International Workshop on Mathematical Methods in Engineering |
 

@@ -8,6 +8,7 @@
   {% assign memberships = profile.sections["Professional memberships"] %}
   {% assign metrics = profile.sections["Bibliometric summary"] %}
   {% assign interests = profile.sections["Research interests"] %}
+  {% assign book_reviews = profile.sections["Book reviews"] %}
   {% assign profile_eyebrow = "ACADEMIC PROFILE" %}
   {% assign university_label = "University" %}
   {% assign email_label = "Email" %}
@@ -20,6 +21,7 @@
   {% assign memberships_label = "Professional memberships" %}
   {% assign metrics_label = "Bibliometric summary" %}
   {% assign interests_label = "Research interests" %}
+  {% assign book_reviews_label = "Book reviews" %}
   {% assign present_label = "present" %}
   {% assign download_label = "Download CV (PDF)" %}
   {% assign download_aria = "Download Bahadır Yüzbaşı's academic CV as a PDF" %}
@@ -32,6 +34,7 @@
   {% assign memberships = profile.sections["Mesleki üyelikler"] %}
   {% assign metrics = profile.sections["Bibliyometrik özet"] %}
   {% assign interests = profile.sections["Araştırma alanları"] %}
+  {% assign book_reviews = profile.sections["Kitap değerlendirmeleri"] %}
   {% assign profile_eyebrow = "AKADEMİK ÖZET" %}
   {% assign university_label = "Üniversite" %}
   {% assign email_label = "E-posta" %}
@@ -44,6 +47,7 @@
   {% assign memberships_label = "Mesleki üyelikler" %}
   {% assign metrics_label = "Bibliyometrik özet" %}
   {% assign interests_label = "Araştırma alanları" %}
+  {% assign book_reviews_label = "Kitap değerlendirmeleri" %}
   {% assign present_label = "günümüz" %}
   {% assign download_label = "CV’yi indir (PDF, İngilizce)" %}
   {% assign download_aria = "Bahadır Yüzbaşı'nın İngilizce akademik CV dosyasını PDF olarak indir" %}
@@ -146,5 +150,11 @@
   <section class="cv-section" id="{% if current_lang == 'en' %}research-interests{% else %}arastirma-alanlari{% endif %}" aria-labelledby="interests-title">
     <h2 id="interests-title">{{ interests_label }}</h2>
     <ul class="cv-interests">{% for entry in interests %}<li>{{ entry.name }}</li>{% endfor %}</ul>
+  </section>
+  <section class="cv-section" id="book-reviews" aria-labelledby="book-reviews-title">
+    <h2 id="book-reviews-title">{{ book_reviews_label }}</h2>
+    <div class="cv-compact-list">
+      {% for entry in book_reviews %}<article><h3>{{ entry.name }}</h3><p>{{ entry.summary }}</p></article>{% endfor %}
+    </div>
   </section>
 </div>

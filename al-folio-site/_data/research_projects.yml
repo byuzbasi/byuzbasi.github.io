@@ -4,6 +4,7 @@
   title_en: Modeling Heterogeneity in Big Spatial Data with Explainable and Supervised Machine Learning
   funder: TÜBİTAK 1001 · Bilimsel ve Teknolojik Araştırma Projelerini Destekleme Programı
   funder_en: TÜBİTAK 1001 · Scientific and Technological Research Projects Funding Programme
+  number: 126K746
   period: 36 ay
   period_en: 36 months
   role: Yürütücü
@@ -16,8 +17,8 @@
   budget_label_en: Budget requested in the application
   focus: Açıklanabilir ve denetimli makine öğrenmesiyle büyük mekânsal verilerde heterojenliğin modellenmesi; bölgesel enerji yoğunluğu, hava kirliliği ve sosyo-ekonomik göstergeler için yorumlanabilir ve politika odaklı yöntemlerin geliştirilmesi.
   focus_en: Explainable and supervised machine-learning methods for modeling heterogeneity in big spatial data, with interpretable and policy-oriented applications to regional energy intensity, air pollution and socio-economic indicators.
-  status: Kabul edildi · 2026-1
-  status_en: Accepted · 2026-1
+  status: Destek kararı · 7 Ağustos 2026
+  status_en: Funding approved · 7 August 2026
   team:
     - name: Prof. Dr. Bahadır Yüzbaşı
       name_en: Professor Bahadır Yüzbaşı
@@ -94,6 +95,57 @@
   contact_email: bahadir.yuzbasi@inonu.edu.tr
   outputs_note: Proje yeni kabul edildi. Makale, sunum, yazılım ve diğer araştırma çıktıları üretildikçe burada proje ile ilişkilendirilecektir.
   outputs_note_en: The project has recently been accepted. Articles, presentations, software and other research outputs will be linked here as they become available.
+
+- id: inonu-tax-compliance-4833
+  title: Yapay Zeka Kullanılarak Geliştirilen Türkçe Vergi Uyumu Ölçeğinin Geçerlilik ve Güvenilirlik Analizi
+  title_en: Validity and Reliability Analysis of an AI-Developed Turkish Tax Compliance Scale
+  funder: İnönü Üniversitesi · Bilimsel Araştırma Projeleri
+  funder_en: İnönü University · Scientific Research Projects
+  number: SBA-2026-4833
+  period: 1 Nisan 2026 – 1 Nisan 2027
+  period_en: 1 April 2026 – 1 April 2027
+  role: Araştırmacı
+  role_en: Researcher
+  institution: İnönü Üniversitesi
+  institution_en: İnönü University
+  focus: Yapay zekâ ile geliştirilen Türkçe vergi uyumu ölçeğinin geçerlilik ve güvenilirliğinin incelenmesi.
+  focus_en: Evaluation of the validity and reliability of a Turkish tax compliance scale developed using artificial intelligence.
+  status: Yürüyen proje
+  status_en: Ongoing
+
+- id: inonu-corruption-4536
+  title: Türkiye'de Yolsuzluk Algısının Siyasal Davranışlar Üzerindeki Etkilerinin Analizi
+  title_en: Analysis of the Effects of Corruption Perception on Political Behaviour in Turkey
+  funder: İnönü Üniversitesi · Bilimsel Araştırma Projeleri
+  funder_en: İnönü University · Scientific Research Projects
+  number: SBA-2026-4536
+  period: 17 Şubat 2026 – 17 Şubat 2027
+  period_en: 17 February 2026 – 17 February 2027
+  role: Araştırmacı
+  role_en: Researcher
+  institution: İnönü Üniversitesi
+  institution_en: İnönü University
+  focus: Yolsuzluk algısı ile siyasal davranışlar arasındaki ilişkinin istatistiksel analizi.
+  focus_en: Statistical analysis of the relationship between corruption perception and political behaviour.
+  status: Yürüyen proje
+  status_en: Ongoing
+
+- id: inonu-scaled-shrinkage-4340
+  title: Karmaşık Veri Yapıları için Ölçeklendirilmiş Küçültme Stratejisi
+  title_en: Scaled Shrinkage Strategy for Complex Data Structures
+  funder: İnönü Üniversitesi · Bilimsel Araştırma Projeleri
+  funder_en: İnönü University · Scientific Research Projects
+  number: SBA-2025-4340
+  period: 13 Kasım 2025 – 13 Kasım 2026
+  period_en: 13 November 2025 – 13 November 2026
+  role: Yürütücü
+  role_en: Principal investigator
+  institution: İnönü Üniversitesi
+  institution_en: İnönü University
+  focus: Karmaşık veri yapılarında ölçeklendirilmiş küçültme yöntemlerinin geliştirilmesi.
+  focus_en: Development of scaled shrinkage methods for complex data structures.
+  status: Yürüyen proje
+  status_en: Ongoing
 
 - id: tubitak-2219-functional-data
   title: Functional Data için Makine Öğrenmesi
@@ -218,15 +270,15 @@
       venue: Globalization and Migration · Chapter 8 · Holistence Publications
       year: 2023
     - type: Presentation
-      title: "Sosyo-Gelişmişlik Düzeyi ile Göç Arasındaki İlişki: Van İli Üzerine Bir Araştırma [in Turkish]"
+      title: "Socio-Development Level and Migration: A Study on Van Province"
       venue: The Migration Conference
       year: 2023
     - type: Presentation
-      title: "Ekonomik Yetersizlik ile Göç Arasındaki İlişkinin Ampirik Analizi: Van İlinden Kanıtlar [in Turkish]"
+      title: "An Empirical Analysis of Economic Insufficiency and Migration: Evidence from Van Province"
       venue: The Migration Conference
       year: 2023
     - type: Presentation
-      title: Van İlinin Göç Sonrası Uyum Sürecinde Eğitim Etkisi [in Turkish]
+      title: The Effect of Education on Post-Migration Adaptation in Van Province
       venue: 2nd International Artificial Intelligence and Social Sciences Congress
       year: 2023
     - type: Presentation
@@ -238,7 +290,7 @@
       venue: CMES
       year: 2023
     - type: Presentation
-      title: Van İlinin Eğitim İmkânsızlıkları Nedeniyle Aldığı Göçün Coğrafi Ağırlıklı Poisson Regresyon Yöntemiyle İncelenmesi [in Turkish]
+      title: Education-Driven Migration to Van Province Using Geographically Weighted Poisson Regression
       venue: 2nd International Artificial Intelligence and Social Sciences Congress
       year: 2023
     - type: Presentation
@@ -278,8 +330,8 @@
   funder: İnönü Üniversitesi · Uluslararası İkili İş Birliği Projesi
   funder_en: İnönü University · International Bilateral Cooperation Project
   number: SUA-2019-1629
-  period: Şubat 2019 – Ağustos 2019
-  period_en: February 2019 – August 2019
+  period: 22 Ocak 2019 – 20 Aralık 2019
+  period_en: 22 January 2019 – 20 December 2019
   role: Yürütücü
   role_en: Principal investigator
   institution: University of British Columbia · Department of Statistics · Kanada
@@ -297,8 +349,8 @@
   funder: İnönü Üniversitesi · Bilimsel Araştırma Projesi
   funder_en: İnönü University · Scientific Research Project
   number: SBA-2017-946
-  period: Aralık 2017 – Eylül 2018
-  period_en: December 2017 – September 2018
+  period: 12 Aralık 2017 – 21 Kasım 2018
+  period_en: 12 December 2017 – 21 November 2018
   role: Yürütücü
   role_en: Principal investigator
   institution: İnönü Üniversitesi

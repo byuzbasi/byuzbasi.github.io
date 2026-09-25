@@ -104,8 +104,20 @@ cv:
 
     Projects, fellowships and awards:
       - name: Modeling Heterogeneity in Big Spatial Data with Explainable and Supervised Machine Learning
-        summary: TÜBİTAK 1001, 2026-1; accepted; principal investigator; 36 months; TRY 2,979,000 requested in the application.
+        summary: TÜBİTAK 1001, project 126K746; principal investigator; funding approved 7 August 2026; 36 months.
         start_date: 2026
+      - name: Validity and Reliability Analysis of an AI-Developed Turkish Tax Compliance Scale
+        summary: İnönü University BAP, SBA-2026-4833; researcher; ongoing.
+        start_date: 2026-04-01
+        end_date: 2027-04-01
+      - name: Analysis of the Effects of Corruption Perception on Political Behaviour in Turkey
+        summary: İnönü University BAP, SBA-2026-4536; researcher; ongoing.
+        start_date: 2026-02-17
+        end_date: 2027-02-17
+      - name: Scaled Shrinkage Strategy for Complex Data Structures
+        summary: İnönü University BAP, SBA-2025-4340; principal investigator; ongoing.
+        start_date: 2025-11-13
+        end_date: 2026-11-13
       - name: Machine Learning for Functional Data
         summary: TÜBİTAK 2219 International Postdoctoral Research Fellowship; principal investigator; Simon Fraser University; USD 31,200.
         start_date: 2024
@@ -120,12 +132,12 @@ cv:
         end_date: 2014
       - name: Robust Regularization and Gaussian Graphical Models
         summary: İnönü University bilateral project SUA-2019-1629; principal investigator; University of British Columbia.
-        start_date: 2019-02
-        end_date: 2019-08
+        start_date: 2019-01-22
+        end_date: 2019-12-20
       - name: Pretest and Stein-type Estimation in Linear Quantile Regression Models
         summary: İnönü University Scientific Research Project SBA-2017-946; principal investigator.
         start_date: 2017-12
-        end_date: 2018-09
+        end_date: 2018-11-21
       - name: Liu-type Estimation in Linear Regression Models
         summary: Necmettin Erbakan University Scientific Research Project 171215001; researcher.
         start_date: 2017-03
@@ -137,7 +149,7 @@ cv:
 
     Software and technical expertise:
       - name: sglasso
-        summary: R package for high-dimensional group selection, with high-performance computation in C++ and RcppArmadillo.
+        summary: "R/C++ package. Reference: Yüzbaşı and Cao (2026), Collinear Groupwise Selection via Scaled Group Lasso, The American Statistician. DOI: 10.1080/00031305.2026.2709494."
       - name: rbridge
         summary: R package for restricted bridge estimation, developed with C++ and RcppArmadillo.
       - name: Python
@@ -151,8 +163,11 @@ cv:
 
     Bibliometric summary:
       - name: AVESIS record
-        summary: "93 publications; 35 Web of Science-indexed and 31 Scopus-indexed publications; 213 Web of Science citations (h-index 10); 440 Scopus citations (h-index 14). Source: AVESIS, July 2026."
+        summary: "94 publications; 35 Web of Science-indexed and 31 Scopus-indexed publications; 213 Web of Science citations (h-index 10); 440 Scopus citations (h-index 14). Source: AVESIS, 25 September 2026."
 
+    Book reviews:
+      - name: Using R for Introductory Statistics in Social Sciences
+        summary: "Review of the book by Mark A. Perkins. International Statistical Review; SCIE, Q1. Accepted; publication licence signed."
     Research interests:
       - name: Statistical learning and high-dimensional inference
       - name: Functional and spatial data analysis

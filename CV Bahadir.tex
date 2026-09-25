@@ -1,5 +1,5 @@
 \documentclass[10pt,letterpaper]{article}
-
+							
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsfonts,amsthm}     % Math packages
 \usepackage{graphicx}                    % Enable pdflatex
@@ -11,15 +11,12 @@
 \usepackage[colorlinks=true,
 linkcolor=MidnightBlue,
 urlcolor=MidnightBlue]{hyperref}
-\hypersetup{
-pdftitle={Bahadir Yuzbasi - Academic CV},
-pdfauthor={Bahadir Yuzbasi},
-pdfsubject={Statistics, Econometrics and Data Science}
-}
 \usepackage{float}
 \usepackage{multicol}
+\usepackage{needspace}
 
 \frenchspacing              % Better looking spacings after periods
+\setlength{\emergencystretch}{1.5em}
 \pagestyle{empty}           % No pagenumbers/headers/footers
 
 \setlist[itemize]{leftmargin=1.15em,itemsep=0.15em,topsep=0.25em}
@@ -34,12 +31,13 @@ pdfsubject={Statistics, Econometrics and Data Science}
 \newcommand{\MyName}[1]{ % Name
 		\Large \sffamily\bfseries \hfill #1
 		\par \normalsize \normalfont}
-
+		
 \newcommand{\MySlogan}[1]{ % Slogan}{optional)
 		\large \sffamily\hfill \textit{#1}
 		\par \normalsize \normalfont}
 
 \newcommand{\NewPart}[2]{%
+	\Needspace{7\baselineskip}%
 	\vspace{0.45em}%
 	\section*{\sffamily\large\bfseries\color{MidnightBlue}\uppercase{#1} #2}%
 	\vspace{-0.7em}\noindent\color{MidnightBlue}\rule{\textwidth}{0.55pt}\color{Black}\vspace{0.25em}}
@@ -54,8 +52,8 @@ pdfsubject={Statistics, Econometrics and Data Science}
 		\noindent\hangindent=2em\hangafter=0 % Indentation
 		\parbox{\spacebox}{        % Box to align text
 		\textit{#1}}			   % Entry name}{birth, address, etc.)
-		\hspace{1.5em} #2 \par}    % Entry value
-
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
 \newcommand{\EducationEntry}[4]{
 		\noindent \textbf{#1} \hfill      % Study
 		\parbox{9em}{%
@@ -76,10 +74,10 @@ pdfsubject={Statistics, Econometrics and Data Science}
 
 \newcommand{\ArxivEntry}[3]{
 		\noindent #1, ``\href{http://arxiv.org/abs/#3}{#2}'', \textit{{cond-mat/}#3}.}
-
+        
 \newcommand{\BookEntry}[4]{
 		\noindent #1, ``\href{#3}{#4}'', \textit{#3}.}
-
+        
 \newcommand{\FundingEntry}[5]{
         \noindent #1, ``#2'', \$#3 (#4, #5).}
 
@@ -94,6 +92,8 @@ pdfsubject={Statistics, Econometrics and Data Science}
 
 \DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
 \newenvironment{etaremune}{\begin{enumerate}}{\end{enumerate}}
+\newcommand{\JournalInfo}[2]{\hspace{0.3em}{\small\textsf{[#1; #2]}}}
+\newcommand{\TubitakOutput}{{\small\textsf{[T\"{U}B\.{I}TAK-supported research]}}}
 
 %%% Begin Document
 %%% ------------------------------------------------------------
@@ -122,7 +122,7 @@ pdfsubject={Statistics, Econometrics and Data Science}
 %Office Phone : +90 (422) 337-4311\\
 %Cell Phone : +90 (543) 207-0867\\
 \href{mailto:b.yzb@hotmail.com}{b.yzb@hotmail.com}\\
-%ORCID QR Code    \hspace*{3.3cm}
+%ORCID QR Code    \hspace*{3.3cm} 
 \href{mailto:bahadir.yuzbasi@inonu.edu.tr}{bahadir.yuzbasi@inonu.edu.tr}\\
 \sepspace
 \href{https://www.webofscience.com/wos/author/record/288269}{[WoS]}
@@ -143,7 +143,7 @@ Professor of Statistics and Econometrics whose research develops shrinkage, pret
 \noindent\textbf{Research areas:} Machine learning; spatial statistics; functional data analysis; elastic shape analysis; shrinkage and penalized estimation; statistical inference; high-dimensional data; big data analytics.
 
 \sepspace
-\noindent\textbf{Bibliometric snapshot:} 93 publications; 35 WoS-indexed publications; 31 Scopus-indexed publications; 213 WoS citations; WoS h-index 10; 440 Scopus citations; Scopus h-index 14. Source: \href{https://avesis.inonu.edu.tr/bahadir.yuzbasi}{AVES\.{I}S}, accessed July 2026.
+\noindent\textbf{Bibliometric snapshot:} 94 publications; 35 WoS-indexed publications; 31 Scopus-indexed publications; 213 WoS citations; WoS h-index 10; 440 Scopus citations; Scopus h-index 14. Source: \href{https://avesis.inonu.edu.tr/bahadir.yuzbasi}{AVES\.{I}S}, accessed September 25, 2026.
 
  \NewPart{Skills}{}
 Professional programming in R and Python; R package development with C++/RcppArmadillo; reproducible statistical computing; SPSS-based statistical analysis; machine learning workflows; simulation studies; applied econometric and biomedical data analysis.
@@ -199,7 +199,7 @@ I am especially interested in collaborative research that connects rigorous stat
 {\begin{itemize}\item{High--Dimensional Estimation Strategies with Prof. S. Ejaz Ahmed}\end{itemize}}
 
 
-%\noindent \textbf{Assistant Professor of Statistics} \hfill
+%\noindent \textbf{Assistant Professor of Statistics} \hfill      
 %asdf
 %	\colorbox{White}{%
 %			\parbox{6em}{%
@@ -268,7 +268,7 @@ Thesis advisors: Mehmet G\"{u}ng\"{o}r (\.{I}n\"{o}n\"{u} University) \& S. Ejaz
 \begin{etaremune}
 \renewcommand{\theenumi}{A\arabic{enumi}}
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.} \& Cao, J. (2025, forthcoming), \texttt{sglasso}, an R package written with C++ and RcppArmadillo.
+\item {\bf Y\"{u}zba\c{s}{\i}, B.} \& Cao, J. (2026). \texttt{sglasso}: an R package for collinear groupwise selection via scaled group lasso, written with C++ and RcppArmadillo. Related article: \href{https://doi.org/10.1080/00031305.2026.2709494}{Y\"{u}zba\c{s}{\i} \& Cao (2026), ``Collinear Groupwise Selection via Scaled Group Lasso,'' \textit{The American Statistician}}.
 
 \item {\bf Y\"{u}zba\c{s}{\i}, B.}, Arashi, M., \& Akdeniz, F. (2019). \href{https://cran.r-project.org/web/packages/rbridge/rbridge.pdf}{\texttt{rbridge}: Restricted Bridge Estimation}. R package version 1.0, written with C++ and RcppArmadillo. Related article: Y\"{u}zba\c{s}{\i} et al. (2021), Penalized regression via the restricted bridge estimator, \textit{Soft Computing}, 25(13), 8401--8416.
 
@@ -276,7 +276,7 @@ Thesis advisors: Mehmet G\"{u}ng\"{o}r (\.{I}n\"{o}n\"{u} University) \& S. Ejaz
 \item Python programming for statistical computing, machine learning workflows, data cleaning and reproducible research pipelines.
 
 \item SPSS programming and applied statistical analysis for social science and medical research; lecturer for applied SPSS courses.
-
+ 
  \end{etaremune}
 
 
@@ -284,20 +284,27 @@ Thesis advisors: Mehmet G\"{u}ng\"{o}r (\.{I}n\"{o}n\"{u} University) \& S. Ejaz
 
 \begin{itemize}
 
+\item ``Modeling Heterogeneity in Big Spatial Data with Explainable and Supervised Machine Learning'', T\"{U}B\.{I}TAK 1001, Project Number: 126K746. Principal Investigator. Funding approved August 7, 2026.
+
+\item ``Validity and Reliability Analysis of an AI-Developed Turkish Tax Compliance Scale'', Inonu University Scientific Research Project, SBA-2026-4833, April 1, 2026--April 1, 2027. Researcher. Ongoing.
+
+\item ``Analysis of the Effects of Corruption Perception on Political Behaviour in Turkey'', Inonu University Scientific Research Project, SBA-2026-4536, February 17, 2026--February 17, 2027. Researcher. Ongoing.
+
+\item ``Scaled Shrinkage Strategy for Complex Data Structures'', Inonu University Scientific Research Project, SBA-2025-4340, November 13, 2025--November 13, 2026. Principal Investigator. Ongoing.
+
 
 %\item Robust Penalized Estimation in Network Data, Inonu University,  International Research Project with number SUA-2019-1629, 22.01.2019--. (As Coordinator)
 
-\item ``Modeling Heterogeneity in Big Spatial Data with Explainable and Supervised Machine Learning'', T\"{U}B\.{I}TAK 1001 Scientific and Technological Research Projects Funding Programme, accepted in the 2026--1 call, 36 months. Role: Principal Investigator. Requested budget: 2,979,000 Turkish Liras, excluding project incentive payments and institutional share.
 
-\item ``Machine Learning for Functional Data'', The Scientific and Technological Research Council of T\"{u}rkiye (T\"{U}B\.{I}TAK), 2219 International Postdoctoral Research Scholarship. Host: Simon Fraser University, Department of Statistics and Actuarial Science, Canada, 2024--2025, 12 months. Role: Coordinator. Budget: 31,200 USD.
+\item ``Machine Learning for Functional Data'', T\"{U}B\.{I}TAK 2219 International Postdoctoral Research Scholarship. Host: Simon Fraser University, Department of Statistics and Actuarial Science, Canada, 2024--2025, 12 months. Role: Coordinator. Budget: 31,200 USD.
 
 \item ``Investigation of Domestic and Foreign Migration of Van Province by Geographically Weighted Regression Method'', T\"{U}B\.{I}TAK 3005 Innovative Solutions Research Projects Support Program in Social Sciences and Humanities, Project Number: 122G128, 01.10.2022--05.04.2024. Role: Coordinator. Budget: 327,137 Turkish Liras.
 
 \item ``Shrinkage and Penalized Estimation Strategies'', T\"{U}B\.{I}TAK 2214-A International Research Fellowship Programme for PhD Students. Host: Brock University, Department of Mathematics and Statistics, Canada, 2013--2014, 12 months. Role: Coordinator. Budget: 15,600 USD.
 
-\item ``Robust Regularization and Gaussian Graphical Models'', Inonu University International Bilateral Cooperation Project, Project Number: SUA-2019-1629. Host: The University of British Columbia, Department of Statistics, Canada, 02.2019--08.2019. Role: Coordinator. Budget: 7,500 USD.
-
-\item ``Pretest and Stein-type Estimation in Linear Quantile Regression Models'', Inonu University Scientific Research Project, Project Number: SBA-2017-946, 12.2017--09.2018. Role: Coordinator.
+\item ``Robust Regularization and Gaussian Graphical Models'', Inonu University International Research Project, SUA-2019-1629, January 22--December 20, 2019. Principal Investigator. Research visit: The University of British Columbia, Canada, February--August 2019. Budget: 7,500 USD. Completed.
+ 
+\item ``Pretest and Stein-type Estimation in Linear Quantile Regression Models'', Inonu University Scientific Research Project, SBA-2017-946, December 12, 2017--November 21, 2018. Principal Investigator. Completed.
 
 \item ``Liu-type Estimation in Linear Regression Models'', Necmettin Erbakan University Scientific Research Project, Project Number: 171215001, 03.2017--12.2017. Role: Researcher.
 
@@ -335,145 +342,152 @@ Thesis advisors: Mehmet G\"{u}ng\"{o}r (\.{I}n\"{o}n\"{u} University) \& S. Ejaz
 \begin{etaremune}
 \renewcommand{\theenumi}{A\arabic{enumi}}
 
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Cao, J. (2026). \href{https://doi.org/10.1080/00031305.2026.2709494}{Collinear Groupwise Selection via Scaled Group Lasso}. \textit{The American Statistician}. Published online September 17, 2026. \JournalInfo{SCIE}{Q1} \TubitakOutput
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed, S. E., \& Liu, S. (2026). Shrinkage Estimation in Geographically Weighted Regression with Applications to Digital Platform Pricing. \textit{Spatial Statistics}, 100969.
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed, S. E., \& Liu, S. (2026). \href{https://doi.org/10.1016/j.spasta.2026.100969}{Shrinkage Estimation in Geographically Weighted Regression with Applications to Digital Platform Pricing}. \textit{Spatial Statistics}, 73, 100969. \JournalInfo{SCIE}{Q1}
 
 \item Pehlivan, C., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Tuncel, G. (2026). The Role of Socio-Economic Development Level in Van Province on Migration. \textit{Sinop \"{U}niversitesi Sosyal Bilimler Dergisi}, 10(1), 23--54.
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& G\"{o}r\"{u}r, \c{C}. (2026). Analysis of Van Province's Migration from Iran by Geographically Weighted Regression Method. \textit{Uluslararas{\i} \.{I}li\c{s}kiler / International Relations}.
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& G\"{o}r\"{u}r, \c{C}. (2026). \href{https://doi.org/10.33458/uidergisi.1853672}{Analysis of Van Province's Migration from Iran by Geographically Weighted Regression Method}. \textit{Uluslararas{\i} \.{I}li\c{s}kiler / International Relations}, 23(89), 27--49. \JournalInfo{SSCI}{Q3} \TubitakOutput
 
-\item G\"{o}rm\"{u}\c{s}, S., Cengiz, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2026). A Spatio-Temporal Analysis of COVID-19 Spread in T\"{u}rkiye. \textit{Forestist}.
+\item G\"{o}rm\"{u}\c{s}, S., Cengiz, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2026). \href{https://forestist.org/index.php/pub/article/view/2688}{A Spatio-Temporal Analysis of COVID-19 Spread in T\"{u}rkiye}. \textit{Forestist}, 76(1), 1--14. {\small\textsf{[ESCI; Scopus]}}
 
-\item Hassan, M. K., Bayat, T., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Kayhan, S. (2025). Was Digitalization Effective in Enhancing Financial Inclusion in the EU-27 During the COVID–19 Pandemic?. Eastern European Economics, 1-17.
+\item Hassan, M. K., Bayat, T., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Kayhan, S. (2026). Was Digitalization Effective in Enhancing Financial Inclusion in the EU-27 During the COVID--19 Pandemic? \textit{Eastern European Economics}, 64(5), 778--794. \JournalInfo{SSCI}{Q3}
 
-\item Gorur, C., \& {\bf Y\"{u}zba\c{s}{\i}, B.}, (2024). Study of the Factors Influencing Cultural Similarity in the Post-Migration Adaptation Process in the Province of Van Using the GWR Method. Journal of Geography, 49.
+\item Al-Momani, M., {\bf Y\"{u}zba\c{s}{\i}, B.}, Bataineh, M. S., Abdallah, R., \& Moideenkutty, A. (2025). \href{https://doi.org/10.3390/math13223733}{Shrinkage Approaches for Ridge-Type Estimators Under Multicollinearity}. \textit{Mathematics}, 13(22), 3733. \JournalInfo{SCIE}{Q1}
+
+\item McGee, R. W., {\bf Y\"{u}zba\c{s}{\i}, B.}, K{\i}sa, \"{O}., \& Benk, S. (2025). \href{https://doi.org/10.30927/ijpf.1725129}{The Role of Emotions in Attitudes toward Ethics of Tax Evasion: An Empirical Study}. \textit{International Journal of Public Finance}, 10(2), 325--340. {\small\textsf{[TR Dizin]}}
+
+\item Tuncel, G., Y{\i}lmaz, H., G\"{o}ktolga, O., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2024). \href{https://doi.org/10.29288/ilted.1486541}{The Impact of Religious Officials on Social Life: A Research on Scale Development, Validity and Reliability}. \textit{Journal of Ilahiyat Researches}, 62(1), 86--100. {\small\textsf{[ESCI; TR Dizin]}}
+
+\item Gorur, C., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2024). \href{https://doi.org/10.26650/JGEOG2024-1353398}{Study of the Factors Influencing Cultural Similarity in the Post-Migration Adaptation Process in the Province of Van Using the GWR Method}. \textit{Journal of Geography}, 48, 137--154. {\small\textsf{[TR Dizin]}}
 
 \item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Gorur, C. (2023). Examining The Role of Job by Geographically Weighted Poisson Regression in The Post-Migration Adaptation Process: The Case of Van. Yüzüncü Yıl Üniversitesi Sosyal Bilimler Enstitüsü Dergisi, (Cumhuriyet Özel Sayısı), 11-27.
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Asar, Y., \& Ahmed, S. E. (2022). Liu-type shrinkage estimations in linear models. Statistics, 56(2), 396-420.
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Asar, Y., \& Ahmed, S. E. (2022). Liu-type shrinkage estimations in linear models. Statistics, 56(2), 396-420. \JournalInfo{SCIE}{Q3}
 
 \item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Pala, M. (2022) Ridge regression parameter selection: Turkey's example of foreign direct investment. Journal of Statisticians: Statistics and Actuarial Sciences, 15(1), 1-18.
 
-\item Arashi, M., Asar, Y., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2021). SLASSO: a scaled LASSO for multicollinear situations. Journal of Statistical Computation and Simulation, 91(15), 3170-3183.
+\item Arashi, M., Asar, Y., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2021). SLASSO: a scaled LASSO for multicollinear situations. Journal of Statistical Computation and Simulation, 91(15), 3170-3183. \JournalInfo{SCIE}{Q2}
 
 
-\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Arashi, M, \& Akdeniz, F. (2021). Penalized Regression via the Restricted Bridge Estimator. {\em Soft Computing}, 25(13), 8401-8416.
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Arashi, M, \& Akdeniz, F. (2021). Penalized Regression via the Restricted Bridge Estimator. {\em Soft Computing}, 25(13), 8401-8416. \JournalInfo{SCIE}{Q3}
 
 
 \item  {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Gorur, C. (2021). Examining Spatial Variability in the Association Between Some Factors and Number of Prisoners in Turkey: A GWR Analysis. Mugla Journal of Science and Technology, 7(1), 141-148.
 
 
-\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ahmed, S. E. (2020). Ridge Type Shrinkage Estimation of Seemingly Unrelated Regressions And Analytics of Economic and Financial Data from ``Fragile Five" Countries. {\em Journal of Risk and Financial Management}, 13(6), 131.
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ahmed, S. E. (2020). Ridge Type Shrinkage Estimation of Seemingly Unrelated Regressions And Analytics of Economic and Financial Data from ``Fragile Five" Countries. {\em Journal of Risk and Financial Management}, 13(6), 131. 
 
-\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed, S. E., \& Aydin, D. (2020). Ridge-type pretest and shrinkage estimations in partially linear models. {\em Statistical Papers}, 61(2), 869-898.
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed, S. E., \& Aydin, D. (2020). Ridge-type pretest and shrinkage estimations in partially linear models. {\em Statistical Papers}, 61(2), 869--898. \JournalInfo{SCIE}{Q3} \TubitakOutput
 \label{stat_paper}
 
-\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Arashi, M., \& Ejaz Ahmed, S. (2020). Shrinkage Estimation Strategies in Generalised Ridge Regression Models: Low/High-Dimension Regime. {\em International Statistical Review}, 88(1), 229--251. {\bf (SCI)}
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Arashi, M., \& Ejaz Ahmed, S. (2020). Shrinkage Estimation Strategies in Generalised Ridge Regression Models: Low/High-Dimension Regime. {\em International Statistical Review}, 88(1), 229--251. \JournalInfo{SCIE}{Q1}
 \label{int_stat_paper}
 
-\item McGee, R. W., Benk, S., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Budak, T. (2020). Does Religiosity Affect Attitudes toward the Ethics of Tax Evasion? The Case of Turkey. Religions, 11(9), 476.
+\item McGee, R. W., Benk, S., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Budak, T. (2020). Does Religiosity Affect Attitudes toward the Ethics of Tax Evasion? The Case of Turkey. Religions, 11(9), 476. \JournalInfo{AHCI}{Q1}
 \label{robert1_paper}
 
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.},  \& Arashi, M. (2019). Double shrunken selection operator. {\em Communications in Statistics-Simulation and Computation}, 48(3), 666-674.
+\item {\bf Y\"{u}zba\c{s}{\i}, B.},  \& Arashi, M. (2019). Double shrunken selection operator. {\em Communications in Statistics-Simulation and Computation}, 48(3), 666-674. \JournalInfo{SCIE}{Q3}
 
 \item
-McGee, R. W., Benk, S., \&  {\bf Y\"{u}zba\c{s}{\i}, B.}. (2019). Should Governments Tax the Rich and Subsidize the Poor? A Comparative Study of Muslim and Christian Respondents. {\em Religions, 10(2), 72}.
+McGee, R. W., Benk, S., \&  {\bf Y\"{u}zba\c{s}{\i}, B.}. (2019). Should Governments Tax the Rich and Subsidize the Poor? A Comparative Study of Muslim and Christian Respondents. {\em Religions, 10(2), 72}. \JournalInfo{AHCI}{Q1}
 \label{robert2_paper}
 
 
 
 
 \item
-Yilmaz, E., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Aydin, D. (2018).
-\href{https://www.ine.pt/revstat/pdf/REVSTAT-113-2017-R2.pdf}{
-Choice of smoothing parameter for kernel type ridge estimators in semiparametric regression  models}.
-{\em REVSTAT-Statistical Journal},
+Yilmaz, E., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Aydin, D. (2021).
+\href{https://www.ine.pt/revstat/pdf/REVSTAT-113-2017-R2.pdf}{ 
+Choice of smoothing parameter for kernel type ridge estimators in semiparametric regression  models}. 
+{\em REVSTAT-Statistical Journal}, 19(1), 47--69. \JournalInfo{SCIE}{Q2}
 
 
 \item
-{\bf Y\"{u}zba\c{s}{\i}, B.}, Asar, Y., Sik, M. S., \& Demiralp, A. (2018).  \href{http://thermalscience.vinca.rs/pdfs/papers-2018/TSCI170612275Y.pdf}{Improving Estimations in Quantile Regression Model with Autoregressive Errors}. Thermal Science. Volume 22, Issue Suppl. 1, Pages: 97-10,
+{\bf Y\"{u}zba\c{s}{\i}, B.}, Asar, Y., Sik, M. S., \& Demiralp, A. (2018).  \href{http://thermalscience.vinca.rs/pdfs/papers-2018/TSCI170612275Y.pdf}{Improving Estimations in Quantile Regression Model with Autoregressive Errors}. Thermal Science. Volume 22, Issue Suppl. 1, Pages: 97-10, \JournalInfo{SCIE}{Q4}
 
 
 
 
-\item
-Arashi, M., Norouzirad, M., Ahmed, S. E., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2018). Rank-based Liu regression. {\em Computational Statistics}, 33(3), 1525-1561.
+\item 
+Arashi, M., Norouzirad, M., Ahmed, S. E., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2018). Rank-based Liu regression. {\em Computational Statistics}, 33(3), 1525-1561. \JournalInfo{SCIE}{Q2}
 
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed S.E, \& Gungor, M. (2017).
-\href{https://www.ine.pt/revstat/pdf/rs170205.pdf}{Improved Penalty Strategies in Linear Regression Models},
-\emph{REVSTAT-Statistical Journal}, Volume 15, Number 2, April 2017, 251-276.
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed S.E, \& Gungor, M. (2017). 
+\href{https://www.ine.pt/revstat/pdf/rs170205.pdf}{Improved Penalty Strategies in Linear Regression Models}, 
+\emph{REVSTAT-Statistical Journal}, 15(2), 251--276. \JournalInfo{SCIE}{Q3} \TubitakOutput
 \label{by2017a}
 
- \item Benk, S., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& McGee, R. W. (2017).
-\href{http://www.mdpi.com/2077-1444/8/1/8}{Confidence in Government and Attitudes toward Bribery: A Country-Cluster Analysis of Demographic and Religiosity Perspectives}.
-\emph{Religions}, 8(1), 8.
+ \item Benk, S., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& McGee, R. W. (2017). 
+\href{http://www.mdpi.com/2077-1444/8/1/8}{Confidence in Government and Attitudes toward Bribery: A Country-Cluster Analysis of Demographic and Religiosity Perspectives}. 
+\emph{Religions}, 8(1), 8. \JournalInfo{AHCI}{Q1}
 \label{by2017b}
 
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ejaz Ahmed, S. (2016).
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ejaz Ahmed, S. (2016). 
 \href{http://www.tandfonline.com/doi/abs/10.1080/00949655.2016.1171868?journalCode=gscs20}
-{Shrinkage and penalized estimation in semi-parametric models with multicollinear data}.
-\emph{Journal of Statistical Computation and Simulation}, 86(17), 3543-3561.
+{Shrinkage and penalized estimation in semi-parametric models with multicollinear data}. 
+\emph{Journal of Statistical Computation and Simulation}, 86(17), 3543--3561. \JournalInfo{SCIE}{Q2} \TubitakOutput
 \label{by2016a}
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Bulut, Y., \& Gungor, M. (2016).
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Bulut, Y., \& Gungor, M. (2016). 
 \href{https://www.degruyter.com/view/j/phys.2016.14.issue-1/phys-2016-0022/phys-2016-0022.xml}
-{On order statistics from nonidentical discrete random variables}.
-\emph{Open Physics}, 14(1), 192-196.
+{On order statistics from nonidentical discrete random variables}. 
+\emph{Open Physics}, 14(1), 192-196. \JournalInfo{SCIE}{Q2}
 
-\item Ayd\i n, D., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ahmed, S. E. (2016).
-\href{http://www.ingentaconnect.com/contentone/asp/jctn/2016/00000013/00000010/art00087?crawler=true&mimetype=application/pdf}{Modified ridge type estimator in partially linear regression models and numerical Comparisons},
-\emph{Journal of Computational and Theoretical Nanoscience}, Vol. 13, 1--14.
-
-
+\item Ayd\i n, D., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ahmed, S. E. (2016). 
+\href{http://www.ingentaconnect.com/contentone/asp/jctn/2016/00000013/00000010/art00087?crawler=true&mimetype=application/pdf}{Modified ridge type estimator in partially linear regression models and numerical Comparisons}, 
+\emph{Journal of Computational and Theoretical Nanoscience}, Vol. 13, 1--14. 
 
 
-\item Bulut, Y., Gungor, M., {\bf Y\"{u}zba\c{s}{\i}, B.}, Ozbey, F., \& Canpolat, E. (2016).
+
+
+\item Bulut, Y., Gungor, M., {\bf Y\"{u}zba\c{s}{\i}, B.}, Ozbey, F., \& Canpolat, E. (2016). 
 \href{http://www.eudoxuspress.com/images/VOLUME-20-JOCAAA-2016-ISSUE-1.pdf}
-{On Distributions of Discrete Order Statistics}.
-\emph{Journal of Computational Analysis \& Applications}, 20(1), 187-200.
+{On Distributions of Discrete Order Statistics}. 
+\emph{Journal of Computational Analysis \& Applications}, 20(1), 187-200. \JournalInfo{SCIE}{Q4}
 
-\item Ejaz Ahmed, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2016).
-\href{http://www.tandfonline.com/doi/abs/10.1080/17509653.2016.1153252}{Big data analytics: integrating penalty strategies}.
+\item Ejaz Ahmed, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2016). 
+\href{http://www.tandfonline.com/doi/abs/10.1080/17509653.2016.1153252}{Big data analytics: integrating penalty strategies}. 
 \emph{International Journal of Management Science and Engineering Management}, 11(2), 105-115.
 
 
 
-\item Benk, S., Budak, T., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Mohdali, R. (2016).
-\href{http://www.mdpi.com/2077-1444/7/4/37}{The Impact of Religiosity on Tax Compliance among Turkish Self-Employed Taxpayers}.
-\emph{Religions}, 7(4), 37.
+\item Benk, S., Budak, T., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Mohdali, R. (2016). 
+\href{http://www.mdpi.com/2077-1444/7/4/37}{The Impact of Religiosity on Tax Compliance among Turkish Self-Employed Taxpayers}. 
+\emph{Religions}, 7(4), 37. \JournalInfo{AHCI}{Q1}
  \label{by2016b}
+ 
 
 
-
-\item Benk, S., McGee, R. W., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2015).
+\item Benk, S., McGee, R. W., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2015). 
 \href{http://jsri.ro/ojs/index.php/jsri/article/view/777}
-{How religions affect attitudes toward ethics of tax evasion? A comparative and demographic analysis}.
-\emph{Journal for the Study of Religions and Ideologies}, 14(41), 202.
+{How religions affect attitudes toward ethics of tax evasion? A comparative and demographic analysis}. 
+\emph{Journal for the Study of Religions and Ideologies}, 14(41), 202. \JournalInfo{AHCI}{Q1}
  \label{by2015a}
-
-\item McGee, R. W., Benk, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2015).
-\href{http://www.mdpi.com/2077-1444/6/4/1168}{Religion and Ethical Attitudes toward Accepting a Bribe: A Comparative Study}.
-\emph{Religions}, 6(4), 1168-1181.
+	
+\item McGee, R. W., Benk, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2015). 
+\href{http://www.mdpi.com/2077-1444/6/4/1168}{Religion and Ethical Attitudes toward Accepting a Bribe: A Comparative Study}. 
+\emph{Religions}, 6(4), 1168-1181. \JournalInfo{AHCI}{Q1}
 \label{by2015b}
 
-\item Kayhan, S., Bayat, T., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2013).
+\item Kayhan, S., Bayat, T., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2013). 
 \href{http://www.sciencedirect.com/science/article/pii/S026499931300240X}
-{Government expenditures and trade deficits in Turkey: Time domain and frequency domain analyses}.
-\emph{Economic Modelling}, 35, 153-158.
+{Government expenditures and trade deficits in Turkey: Time domain and frequency domain analyses}. 
+\emph{Economic Modelling}, 35, 153-158. \JournalInfo{SSCI}{Q1}
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Gungor, M. (2013).
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Gungor, M. (2013). 
 \href{http://www.eudoxuspress.com/244/JOCAAA-VOL-15-2013.pdf}
-{On Joint Distributions of Order Statistics from Nonidentically Distributed Discrete Vectors}.
-\emph{Journal of Computational Analysis \& Applications}, 15(1).
+{On Joint Distributions of Order Statistics from Nonidentically Distributed Discrete Vectors}. 
+\emph{Journal of Computational Analysis \& Applications}, 15(1). \JournalInfo{SCIE}{Q4}
 \label{by2013}
 
-\item Gungor, M., Bulut, Y., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2012).
+\item Gungor, M., Bulut, Y., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2012). 
 \href{https://link.springer.com/article/10.1186/1029-242X-2012-264}
-{On joint distributions of order statistics for a discrete case}.
-\emph{Journal of Inequalities and Applications}, 2012(1), 264.
+{On joint distributions of order statistics for a discrete case}. 
+\emph{Journal of Inequalities and Applications}, 2012(1), 264. 
 
 %\end{enumerate}
 
@@ -499,7 +513,12 @@ Arashi, M., Norouzirad, M., Ahmed, S. E., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2018)
 
 
 
-\NewPart{Book Chapter}{}
+\NewPart{Book Reviews}{}
+\begin{itemize}
+\item {\bf Y\"{u}zba\c{s}{\i}, B.} (accepted). Review of \textit{Using R for Introductory Statistics in Social Sciences}, by Mark A. Perkins (Springer, 2026, xiii + 207 pp., ISBN 978-3-032-17144-3). \textit{International Statistical Review}. \JournalInfo{SCIE}{Q1}
+\end{itemize}
+
+\NewPart{Book Chapters and Conference Proceedings}{}
 
 \begin{etaremune}
 \renewcommand{\theenumi}{B\arabic{enumi}}
@@ -528,10 +547,10 @@ Arashi, M., Norouzirad, M., Ahmed, S. E., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2018)
 
 
  \item  Ahmed, S. E., Hwanwoo, K., Yildirim, G. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2019). \href{https://link.springer.com/chapter/10.1007/978-3-030-17519-1_11}{Matrices, Statistics and Big Data. IWMS 2016. Contributions to Statistics. Springer, Cham Chapter name: (High dimensional regression under correlated Design: an extensive simulation study)} In: Ahmed S., Carvalho F., Puntanen S. (eds)
+ 
 
-
-
-
+ 
+ 
 
  \item  Asar, Y., Ahmed, S. E., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2018, August). \href{https://link.springer.com/chapter/10.1007/978-3-319-93351-1_27}{Efficient and Improved Estimation Strategy in Zero-Inflated Poisson Regression Models}. In International Conference on Management Science and Engineering Management (pp. 329-342). Springer, Cham.
 
@@ -543,21 +562,21 @@ Arashi, M., Norouzirad, M., Ahmed, S. E., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2018)
 
 
 
-\item Ahmed, S. E. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2017)
+\item Ahmed, S. E. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2017) 
 \href{https://link.springer.com/chapter/10.1007\%2F978-3-319-41573-4_14}
-{High Dimensional Data Analysis: Integrating Submodels. In Big and Complex Data Analysis} (pp. 285-304).
+{High Dimensional Data Analysis: Integrating Submodels. In Big and Complex Data Analysis} (pp. 285-304). 
 Springer International Publishing.
 
 
- \item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ahmed, S. E. (2015).
+ \item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ahmed, S. E. (2015). 
  \href{https://link.springer.com/chapter/10.1007/978-3-662-47241-5_67}
- {Shrinkage Ridge Regression Estimators in High-Dimensional Linear Models}.
- In Proceedings of the Ninth International Conference on Management Science and Engineering Management (pp. 793-807).
+ {Shrinkage Ridge Regression Estimators in High-Dimensional Linear Models}. 
+ In Proceedings of the Ninth International Conference on Management Science and Engineering Management (pp. 793-807). 
  Springer Berlin Heidelberg.
+ 
 
-
-
-
+ 
+ 
 \end{etaremune}
 
 
@@ -572,15 +591,15 @@ Springer International Publishing.
 
 \item {\bf Y\"{u}zba\c{s}{\i}, B.} (2026). A Hybrid Regularization Framework for Correlated Feature Selection in High-Dimensional Data. \href{https://hdda2026.medipol.edu.tr}{15th Conference on High Dimensional Data Analysis (HDDA-XV)}, Istanbul Medipol University, Istanbul, T\"{u}rkiye, August 12--14, 2026. (Invited Speaker)
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.} (2025). Groupwise Feature Selection in High-Dimensional Data. International Conference on Statistics and Data Science, June 23--25, 2025, Vancouver, Canada. (Invited Speaker)
+\item {\bf Y\"{u}zba\c{s}{\i}, B.} (2025). Groupwise Feature Selection in High-Dimensional Data. \href{https://icsds.github.io/2025/assets/program_ICSDS2025.pdf}{International Conference on Statistics and Data Science}, June 23--25, 2025, Vancouver, Canada. (Invited Speaker)
 
-\item\TalkEntry{\href{https://ssc.ca/en/2016-some-applications-james-stein-shrinkage-estimation\#by}{44th Annual Meeting of the Statistical Society of Canada}}{Brock University, Canada}{May 2016}{(Invited Speaker)}
+\item\TalkEntry{\href{https://ssc.ca/en/2016-some-applications-james-stein-shrinkage-estimation\#by}{44th Annual Meeting of the Statistical Society of Canada}}{Brock University, Canada}{May 2016}{(Invited Speaker)} 
 
 \item\TalkEntry{\href{http://www.fields.utoronto.ca/talks/stein-type-generalized-ridge-regression-high-dimensional-sparse-models}{6th International Workshop on the Perspectives on High-Dimensional
-Data Analysis (HDDA-VI)}}{The Fields Institute, University of Toronto, Canada}{May 2016}{(Invited Speaker and Organizing Committee)}
+Data Analysis (HDDA-VI)}}{The Fields Institute, University of Toronto, Canada}{May 2016}{(Invited Speaker and Organizing Committee)} 
 
 
-\item\TalkEntry{\href{https://www.stat.ubc.ca/events-list?field_event_type_tid=All&page=5&year=2005}{$L_q$-type Penalty Estimation Under the Linear Restriction}}{The University of British Columbia, Department of Statistics, Vancouver, Canada}{August 2019}{Statistics Seminar}
+\item\TalkEntry{\href{https://www.stat.ubc.ca/events-list?field_event_type_tid=All&page=5&year=2005}{$L_q$-type Penalty Estimation Under the Linear Restriction}}{The University of British Columbia, Department of Statistics, Vancouver, Canada}{August 2019}{Statistics Seminar} 
 
 
 
@@ -609,15 +628,15 @@ Data Analysis (HDDA-VI)}}{The Fields Institute, University of Toronto, Canada}{M
 
 \item  {\bf Y\"{u}zba\c{s}{\i}, B.} (2022). Big Data Analytics via Penalized Estimation. 6th International Conference on Computational Mathematics and Engineering Sciences.
 
-\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, ASAR YASİN, YUZBASI ZK, (2018), A new quantile penalty estimator, 11th International Statistics Days Conference.
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, ASAR YASİN, YUZBASI ZK, (2018), A new quantile penalty estimator, 11th International Statistics Days Conference. 
 
 \item  {\bf Y\"{u}zba\c{s}{\i}, B.}, DEMIRALP AHMED, GUNGOR MEHMET (2018).  Correlation Based Penalty Estimator in Vector Autoregressive Model.  11th International Statistics Days Conference.
 
-\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Ejaz Ahmed, ASAR YASİN, (2018), Liu Pretest and Stein-Type Shrinkage Estimation in Linear Regression Models, 11th International Statistics Days Conference.
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Ejaz Ahmed, ASAR YASİN, (2018), Liu Pretest and Stein-Type Shrinkage Estimation in Linear Regression Models, 11th International Statistics Days Conference. 
 
 \item  ASAR YASİN, {\bf Y\"{u}zba\c{s}{\i}, B.} (2018), A biased estimation method in zero inflated count models, 3rd International Conference on Computational Mathematics and Engineering Sciences
 
-\item  ASAR YASİN, {\bf Y\"{u}zba\c{s}{\i}, B.} (2018), Quantile correlation based penalty estimator, 3rd International Conference on Computational Mathematics and Engineering Sciences.
+\item  ASAR YASİN, {\bf Y\"{u}zba\c{s}{\i}, B.} (2018), Quantile correlation based penalty estimator, 3rd International Conference on Computational Mathematics and Engineering Sciences. 
 
 \item  {\bf Y\"{u}zba\c{s}{\i}, B.}, ASAR YASİN (2018), Improved Biased Estimation Methods in Logistic Regression, 3rd International Conference on Computational Mathematics and Engineering Sciences.
 
@@ -635,7 +654,7 @@ Data Analysis (HDDA-VI)}}{The Fields Institute, University of Toronto, Canada}{M
 
 \item  DEMİRALP AHMET,ASAR YASİN, {\bf Y\"{u}zba\c{s}{\i}, B.} (2017).  Improved Estimation Strategies in Quantile Regression Model when Errors are Non-iid.  3.International Researchers, Statisticians and Young Statisticians Congress 2017
 
-\item  YILDIRIM GOKHAN,AHMED SYED EJAZ,KIM HWANWOO, {\bf Y\"{u}zba\c{s}{\i}, B.} (2016).  On Lasso trade off diagram under correlated random design matrix.  6th International Workshop on the Perspectives  on High-Dimensional Data Analysis (HDDA-VI), Fields Institute, Toronto University, Canada.
+\item  YILDIRIM GOKHAN,AHMED SYED EJAZ,KIM HWANWOO, {\bf Y\"{u}zba\c{s}{\i}, B.} (2016).  On Lasso trade off diagram under correlated random design matrix.  6th International Workshop on the Perspectives  on High-Dimensional Data Analysis (HDDA-VI), Fields Institute, Toronto University, Canada. 
 
 \item  YILMAZ ERSİN, {\bf Y\"{u}zba\c{s}{\i}, B.},AYDIN DURSUN (2015).  Ridge type kernel smoothing in semi  parametric regression models  A Comparative Simulation Study.  9. International Statistics Congress
 
@@ -661,9 +680,9 @@ Data Analysis (HDDA-VI)}}{The Fields Institute, University of Toronto, Canada}{M
 \item Emsal Cagla Avcu, An application on Lasso VAR and VARX models, Master Thesis, Inonu University, 2019.
 \item Ozlem Taya, Classification with support vector machines and logistic regression: Turkey's import and export example, Master Thesis,Inonu University, 2022
 \item Mustafa Pala, Ridge regression parameter selection: Turkey's foreign direct investment example, Master Thesis, Inonu University, 2022.
-\item Merve Karakas, Generalized Additive Models: An Application of Econometric Data, Master Thesis, Inonu University, 2021--.
-%\item Tugce Alanel, An Econometrics data application for quantile regression, Master Thesis, Inonu University, 2021 - .
-\item Cetin Gorur, Investigation of Domestic and Foreign Migration of Van Province by Geographically Weighted Regression Method, PhD Thesis, 2020--.
+\item Merve Karakas, Generalized Additive Models: An Application of Econometric Data, Master Thesis, Inonu University, 2024. Completed.
+%\item Tugce Alanel, An Econometrics data application for quantile regression, Master Thesis, Inonu University, 2021 - . 
+\item Cetin Gorur, Investigation of Domestic and Foreign Migration of Van Province by Geographically Weighted Regression Method, PhD Thesis, Inonu University, 2024. Completed.
 
 
 
@@ -720,27 +739,29 @@ Data Analysis (HDDA-VI)}}{The Fields Institute, University of Toronto, Canada}{M
 
 I have taught undergraduate courses in experimental design, probability, categorical data analysis, mathematical statistics, regression analysis, linear algebra, numerical analysis, multivariate statistics, and introductory statistics. At the master's and PhD levels, I have taught statistical methods, machine learning and big data analytics.
 
+From 2022--2026, I taught at least five courses per semester at İnönü University, including a course in English. I also taught Applied Discrete Data Analysis (STAT 475/675) at Simon Fraser University in spring 2025.
+
 
 \NewPart{Reviews}{}
 \begin{multicols}{2}
 \begin{enumerate}
 \item Uluslararası Bilimsel Dergilerde Hakemlik
-\item Journal of Statistical Computation and Simulation
-\item IEEE Transactions on Signal Processing
-\item Geo-Spatial Information Science
-\item Plos One
-\item IET Signal Processing
-\item Concurrency and Computation: Practice and Experience
-\item Wiley Interdisciplinary Reviews: Computational Statistics
-\item Electronics Letters
-\item Journal of Inequalities and Applications
-\item Communications in Statistics - Simulation and Computation
-\item Soft Computing
-\item Iranian Journal of Science and Technology, Transactions A: Science
-\item Journal of Public Affairs
+\item Journal of Statistical Computation and Simulation 
+\item IEEE Transactions on Signal Processing 
+\item Geo-Spatial Information Science 
+\item Plos One 
+\item IET Signal Processing 
+\item Concurrency and Computation: Practice and Experience 
+\item Wiley Interdisciplinary Reviews: Computational Statistics 
+\item Electronics Letters 
+\item Journal of Inequalities and Applications 
+\item Communications in Statistics - Simulation and Computation 
+\item Soft Computing 
+\item Iranian Journal of Science and Technology, Transactions A: Science 
+\item Journal of Public Affairs 
 \item Journal of Mathematics
 \item Computational Intelligence and Neuroscience
-\item Journal of Inverse and Ill-Posed Problems
+\item Journal of Inverse and Ill-Posed Problems 
 \item Chemometrics and Intelligent Laboratory Systems
 \item Heliyon
 \item Computer Methods and Programs in Biomedicine
