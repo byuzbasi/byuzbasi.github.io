@@ -1,0 +1,17 @@
+{
+  "python": "3.13.9",
+  "platform": "Darwin",
+  "packages": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "matplotlib": "3.10.6",
+    "statsmodels": "0.14.5",
+    "seaborn": "0.13.2"
+  },
+  "R": [
+    "R version 4.6.0 (2026-04-24) ",
+    "knitr 1.51 ",
+    "digest 0.6.39"
+  ]
+}

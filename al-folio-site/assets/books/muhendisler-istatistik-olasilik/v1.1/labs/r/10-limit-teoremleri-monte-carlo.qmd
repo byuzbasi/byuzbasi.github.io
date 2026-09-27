@@ -1,0 +1,42 @@
+---
+title: "R Laboratuvarı 10: Limit teoremleri ve Monte Carlo"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+İdeal iki bileşenli paralel sistem küçük ve yeniden üretilebilir bir Monte Carlo deneyiyle doğrulanır.
+
+```{r}
+set.seed(202610)
+m <- if (identical(Sys.getenv("BOOK_SMOKE"), "1")) 64L else 20000L
+b1 <- runif(m) < 0.98
+b2 <- runif(m) < 0.98
+basari <- b1 | b2
+p_hat <- mean(basari)
+mcse <- sqrt(p_hat * (1 - p_hat) / m)
+sonuc <- data.frame(
+  olcu = c("analitik", "Monte Carlo", "Monte Carlo standart hatası"),
+  deger = c(1 - 0.02^2, p_hat, mcse)
+)
+knitr::kable(sonuc, digits = 6, caption = "Paralel sistem simülasyonu")
+```
+
+Bu deney model hatasını değil, verilen ideal model altındaki sayısal örnekleme hatasını ölçer.
+
+## Sıfır olay için üst sınır
+
+~~~{r}
+m_zero <- c(100, 1000, 10000)
+zero_event_bounds <- data.frame(
+  tekrar = m_zero,
+  kesin_yuzde95_ust = 1 - 0.05^(1 / m_zero),
+  uc_kurali = 3 / m_zero
+)
+# Referans 10 ondalığa yuvarlanmıştır: mutlak yarım-basamak toleransı.
+stopifnot(abs(zero_event_bounds$kesin_yuzde95_ust[2] - 0.0029912495) < 5e-11)
+knitr::kable(zero_event_bounds, digits = 7, caption = "Sıfır olay gözleminde üst olasılık sınırı")
+~~~
+
+Sıfır gözlem, gerçek olay olasılığının tam sıfır olduğunu göstermez.

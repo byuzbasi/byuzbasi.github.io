@@ -1,0 +1,60 @@
+---
+title: "R Laboratuvarı 22: Yeniden üretilebilir vaka raporu"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+Pilot çıktının boyutu ve SHA-256 özeti bir manifest satırına dönüştürülür. Dosya yoksa laboratuvar ham veriye veya eski çıktıya yazmaz.
+
+```{r}
+path <- "../../tables/generated/v1/pilot_summary.csv"
+if (file.exists(path)) {
+  if (!requireNamespace("digest", quietly = TRUE)) {
+    stop("SHA-256 için kurulu digest paketi gereklidir; paket otomatik kurulmaz.")
+  }
+  info <- file.info(path)
+  manifest <- data.frame(
+    dosya = path,
+    bayt = info$size,
+    sha256 = digest::digest(file = path, algo = "sha256", serialize = FALSE)
+  )
+} else {
+  manifest <- data.frame(
+    dosya = path,
+    bayt = NA_real_,
+    sha256 = "Önce küçük duman testi çıktısını üretin"
+  )
+}
+knitr::kable(manifest, caption = "Pilot çıktı manifesti")
+```
+
+Asimetrik kapasite kaybı, eksik ve fazla kapasiteye farklı birim maliyetler verir.
+
+```{r}
+expected_loss <- function(q, demand, probability, shortage_cost, surplus_cost) {
+  stopifnot(length(demand) == length(probability), all(probability >= 0),
+            abs(sum(probability) - 1) < 1e-12)
+  shortage <- pmax(demand - q, 0)
+  surplus <- pmax(q - demand, 0)
+  sum(probability * (shortage_cost * shortage + surplus_cost * surplus))
+}
+demand <- c(90, 100, 120)
+probability <- c(0.2, 0.5, 0.3)
+candidate_capacity <- c(105, 115, 120)
+loss <- vapply(
+  candidate_capacity,
+  expected_loss,
+  numeric(1),
+  demand = demand,
+  probability = probability,
+  shortage_cost = 1000,
+  surplus_cost = 100
+)
+stopifnot(isTRUE(all.equal(unname(loss), c(5050, 2750, 1600))))
+decision <- data.frame(kapasite_MW = candidate_capacity, beklenen_kayip_TL = loss)
+knitr::kable(decision, digits = 0, caption = "Asimetrik kayıp altında kapasite adayları")
+```
+
+Bu tablo yalnız verilen olasılık ve maliyet senaryosuna koşulludur. Güvenlik sınırı veya fiziksel kapasite kısıtı varsa karar kapısında ayrıca uygulanır.

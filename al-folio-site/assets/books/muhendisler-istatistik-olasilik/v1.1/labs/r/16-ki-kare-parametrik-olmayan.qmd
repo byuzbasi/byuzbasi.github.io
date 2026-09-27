@@ -1,0 +1,68 @@
+---
+title: "R Laboratuvarı 16: Ki-kare ve sıra yöntemleri"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+Arıza kiplerinin gözlenen sayıları tasarım modelindeki oranlarla karşılaştırılır.
+
+```{r}
+observed <- c(mekanik = 54, elektrik = 42, yazilim = 24)
+prob <- c(0.40, 0.35, 0.25)
+fit <- chisq.test(observed, p = prob)
+expected <- unname(fit$expected)
+sonuc <- data.frame(
+  kip = names(observed),
+  gozlenen = unname(observed),
+  beklenen = expected,
+  katkı = (unname(observed) - expected)^2 / expected
+)
+knitr::kable(sonuc, digits = 4, caption = "Ki-kare uygunluk katkıları")
+```
+
+Test sonucu: $X^2$ = `r round(unname(fit$statistic), 3)`, p = `r round(fit$p.value, 4)`.
+
+Bağımsızlık örneğinde hücre katkıları ve Pearson artıkları, toplam testin hangi hücrelerden geldiğini gösterir.
+
+```{r}
+alarm <- matrix(c(42, 18, 28, 32), nrow = 2, byrow = TRUE)
+dimnames(alarm) <- list(hat = c("Hat 1", "Hat 2"), durum = c("Alarm", "Yok"))
+alarm_fit <- chisq.test(alarm, correct = FALSE)
+alarm_expected <- unname(alarm_fit$expected)
+alarm_residual <- (alarm - alarm_expected) / sqrt(alarm_expected)
+cramer_v <- sqrt(unname(alarm_fit$statistic) / sum(alarm))
+stopifnot(isTRUE(all.equal(unname(alarm_fit$statistic), 6.72, tolerance = 1e-10)))
+hucresel <- data.frame(
+  hucre = c("Hat1-Alarm", "Hat1-Yok", "Hat2-Alarm", "Hat2-Yok"),
+  gozlenen = as.vector(t(alarm)),
+  beklenen = as.vector(t(alarm_expected)),
+  Pearson_artigi = as.vector(t(alarm_residual)),
+  X2_katkisi = as.vector(t((alarm - alarm_expected)^2 / alarm_expected))
+)
+knitr::kable(hucresel, digits = 4, caption = "Alarm tablosunun hücre tanıları")
+```
+
+Toplam ilişki özeti: p = `r round(alarm_fit$p.value, 4)`, Cramér'in $V$ değeri = `r round(cramer_v, 4)`.
+
+Sabit tohumlu kısa Monte Carlo permütasyon hesabı, iki bağımsız grubun etiketlerini değiştirir. Üretim kümeli veya eşleştirilmiş olsaydı bu serbest permütasyon geçerli olmazdı.
+
+```{r}
+birinci <- c(8.2, 8.5, 8.1, 9.0, 8.7)
+ikinci <- c(7.4, 7.8, 7.6, 8.0, 7.7)
+gozlenen_fark <- mean(birinci) - mean(ikinci)
+birlesik <- c(birinci, ikinci)
+M <- if (identical(Sys.getenv("BOOK_SMOKE"), "1")) 64L else 1999L
+set.seed(202616)
+perm_fark <- replicate(M, {
+  karisik <- sample(birlesik)
+  mean(karisik[seq_along(birinci)]) - mean(karisik[-seq_along(birinci)])
+})
+perm_p <- (1 + sum(abs(perm_fark) >= abs(gozlenen_fark))) / (M + 1)
+knitr::kable(
+  data.frame(gozlenen_fark = gozlenen_fark, tekrar = M, iki_yonlu_p = perm_p),
+  digits = 4,
+  caption = "Monte Carlo permütasyon testi"
+)
+```

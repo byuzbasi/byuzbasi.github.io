@@ -73,21 +73,22 @@
   title_en: Statistics and Probability for Engineers
   subtitle: Teori, Örnek, Uygulama ve Kodlama
   subtitle_en: Theory, Examples, Applications and Code
-  author: Bahadır Yüzbaşı
+  author: Prof. Dr. Bahadır Yüzbaşı
   language: tr
-  description: Mühendislikte belirsizlik, deney tasarımı, süreç kontrolü ve güvenilirlik için olasılık ve istatistik. Python örnekleri ve eşdeğer R laboratuvarlarıyla ilerler.
-  description_en: Probability and statistics for uncertainty, experimental design, process control and reliability in engineering, with Python examples and corresponding R laboratories.
+  description: Mühendislikte olasılık ve istatistik için 22 bölümün Python ve R uygulamaları, varsayım kontrolleri ve çalıştırma rehberi. Bu eşlikçi kitap PDF'sini ve öğretim elemanı çözümlerini içermez.
+  description_en: Python and R laboratories, assumption checks and execution instructions for 22 chapters. This companion does not include the book PDF or instructor solutions.
   technologies: [Python, R, Quarto]
   chapters: 22
-  version: v1.0
+  version: v1.1
   audience: Mühendislik öğrencileri
   audience_en: Engineering students
   topics: [probability, engineering, reliability]
-  status: Yayına hazırlanıyor
-  status_en: Preparing for publication
-  site_url: https://byuzbasi.github.io/muhendisler-icin-istatistik-ve-olasilik/
-  published: false
-  verified_links: {}
+  status: Python ve R uygulamaları · Kitap yayına hazırlanıyor
+  status_en: Python and R companion · Book in preparation
+  source_url: /books/muhendisler-istatistik-olasilik/
+  published: true
+  verified_links:
+    source_url: '2026-09-27'
   related_projects: []
 
 - id: ekonometri

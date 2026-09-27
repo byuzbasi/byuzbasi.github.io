@@ -1,0 +1,62 @@
+---
+title: "R Laboratuvarı 3: Betimsel istatistik"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+Bu laboratuvar, ana metindeki sentetik çekme dayanımı örneğini aynı tanım ve birimlerle yeniden üretir.
+
+## Ampirik dağılım, göreli yayılım ve duyarlılık
+
+~~~{r}
+strength_for_checks <- c(418, 421, 417, 425, 419, 422, 420, 438, 416, 424)
+clean <- c(10.0, 10.1, 9.9, 10.2, 9.8)
+flagged <- c(10.0, 10.1, 9.9, 16.2, 9.8)
+
+extra_summary <- data.frame(
+  olcu = c("F_n(422)", "değişim katsayısı (%)", "temiz ortalama (mm)",
+           "işaretli ortalama (mm)", "temiz medyan (mm)", "işaretli medyan (mm)"),
+  deger = c(
+    mean(strength_for_checks <= 422),
+    100 * sd(strength_for_checks) / mean(strength_for_checks),
+    mean(clean), mean(flagged), median(clean), median(flagged)
+  )
+)
+knitr::kable(extra_summary, digits = 3, caption = "Ampirik dağılım ve olağan dışı kayıt duyarlılığı")
+~~~
+
+İşaretli kayıt otomatik olarak silinmez; parça kimliği, cihaz aralığı ve zaman damgası araştırılır.
+
+```{r}
+strength <- c(418, 421, 417, 425, 419, 422, 420, 438, 416, 424)
+q <- quantile(strength, probs = c(0.25, 0.50, 0.75), type = 7)
+stopifnot(
+  length(strength) == 10L,
+  all(is.finite(strength)),
+  isTRUE(all.equal(mean(strength <= 422), 0.7))
+)
+
+summary_table <- data.frame(
+  olcu = c("n", "ortalama", "medyan", "örneklem ss", "Q1", "Q3", "IQR"),
+  deger = c(
+    length(strength), mean(strength), median(strength), sd(strength),
+    q[[1]], q[[3]], q[[3]] - q[[1]]
+  ),
+  birim = c("adet", rep("MPa", 6))
+)
+
+knitr::kable(summary_table, digits = 2, caption = "Çekme dayanımı özeti")
+```
+
+R'nin `quantile(..., type = 7)` seçimi Python/NumPy'nin bu kitapta kullanılan doğrusal çeyrek tanımıyla eşleştirilmiştir. Başka bir çeyrek tanımı seçilirse fark raporlanmalıdır.
+
+```{r}
+par(mfrow = c(2, 1), mar = c(4, 4, 1, 1))
+plot(
+  seq_along(strength), strength, type = "b", pch = 19,
+  xlab = "Numune sırası", ylab = "Çekme dayanımı (MPa)"
+)
+boxplot(strength, horizontal = TRUE, xlab = "Çekme dayanımı (MPa)")
+```

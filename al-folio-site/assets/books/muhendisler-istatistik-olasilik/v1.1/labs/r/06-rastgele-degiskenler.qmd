@@ -1,0 +1,44 @@
+---
+title: "R Laboratuvarı 6: Rastgele değişkenler"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+Kesikli ek yük modelinin normalleşmesi ve momentleri doğrudan ağırlıklı toplamlarla doğrulanır.
+
+~~~{r}
+speed <- c(10, 20, 30)
+speed_probability <- c(0.5, 0.3, 0.2)
+energy_J <- speed^2
+expected_energy_J <- sum(energy_J * speed_probability)
+energy_at_expected_speed_J <- sum(speed * speed_probability)^2
+stopifnot(
+  all.equal(expected_energy_J, 350),
+  all.equal(energy_at_expected_speed_J, 289)
+)
+knitr::kable(
+  data.frame(
+    olcu = c("beklenen enerji", "ortalama hızdaki enerji"),
+    deger = c(expected_energy_J, energy_at_expected_speed_J),
+    birim = c("J", "J")
+  ),
+  digits = 1,
+  caption = "Doğrusal olmayan dönüşümde iki farklı ortalama"
+)
+~~~
+
+```{r}
+x <- c(0, 2, 5)
+p <- c(0.6, 0.3, 0.1)
+stopifnot(all(p >= 0), abs(sum(p) - 1) < 1e-12)
+mu <- sum(x * p)
+variance <- sum((x - mu)^2 * p)
+sonuc <- data.frame(
+  olcu = c("olasılık toplamı", "beklenen yük", "varyans", "standart sapma"),
+  deger = c(sum(p), mu, variance, sqrt(variance)),
+  birim = c("birimsiz", "kN", "kN^2", "kN")
+)
+knitr::kable(sonuc, digits = 4, caption = "Ek yük modelinin momentleri")
+```

@@ -1,0 +1,40 @@
+---
+title: "R Laboratuvarı 7: Kesikli dağılımlar"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+R'de dağılım işlevlerinin `d`, `p`, `q` ve `r` önekleri sırasıyla kütle/yoğunluk, dağılım, yüzdelik ve rastgele üretimi belirtir.
+
+```{r}
+sonuc <- data.frame(
+  soru = c("20 kartta en az bir kusur", "50 seçimde ilk olay", "2 saatte en çok 4 arıza"),
+  olasilik = c(
+    pbinom(0, size = 20, prob = 0.02, lower.tail = FALSE),
+    pgeom(49, prob = 0.03),
+    ppois(4, lambda = 6)
+  )
+)
+knitr::kable(sonuc, digits = 4, caption = "Kesikli model olasılıkları")
+```
+
+R'nin geometrik değişkeni ilk başarıdan önceki başarısızlık sayısını kullanır; 50 denemeye kadar başarı için üst sınır bu nedenle 49'dur.
+
+## Sonlu parti ve multinom sayımları
+
+~~~{r}
+p_no_defect <- dhyper(0, m = 8, n = 92, k = 10)
+p_binomial_approx <- dbinom(0, size = 10, prob = 0.08)
+set.seed(202607)
+replications <- if (identical(Sys.getenv("BOOK_SMOKE"), "1")) 64L else 1000L
+multinomial_counts <- rmultinom(replications, size = 200, prob = c(0.90, 0.06, 0.04))
+
+extended <- data.frame(
+  olcu = c("hipergeometrik sıfır kusur", "binom yaklaşımı", "multinom sağlam ortalaması"),
+  deger = c(p_no_defect, p_binomial_approx, mean(multinomial_counts[1, ]))
+)
+stopifnot(all.equal(p_no_defect, 0.416553273, tolerance = 1e-9))
+knitr::kable(extended, digits = 4, caption = "Yerine koymama ve çok kategorili sayım")
+~~~

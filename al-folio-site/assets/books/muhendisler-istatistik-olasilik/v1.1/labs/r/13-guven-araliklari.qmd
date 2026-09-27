@@ -1,0 +1,55 @@
+---
+title: "R Laboratuvarı 13: Güven ve öngörü aralıkları"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+Kaplama ortalaması için güven aralığı, gelecek tek ölçüm için öngörü aralığıyla karşılaştırılır.
+
+```{r}
+n <- 16L
+xbar <- 52.4
+s <- 2.8
+tcrit <- qt(0.975, df = n - 1)
+ci <- xbar + c(-1, 1) * tcrit * s / sqrt(n)
+pi <- xbar + c(-1, 1) * tcrit * s * sqrt(1 + 1 / n)
+sonuc <- data.frame(
+  aralik = c("ortalama güven", "tek gözlem öngörü"),
+  alt_um = c(ci[1], pi[1]),
+  ust_um = c(ci[2], pi[2])
+)
+knitr::kable(sonuc, digits = 2, caption = "Güven ve öngörü aralığı")
+```
+
+Seyrek kusurlar için Wilson aralığı elle uygulanır; böylece kullanılan hedef ve kritik değer görünür kalır.
+
+```{r}
+x_kusur <- 6L
+n_parca <- 80L
+p_hat <- x_kusur / n_parca
+z <- qnorm(0.975)
+payda <- 1 + z^2 / n_parca
+merkez <- (p_hat + z^2 / (2 * n_parca)) / payda
+yaricap <- z / payda * sqrt(p_hat * (1 - p_hat) / n_parca + z^2 / (4 * n_parca^2))
+wilson <- merkez + c(-1, 1) * yaricap
+stopifnot(isTRUE(all.equal(wilson, c(0.0348252493, 0.1541201608), tolerance = 1e-8)))
+knitr::kable(
+  data.frame(aralik = "Wilson %95", alt = wilson[1], ust = wilson[2]),
+  digits = 4,
+  caption = "Kusur oranı için Wilson aralığı"
+)
+```
+
+Pilot standart sapma belirsizliği, tek bir iyimser değer yerine planlama tablosunda gösterilir.
+
+```{r}
+sigma0 <- 3:5
+hata_payi <- 1
+n_gerekli <- ceiling((qnorm(0.975) * sigma0 / hata_payi)^2)
+knitr::kable(
+  data.frame(pilot_ss_mm = sigma0, gerekli_n = n_gerekli),
+  caption = "Pilot standart sapmaya göre örneklem büyüklüğü"
+)
+```

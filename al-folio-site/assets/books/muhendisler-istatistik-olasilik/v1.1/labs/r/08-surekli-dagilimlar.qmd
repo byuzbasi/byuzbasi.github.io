@@ -1,0 +1,40 @@
+---
+title: "R Laboratuvarı 8: Sürekli dağılımlar"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+Normal şartname olasılığı ve Weibull sağkalımı model parametreleri açık tutularak hesaplanır.
+
+~~~{r}
+median_ms <- 100
+sigma_log <- 0.4
+mu_log <- log(median_ms)
+lognormal_mean_ms <- exp(mu_log + sigma_log^2 / 2)
+lognormal_q95_ms <- qlnorm(0.95, meanlog = mu_log, sdlog = sigma_log)
+stopifnot(
+  all.equal(lognormal_mean_ms, 108.3287068, tolerance = 1e-8),
+  all.equal(lognormal_q95_ms, 193.0813566, tolerance = 1e-8)
+)
+knitr::kable(
+  data.frame(
+    olcu = c("medyan", "ortalama", "yüzde 95"),
+    deger_ms = c(median_ms, lognormal_mean_ms, lognormal_q95_ms)
+  ),
+  digits = 2,
+  caption = "Lognormal yanıt süresi özeti"
+)
+~~~
+
+```{r}
+p_uygun <- pnorm(20.06, mean = 20, sd = 0.04) -
+  pnorm(19.94, mean = 20, sd = 0.04)
+p_sagkalim <- pweibull(1500, shape = 1.8, scale = 2000, lower.tail = FALSE)
+sonuc <- data.frame(
+  hesap = c("Mil şartname içinde", "1500 saati aşan ömür"),
+  olasilik = c(p_uygun, p_sagkalim)
+)
+knitr::kable(sonuc, digits = 4, caption = "Sürekli dağılım hesapları")
+```

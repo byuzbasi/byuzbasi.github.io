@@ -1,0 +1,53 @@
+---
+title: "R Laboratuvarı 18: ANOVA ve deney tasarımı"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+Üç sıcaklık düzeyinin çekme dayanımı üzerindeki etkisi tek yönlü sabit etkili modelle incelenir.
+
+```{r}
+deney <- data.frame(
+  dayanim_MPa = c(410,414,416, 421,419,425, 430,435,432),
+  sicaklik_C = factor(rep(c(450, 500, 550), each = 3))
+)
+fit <- aov(dayanim_MPa ~ sicaklik_C, data = deney)
+anova_table <- as.data.frame(summary(fit)[[1]])
+anova_table$kaynak <- rownames(anova_table)
+rownames(anova_table) <- NULL
+knitr::kable(anova_table[, c("kaynak", "Df", "Sum Sq", "Mean Sq", "F value", "Pr(>F)")],
+             digits = 4, caption = "Sıcaklık için ANOVA tablosu")
+```
+
+Bu analiz sıcaklık düzeylerinin numunelere rastgele atandığı ve teknik okumaların bağımsız tekrar sayılmadığı tasarımı varsayar.
+
+Önceden belirlenmiş tüm çift karşılaştırmaları Tukey ailesel hata denetimiyle aralık halinde sunulur.
+
+```{r}
+tukey <- as.data.frame(TukeyHSD(fit)$sicaklik_C)
+tukey$karsilastirma <- rownames(tukey)
+rownames(tukey) <- NULL
+knitr::kable(
+  tukey[, c("karsilastirma", "diff", "lwr", "upr", "p adj")],
+  digits = 4,
+  caption = "Tukey çoklu karşılaştırmaları"
+)
+```
+
+$2\times2$ örneğinde ana etkiler ve farkların farkı etkileşimi hücre ortalamalarından hesaplanır.
+
+```{r}
+hucre <- data.frame(
+  A = factor(c("dusuk", "yuksek", "dusuk", "yuksek"), levels = c("dusuk", "yuksek")),
+  B = factor(c("dusuk", "dusuk", "yuksek", "yuksek"), levels = c("dusuk", "yuksek")),
+  ortalama = c(50, 58, 54, 70)
+)
+A_etki <- mean(hucre$ortalama[hucre$A == "yuksek"]) - mean(hucre$ortalama[hucre$A == "dusuk"])
+B_etki <- mean(hucre$ortalama[hucre$B == "yuksek"]) - mean(hucre$ortalama[hucre$B == "dusuk"])
+AB_etki <- (70 - 54) - (58 - 50)
+etkiler <- data.frame(etki = c("A", "B", "A:B"), deger = c(A_etki, B_etki, AB_etki))
+stopifnot(identical(unname(etkiler$deger), c(12, 8, 8)))
+knitr::kable(etkiler, caption = "Faktöriyel ana etkiler ve etkileşim")
+```

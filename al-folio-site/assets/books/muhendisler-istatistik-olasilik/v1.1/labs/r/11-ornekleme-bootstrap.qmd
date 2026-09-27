@@ -1,0 +1,39 @@
+---
+title: "R Laboratuvarı 11: Bootstrap ve jackknife"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+Ortanca için bootstrap ve bırak-bir-dışarı jackknife standart hataları hesaplanır.
+
+```{r}
+x <- c(9.8, 10.1, 10.0, 10.4, 9.9, 10.2, 10.3, 11.0)
+set.seed(202611)
+smoke <- identical(Sys.getenv("BOOK_SMOKE"), "1")
+B <- if (smoke) 64L else 4000L
+boot <- replicate(B, median(sample(x, length(x), replace = TRUE)))
+loo <- vapply(seq_along(x), function(i) median(x[-i]), numeric(1))
+jack_se <- sqrt((length(x) - 1) / length(x) * sum((loo - mean(loo))^2))
+sonuc <- data.frame(
+  olcu = c("örnek ortancası", "bootstrap ss", "jackknife ss"),
+  deger_mm = c(median(x), sd(boot), jack_se)
+)
+knitr::kable(sonuc, digits = 4, caption = "Yeniden örnekleme belirsizliği")
+```
+
+Yüzdelik aralık ve sonlu tekrar kararlılığı da denetlenir. Aynı tohum ve aynı R ortamı R sonucunu yeniden üretir; Python ve R farklı rastgele sayı üreteçleri kullandığından aynı tohum diller arasında aynı bootstrap örneklerini garanti etmez; farklı tohumlarla aralık uçlarının hassasiyeti ayrıca incelenebilir.
+
+```{r}
+aralik <- quantile(boot, probs = c(0.025, 0.975), names = FALSE)
+kontrol <- data.frame(
+  olcu = c("%95 yüzdelik alt", "%95 yüzdelik üst", "bootstrap tekrar sayısı"),
+  deger = c(aralik, B)
+)
+stopifnot(all(is.finite(aralik)), aralik[1] <= aralik[2])
+if (!smoke) stopifnot(isTRUE(all.equal(unname(aralik), c(9.9, 10.4), tolerance = 1e-8)))
+knitr::kable(kontrol, digits = 4, caption = "Bootstrap aralığı ve tekrar bilgisi")
+```
+
+Kümeli bir tasarımda yukarıdaki `sample()` çağrısı tek ölçümler yerine küme kimliklerini seçmelidir. Yeniden örnekleme sayısını artırmak bağımsız deney birimi sayısını artırmaz.

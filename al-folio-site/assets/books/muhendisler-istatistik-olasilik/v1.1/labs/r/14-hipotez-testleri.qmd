@@ -1,0 +1,60 @@
+---
+title: "R Laboratuvarı 14: Hipotez testi ve güç"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+Özet istatistiklerden tek örneklem sol yönlü $t$ testi ve iki yönlü güven aralığı hesaplanır.
+
+```{r}
+n <- 16L
+xbar <- 96
+s <- 8
+mu0 <- 100
+t_obs <- (xbar - mu0) / (s / sqrt(n))
+p_left <- pt(t_obs, df = n - 1)
+tcrit <- qt(0.975, df = n - 1)
+fark_araligi <- (xbar - mu0) + c(-1, 1) * tcrit * s / sqrt(n)
+sonuc <- data.frame(
+  olcu = c("t", "sol yönlü p", "fark GA alt", "fark GA üst"),
+  deger = c(t_obs, p_left, fark_araligi)
+)
+knitr::kable(sonuc, digits = 4, caption = "Enerji tüketimi testi")
+```
+
+Bilinen standart sapma altında planlama gücü, veri toplanmadan önce belirlenen 3 kWh azalması için hesaplanır.
+
+```{r}
+sigma <- 6
+n_plan <- 36L
+mu0_plan <- 100
+mu1_plan <- 97
+alpha <- 0.05
+se_plan <- sigma / sqrt(n_plan)
+kritik_ortalama <- mu0_plan + qnorm(alpha) * se_plan
+guc <- pnorm((kritik_ortalama - mu1_plan) / se_plan)
+stopifnot(isTRUE(all.equal(guc, 0.9123145368, tolerance = 1e-8)))
+knitr::kable(
+  data.frame(gercek_azalma_kWh = mu0_plan - mu1_plan, guc = guc, tip_II_hata = 1 - guc),
+  digits = 4,
+  caption = "Önceden belirlenmiş etki için güç"
+)
+```
+
+Eşdeğerlik, güven aralığının tamamının önceden seçilmiş marj içinde kalmasını gerektirir.
+
+```{r}
+esdegerlik_araligi <- c(-0.8, 0.3)
+marjlar <- c(1.0, 0.5)
+esdeger <- vapply(
+  marjlar,
+  function(delta) all(esdegerlik_araligi > -delta & esdegerlik_araligi < delta),
+  logical(1)
+)
+knitr::kable(
+  data.frame(marj_kWh = marjlar, esdeger = esdeger),
+  caption = "Marja duyarlı eşdeğerlik kararı"
+)
+```
