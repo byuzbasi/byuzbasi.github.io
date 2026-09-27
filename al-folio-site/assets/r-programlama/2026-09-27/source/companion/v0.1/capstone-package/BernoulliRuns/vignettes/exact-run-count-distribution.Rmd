@@ -1,0 +1,97 @@
+---
+title: "Exact Run-Count Distributions"
+author: "Bahadır Yüzbaşı"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Exact Run-Count Distributions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## Model and assumptions
+
+Let $X_1,\ldots,X_n$ denote a non-empty ordered sequence of mutually
+independent Bernoulli variables. At position $i$, the supplied number
+$p_i=P(X_i=1)$ is finite and belongs to $[0,1]$. The probabilities may differ
+across positions and are treated as fixed inputs; the package does not
+estimate them.
+
+A run is a maximal consecutive block of equal values. Consequently, the total
+run count $R_n$ is one for the first block plus one for every change between
+adjacent observations:
+
+\[
+R_n=1+\sum_{i=2}^{n}\mathbf{1}(X_i\ne X_{i-1}).
+\]
+
+Here $\mathbf{1}(\cdot)$ equals one when its statement is true and zero
+otherwise. This expression defines the package's random variable and is valid
+for non-empty binary sequences.
+
+## Exact distribution
+
+For a vector of position-specific probabilities, `runs_distribution()`
+returns every possible value of $R_n$, its exact probability mass, and its
+inclusive lower cumulative probability.
+
+```{r distribution}
+library(BernoulliRuns)
+
+prob <- c(0.15, 0.40, 0.75, 0.60)
+distribution <- runs_distribution(prob)
+knitr::kable(
+  distribution,
+  digits = 6,
+  caption = "Exact distribution of the total run count"
+)
+```
+
+The computation tracks the probability of each current run count separately
+for sequences ending in zero and one. At the next position, retaining the last
+value continues a run, whereas changing it opens a new run. Mutual
+independence justifies multiplying each previous state probability by $p_i$
+or $1-p_i$. The procedure uses quadratic time and linear working memory in
+the sequence length $n$.
+
+The expectation can be calculated without first forming the full
+distribution. It is one plus the sum, over adjacent positions, of the two
+possible change probabilities:
+
+\[
+E(R_n)=1+\sum_{i=2}^{n}
+\{p_{i-1}(1-p_i)+(1-p_{i-1})p_i\}.
+\]
+
+The two terms inside braces are respectively the probabilities of a change
+from one to zero and from zero to one. The formula relies on the same mutual-
+independence and fixed-probability assumptions.
+
+```{r expectation}
+runs_mean(prob)
+sum(distribution$runs * distribution$probability)
+```
+
+## Observed sequence and one-sided tails
+
+For an observed binary sequence, `count_runs()` evaluates the same run-count
+definition. `runs_tail()` then calculates an inclusive lower probability
+$P(R_n\le r_{obs})$ or inclusive upper probability $P(R_n\ge r_{obs})$, where
+$r_{obs}$ denotes the observed number of runs.
+
+```{r tails}
+x <- c(0, 1, 1, 0)
+count_runs(x)
+runs_tail(x, prob, tail = "lower")
+runs_tail(x, prob, tail = "upper")
+```
+
+These are conditional probabilities under the supplied model. If the same
+observations were used to estimate `prob`, a tail probability is not
+automatically a calibrated exact test. The package intentionally does not
+combine the two tails into a two-sided p-value and does not model dependent or
+Markov sequences.
+

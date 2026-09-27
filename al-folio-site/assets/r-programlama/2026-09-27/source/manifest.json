@@ -1,0 +1,411 @@
+{
+  "version": "2026-09-27",
+  "author": "Prof. Dr. Bahadır Yüzbaşı",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "bytes": 1135,
+      "sha256": "6d1e8feaa7a95826e81c2f583d944f5136458c01169a244c8afd32f0fc0e6c3c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1323,
+      "sha256": "30b6ada7d813d2a1c68a0defd75184239296b05a8b9ef783da7a1e334aef1fc3"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/.Rbuildignore",
+      "bytes": 84,
+      "sha256": "ce99a60ae2f8e646b2273bed3f958b23aca1b0d33dfeee18b742c3cf73af48d5"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/.github/workflows/R-CMD-check.yaml",
+      "bytes": 1453,
+      "sha256": "e4c937e58a9de4d7927f616e49a070667ee2f3576aa93f4ee341a3ef5083bd5e"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/.gitignore",
+      "bytes": 78,
+      "sha256": "34e4eca8525b80c6e975e43acd71ced8cfb509fcdee21bb6a2bbe1ef2a2f5bcf"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/DESCRIPTION",
+      "bytes": 1153,
+      "sha256": "056ccb6b925a75517b1109619d4390124d7a1743962429f149269ba2b3ecd158"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/NAMESPACE",
+      "bytes": 159,
+      "sha256": "0e0626420b3fa74124e48809f23f3521301147f471d842805564f6f758fc3fed"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/NEWS.md",
+      "bytes": 378,
+      "sha256": "f9526b9e7b760b3fa1e59a7e6b186ba01d1d5271dfcf6e2de2a1ed823bac07e8"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/R/BernoulliRuns-package.R",
+      "bytes": 888,
+      "sha256": "be7da8f358e7bc1249355f6b5d0d16d97609a3896cebdec8157661e27a78f32f"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/R/conditions.R",
+      "bytes": 297,
+      "sha256": "5cf6ef9db0722913174e1068d9af2bfc05c14131d9793b42d8a42a6bbadf9641"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/R/print.R",
+      "bytes": 634,
+      "sha256": "8ad33530c8a764063a25bf2cd0bf4b6dfb9c280fb824cfd9f5779c66232e2e14"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/R/runs-distribution.R",
+      "bytes": 3950,
+      "sha256": "dc503bada1c8f3b7097cd367be0e0c4bbd53c785658025a53eb469e4a5569fc5"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/R/runs-tail.R",
+      "bytes": 2056,
+      "sha256": "842d93d82bc3c9d491c00e65464a1754def1fe492da5dec2d5bf082b1a3b6b86"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/R/validation.R",
+      "bytes": 1324,
+      "sha256": "6ff34e9d5c2d5017329e1edaeec477ca7ac980ca41830db74b950bc9c9e6b84d"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/README.md",
+      "bytes": 1774,
+      "sha256": "712e0a178e7473c658925ec57b2ea9979dc3dc2c2033c747f500bc2aaa7b9e6b"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/cran-comments.md",
+      "bytes": 437,
+      "sha256": "88637776def514bc7c1f768d57b0e6574ca6a7532e2d2be9c4e2fba82df27b16"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/inst/CITATION",
+      "bytes": 714,
+      "sha256": "8928e30d6308a2ac0dee2c205445031daa620d96e4c65ae650378fcc93963369"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/man/BernoulliRuns-package.Rd",
+      "bytes": 1386,
+      "sha256": "18a02558a5fb846315a1a2f5c9cf47ba4203ce96b7c7a8ed68fdc0e6bfdb513e"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/man/count_runs.Rd",
+      "bytes": 627,
+      "sha256": "6234b43ece5f173031bd0921300c105b0e228d9c3ca7ce5c5e6d6ca18d686434"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/man/print.runs_exact_tail.Rd",
+      "bytes": 592,
+      "sha256": "2b4427591f4ba5303bfcee0ff35cd613c600e0c13db6cda0cd38abd6b49f12d5"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/man/runs_distribution.Rd",
+      "bytes": 1582,
+      "sha256": "1d4cc91825123d4981ed796dd33ddfb1599b91d1683778e7074244adb299a265"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/man/runs_mean.Rd",
+      "bytes": 855,
+      "sha256": "02114e4000a762e909a9a3873828c7f46c831555ee754ed7d3b63b4a42340f66"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/man/runs_tail.Rd",
+      "bytes": 1518,
+      "sha256": "9d6dc11d3f63df832b66b86f046cda0e034375674ac0de525fa4eca3570b3fa3"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/tests/testthat.R",
+      "bytes": 71,
+      "sha256": "724eeba57140b9532e9da00efbccfd8b8cec745dc82c2294254f14e832828f33"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/tests/testthat/helper-enumeration.R",
+      "bytes": 616,
+      "sha256": "ba64268e3e0fee4eca51e256813fe9973fac67745352b7ac5e9e7c3174d0e586"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/tests/testthat/test-count-runs.R",
+      "bytes": 726,
+      "sha256": "361f91f0a041e5e42113289e2a35982e7c6d2d3fb1109980790cc780f085b43c"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/tests/testthat/test-distribution.R",
+      "bytes": 2834,
+      "sha256": "43603abe8cac2bfe9495539897a77601aa59f1f213782d6a04711d5995293729"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/tests/testthat/test-tail.R",
+      "bytes": 1333,
+      "sha256": "c7a2a6bdb554a088641af4c025082223ead88362a699601f679d81137ce11184"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/BernoulliRuns/vignettes/exact-run-count-distribution.Rmd",
+      "bytes": 3194,
+      "sha256": "ccf769de755ce7669cc740be5f42952931dcd19557e9cbf0052bda4e99cb4a2c"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/README.md",
+      "bytes": 1499,
+      "sha256": "fb13a1df1972a3a3babb1c36eb065dea7ddb267fadcced63b538e3c6b9d8feb1"
+    },
+    {
+      "path": "companion/v0.1/capstone-package/prototype/bernoulli_runs_reference.R",
+      "bytes": 4170,
+      "sha256": "ad2098c4b80cd72625ae894f547a76c1b7ab535e5089a3a68dfb3589ab36912c"
+    },
+    {
+      "path": "companion/v0.1/examples/ch01/ilk_oturum.R",
+      "bytes": 465,
+      "sha256": "2deb2c463ede197c66afa79b46c1d30bbc1bdad56e6469d9d9e040594e060cd0"
+    },
+    {
+      "path": "companion/v0.1/examples/ch02/nesneler_ve_vektorler.R",
+      "bytes": 2091,
+      "sha256": "c0c783c75672784f6c841cbda6bdfd22ff5c0ca273603eb466937a2ab8a0fb63"
+    },
+    {
+      "path": "companion/v0.1/examples/ch03/indeksleme_ve_vektorlestirme.R",
+      "bytes": 1802,
+      "sha256": "5a951bee06544fee11fb93f165f3b33876291a340960929b8427bd728b07b4ef"
+    },
+    {
+      "path": "companion/v0.1/examples/ch04/bilesik_veri_yapilari.R",
+      "bytes": 2026,
+      "sha256": "a963ec381712d68e74b4bcca6523680f43721cb61849e0f8f5aa26e0934dae4a"
+    },
+    {
+      "path": "companion/v0.1/examples/ch05/data/VERI_NOTU.md",
+      "bytes": 415,
+      "sha256": "dd5c0172a100e0d8a378314bc563239657886de7e81b7c41ceebdef1ae81aff9"
+    },
+    {
+      "path": "companion/v0.1/examples/ch05/data/ogrenciler_utf8.csv",
+      "bytes": 84,
+      "sha256": "d5255eb5fcdada87193f650938899aa85dcc6433dc0efedcbb612b54164e70ec"
+    },
+    {
+      "path": "companion/v0.1/examples/ch05/dosyalari_guvenle_okumak.R",
+      "bytes": 3283,
+      "sha256": "df64461f86dbba67f56025484fb6615fd3db60b10d32294489305abf327235f9"
+    },
+    {
+      "path": "companion/v0.1/examples/ch06/ifadeler_ve_akis.R",
+      "bytes": 1546,
+      "sha256": "de9ce39314d65b271a192fffe5da3170dfcc342e3fd257a3a4ad62009a67411f"
+    },
+    {
+      "path": "companion/v0.1/examples/ch07/fonksiyon_tasarimi.R",
+      "bytes": 1899,
+      "sha256": "2b87cecacb631a1b098e1524c8e678f33accdf02541ddd0982c89a3849bf6ed1"
+    },
+    {
+      "path": "companion/v0.1/examples/ch08/ortamlar_ve_kapsam.R",
+      "bytes": 2513,
+      "sha256": "4a5ae4a0a55637de5ec00c1d5a077e0fcc9045c95ad1b4c6ed407a7e77de7a3e"
+    },
+    {
+      "path": "companion/v0.1/examples/ch09/tembel_degerlendirme.R",
+      "bytes": 1709,
+      "sha256": "b19b14ac08febb5f99e9e6f64be2750f3bcf01825dc43061cd91b7ad601998d7"
+    },
+    {
+      "path": "companion/v0.1/examples/ch10/kosullar_ve_hata_ayiklama.R",
+      "bytes": 1790,
+      "sha256": "30d245d11d67246ad5577138e35e84e017ef27ebbc403cc2a24831f83ca6d0bb"
+    },
+    {
+      "path": "companion/v0.1/examples/ch11/yineleme_ve_islevseller.R",
+      "bytes": 5080,
+      "sha256": "a88a6459d88d382bcb6f1a52bc25ff3497e103d6d37ac5b44d44c8a564638513"
+    },
+    {
+      "path": "companion/v0.1/examples/ch12/nesne_sistemleri_ve_ustprogramlama.R",
+      "bytes": 5916,
+      "sha256": "10644b3d9081ef0679038cfb5c94767f5cb85654d2a26eff7089c30ef6d18829"
+    },
+    {
+      "path": "companion/v0.1/examples/ch13/veriyi_donusturmek.R",
+      "bytes": 6791,
+      "sha256": "2bafd4223355a2e9e73459ede40fa7d40d45d38479ed841aac709b84122d708d"
+    },
+    {
+      "path": "companion/v0.1/examples/ch14/grafiklerle_iletisim.R",
+      "bytes": 5967,
+      "sha256": "b1a9c3e4c69fbe9324acc68969d230df8b197ebffa92891a67e1c6b5ddd3145a"
+    },
+    {
+      "path": "companion/v0.1/examples/ch15/sayisal_hesaplama_ve_rastgelelik.R",
+      "bytes": 4366,
+      "sha256": "d1d822c6760f33e4d34d53408fd5b4712b5ea38ebdb134ad718455210991d46e"
+    },
+    {
+      "path": "companion/v0.1/examples/ch16/simulasyonu_dogru_kurmak.R",
+      "bytes": 15405,
+      "sha256": "6bbb6a2cc3fae2c2f9a2447ad35134cb62fc43a1ff24eda04c1499e87b2e5c07"
+    },
+    {
+      "path": "companion/v0.1/examples/ch17/arastirma_projesinin_yasami.R",
+      "bytes": 5453,
+      "sha256": "afca9231fc025b88b6a7a29200fccbb9ee58a92854b65b10ee85ec78f187242a"
+    },
+    {
+      "path": "companion/v0.1/examples/ch17/arastirma_raporu.Rmd",
+      "bytes": 1766,
+      "sha256": "9a18b83359c2c88489b6e045546333f13008cbb32e6cd3d99eff51131e80bfe7"
+    },
+    {
+      "path": "companion/v0.1/examples/ch18/guvenilir_api.R",
+      "bytes": 4377,
+      "sha256": "aae2c79c1b809957ae8135dcd430597fcabda601e81532c382cfd38a91877e83"
+    },
+    {
+      "path": "companion/v0.1/examples/ch19/paket_agacini_incelemek.R",
+      "bytes": 1130,
+      "sha256": "0600bb4e7914364805f81e8e018a37e70edccdaf45d393f93f5cf50d269538e7"
+    },
+    {
+      "path": "companion/v0.1/examples/ch20/metadata_ve_ad_alani.R",
+      "bytes": 3403,
+      "sha256": "c5e4692617bc329c03fdb8bbf6fbf6e53c6dfd0772760661fb87fdd041e85b95"
+    },
+    {
+      "path": "companion/v0.1/examples/ch21/belgeleme_ve_ornekler.R",
+      "bytes": 3824,
+      "sha256": "cccfbc8653ff340efdf69d44b393dd4e44274275b276b77238d56e3a74794d0a"
+    },
+    {
+      "path": "companion/v0.1/examples/ch22/test_tasarimi.R",
+      "bytes": 4081,
+      "sha256": "c0e0045f4bcdafdd0d8667b9c51d2939f6d5eebfea21636b07b5521a3b4353f5"
+    },
+    {
+      "path": "companion/v0.1/examples/ch23/paket_rehberi.Rmd",
+      "bytes": 2298,
+      "sha256": "8e5ab75481fa724359ded55362b7514d7d649d7b7f5282625301a10a20154a6b"
+    },
+    {
+      "path": "companion/v0.1/examples/ch23/uzun_belgeleri_uretmek.R",
+      "bytes": 2503,
+      "sha256": "765192aae10ba6f0fa0531ee61104b8f76e729e210af3e8a0c26bfcf580a352f"
+    },
+    {
+      "path": "companion/v0.1/examples/ch24/paket_denetime_hazirlik.R",
+      "bytes": 2952,
+      "sha256": "4f9770c6cdad7d585df61039915ad0155f4115f3dffff4ea65ea24c6d28579f1"
+    },
+    {
+      "path": "companion/v0.1/examples/ch25/once_olcmek.R",
+      "bytes": 3365,
+      "sha256": "add5c5351259a45186dcc98150a35a69be7de9927f56d5d7a785fc7c3ce14356"
+    },
+    {
+      "path": "companion/v0.1/examples/ch26/rcpp_ilk_cekirdek.R",
+      "bytes": 1438,
+      "sha256": "14d104da1f5b65f92f91fcc43c239dcf924c7fc2d57e5087fc5a9c6ec7cbe63d"
+    },
+    {
+      "path": "companion/v0.1/examples/ch27/rcpparmadillo_matris.R",
+      "bytes": 2247,
+      "sha256": "8cf1f100861fc8648757bdc51881781b767ddfd255aefba8fb1a0e5764d6508f"
+    },
+    {
+      "path": "companion/v0.1/examples/ch27/rcpparmadillo_matris.cpp",
+      "bytes": 537,
+      "sha256": "ba204d3337be4d7f9bda9c0da113db92f6ae56a356c75f13c3ce264b2f055405"
+    },
+    {
+      "path": "companion/v0.1/examples/ch28/axpy_call.c",
+      "bytes": 1231,
+      "sha256": "bbcd672c585046497dc254f18d32b4f342d0e26c283d24267dcba2633ad6304c"
+    },
+    {
+      "path": "companion/v0.1/examples/ch28/c_api_arayuzu.R",
+      "bytes": 419,
+      "sha256": "2f316e54947d680e06ee9baf2c37f76ebc8e2d987f09b5729b614c28b1485f40"
+    },
+    {
+      "path": "companion/v0.1/examples/ch29/axpy_fortran.f90",
+      "bytes": 397,
+      "sha256": "0c00a09553da71a21f600424c6275306f6e7c1aebe0ade9385df9099b14fffe4"
+    },
+    {
+      "path": "companion/v0.1/examples/ch29/axpy_rcpp.cpp",
+      "bytes": 391,
+      "sha256": "3e899e28c55476d24a5974150d56fc630ce1f71ab63660401e64c2f34f2a0a14"
+    },
+    {
+      "path": "companion/v0.1/examples/ch29/axpy_reference.R",
+      "bytes": 736,
+      "sha256": "c94c59771ac4a0adab1b571de9a3f7689ccbda2247f2c402df342ee8954d0e56"
+    },
+    {
+      "path": "companion/v0.1/examples/ch29/registration_example.c",
+      "bytes": 807,
+      "sha256": "728c4a2080f8601446c4c69acbd010bb8c5aacd83916fb98c7735031872fd3d4"
+    },
+    {
+      "path": "companion/v0.1/examples/ch30/yayin_adayi_kapisi.R",
+      "bytes": 3585,
+      "sha256": "70d6868ce1a76f14060a66ad879e4fbd589700de93113ee015ad986ce5aba2bf"
+    },
+    {
+      "path": "companion/v0.1/examples/ch31/cran_geri_bildirim.R",
+      "bytes": 4231,
+      "sha256": "4bf1a924550cc2be8d8f16f73ab7ad43e929018ae0500de18275d67571d4b434"
+    },
+    {
+      "path": "companion/v0.1/examples/ch32/bakim_matrisi.R",
+      "bytes": 4388,
+      "sha256": "8e67759a36b3bb272853fc4dc3aff7afa293d43aceeabca83c20b2e8776023fc"
+    },
+    {
+      "path": "scripts/run_advanced_language_smoke.R",
+      "bytes": 6646,
+      "sha256": "cd790f891e263166c11ec5f52d4e7fce03e2f99f846d339f19b96fd381b05502"
+    },
+    {
+      "path": "scripts/run_bernoulli_runs_package_check.R",
+      "bytes": 19490,
+      "sha256": "002dd83d0ad06d22eda43c0de6f2218b0fddd44916695d51176084f3900fe755"
+    },
+    {
+      "path": "scripts/run_foundations_smoke.R",
+      "bytes": 5947,
+      "sha256": "a8fb67b8e57caf9718a644b74e63bc194455885dc0e71c7de93a1525d2bd87a7"
+    },
+    {
+      "path": "scripts/run_language_core_smoke.R",
+      "bytes": 10709,
+      "sha256": "146a26083bd83461e50c2284b1a7c9bc3e07b77e0fafc3e54f355c5685c7a6c9"
+    },
+    {
+      "path": "scripts/run_native_smoke.R",
+      "bytes": 15519,
+      "sha256": "4cf36fac8b47a6dd94faf26ce98331261040c2592be2907857afd24497c72deb"
+    },
+    {
+      "path": "scripts/run_package_engineering_smoke.R",
+      "bytes": 10125,
+      "sha256": "e1efde3c4e7a2df9a3d862cef17e7c30011df671ea2deafce7adf1024bccd3bb"
+    },
+    {
+      "path": "scripts/run_release_readiness_smoke.R",
+      "bytes": 12112,
+      "sha256": "5866354b191bf6b18e4f13f623e3ce881de18f1c999dc475d2aaae490a86fe38"
+    },
+    {
+      "path": "scripts/run_reproducible_research_smoke.R",
+      "bytes": 11220,
+      "sha256": "9bda3de55d338cd7f8583f798bad761deb610206f9d9afe3093e46b8830334d0"
+    },
+    {
+      "path": "scripts/run_revision_regressions.R",
+      "bytes": 1242,
+      "sha256": "37bad9ff52d9d633f5d7a4b91e24447db6fd6dafd1d8ee3b033841cede5b9556"
+    }
+  ]
+}

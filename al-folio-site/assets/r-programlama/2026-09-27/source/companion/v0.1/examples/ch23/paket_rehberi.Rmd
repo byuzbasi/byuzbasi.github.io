@@ -1,0 +1,68 @@
+---
+title: "Paket-nötr uzun belge örneği"
+lang: tr
+---
+
+## Belgenin amacı
+
+Bu belge, yaşayan paketin adı ve lisansı kararlaştırılmadan uzun biçimli bir
+kullanım öyküsünün nasıl sınanacağını gösterir. Kalıcı paket metadata'sı
+oluşturmaz ve dış ağ kaynağına başvurmaz.
+
+## Küçük ve çalışır örnek
+
+```{r distribution, echo=TRUE}
+project_dir <- Sys.getenv("RBOOK_PROJECT_DIR", unset = "")
+prototype_path <- file.path(
+  project_dir, "companion", "v0.1", "capstone-package", "prototype",
+  "bernoulli_runs_reference.R"
+)
+reference_environment <- new.env(parent = baseenv())
+sys.source(prototype_path, envir = reference_environment, keep.source = TRUE)
+
+prob <- c(0.20, 0.50, 0.80)
+distribution <- reference_environment$runs_distribution_reference(prob)
+stopifnot(abs(sum(distribution$probability) - 1) < 1e-12)
+knitr::kable(
+  distribution,
+  format = "pipe",
+  digits = 6,
+  row.names = FALSE,
+  caption = "Konuma özgü olasılıklar için kesin koşu sayısı dağılımı"
+)
+```
+
+Tablodaki `probability`, verilen bağımsız Bernoulli modeli altında koşu
+sayısının olasılık kütlesidir. `cumulative`, aynı satıra kadar olan kütlelerin
+toplamıdır. Olasılıklar veridir; bu örnek onları gözlemlerden tahmin etmez.
+
+## Çıkarımsal sınır
+
+Olasılık vektörü aynı gözlemlerden tahmin edilmişse hesap yine koşullu
+dağılımı verir; kuyruk sonucu kendiliğinden kalibre edilmiş kesin test olmaz.
+İki yönlü p-değeri bu sürümün bilimsel kapsamı dışında kalır.
+
+## Belge yüzeylerinin rolleri
+
+```{r roles, echo=FALSE}
+roles <- data.frame(
+  surface = c("README", "vignette", "CITATION", "NEWS", "package site"),
+  primary_question = c(
+    "Why should a visitor try the package?",
+    "How is a complete task performed and interpreted?",
+    "How should scholarly credit be recorded?",
+    "What changed between released versions?",
+    "How are reference and narrative pages navigated together?"
+  ),
+  stringsAsFactors = FALSE
+)
+knitr::kable(
+  roles,
+  format = "pipe",
+  row.names = FALSE,
+  caption = "Uzun belge yüzeylerinin birbirinden ayrılan sorumlulukları"
+)
+```
+
+Bu yüzeyler aynı metnin beş kopyası değildir. Tek bir doğruluk kaynağına
+bağlanırlar; fakat okuyucunun farklı sorularına yanıt verirler.

@@ -1,0 +1,56 @@
+# Küçük yeniden üretilebilir araştırma raporu
+
+Bu belge, kitabın Bölüm 17 duman sınamasında `knitr` ile üretilmiştir.
+Girdi dosyası değiştirilmeyip sürümlü bir çıktı dizinine okunmuştur. Aşağıdaki
+64 tekrar, bilimsel bir üretim çalışması veya tekrar sayısı önerisi değil;
+yalnızca çalışma hattının yürütülebilirliğini gösteren pedagojik örnektir.
+
+## Çalışma sözleşmesi
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r contract-table, results='asis'}
+knitr::kable(
+  workflow_contract,
+  format = "pipe",
+  row.names = FALSE,
+  caption = "Girdi, türetilmiş çıktı ve değişmezlik sözleşmesi"
+)
+```
+
+## Simülasyon özeti
+
+Tablodaki `exact_probability` kesin saf-R başvuru dağılımını,
+`estimated_probability` 64 öğretim tekrarındaki göreli sıklığı ve
+`monte_carlo_standard_error` sonlu tekrar sayısından doğan tahmini Monte
+Carlo standart hatasını gösterir. İki olasılık arasındaki yakınlık bu duman
+sınamasında geçme ölçütü değildir.
+
+```{r simulation-table, results='asis'}
+knitr::kable(
+  simulation_summary,
+  format = "pipe",
+  digits = c(0, 6, 6, 6, 0),
+  row.names = FALSE,
+  caption = "Kesin dağılım ve küçük öğretim simülasyonunun özeti"
+)
+```
+
+## Yazılım ortamı
+
+```{r versions-table, results='asis'}
+knitr::kable(
+  software_versions,
+  format = "pipe",
+  row.names = FALSE,
+  caption = "Raporu üreten yerel yazılım sürümleri"
+)
+```
+
+`renv` sürümü yalnız kaydedilmiştir; bu örnek `renv::init()`,
+`renv::snapshot()` veya `renv::restore()` çağırmaz. Git de kavramsal olarak
+sürüm geçmişinin taşıyıcısıdır; rapor üretimi dal, commit, etiket veya uzak
+depo oluşturmaz.
+

@@ -18,9 +18,16 @@ translation_key: books
 
 {% include book-catalog.liquid %}
 
-
 ### Regression Modeling with R — chapter applications
 
 English undergraduate regression textbook by Prof. Dr. Bahadır Yüzbaşı.
 
 [Open the companion]({{ '/regression-modeling-with-r/' | relative_url }})
+
+## R Programming and Package Development — companion code
+
+Chapter-by-chapter R, C++ and Fortran examples for the Turkish textbook by
+**Prof. Dr. Bahadır Yüzbaşı** are available with prerequisites and run commands.
+The book edition remains in preparation; these are versioned code resources.
+
+[Browse the 32 chapters and download the complete code archive →](/r-programlama/)

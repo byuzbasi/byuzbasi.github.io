@@ -18,9 +18,16 @@ translation_key: books
 
 {% include book-catalog.liquid %}
 
-
 ### Regression Modeling with R — bölüm uygulamaları
 
 Prof. Dr. Bahadır Yüzbaşı tarafından hazırlanan İngilizce lisans ders kitabının R uygulamaları.
 
 [Uygulama sayfasını aç]({{ '/regression-modeling-with-r/' | relative_url }})
+
+## R Programlama ve Paket Geliştirme — uygulama kodları
+
+**Prof. Dr. Bahadır Yüzbaşı** tarafından hazırlanan kitabın 32 bölümüne ait
+R, C++ ve Fortran kaynakları, ön koşullar ve çalıştırma komutları yayımlandı.
+Kitap baskısı hazırlanmaktadır; bu bağlantı sürümlü kod eşlikçisidir.
+
+[Bölüm bölüm uygulamalara ve tam kod arşivine erişin →](/r-programlama/)
