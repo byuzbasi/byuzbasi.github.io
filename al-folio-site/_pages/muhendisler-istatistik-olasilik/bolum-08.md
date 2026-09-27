@@ -8,7 +8,7 @@ nav: false
 
 Prof. Dr. Bahadır Yüzbaşı · v1.1 · [Bütün bölümler](/books/muhendisler-istatistik-olasilik/)
 
-[Python dosyası](/assets/books/muhendisler-istatistik-olasilik/v1.1/labs/python/08_surekli_dagilimlar.py) · [R laboratuvarı](/assets/books/muhendisler-istatistik-olasilik/v1.1/labs/r/08-surekli-dagilimlar.qmd) · [Tam paket](/assets/books/muhendisler-istatistik-olasilik/v1.1/muhendisler-istatistik-olasilik-v1.1.zip)
+[Python dosyası](/assets/books/muhendisler-istatistik-olasilik/v1.1/labs/python/08_surekli_dagilimlar.py) · [R laboratuvarı](https://raw.githubusercontent.com/byuzbasi/byuzbasi.github.io/main/al-folio-site/assets/books/muhendisler-istatistik-olasilik/v1.1/labs/r/08-surekli-dagilimlar.qmd) · [Tam paket](/assets/books/muhendisler-istatistik-olasilik/v1.1/muhendisler-istatistik-olasilik-v1.1.zip)
 
 ## Amaç
 
