@@ -13,22 +13,9 @@ Araştırma yazılımım; istatistiksel yöntemi, açık kaynak kodu ve yeniden 
 
 ## R paketleri
 
-### sglasso
+Bu katalog tüm paketleri bir araya getirir. Her paketin kurulum bilgileri, başlangıç rehberi, çalıştırılabilir örnekleri ve fonksiyon başvurusu kendi dokümantasyon sitesinde yer alır. Henüz yayımlanmamış siteler aşağıda ayrıca belirtilmiştir.
 
-Yüksek boyutlu verilerde küçültme ve cezalı kestirim araştırmaları için geliştirilen R paketi. Hesaplama çekirdeğinde **C++** ve **RcppArmadillo** kullanılır.
-
-- [GitHub kaynak kodu](https://github.com/byuzbasi/sglasso)
-- İlgili makale: [Collinear Groupwise Selection via Scaled Group Lasso](https://doi.org/10.1080/00031305.2026.2709494)
-- Teknolojiler: R · C++ · RcppArmadillo
-
-### rbridge — Restricted Bridge Estimation
-
-Doğrusal kısıtlar altında restricted bridge kestirimi için R paketi.
-
-- [CRAN paket dokümantasyonu](https://cran.r-project.org/web/packages/rbridge/rbridge.pdf)
-- [GitHub kaynak kodu](https://github.com/byuzbasi/rbridge)
-- İlgili makale: [Penalized Regression via the Restricted Bridge Estimator](https://doi.org/10.1007/s00500-021-05763-9)
-- Teknolojiler: R · C++ · RcppArmadillo
+{% include package-catalog.liquid %}
 
 ## Araştırma iş akışı
 

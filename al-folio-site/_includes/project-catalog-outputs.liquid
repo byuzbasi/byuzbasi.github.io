@@ -1,0 +1,19 @@
+{% assign relation_lang = page.lang | default: 'tr' %}
+{% assign software_page = site.pages | where: 'translation_key', 'software' | where: 'lang', relation_lang | first %}
+{% assign books_page = site.pages | where: 'translation_key', 'books' | where: 'lang', relation_lang | first %}
+{% capture catalogue_outputs %}
+  {% for package in site.data.research_packages %}
+    {% if package.related_projects contains include.project.id %}
+      <li><span class="research-project__output-type">{% if relation_lang == 'en' %}Software{% else %}Yazılım{% endif %}</span><a href="{{ software_page.url | relative_url }}#{{ package.id | escape }}">{{ package.name | escape }}</a></li>
+    {% endif %}
+  {% endfor %}
+  {% for book in site.data.research_books %}
+    {% if book.related_projects contains include.project.id %}
+      <li><span class="research-project__output-type">{% if relation_lang == 'en' %}Book{% else %}Kitap{% endif %}</span><a href="{{ books_page.url | relative_url }}#{{ book.id | escape }}">{% if relation_lang == 'en' %}{{ book.title_en | escape }}{% else %}{{ book.title | escape }}{% endif %}</a></li>
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+{% assign catalogue_outputs = catalogue_outputs | strip %}
+{% if catalogue_outputs != '' %}
+  <div class="research-project__outputs"><h3>{% if relation_lang == 'en' %}Software and books{% else %}Yazılım ve kitaplar{% endif %}</h3><ul class="research-project__output-list">{{ catalogue_outputs }}</ul></div>
+{% endif %}

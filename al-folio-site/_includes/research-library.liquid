@@ -1,0 +1,24 @@
+{% assign library_lang = page.lang | default: 'tr' %}
+{% assign library_software = site.pages | where: 'translation_key', 'software' | where: 'lang', library_lang | first %}
+{% assign library_books = site.pages | where: 'translation_key', 'books' | where: 'lang', library_lang | first %}
+{% assign published_books = site.data.research_books | where: 'published', true %}
+<section class="research-library" aria-labelledby="research-library-title">
+  <p class="section-eyebrow">{% if library_lang == 'en' %}RESEARCH & LEARNING{% else %}ARAŞTIRMA VE ÖĞRENME{% endif %}</p>
+  <h2 id="research-library-title">{% if library_lang == 'en' %}Methods to use. Ideas to explore.{% else %}Yöntemleri kullanın. Fikirleri keşfedin.{% endif %}</h2>
+  <div class="research-library__grid{% if published_books.size == 0 %} research-library__grid--single{% endif %}">
+    <a class="research-library__link" href="{{ library_software.url | relative_url }}">
+      <span class="section-eyebrow">R · PYTHON · C++</span>
+      <h3>{% if library_lang == 'en' %}Research software{% else %}Araştırma yazılımları{% endif %}</h3>
+      <p>{% if library_lang == 'en' %}Packages for regularization, spatial models and statistical computing.{% else %}Düzenlileştirme, uzamsal modeller ve istatistiksel hesaplama için paketler.{% endif %}</p>
+      <span class="research-library__cta">{% if library_lang == 'en' %}Explore packages{% else %}Paketleri incele{% endif %} <span aria-hidden="true">→</span></span>
+    </a>
+    {% if published_books.size > 0 %}
+      <a class="research-library__link" href="{{ library_books.url | relative_url }}">
+        <span class="section-eyebrow">{% if library_lang == 'en' %}BOOK COLLECTION{% else %}KİTAP KOLEKSİYONU{% endif %}</span>
+        <h3>{% if library_lang == 'en' %}Books & learning resources{% else %}Kitaplar ve öğrenme kaynakları{% endif %}</h3>
+        <p>{% if library_lang == 'en' %}Statistics, econometrics and linear algebra, from foundations to applications.{% else %}Temellerden uygulamalara istatistik, ekonometri ve lineer cebir.{% endif %}</p>
+        <span class="research-library__cta">{% if library_lang == 'en' %}Explore books{% else %}Kitapları incele{% endif %} <span aria-hidden="true">→</span></span>
+      </a>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,14 @@
+{% assign relation_lang = page.lang | default: 'tr' %}
+{% assign projects_page = site.pages | where: 'translation_key', 'projects' | where: 'lang', relation_lang | first %}
+{% capture project_links %}
+  {% for project_id in include.item.related_projects %}
+    {% assign related_project = site.data.research_projects | where: 'id', project_id | first %}
+    {% if related_project and projects_page %}
+      <li><a href="{{ projects_page.url | relative_url }}#{{ related_project.id | escape }}">{% if relation_lang == 'en' %}{{ related_project.title_en | escape }}{% else %}{{ related_project.title | escape }}{% endif %}</a></li>
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+{% assign project_links = project_links | strip %}
+{% if project_links != '' %}
+  <div class="catalog-related"><p>{% if relation_lang == 'en' %}Related projects{% else %}İlgili projeler{% endif %}</p><ul>{{ project_links }}</ul></div>
+{% endif %}

@@ -1,0 +1,112 @@
+# Catalogue metadata only. Book sources and rendered files stay in their own repositories.
+# Versions below identify inspected candidates, not approved public releases.
+- id: belirsizligi-okumak
+  title: Belirsizliği Okumak
+  title_en: Reading Uncertainty
+  subtitle: Veriden Kanıta, R ile İstatistiksel Düşünme
+  subtitle_en: From Data to Evidence, Statistical Thinking with R
+  author: Bahadır Yüzbaşı
+  language: tr
+  description: Verinin üretiminden istatistiksel çıkarıma, modellemeye ve yapay zekâ çağında analiz denetimine uzanan bir öğrenme yolu. R uygulamaları ve etkileşimli laboratuvarlarla desteklenir.
+  description_en: A learning path from data generation to inference, modelling and critical evaluation of AI-assisted analysis, supported by R examples and interactive laboratories.
+  technologies: [R, Quarto]
+  chapters: 19
+  appendices: 4
+  version: R9
+  audience: Öğrenciler ve araştırmacılar
+  audience_en: Students and researchers
+  topics: [statistical-thinking, inference]
+  status: Yayına hazırlanıyor
+  status_en: Preparing for publication
+  site_url: https://byuzbasi.github.io/belirsizligi-okumak/
+  published: false
+  verified_links: {}
+  related_projects: []
+
+- id: temel-istatistik
+  title: Temel İstatistik
+  title_en: Fundamentals of Statistics
+  subtitle: Matematiksel Temeller, Çözümlü Örnekler ve R Uygulamaları
+  subtitle_en: Mathematical Foundations, Worked Examples and R Applications
+  author: Bahadır Yüzbaşı
+  language: tr
+  description: Olasılık, çıkarım ve regresyonun matematiksel temellerini; fen, sosyal bilimler, eğitim ve sağlık uygulamalarıyla birleştiren ders kitabı. Kitap adı çalışma başlığıdır.
+  description_en: A textbook connecting the mathematical foundations of probability, inference and regression with applications in science, social sciences, education and health. The title is provisional.
+  technologies: [R, Quarto]
+  chapters: 32
+  version: v0.12.2
+  audience: Lisans öğrencileri ve eğitmenler
+  audience_en: Undergraduate students and instructors
+  topics: [probability, inference, regression]
+  status: Yayına hazırlanıyor
+  status_en: Preparing for publication
+  site_url: https://byuzbasi.github.io/temel-istatistik/
+  published: false
+  verified_links: {}
+  related_projects: []
+
+- id: muhendisler-icin-istatistik-ve-olasilik
+  title: Mühendisler için İstatistik ve Olasılık
+  title_en: Statistics and Probability for Engineers
+  subtitle: Teori, Örnek, Uygulama ve Kodlama
+  subtitle_en: Theory, Examples, Applications and Code
+  author: Bahadır Yüzbaşı
+  language: tr
+  description: Mühendislikte belirsizlik, deney tasarımı, süreç kontrolü ve güvenilirlik için olasılık ve istatistik. Python örnekleri ve eşdeğer R laboratuvarlarıyla ilerler.
+  description_en: Probability and statistics for uncertainty, experimental design, process control and reliability in engineering, with Python examples and corresponding R laboratories.
+  technologies: [Python, R, Quarto]
+  chapters: 22
+  version: v1.0
+  audience: Mühendislik öğrencileri
+  audience_en: Engineering students
+  topics: [probability, engineering, reliability]
+  status: Yayına hazırlanıyor
+  status_en: Preparing for publication
+  site_url: https://byuzbasi.github.io/muhendisler-icin-istatistik-ve-olasilik/
+  published: false
+  verified_links: {}
+  related_projects: []
+
+- id: ekonometri
+  title: Ekonometriyi Anlamak
+  title_en: Understanding Econometrics
+  subtitle: Problemden Yönteme, Yöntemden Kanıta
+  subtitle_en: From Problems to Methods, from Methods to Evidence
+  author: Bahadır Yüzbaşı
+  language: tr
+  description: Ekonomik sorudan model seçimine, varsayımlardan ampirik kanıta uzanan bir ekonometri kitabı. Sezgi, kuram, ispat ve R/Python uygulamalarını birlikte ele alır.
+  description_en: An econometrics book connecting economic questions, model selection, assumptions and empirical evidence through intuition, theory, proofs and R/Python applications.
+  technologies: [R, Python, Quarto]
+  chapters: 23
+  version: v22
+  audience: Lisans ve lisansüstü öğrenciler
+  audience_en: Undergraduate and graduate students
+  topics: [econometrics, regression, causal-inference]
+  status: Web sürümü hazırlanıyor
+  status_en: Web edition in preparation
+  site_url: https://byuzbasi.github.io/ekonometri/
+  published: false
+  verified_links: {}
+  related_projects: []
+
+- id: lineer-cebir
+  title: İstatistikçiler İçin Modern Lineer Cebir
+  title_en: Modern Linear Algebra for Statisticians
+  subtitle: Teori, R/Python ve Karar Laboratuvarları
+  subtitle_en: Theory, R/Python and Decision Laboratories
+  author: Bahadır Yüzbaşı
+  language: tr
+  description: Vektör ve matrislerden düzenlileştirmeye, çok değişkenli modellere ve dinamik sistemlere uzanan kapsamlı bir kaynak. Yöntemlerin kullanım koşulları, tanıları ve gerçek veri uygulamaları birlikte sunulur.
+  description_en: A comprehensive resource from vectors and matrices to regularization, multivariate models and dynamic systems, connecting methods with assumptions, diagnostics and real-data applications.
+  technologies: [R, Python, Quarto]
+  chapters: 66
+  version: v3.0
+  audience: İleri düzey öğrenciler ve araştırmacılar
+  audience_en: Advanced students and researchers
+  topics: [linear-algebra, statistical-learning]
+  status: Web sürümü hazırlanıyor
+  status_en: Web edition in preparation
+  site_url: https://byuzbasi.github.io/lineer-cebir/
+  published: false
+  verified_links: {}
+  related_projects: []

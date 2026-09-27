@@ -8,6 +8,9 @@ display_name: Prof. Dr. Bahadır Yüzbaşı
 subtitle: >
   İstatistik ve Ekonometri Profesörü · İnönü Üniversitesi<br>
   <em>Uluslararası İstatistik Enstitüsü Seçilmiş Üyesi (2023–)</em>
+profile:
+  image: project-team/tubitak-1001-2026/bahadir-yuzbasi-card-v3.jpg
+  image_alt: Prof. Dr. Bahadır Yüzbaşı portresi
 
 selected_papers: false
 social: true
@@ -30,28 +33,27 @@ latest_posts:
   <img class="academic-hero__image" src="{{ '/assets/img/statistical-landscape.svg' | relative_url }}" alt="Küçültme yolları, fonksiyonel veri eğrileri ve uzamsal konturları birbirine bağlayan altın çizgiden oluşan istatistiksel kompozisyon">
 </section>
 
-İnönü Üniversitesi Ekonometri Bölümünde İstatistik Profesörüyüm. Yüksek boyutlu, uzamsal ve fonksiyonel veriler için küçültme, ön-test ve penalize kestirim yöntemleri geliştiriyor; bu yöntemleri istatistiksel öğrenme ve elastik şekil analiziyle birleştiriyorum.
-
-Kuramsal sonuçları simülasyon, gerçek veri analizleri ve açık kaynaklı R, Python ve C++ yazılımlarıyla birlikte geliştiriyorum. Çalışmalarım ekonomi, biyometri, sosyal bilimler ve dijital platformlarda karmaşık veriden güvenilir, yorumlanabilir bilgi üretmeye odaklanıyor.
+<section class="academic-summary" aria-label="Araştırma profili">
+  <p>İnönü Üniversitesi Ekonometri Bölümünde İstatistik Profesörüyüm. Yüksek boyutlu, uzamsal ve fonksiyonel veriler için küçültme, ön-test ve penalize kestirim yöntemleri geliştiriyor; bu yöntemleri istatistiksel öğrenme ve elastik şekil analiziyle birleştiriyorum.</p>
+  <p>Kuramsal sonuçları simülasyon, gerçek veri analizleri ve açık kaynaklı R, Python ve C++ yazılımlarıyla birlikte geliştiriyorum. Çalışmalarım ekonomi, biyometri, sosyal bilimler ve dijital platformlarda karmaşık veriden güvenilir, yorumlanabilir bilgi üretmeye odaklanıyor.</p>
+</section>
 
 <div class="profile-actions" aria-label="Hızlı erişim">
-  <a class="profile-action profile-action--primary" href="{{ '/publications/' | relative_url }}">Seçilmiş yayınlar <span aria-hidden="true">→</span></a>
+  <a class="profile-action profile-action--primary" href="#selected-publications">Seçilmiş yayınlar <span aria-hidden="true">→</span></a>
   <a class="profile-action" href="{{ '/research-projects/#tubitak-1001-buyuk-mekansal-veri' | relative_url }}">TÜBİTAK 1001 projesi <span aria-hidden="true">→</span></a>
   <a class="profile-action" href="{{ '/assets/files/Bahadir-Yuzbasi-CV.pdf' | relative_url }}" download>CV’yi indir <span aria-hidden="true">↓</span></a>
 </div>
 
 {% include academic-impact.liquid %}
 
-<section class="research-software" aria-labelledby="research-software-title">
-  <p class="section-eyebrow">ARAŞTIRMA YAZILIMI</p>
-  <h2 id="research-software-title">R · Python · C++</h2>
-  <p>R paketleri, C++/RcppArmadillo ile yüksek performanslı hesaplama; Python ile istatistiksel hesaplama, makine öğrenmesi ve yeniden üretilebilir araştırma iş akışları.</p>
-  <a class="text-link" href="{{ '/software/' | relative_url }}">Yazılım ve paketleri incele →</a>
-</section>
+{% include research-library.liquid %}
 
 <section class="featured-works" aria-labelledby="featured-works-title">
   <p class="section-eyebrow">SEÇİLMİŞ ÇALIŞMALAR</p>
-  <h2 id="featured-works-title">Kitaplar</h2>
+  <div class="featured-works__heading">
+    <h2 id="featured-works-title">Kitaplar</h2>
+    <a href="{{ '/publications/#books-title' | relative_url }}">Tüm kitaplar <span aria-hidden="true">→</span></a>
+  </div>
   <article class="featured-work featured-work--book">
     <div class="featured-work__citation">{% bibliography --query @book[selected=true] %}</div>
     {% assign book = site.data.featured_works.books.ahmed_post-shrinkage_2023 %}
@@ -66,7 +68,10 @@ Kuramsal sonuçları simülasyon, gerçek veri analizleri ve açık kaynaklı R,
     </div>
   </article>
 
-  <h2 class="featured-works__articles-title">Seçilmiş yayınlar</h2>
+  <div class="featured-works__heading featured-works__articles-title">
+    <h2 id="selected-publications">Seçilmiş yayınlar</h2>
+    <a href="{{ '/publications/' | relative_url }}">Tüm yayınlar <span aria-hidden="true">→</span></a>
+  </div>
   <article class="featured-work featured-work--publications">
     <div class="featured-work__citation">{% bibliography --query @article[selected=true] %}</div>
   </article>

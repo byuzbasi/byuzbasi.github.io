@@ -1,0 +1,41 @@
+{% assign catalog_lang = page.lang | default: 'tr' %}
+<div class="package-catalog">
+  {% for package in site.data.research_packages %}
+    <article id="{{ package.id | escape }}" class="package-card" aria-labelledby="package-{{ package.id | escape }}">
+      <h3 id="package-{{ package.id | escape }}">{{ package.name | escape }}</h3>
+      <p class="package-card__subtitle">{{ package.subtitle | escape }}</p>
+      <p>{{ package.description[catalog_lang] | escape }}</p>
+      <p class="package-card__meta">{{ package.technologies | escape }}</p>
+      <div class="package-card__links">
+        {% if package.docs.published and package.verified_links.docs %}
+          <a class="package-card__link" href="{{ package.docs.path | absolute_url }}">
+            {% if catalog_lang == 'en' %}Documentation &amp; vignettes{% else %}Dokümantasyon ve vignettes{% endif %}
+          </a>
+        {% endif %}
+        {% if package.source_url and package.verified_links.source_url %}
+          <a class="package-card__link" href="{{ package.source_url | escape }}">
+            {% if catalog_lang == 'en' %}Source code{% else %}Kaynak kod{% endif %}
+          </a>
+        {% endif %}
+        {% if package.reference_url and package.verified_links.reference_url %}
+          <a class="package-card__link" href="{{ package.reference_url | escape }}">
+            {% if catalog_lang == 'en' %}CRAN reference manual{% else %}CRAN başvuru kılavuzu{% endif %}
+          </a>
+        {% endif %}
+      </div>
+      {% unless package.docs.published %}
+        <p class="package-card__status">{{ package.docs.status[catalog_lang] | escape }}.</p>
+      {% endunless %}
+      {% if package.article and package.verified_links.article_url %}
+        <p class="package-card__article">
+          {% if catalog_lang == 'en' %}Related article:{% else %}İlgili makale:{% endif %}
+          <a href="{{ package.article.url | escape }}">{{ package.article.title | escape }}</a>
+        </p>
+      {% endif %}
+      {% if package.citation %}
+        <details class="catalog-citation"><summary>{% if catalog_lang == 'en' %}Cite this package{% else %}Bu pakete atıf{% endif %}</summary><p>{{ package.citation | escape }}</p></details>
+      {% endif %}
+      {% include catalog-project-links.liquid item=package %}
+    </article>
+  {% endfor %}
+</div>

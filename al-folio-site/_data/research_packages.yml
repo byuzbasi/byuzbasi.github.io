@@ -1,0 +1,117 @@
+# One catalogue feeds /software/ and /en/software/.
+# Each package owns a separate documentation site at /<package>/.
+# Enable docs.published only after that documentation site is publicly available.
+- id: gwrs
+  related_projects: []
+  verified_links: {}
+  name: gwrs
+  subtitle: Fast Geographically Weighted Regression and Selection
+  description:
+    tr: Coğrafi ağırlıklı regresyon, cezalı tahmin ve yerel değişken seçimi için R paketi. Model kurma, çapraz doğrulama, tanılar ve haritalar aynı iş akışında sunulur.
+    en: An R package for geographically weighted regression, penalized estimation and local variable selection. Fitting, cross-validation, diagnostics and maps share one workflow.
+  technologies: R · C++ · RcppArmadillo · RcppParallel
+  docs:
+    path: /gwrs/
+    published: false
+    status:
+      tr: Dokümantasyon yayına hazırlanıyor
+      en: Documentation being prepared for publication
+
+- id: sglasso
+  related_projects: []
+  verified_links:
+    source_url: '2026-09-20'
+    article_url: '2026-09-20'
+  name: sglasso
+  subtitle: Scaled Group Lasso
+  description:
+    tr: Yüksek boyutlu verilerde küçültme ve cezalı kestirim araştırmaları için geliştirilen R paketi. Hesaplama çekirdeğinde C++ ve RcppArmadillo kullanılır.
+    en: An R package for shrinkage and penalized estimation research in high-dimensional data. Its computational core uses C++ and RcppArmadillo.
+  technologies: R · C++ · RcppArmadillo
+  source_url: https://github.com/byuzbasi/sglasso
+  article:
+    title: Collinear Groupwise Selection via Scaled Group Lasso
+    url: https://doi.org/10.1080/00031305.2026.2709494
+  docs:
+    path: /sglasso/
+    published: false
+    status:
+      tr: Bağımsız dokümantasyon sitesi planlanıyor
+      en: Dedicated documentation site planned
+
+- id: rbridge
+  related_projects: []
+  verified_links:
+    source_url: '2026-09-20'
+    article_url: '2026-09-20'
+  name: rbridge
+  subtitle: Restricted Bridge Estimation
+  description:
+    tr: Doğrusal kısıtlar altında restricted bridge kestirimi için R paketi.
+    en: An R package for restricted bridge estimation under linear constraints.
+  technologies: R · C++ · RcppArmadillo
+  source_url: https://github.com/byuzbasi/rbridge
+  # This historical manual returned 404 on 2026-09-20; retained for maintenance, hidden in the catalogue.
+  reference_url: https://cran.r-project.org/web/packages/rbridge/rbridge.pdf
+  article:
+    title: Penalized Regression via the Restricted Bridge Estimator
+    url: https://doi.org/10.1007/s00500-021-05763-9
+  docs:
+    path: /rbridge/
+    published: false
+    status:
+      tr: Bağımsız dokümantasyon sitesi planlanıyor
+      en: Dedicated documentation site planned
+
+- id: LHWL
+  related_projects: []
+  verified_links: {}
+  name: LHWL
+  subtitle: Lorentz Hyperbolic Weighted Learning
+  description:
+    tr: Lorentz hiperbolik temsilleri üzerinde yerel regresyon ve cezalı öğrenme. Gaussian ve binomial modeller, parametre seçimi, tanılar ve katsayı haritaları sunar; temsillerin coğrafi olması gerekmez.
+    en: Local regression and penalized learning using Lorentz hyperbolic representations. Includes Gaussian and binomial models, tuning, diagnostics and coefficient maps; representations need not be geographic.
+  technologies: R · C++ · RcppArmadillo
+  source_url: https://github.com/byuzbasi/LHWL
+  docs:
+    path: /LHWL/
+    published: false
+    status:
+      tr: Yerel dokümantasyon hazır; çevrim içi yayın bekliyor
+      en: Local documentation is ready and awaiting publication
+
+- id: HDMaxShrink
+  related_projects: []
+  verified_links:
+    source_url: '2026-09-20'
+  name: HDMaxShrink
+  subtitle: Test-Guided Shrinkage for High-Dimensional Linear Models
+  description:
+    tr: Değişken sayısının gözlem sayısını aşabildiği doğrusal modellerde test temelli küçültme tahmincileri. Maksimum istatistiğe dayalı kalibrasyonu ve yüksek boyutlu hesaplama araçlarını bir araya getirir.
+    en: Test-guided shrinkage estimators for linear models, including settings with more predictors than observations. Combines maximum-statistic calibration with high-dimensional computational tools.
+  technologies: R · C++ · RcppArmadillo
+  source_url: https://github.com/byuzbasi/HDMaxShrink
+  docs:
+    path: /HDMaxShrink/
+    published: false
+    status:
+      tr: Bağımsız dokümantasyon sitesi planlanıyor
+      en: Dedicated documentation site planned
+
+- id: BernoulliRuns
+  related_projects: []
+  verified_links:
+    source_url: '2026-09-20'
+  name: BernoulliRuns
+  subtitle: Exact Run-Count Distributions for Independent Bernoulli Trials
+  description:
+    tr: Başarı olasılıkları konuma göre değişebilen bağımsız Bernoulli denemelerinde toplam dizi (run) sayısının kesin dağılımını hesaplar. Olasılık kütle ve dağılım fonksiyonları, beklenen değer ve tek yönlü kuyruk olasılıkları sunar.
+    en: Computes exact distributions of the total run count for independent Bernoulli trials with possibly different success probabilities. Provides probability masses, cumulative probabilities, expectations and one-sided tails.
+  technologies: R
+  source_url: https://github.com/byuzbasi/BernoulliRuns
+  docs:
+    path: /BernoulliRuns/
+    published: false
+    status:
+      tr: Bağımsız dokümantasyon sitesi planlanıyor
+      en: Dedicated documentation site planned

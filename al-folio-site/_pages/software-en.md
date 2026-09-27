@@ -13,22 +13,9 @@ My research software connects statistical methodology, open-source implementatio
 
 ## R packages
 
-### sglasso
+This catalogue brings the packages together. Each package has its own documentation site for installation, getting started, executable examples and the function reference. Sites that are not yet published are explicitly marked below.
 
-An R package for shrinkage and penalized estimation research in high-dimensional data. Its computational core uses **C++** and **RcppArmadillo**.
-
-- [Source code on GitHub](https://github.com/byuzbasi/sglasso)
-- Related article: [Collinear Groupwise Selection via Scaled Group Lasso](https://doi.org/10.1080/00031305.2026.2709494)
-- Technologies: R · C++ · RcppArmadillo
-
-### rbridge — Restricted Bridge Estimation
-
-An R package for restricted bridge estimation under linear constraints.
-
-- [CRAN package documentation](https://cran.r-project.org/web/packages/rbridge/rbridge.pdf)
-- [Source code on GitHub](https://github.com/byuzbasi/rbridge)
-- Related article: [Penalized Regression via the Restricted Bridge Estimator](https://doi.org/10.1007/s00500-021-05763-9)
-- Technologies: R · C++ · RcppArmadillo
+{% include package-catalog.liquid %}
 
 ## Research workflow
 

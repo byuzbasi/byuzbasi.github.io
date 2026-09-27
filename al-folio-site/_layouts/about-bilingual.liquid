@@ -4,33 +4,31 @@ layout: default
 {% assign current_lang = page.lang | default: site.lang %}
 {% assign locale = site.data.i18n[current_lang] %}
 <div class="post">
-  <header class="post-header">
-    <h1 class="post-title">{{ page.display_name }}</h1>
-    <p class="desc">{{ page.subtitle }}</p>
+  <header class="post-header academic-profile-header">
+    <div class="academic-profile-header__identity">
+      <p class="academic-profile-header__eyebrow">
+        {% if current_lang == 'en' %}ACADEMIC PROFILE{% else %}AKADEMİK PROFİL{% endif %}
+      </p>
+      <h1 class="post-title">{{ page.display_name }}</h1>
+      <p class="desc">{{ page.subtitle }}</p>
+    </div>
+    {% if page.profile and page.profile.image %}
+      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+      <div class="academic-profile-header__portrait">
+        {%
+          include figure.liquid
+          loading="eager"
+          path=profile_image_path
+          class="academic-profile-header__image"
+          sizes="(min-width: 720px) 160px, 112px"
+          alt=page.profile.image_alt
+          cache_bust=true
+        %}
+      </div>
+    {% endif %}
   </header>
 
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
-
     <div class="clearfix">{{ content }}</div>
 
     {% if page.announcements and page.announcements.enabled %}

@@ -1,0 +1,15 @@
+# Resolve page addresses by translation_key, keeping navigation bilingual without duplicating URLs.
+- key: about
+- key: publications
+- key: citations
+- key: projects
+- key: activities
+- key: software
+- key: teaching
+  label:
+    tr: Dersler
+    en: Teaching
+- key: cv
+  label:
+    tr: Akademik Geçmiş
+    en: Academic History

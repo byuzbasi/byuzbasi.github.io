@@ -1,0 +1,55 @@
+{% assign catalog_lang = page.lang | default: 'tr' %}
+<div class="book-catalog">
+  {% for book in site.data.research_books %}
+    {% if book.published %}
+    {% assign book_title = book.title %}
+    {% assign book_subtitle = book.subtitle %}
+    {% assign book_description = book.description %}
+    {% assign book_status = book.status %}
+    {% assign book_audience = book.audience %}
+    {% if catalog_lang == 'en' %}
+      {% assign book_title = book.title_en | default: book.title %}
+      {% assign book_subtitle = book.subtitle_en | default: book.subtitle %}
+      {% assign book_description = book.description_en | default: book.description %}
+      {% assign book_status = book.status_en | default: book.status %}
+      {% assign book_audience = book.audience_en | default: book.audience %}
+    {% endif %}
+    <article id="{{ book.id | escape }}" class="book-card" aria-labelledby="book-{{ book.id | escape }}">
+      <div class="book-card__cover" aria-hidden="true">
+        {% if book.cover %}
+          <img src="{{ book.cover | relative_url }}" alt="" loading="lazy" width="240" height="320">
+        {% else %}
+          <span class="book-card__author">{{ book.author | escape }}</span>
+          <span class="book-card__cover-title" lang="{{ book.language | escape }}">{{ book.title | escape }}</span>
+          <span class="book-card__cover-rule"></span>
+          <span class="book-card__cover-subtitle" lang="{{ book.language | escape }}">{{ book.subtitle | escape }}</span>
+        {% endif %}
+      </div>
+      <div class="book-card__body">
+        <p class="catalog-status">{{ book_status | escape }}</p>
+        <h2 id="book-{{ book.id | escape }}">{{ book_title | escape }}</h2>
+        <p class="book-card__subtitle">{{ book_subtitle | escape }}</p>
+        <p>{{ book_description | escape }}</p>
+        <ul class="catalog-facts" aria-label="{% if catalog_lang == 'en' %}Book details{% else %}Kitap bilgileri{% endif %}">
+          <li>{% if book.language == 'tr' %}{% if catalog_lang == 'en' %}In Turkish{% else %}Türkçe{% endif %}{% else %}{{ book.language | escape }}{% endif %}</li>
+          <li>{{ book.chapters }} {% if catalog_lang == 'en' %}chapters{% else %}bölüm{% endif %}{% if book.appendices %} + {{ book.appendices }} {% if catalog_lang == 'en' %}appendices{% else %}ek{% endif %}{% endif %}</li>
+          <li>{{ book.technologies | join: ' · ' | escape }}</li>
+        </ul>
+        <p class="catalog-note">{{ book_audience | escape }}</p>
+        {% capture book_links %}
+          {% if book.published and book.site_url and book.verified_links.site_url %}<a class="package-card__link" href="{{ book.site_url | escape }}">{% if catalog_lang == 'en' %}Read online{% else %}Çevrim içi oku{% endif %}</a>{% endif %}
+          {% if book.published and book.pdf_url and book.verified_links.pdf_url %}<a class="package-card__link" href="{{ book.pdf_url | escape }}">PDF</a>{% endif %}
+          {% if book.published and book.epub_url and book.verified_links.epub_url %}<a class="package-card__link" href="{{ book.epub_url | escape }}">EPUB</a>{% endif %}
+          {% if book.published and book.source_url and book.verified_links.source_url %}<a class="package-card__link" href="{{ book.source_url | escape }}">{% if catalog_lang == 'en' %}Source code{% else %}Kaynak kod{% endif %}</a>{% endif %}
+        {% endcapture %}
+        {% assign book_links = book_links | strip %}
+        {% if book_links != '' %}<div class="package-card__links">{{ book_links }}</div>{% endif %}
+        {% if book.published and book.citation %}
+          <details class="catalog-citation"><summary>{% if catalog_lang == 'en' %}Cite this book{% else %}Bu kitaba atıf{% endif %}</summary><p>{{ book.citation | escape }}</p></details>
+        {% endif %}
+        {% include catalog-project-links.liquid item=book %}
+      </div>
+    </article>
+    {% endif %}
+  {% endfor %}
+</div>
