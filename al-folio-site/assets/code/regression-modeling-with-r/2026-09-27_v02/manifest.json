@@ -1,0 +1,82 @@
+[
+  {
+    "file": "README.md",
+    "bytes": 6185,
+    "sha256": "c8a6136493f3ed842c012a90fd53e26144e3409520f50c5a48d23963cfc8f162"
+  },
+  {
+    "file": "ch01.R",
+    "bytes": 405,
+    "sha256": "8830b1c4ec94bce9e014c6293165493e6bc34e3e0d30551d86c8186aa9024e45"
+  },
+  {
+    "file": "ch02.R",
+    "bytes": 1074,
+    "sha256": "057bee3088c627c3791b75f81b57c4e35134bc1b13f3f18c2c83a6e1af7df3a0"
+  },
+  {
+    "file": "ch03.R",
+    "bytes": 1766,
+    "sha256": "645c0f507a6a8fd08377f6a087a853659db05e8d0fc94215b2b5f834317d1c21"
+  },
+  {
+    "file": "ch04.R",
+    "bytes": 2079,
+    "sha256": "282a32cc9c13c3ccfa838c02070cd4b87dc076e29d271ec5f163b2f05644b94d"
+  },
+  {
+    "file": "ch05.R",
+    "bytes": 2804,
+    "sha256": "231bc3688694ab935ec182df7a3befbcbd7c560fb5c7bb747ba2d75a0acb6909"
+  },
+  {
+    "file": "ch06.R",
+    "bytes": 4234,
+    "sha256": "7ee5ae310784c72d697ba426d3656f0ba47c7055a704ff90b32a0e3b71456ad2"
+  },
+  {
+    "file": "ch07.R",
+    "bytes": 591,
+    "sha256": "92e57c9c72b01736bb41714c44287fbfcd72fb12e3139de0e6b00b59fb05c024"
+  },
+  {
+    "file": "ch08.R",
+    "bytes": 1066,
+    "sha256": "d7813a122291cd6b06ce2c9362d86c0313676d2a0017769950247aa798001ab0"
+  },
+  {
+    "file": "ch09.R",
+    "bytes": 5667,
+    "sha256": "2f1ecbde367eab67b6761be08ab685df237b0b3fd4d881252dd5e752b0fcb1f1"
+  },
+  {
+    "file": "ch10.R",
+    "bytes": 8201,
+    "sha256": "59247c53b23cd3a010b444454c35cb2278718c09db137451ebe10de4b53e67ed"
+  },
+  {
+    "file": "ch11.R",
+    "bytes": 5350,
+    "sha256": "db9f0564e174bdb8a022f7b79052acc5c6848ef47f8a62f74acabcdd898996fd"
+  },
+  {
+    "file": "ch12.R",
+    "bytes": 6992,
+    "sha256": "f2ca7d2da96319196d5255d765097b0f764676e3a322ff0059c7b3247e0e4369"
+  },
+  {
+    "file": "ch12_complete_study.R",
+    "bytes": 31393,
+    "sha256": "c6f883deb58e6b0f59b5b74df84d0ae473aeb71af7a297720f41d375a28eed2a"
+  },
+  {
+    "file": "run_chapter.R",
+    "bytes": 3826,
+    "sha256": "b9985ea5d52c51dfb2c85addd688f17afd421afba7c81f7466dc7e8a2fa8b012"
+  },
+  {
+    "file": "source_map.json",
+    "bytes": 10879,
+    "sha256": "da46b1cac741581d42414cbbfe8a20b57aba9d470b3207f16da25dc07a6bc9cf"
+  }
+]

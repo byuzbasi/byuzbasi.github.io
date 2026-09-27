@@ -17,3 +17,10 @@ translation_key: books
 </section>
 
 {% include book-catalog.liquid %}
+
+
+### Regression Modeling with R — bölüm uygulamaları
+
+Prof. Dr. Bahadır Yüzbaşı tarafından hazırlanan İngilizce lisans ders kitabının R uygulamaları.
+
+[Uygulama sayfasını aç]({{ '/regression-modeling-with-r/' | relative_url }})

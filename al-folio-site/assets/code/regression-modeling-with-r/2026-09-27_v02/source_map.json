@@ -1,0 +1,350 @@
+[
+  {
+    "chapter": 1,
+    "title": "Chapter 1. Questions, Data, and Modeling Goals",
+    "source": "manuscript/2026-09-27_v02/ch01_questions_data_modeling_student.md",
+    "script": "ch01.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 153,
+        "sha256": "59f9326be7ba93e00bd3543225086591d5e889d5baf4158458a4aa389778b5cd"
+      }
+    ],
+    "sha256": "8830b1c4ec94bce9e014c6293165493e6bc34e3e0d30551d86c8186aa9024e45"
+  },
+  {
+    "chapter": 2,
+    "title": "Chapter 2. Simple Linear Regression",
+    "source": "manuscript/2026-09-27_v02/ch02_simple_linear_regression_student.md",
+    "script": "ch02.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 320,
+        "sha256": "494bc301b4e2d63693fd5cb1f04bf70de369fc102bce6b27b5c038c1e5ef8bf0"
+      },
+      {
+        "block": 2,
+        "source_line": 340,
+        "sha256": "424cce3892922cd06ac58bc2b0ff17e13a215c33967ce9f39a5477f898e4f7c1"
+      },
+      {
+        "block": 3,
+        "source_line": 354,
+        "sha256": "b2a69026e1c1712cd34150c37b41b3df769e6c58604a2ba41de9fd25dd1d1e18"
+      },
+      {
+        "block": 4,
+        "source_line": 369,
+        "sha256": "827c622b23868c63e0cb78e39042f31e54c7d75daa8175941ac413bd193f06ed"
+      }
+    ],
+    "sha256": "057bee3088c627c3791b75f81b57c4e35134bc1b13f3f18c2c83a6e1af7df3a0"
+  },
+  {
+    "chapter": 3,
+    "title": "Chapter 3. Multiple Regression and Conditional Interpretation",
+    "source": "manuscript/2026-09-27_v02/ch03_multiple_regression_student.md",
+    "script": "ch03.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 402,
+        "sha256": "913bbe281b307b2b2d755d849ed80deba97d51b0fce134344b130f73800590f6"
+      },
+      {
+        "block": 2,
+        "source_line": 419,
+        "sha256": "6dba9f23d4b396ebe5b703e0b257d63284f0e87a89a2cfb5e90485fd09cadf48"
+      },
+      {
+        "block": 3,
+        "source_line": 439,
+        "sha256": "2fe5525424cbab85553b99db057270e4d7b602459852aa5a744af2f482243081"
+      },
+      {
+        "block": 4,
+        "source_line": 456,
+        "sha256": "dc422b6bd782c9f3b66626a38a55d12abc0369aefe894276488386f16f22c6af"
+      },
+      {
+        "block": 5,
+        "source_line": 474,
+        "sha256": "f15b0a410c487a5f21fc2e55e3f5c07646c39cefc73eea21543e73f88f77b60e"
+      }
+    ],
+    "sha256": "645c0f507a6a8fd08377f6a087a853659db05e8d0fc94215b2b5f834317d1c21"
+  },
+  {
+    "chapter": 4,
+    "title": "Chapter 4. Uncertainty, Inference, and Prediction Intervals",
+    "source": "manuscript/2026-09-27_v02/ch04_uncertainty_inference_student.md",
+    "script": "ch04.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 407,
+        "sha256": "c5c9ac3fda9851bd3ad5b659c7bd55019b77694e8d508ca3b29b3c611e61cb52"
+      },
+      {
+        "block": 2,
+        "source_line": 422,
+        "sha256": "e637d4fe4b01f0ba42aa6dfd7a2d10f88f01647efab96efd7c2b99c9e6fc404a"
+      },
+      {
+        "block": 3,
+        "source_line": 437,
+        "sha256": "ede4224535073d6db7ce7563242e347bc8ed80b443c94fea857ab7568ae92685"
+      },
+      {
+        "block": 4,
+        "source_line": 456,
+        "sha256": "6281d321508f4b80115c66dab0130228ae15a495f531e0ace12b1f36b89f72a0"
+      },
+      {
+        "block": 5,
+        "source_line": 474,
+        "sha256": "4d9ebee8e30ca505fdfcbf0f3cbfa67153a924f13af8e2c6c6b6868350671e06"
+      }
+    ],
+    "sha256": "282a32cc9c13c3ccfa838c02070cd4b87dc076e29d271ec5f163b2f05644b94d"
+  },
+  {
+    "chapter": 5,
+    "title": "Chapter 5. Model Checking and Assumption Failures",
+    "source": "manuscript/2026-09-27_v02/ch05_model_checking_student.md",
+    "script": "ch05.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 285,
+        "sha256": "15dfc5211f63c5b16feb0a723189639768022affb95bf05de1932d7191bb24cf"
+      },
+      {
+        "block": 2,
+        "source_line": 304,
+        "sha256": "34ebface20c3d8f751f1a59940aa2f6faddbb71c33249400fbb9fbaaca955c80"
+      },
+      {
+        "block": 3,
+        "source_line": 324,
+        "sha256": "fe167c7bea273921339b4b367a5aa00f97d71520ddba709d6f5be2fef5f4c71c"
+      },
+      {
+        "block": 4,
+        "source_line": 347,
+        "sha256": "f50e4a214139956348c035213ffebae6235fb1ee8dd05b7551e85025dc9d9e99"
+      },
+      {
+        "block": 5,
+        "source_line": 367,
+        "sha256": "38ce56dae1a9a6e1734cd9f8f3115aa2ef1dedae53b882b31f24efdaefec819f"
+      }
+    ],
+    "sha256": "231bc3688694ab935ec182df7a3befbcbd7c560fb5c7bb747ba2d75a0acb6909"
+  },
+  {
+    "chapter": 6,
+    "title": "Chapter 6. Categorical Predictors, Interactions, and Transformations",
+    "source": "manuscript/2026-09-27_v02/ch06_categorical_interactions_transformations_student.md",
+    "script": "ch06.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 280,
+        "sha256": "3618b806b7840fbb1ea62ca0e4920ddccf95706da082702177afae35f422b0b3"
+      },
+      {
+        "block": 2,
+        "source_line": 303,
+        "sha256": "b0a2b5ec37cdaccf28d6b0f25301200f3456a3147036a9a692bebc288de75d6f"
+      },
+      {
+        "block": 3,
+        "source_line": 330,
+        "sha256": "e1c3baa34c9f08c5cf6c8f7af387c3484d718b21b6e565a5f0b706874b434cd1"
+      },
+      {
+        "block": 4,
+        "source_line": 360,
+        "sha256": "9d597f8eebc394fd4e6f0d418885f2e47bb90eca3645f9cb92eecacd02f85156"
+      },
+      {
+        "block": 5,
+        "source_line": 391,
+        "sha256": "284903d94eac5ca052b1cea58f70021e9f667b9fd2f09a2341523566c439d07d"
+      }
+    ],
+    "sha256": "7ee5ae310784c72d697ba426d3656f0ba47c7055a704ff90b32a0e3b71456ad2"
+  },
+  {
+    "chapter": 7,
+    "title": "Chapter 7. Multicollinearity and Unstable Estimates",
+    "source": "manuscript/2026-09-27_v02/ch07_multicollinearity_student.md",
+    "script": "ch07.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 366,
+        "sha256": "96714ef32d30c4c22f50ec71f9058f7706f054e31cde4cef25b5ddef6f69440b"
+      }
+    ],
+    "sha256": "92e57c9c72b01736bb41714c44287fbfcd72fb12e3139de0e6b00b59fb05c024"
+  },
+  {
+    "chapter": 8,
+    "title": "Chapter 8. Generalization, Resampling, and Model Selection",
+    "source": "manuscript/2026-09-27_v02/ch08_generalization_student.md",
+    "script": "ch08.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 106,
+        "sha256": "3900c136672cc8115c4ba29f720370028dd2ea6bfdcafdd368aad1add99aaac7"
+      },
+      {
+        "block": 2,
+        "source_line": 288,
+        "sha256": "630bd3c7347e0db695c861d4b0903156a55f4e3e0f3a4f2dc223b81742bb2c8c"
+      }
+    ],
+    "sha256": "d7813a122291cd6b06ce2c9362d86c0313676d2a0017769950247aa798001ab0"
+  },
+  {
+    "chapter": 9,
+    "title": "Chapter 9. Bias, Variance, and Ridge Regression",
+    "source": "manuscript/2026-09-27_v02/ch09_bias_variance_ridge_student.md",
+    "script": "ch09.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 439,
+        "sha256": "6e502d1112c9822dd7bc1a0cff22041f275cbf15754b46eb86f2cc78968be3e5"
+      },
+      {
+        "block": 2,
+        "source_line": 497,
+        "sha256": "bfba0e08de2319284bfa3662693675b4938cb85692fb69c6322a81e751cc5694"
+      },
+      {
+        "block": 3,
+        "source_line": 525,
+        "sha256": "106532998539b7d46f828c52fabfb8689c9b3db1a7fe4b1d8196466f5eea30fe"
+      },
+      {
+        "block": 4,
+        "source_line": 568,
+        "sha256": "8e5a1524b6b82d003974ccffc2ed299bdc0f9b5ce48f13d04b07a5d63c9e6599"
+      },
+      {
+        "block": 5,
+        "source_line": 607,
+        "sha256": "3cae1bc8c4ce235a2e1608ea0b9d424b6e0b345601aef4ddb4599209cc26bec0"
+      }
+    ],
+    "sha256": "2f1ecbde367eab67b6761be08ab685df237b0b3fd4d881252dd5e752b0fcb1f1"
+  },
+  {
+    "chapter": 10,
+    "title": "Chapter 10. Lasso, Elastic Net, and Selection Stability",
+    "source": "manuscript/2026-09-27_v02/ch10_lasso_elastic_net_stability_student.md",
+    "script": "ch10.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 243,
+        "sha256": "a720f6867fd9f7b66dc15ac1f092434dc5690ad5d36e1eb4a82b4e582ddf5ffb"
+      },
+      {
+        "block": 2,
+        "source_line": 294,
+        "sha256": "a03edd595900eee34771191a0ce62f98480f80b432c95c413b8158bcd60e716a"
+      },
+      {
+        "block": 3,
+        "source_line": 382,
+        "sha256": "52ab2d798c389ecd531133543d2b20819e5b981744da1df64c149c5469056e35"
+      },
+      {
+        "block": 4,
+        "source_line": 585,
+        "sha256": "d8ca7011235c6605e0fe3a862409f6390123a20110c27d8e901f7f1dc3f4fcfd"
+      },
+      {
+        "block": 5,
+        "source_line": 671,
+        "sha256": "27dd014fed05e1f9db46541d2528eae76393f0bfc13dcc419c30195a42465f36"
+      }
+    ],
+    "sha256": "59247c53b23cd3a010b444454c35cb2278718c09db137451ebe10de4b53e67ed"
+  },
+  {
+    "chapter": 11,
+    "title": "Chapter 11. Logistic Regression and Probability Predictions",
+    "source": "manuscript/2026-09-27_v02/ch11_logistic_probability_predictions_student.md",
+    "script": "ch11.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 108,
+        "sha256": "24db7ca2881564899271c3b755c1d9b91b880b82d76a779e215709d67636ea38"
+      },
+      {
+        "block": 2,
+        "source_line": 266,
+        "sha256": "586f214163d51a9ef813e48948820acf9e6f6eb361ca2d7c305a41a7e28451b3"
+      },
+      {
+        "block": 3,
+        "source_line": 383,
+        "sha256": "bf8940694c0fd736662ce7aa366c0966ab5beeda682d0c62cc3658a9cf5afe12"
+      },
+      {
+        "block": 4,
+        "source_line": 480,
+        "sha256": "f0280c06780aa78c76275df674eb968cdefc9e4bda17f435f359b1865d76bda0"
+      },
+      {
+        "block": 5,
+        "source_line": 561,
+        "sha256": "8a69609efa1b2af88ff8539d74435a0e2cf1deeaefed5da554d71773a4663885"
+      }
+    ],
+    "sha256": "db9f0564e174bdb8a022f7b79052acc5c6848ef47f8a62f74acabcdd898996fd"
+  },
+  {
+    "chapter": 12,
+    "title": "Chapter 12. A Complete Regression Study",
+    "source": "manuscript/2026-09-27_v02/ch12_complete_regression_study_student.md",
+    "script": "ch12.R",
+    "blocks": [
+      {
+        "block": 1,
+        "source_line": 88,
+        "sha256": "146499f158b5759d0b683709f1c9905380acf5ba18079f0d684df9e311f7072f"
+      },
+      {
+        "block": 2,
+        "source_line": 135,
+        "sha256": "ad7e069fc2716d83ae231e7e1ac24281dd0f3f014aab59a72705223a345289b8"
+      },
+      {
+        "block": 3,
+        "source_line": 332,
+        "sha256": "c947ac78b23993e24972ebe736bef34bea3a4858e1ee7d2bf306d1d40e2919ad"
+      },
+      {
+        "block": 4,
+        "source_line": 443,
+        "sha256": "85558eb13349e597ea3768b9e6407bdbcc28998bf6e36930bf55415c614918ea"
+      },
+      {
+        "block": 5,
+        "source_line": 535,
+        "sha256": "b672a54994250a7ca4e245d8aef0996e5a5f3e4af253dc1836e8413eee419789"
+      }
+    ],
+    "sha256": "f2ca7d2da96319196d5255d765097b0f764676e3a322ff0059c7b3247e0e4369"
+  }
+]
