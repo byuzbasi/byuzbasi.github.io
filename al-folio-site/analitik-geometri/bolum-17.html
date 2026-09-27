@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uzayda Vektörler · Analitik Geometri</title>
+<meta name="description" content="Analitik Geometri kitabının bölüm bazlı Python uygulamaları, kodları ve doğrulama çıktıları.">
+<link rel="stylesheet" href="style.css"></head><body>
+<a class="skip" href="#content">İçeriğe geç</a>
+<header><nav aria-label="Ana gezinme"><a href="index.html">Analitik Geometri</a><a href="/books/">Kitaplar</a><a href="#kurulum">Çalıştırma rehberi</a></nav>
+<p class="eyebrow">TEORİDEN UYGULAMAYA · PYTHON EŞLİKÇİSİ</p><h1>Uzayda Vektörler</h1>
+<p class="authors">Prof. Dr. Zühal Küçükarslan Yüzbaşı · Prof. Dr. Bahadır Yüzbaşı</p><p class="meta">Bölüm 17 · v1.0 · Türkçe</p></header>
+<main id="content"><p>Bu bölümün laboratuvarı, kitaptaki örnekleri yeniden üretmek ve sayısal sonuçları
+incelemek için hazırlanmıştır. Matematiksel tanımlar, ispatlar ve sorular kitapta yer alır.</p>
+<div class="actions"><a class="button" download href="downloads/bolum_17_uzayda_vektorler.py">Laboratuvarı indir (.py)</a>
+<a class="button" href="downloads/analitik-geometri-python-v1.0.zip">Tam Python paketi (.zip)</a></div>
+<h2>Laboratuvar kodu</h2><pre><code>&quot;&quot;&quot;Bölüm 17: uzayda vektörler ve yön tanısı laboratuvarı.
+
+Uygulama, döndürülmüş ve ötelenmiş sentetik bir CAD tetrahedronudur.
+Ölçülmüş veri, ağ kalitesi, üretim toleransı veya kabul kararı içermez.
+&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import numpy as np
+
+from agbook import (
+    canonical_array_sha256,
+    scalar_triple_product,
+    spatial_orientation_diagnostics,
+    tetrahedron_volume,
+    triangle_area_3d,
+    unit_normal_3d,
+)
+
+
+def main() -&gt; None:
+    length_unit = &quot;mm&quot;
+
+    # Sütunları sağ yönlü, ortonormal bir yerel CAD çerçevesidir.
+    rotation = np.array(
+        [
+            [3.0 / 5.0, -12.0 / 25.0, 16.0 / 25.0],
+            [4.0 / 5.0, 9.0 / 25.0, -12.0 / 25.0],
+            [0.0, 20.0 / 25.0, 15.0 / 25.0],
+        ]
+    )
+    origin_mm = np.array([120.0, 80.0, 35.0])
+    edge_lengths_mm = np.array([60.0, 50.0, 75.0])
+    vertices_mm = np.vstack(
+        [
+            origin_mm,
+            origin_mm + edge_lengths_mm[0] * rotation[:, 0],
+            origin_mm + edge_lengths_mm[1] * rotation[:, 1],
+            origin_mm + edge_lengths_mm[2] * rotation[:, 2],
+        ]
+    )
+    point_a, point_b, point_c, point_d = vertices_mm
+    edge_ab = point_b - point_a
+    edge_ac = point_c - point_a
+    edge_ad = point_d - point_a
+
+    face_normal = unit_normal_3d(edge_ab, edge_ac)
+    face_area_mm2 = triangle_area_3d(point_a, point_b, point_c)
+    signed_box_volume_mm3 = scalar_triple_product(edge_ab, edge_ac, edge_ad)
+    tetrahedron_volume_mm3 = tetrahedron_volume(
+        point_a,
+        point_b,
+        point_c,
+        point_d,
+    )
+    diagnosis = spatial_orientation_diagnostics(
+        edge_ab,
+        edge_ac,
+        edge_ad,
+        relative_tolerance=1e-12,
+    )
+    swapped_diagnosis = spatial_orientation_diagnostics(
+        edge_ac,
+        edge_ab,
+        edge_ad,
+        relative_tolerance=1e-12,
+    )
+
+    vertices_m = vertices_mm / 1000.0
+    point_a_m, point_b_m, point_c_m, point_d_m = vertices_m
+    face_area_m2 = triangle_area_3d(point_a_m, point_b_m, point_c_m)
+    tetrahedron_volume_m3 = tetrahedron_volume(
+        point_a_m,
+        point_b_m,
+        point_c_m,
+        point_d_m,
+    )
+
+    # İlk iki kenarın düzlemine çok yakın, fakat tam düzlemde olmayan aday.
+    near_edge = (
+        15.0 * rotation[:, 0]
+        + 15.0 * rotation[:, 1]
+        + 1e-10 * rotation[:, 2]
+    )
+    near_diagnosis = spatial_orientation_diagnostics(
+        edge_ab,
+        edge_ac,
+        near_edge,
+        relative_tolerance=1e-10,
+    )
+
+    np.testing.assert_allclose(rotation.T @ rotation, np.eye(3), atol=2e-15)
+    np.testing.assert_allclose(np.linalg.det(rotation), 1.0, atol=2e-15)
+    np.testing.assert_allclose(
+        vertices_mm,
+        np.array(
+            [
+                [120.0, 80.0, 35.0],
+                [156.0, 128.0, 35.0],
+                [96.0, 98.0, 75.0],
+                [168.0, 44.0, 80.0],
+            ]
+        ),
+        atol=2e-14,
+    )
+    np.testing.assert_allclose(face_normal, rotation[:, 2], atol=2e-15)
+    np.testing.assert_allclose(face_area_mm2, 1500.0, atol=2e-12)
+    np.testing.assert_allclose(signed_box_volume_mm3, 225000.0, atol=2e-10)
+    np.testing.assert_allclose(tetrahedron_volume_mm3, 37500.0, atol=2e-11)
+    np.testing.assert_allclose(face_area_m2, face_area_mm2 * 1e-6, atol=2e-18)
+    np.testing.assert_allclose(
+        tetrahedron_volume_m3,
+        tetrahedron_volume_mm3 * 1e-9,
+        atol=2e-18,
+    )
+    assert diagnosis.classification == &quot;right_handed&quot;
+    assert not diagnosis.numerically_ambiguous
+    assert swapped_diagnosis.classification == &quot;left_handed&quot;
+    assert near_diagnosis.classification == &quot;uncertain&quot;
+    assert near_diagnosis.numerically_ambiguous
+
+    signature_values = np.concatenate(
+        [
+            rotation.ravel(),
+            origin_mm,
+            edge_lengths_mm,
+            vertices_mm.ravel(),
+            edge_ab,
+            edge_ac,
+            edge_ad,
+            face_normal,
+            np.array(
+                [
+                    face_area_mm2,
+                    signed_box_volume_mm3,
+                    tetrahedron_volume_mm3,
+                    diagnosis.normalized_triple_product,
+                    swapped_diagnosis.normalized_triple_product,
+                ]
+            ),
+            vertices_m.ravel(),
+            np.array([face_area_m2, tetrahedron_volume_m3]),
+            near_edge,
+            np.array(
+                [
+                    near_diagnosis.scalar_triple_product,
+                    near_diagnosis.normalized_triple_product,
+                    near_diagnosis.relative_tolerance,
+                ]
+            ),
+        ]
+    )
+
+    print(&quot;uzunluk_birimi:&quot;, length_unit)
+    print(&quot;model: sentetik_dondurulmus_cad_tetrahedronu&quot;)
+    print(&quot;olculmus_veri_mi: False&quot;)
+    print(&quot;ag_kalitesi_hesabi_mi: False&quot;)
+    print(&quot;uretim_kabul_hesabi_mi: False&quot;)
+    print(&quot;yerel_cerceve_ortogonal_mi: True&quot;)
+    print(&quot;yerel_cerceve_determinanti:&quot;, f&quot;{np.linalg.det(rotation):.12f}&quot;)
+    print(&quot;kose_noktalari_mm:&quot;)
+    print(vertices_mm)
+    print(&quot;ABC_birim_normali:&quot;, face_normal)
+    print(&quot;ABC_ucgen_alani_mm2:&quot;, f&quot;{face_area_mm2:.12f}&quot;)
+    print(&quot;yonlu_paralelyuz_hacmi_mm3:&quot;, f&quot;{signed_box_volume_mm3:.12f}&quot;)
+    print(&quot;tetrahedron_hacmi_mm3:&quot;, f&quot;{tetrahedron_volume_mm3:.12f}&quot;)
+    print(&quot;yon_sinifi:&quot;, diagnosis.classification)
+    print(&quot;boyutsuz_normalize_karma_carpim:&quot;, f&quot;{diagnosis.normalized_triple_product:.12f}&quot;)
+    print(&quot;ilk_iki_kenar_degistirilince_yon:&quot;, swapped_diagnosis.classification)
+    print(
+        &quot;metre_milimetre_alan_hacim_olcegi_korundu_mu:&quot;,
+        bool(
+            np.isclose(face_area_m2, face_area_mm2 * 1e-6)
+            and np.isclose(tetrahedron_volume_m3, tetrahedron_volume_mm3 * 1e-9)
+        ),
+    )
+    print(&quot;duzleme_yakin_aday_sinifi:&quot;, near_diagnosis.classification)
+    print(&quot;duzleme_yakin_aday_belirsiz_mi:&quot;, near_diagnosis.numerically_ambiguous)
+    print(
+        &quot;duzleme_yakin_aday_normalize_karma_carpim:&quot;,
+        f&quot;{near_diagnosis.normalized_triple_product:.12e}&quot;,
+    )
+    print(&quot;bilimsel_imza:&quot;, canonical_array_sha256(signature_values))
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<details><summary>Doğrulama çalıştırmasının çıktısı</summary><pre><code>uzunluk_birimi: mm
+model: sentetik_dondurulmus_cad_tetrahedronu
+olculmus_veri_mi: False
+ag_kalitesi_hesabi_mi: False
+uretim_kabul_hesabi_mi: False
+yerel_cerceve_ortogonal_mi: True
+yerel_cerceve_determinanti: 1.000000000000
+kose_noktalari_mm:
+[[120.  80.  35.]
+ [156. 128.  35.]
+ [ 96.  98.  75.]
+ [168.  44.  80.]]
+ABC_birim_normali: [ 0.64 -0.48  0.6 ]
+ABC_ucgen_alani_mm2: 1500.000000000000
+yonlu_paralelyuz_hacmi_mm3: 225000.000000000000
+tetrahedron_hacmi_mm3: 37500.000000000000
+yon_sinifi: right_handed
+boyutsuz_normalize_karma_carpim: 1.000000000000
+ilk_iki_kenar_degistirilince_yon: left_handed
+metre_milimetre_alan_hacim_olcegi_korundu_mu: True
+duzleme_yakin_aday_sinifi: uncertain
+duzleme_yakin_aday_belirsiz_mi: True
+duzleme_yakin_aday_normalize_karma_carpim: 4.714117984861e-12
+bilimsel_imza: bc87febcaf544499f48f465892f62361bfe85ae42d32454b019b85910e901cac
+</code></pre></details><details><summary>Metindeki Python kodları</summary><p><a download href="downloads/bolum_17_metin.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Uzay üçgeni ve tetrahedron tanısı ---
+import numpy as np
+from agbook import (
+    spatial_orientation_diagnostics,
+    tetrahedron_volume,
+    triangle_area_3d,
+    unit_normal_3d,
+)
+
+A = np.array([120.0, 80.0, 35.0])
+B = np.array([156.0, 128.0, 35.0])
+C = np.array([96.0, 98.0, 75.0])
+D = np.array([168.0, 44.0, 80.0])
+
+u, v, w = B - A, C - A, D - A
+normal = unit_normal_3d(u, v)
+area = triangle_area_3d(A, B, C)
+volume = tetrahedron_volume(A, B, C, D)
+diagnosis = spatial_orientation_diagnostics(
+    u, v, w, relative_tolerance=1e-12
+)
+
+print(normal)
+print(area, volume)
+print(diagnosis.scalar_triple_product)
+print(diagnosis.normalized_triple_product)
+print(diagnosis.classification)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Uzay üçgeni ve tetrahedron tanısı
+[ 0.64 -0.48  0.6 ]
+1500.0 37500.0
+225000.0
+1.0
+right_handed
+</code></pre></details><details><summary>Çözümlerdeki Python kodları</summary><p><a download href="downloads/bolum_17_cozum.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Vektörel çarpım karşılaştırması ---
+import numpy as np
+from agbook import cross_product_3d
+
+pairs = [
+    ([1, 0, 0], [0, 1, 0]),
+    ([2, -1, 3], [4, 5, -2]),
+    ([1, 2, 0], [-3, 1, 4]),
+    ([0, 0, 5], [2, -7, 0]),
+    ([1, 2, 3], [2, 4, 6]),
+]
+for u_raw, v_raw in pairs:
+    u = np.asarray(u_raw, dtype=float)
+    v = np.asarray(v_raw, dtype=float)
+    result = cross_product_3d(u, v)
+    np.testing.assert_allclose(result, np.cross(u, v))
+    np.testing.assert_allclose(result @ u, 0.0, atol=1e-14)
+    np.testing.assert_allclose(result @ v, 0.0, atol=1e-14)
+
+# --- 2. Öteleme değişmezliği ---
+import numpy as np
+from agbook import triangle_area_3d, unit_normal_3d
+
+points = np.array([[1., 0., 2.], [4., 1., 2.], [2., 5., 4.]])
+translations = np.array([
+    [0., 0., 0.], [10., -4., 7.], [-3., 8., 2.],
+    [1e3, -2e3, 3e3], [-0.25, 0.5, -0.75],
+])
+area0 = triangle_area_3d(*points)
+normal0 = unit_normal_3d(points[1] - points[0], points[2] - points[0])
+for shift in translations:
+    moved = points + shift
+    np.testing.assert_allclose(triangle_area_3d(*moved), area0)
+    np.testing.assert_allclose(
+        unit_normal_3d(moved[1] - moved[0], moved[2] - moved[0]),
+        normal0,
+    )
+
+# --- 3. Dönme ve yansıma yasası ---
+import numpy as np
+from agbook import cross_product_3d
+
+R = np.array([
+    [3/5, -12/25, 16/25],
+    [4/5,   9/25, -12/25],
+    [0,    20/25, 15/25],
+], dtype=float)
+Q = np.diag([-1., 1., 1.])
+pairs = [
+    (np.array([1., 2., 3.]), np.array([2., -1., 4.])),
+    (np.array([3., 0., -2.]), np.array([1., 5., 1.])),
+    (np.array([0., 1., 0.]), np.array([0., 0., 1.])),
+]
+for transform in (R, Q):
+    sign = np.linalg.det(transform)
+    for u, v in pairs:
+        np.testing.assert_allclose(
+            cross_product_3d(transform @ u, transform @ v),
+            sign * transform @ cross_product_3d(u, v),
+            atol=2e-14,
+        )
+print(np.linalg.det(R), np.linalg.det(Q))  # 1.0, -1.0
+
+# --- 4. Yakın eşdüzlemlilik tablosu ---
+from agbook import spatial_orientation_diagnostics
+
+deltas = [0.0, 1e-16, 1e-14, 1e-10, 1e-6]
+tolerances = [0.0, 1e-12, 1e-8]
+for delta in deltas:
+    for tolerance in tolerances:
+        result = spatial_orientation_diagnostics(
+            [1., 0., 0.], [0., 1., 0.], [1., 1., delta],
+            relative_tolerance=tolerance,
+        )
+        print(delta, tolerance,
+              result.normalized_triple_product,
+              result.classification)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Vektörel çarpım karşılaştırması
+
+2. Öteleme değişmezliği
+
+3. Dönme ve yansıma yasası
+1.0 -1.0
+
+4. Yakın eşdüzlemlilik tablosu
+0.0 0.0 0.0 coplanar
+0.0 1e-12 0.0 coplanar
+0.0 1e-08 0.0 coplanar
+1e-16 0.0 7.071067811865474e-17 right_handed
+1e-16 1e-12 7.071067811865474e-17 uncertain
+1e-16 1e-08 7.071067811865474e-17 uncertain
+1e-14 0.0 7.071067811865475e-15 right_handed
+1e-14 1e-12 7.071067811865475e-15 uncertain
+1e-14 1e-08 7.071067811865475e-15 uncertain
+1e-10 0.0 7.071067811865475e-11 right_handed
+1e-10 1e-12 7.071067811865475e-11 right_handed
+1e-10 1e-08 7.071067811865475e-11 uncertain
+1e-06 0.0 7.071067811863707e-07 right_handed
+1e-06 1e-12 7.071067811863707e-07 right_handed
+1e-06 1e-08 7.071067811863707e-07 right_handed
+</code></pre></details><section id="kurulum"><h2>Çalıştırma rehberi</h2>
+<p>Önce <a href="downloads/analitik-geometri-python-v1.0.zip">tam Python paketini indirin</a> ve arşivi açın.
+Aşağıdaki komutları arşivin üst klasöründen başlatın. İlk kurulum internet bağlantısı ve Python 3.12 veya 3.13 gerektirir.
+Bağımlılıklar sabittir; sistem Python'unu değiştirmemek için ayrı sanal ortam kullanılır.</p>
+<details><summary>macOS / Linux</summary><pre><code>cd analitik-geometri-python-v1.0
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+python labs/bolum_17_uzayda_vektorler.py
+python -m pytest</code></pre></details>
+<details><summary>Windows PowerShell</summary><pre><code>cd analitik-geometri-python-v1.0
+py -3.13 -m venv .venv
+.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.venv\Scripts\python.exe labs/bolum_17_uzayda_vektorler.py
+.venv\Scripts\python.exe -m pytest</code></pre></details>
+<p class="meta">Laboratuvar dosyaları <code>agbook</code> yardımcı paketini kullanır; tek bir dosyayı indirmek
+paketi kurmanın yerini tutmaz. Metin/çözüm kodları kendi dosyaları içinde sırayla çalıştırılır;
+gizli bir notebook oturumu gerekmez. Son ondalık basamaklar platforma göre değişebilir.</p></section><nav aria-label="Bölümler"><a href="bolum-16.html">← Önceki bölüm</a><a href="index.html">Tüm bölümler</a><a href="bolum-18.html">Sonraki bölüm →</a></nav></main>
+<footer>Bu sayfalar kitabın tam metni veya PDF sürümü değildir. Kodlar eğitim amaçlıdır;
+sentetik örnekler gerçek cihaz, üretim veya güvenlik doğrulaması sayılmaz.</footer></body></html>

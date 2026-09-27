@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Afin Dönüşümler, Kutupsal ve Parametrik Gösterimler · Analitik Geometri</title>
+<meta name="description" content="Analitik Geometri kitabının bölüm bazlı Python uygulamaları, kodları ve doğrulama çıktıları.">
+<link rel="stylesheet" href="style.css"></head><body>
+<a class="skip" href="#content">İçeriğe geç</a>
+<header><nav aria-label="Ana gezinme"><a href="index.html">Analitik Geometri</a><a href="/books/">Kitaplar</a><a href="#kurulum">Çalıştırma rehberi</a></nav>
+<p class="eyebrow">TEORİDEN UYGULAMAYA · PYTHON EŞLİKÇİSİ</p><h1>Afin Dönüşümler, Kutupsal ve Parametrik Gösterimler</h1>
+<p class="authors">Prof. Dr. Zühal Küçükarslan Yüzbaşı · Prof. Dr. Bahadır Yüzbaşı</p><p class="meta">Bölüm 08 · v1.0 · Türkçe</p></header>
+<main id="content"><p>Bu bölümün laboratuvarı, kitaptaki örnekleri yeniden üretmek ve sayısal sonuçları
+incelemek için hazırlanmıştır. Matematiksel tanımlar, ispatlar ve sorular kitapta yer alır.</p>
+<div class="actions"><a class="button" download href="downloads/bolum_08_afin_kutupsal_parametrik.py">Laboratuvarı indir (.py)</a>
+<a class="button" href="downloads/analitik-geometri-python-v1.0.zip">Tam Python paketi (.zip)</a></div>
+<h2>Laboratuvar kodu</h2><pre><code>&quot;&quot;&quot;Bölüm 8 laboratuvarı: kutupsal taramayı afin harita çerçevesine taşıma.
+
+Model iki boyutlu ve sentetiktir. Menziller metre, açılar derece olarak
+girilip hesapta radyana çevrilir. Perspektif, üç boyutlu poz, gürültü,
+belirsizlik, zaman senkronizasyonu ve güvenlik kararı içermez.
+&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import numpy as np
+
+from agbook import (
+    apply_affine_map,
+    canonical_array_sha256,
+    cartesian_to_polar,
+    homogeneous_affine_matrix,
+    inverse_affine_map,
+    polar_to_cartesian,
+    polygon_signed_area,
+)
+
+
+def main() -&gt; None:
+    angles_deg = np.array([-55.0, -35.0, -15.0, 5.0, 25.0, 45.0, 65.0])
+    ranges_m = np.array([4.2, 4.8, 5.5, 6.0, 5.4, 4.7, 4.0])
+    scan_parameter = np.linspace(0.0, 1.0, angles_deg.size)
+    polar_measurements = np.column_stack([ranges_m, np.deg2rad(angles_deg)])
+    sensor_points = polar_to_cartesian(polar_measurements)
+
+    calibration_matrix = np.array([[1.04, 0.12], [-0.03, 0.97]])
+    map_origin = np.array([12.0, 8.0])  # m
+    map_points = apply_affine_map(sensor_points, calibration_matrix, map_origin)
+
+    inverse = inverse_affine_map(calibration_matrix, map_origin)
+    recovered_sensor = apply_affine_map(
+        map_points,
+        inverse.matrix,
+        inverse.translation,
+    )
+    recovered_polar = cartesian_to_polar(recovered_sensor)
+
+    homogeneous = homogeneous_affine_matrix(calibration_matrix, map_origin)
+    homogeneous_sensor = np.column_stack(
+        [sensor_points, np.ones(sensor_points.shape[0])]
+    )
+    homogeneous_map = (homogeneous @ homogeneous_sensor.T).T
+
+    reference_triangle = np.array([[0.0, 0.0], [2.0, 0.0], [0.0, 1.5]])
+    mapped_triangle = apply_affine_map(
+        reference_triangle,
+        calibration_matrix,
+        map_origin,
+    )
+    area_ratio = polygon_signed_area(mapped_triangle) / polygon_signed_area(
+        reference_triangle
+    )
+
+    print(&quot;birim: m&quot;)
+    print(&quot;olcum_sayisi:&quot;, angles_deg.size)
+    print(&quot;parametre_araligi:&quot;, np.round([scan_parameter[0], scan_parameter[-1]], 6))
+    print(&quot;aci_araligi_derece:&quot;, np.round([angles_deg[0], angles_deg[-1]], 6))
+    print(&quot;ilk_sensor_noktasi:&quot;, np.round(sensor_points[0], 9))
+    print(&quot;son_sensor_noktasi:&quot;, np.round(sensor_points[-1], 9))
+    print(&quot;ilk_harita_noktasi:&quot;, np.round(map_points[0], 9))
+    print(&quot;son_harita_noktasi:&quot;, np.round(map_points[-1], 9))
+    print(&quot;afin_determinant:&quot;, f&quot;{np.linalg.det(calibration_matrix):.12f}&quot;)
+    print(&quot;afin_rank:&quot;, np.linalg.matrix_rank(calibration_matrix))
+    print(&quot;afin_kosul_sayisi:&quot;, f&quot;{np.linalg.cond(calibration_matrix):.9f}&quot;)
+    print(&quot;yonlu_alan_orani:&quot;, f&quot;{area_ratio:.12f}&quot;)
+    print(
+        &quot;alan_determinant_artigi:&quot;,
+        f&quot;{abs(area_ratio - np.linalg.det(calibration_matrix)):.3e}&quot;,
+    )
+    print(
+        &quot;homojen_dogrulama_artigi_m:&quot;,
+        f&quot;{np.max(np.abs(homogeneous_map[:, :2] - map_points)):.3e}&quot;,
+    )
+    print(
+        &quot;afin_gidis_donus_artigi_m:&quot;,
+        f&quot;{np.max(np.abs(recovered_sensor - sensor_points)):.3e}&quot;,
+    )
+    print(
+        &quot;kutupsal_gidis_donus_artigi_m:&quot;,
+        f&quot;{np.max(np.abs(recovered_polar[:, 0] - ranges_m)):.3e}&quot;,
+    )
+    print(&quot;parametre_sirasi_korundu:&quot;, bool(np.all(np.diff(scan_parameter) &gt; 0.0)))
+
+    signature_values = np.concatenate(
+        [
+            polar_measurements.ravel(),
+            calibration_matrix.ravel(),
+            map_origin,
+            map_points.ravel(),
+        ]
+    )
+    print(&quot;bilimsel_imza:&quot;, canonical_array_sha256(signature_values))
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<details><summary>Doğrulama çalıştırmasının çıktısı</summary><pre><code>birim: m
+olcum_sayisi: 7
+parametre_araligi: [0. 1.]
+aci_araligi_derece: [-55.  65.]
+ilk_sensor_noktasi: [ 2.40902103 -3.44043859]
+son_sensor_noktasi: [1.69047305 3.62523115]
+ilk_harita_noktasi: [14.09252924  4.59050394]
+son_harita_noktasi: [14.19311971 11.46576002]
+afin_determinant: 1.012400000000
+afin_rank: 2
+afin_kosul_sayisi: 1.119919267
+yonlu_alan_orani: 1.012400000000
+alan_determinant_artigi: 0.000e+00
+homojen_dogrulama_artigi_m: 0.000e+00
+afin_gidis_donus_artigi_m: 1.776e-15
+kutupsal_gidis_donus_artigi_m: 1.776e-15
+parametre_sirasi_korundu: True
+bilimsel_imza: af07582c6958f6399383fd0ed60de179502b09bb478f9453e4aff8d7da060c2f
+</code></pre></details><details><summary>Metindeki Python kodları</summary><p><a download href="downloads/bolum_08_metin.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Bölüm 8: kutupsal ölçümden afin harita noktasına ---
+import numpy as np
+from agbook import (
+    apply_affine_map,
+    cartesian_to_polar,
+    homogeneous_affine_matrix,
+    inverse_affine_map,
+    polar_to_cartesian,
+)
+
+angles_deg = np.array([-55., -35., -15., 5., 25., 45., 65.])
+ranges_m = np.array([4.2, 4.8, 5.5, 6.0, 5.4, 4.7, 4.0])
+polar = np.column_stack([ranges_m, np.deg2rad(angles_deg)])
+sensor = polar_to_cartesian(polar)
+
+A = np.array([[1.04, 0.12], [-0.03, 0.97]])
+b = np.array([12.0, 8.0])  # m
+mapped = apply_affine_map(sensor, A, b)
+inverse = inverse_affine_map(A, b)
+recovered = apply_affine_map(mapped, inverse.matrix,
+                             inverse.translation)
+
+H = homogeneous_affine_matrix(A, b)
+sensor_h = np.column_stack([sensor, np.ones(sensor.shape[0])])
+mapped_h = (H @ sensor_h.T).T[:, :2]
+polar_back = cartesian_to_polar(recovered)
+
+print(&quot;determinant:&quot;, f&quot;{np.linalg.det(A):.12f}&quot;)
+print(&quot;rank:&quot;, np.linalg.matrix_rank(A))
+print(&quot;kosul_sayisi:&quot;, f&quot;{np.linalg.cond(A):.9f}&quot;)
+print(&quot;homojen_artik_m:&quot;, f&quot;{np.max(np.abs(mapped_h-mapped)):.3e}&quot;)
+print(&quot;gidis_donus_artigi_m:&quot;,
+      f&quot;{np.max(np.abs(recovered-sensor)):.3e}&quot;)
+print(&quot;menzil_artigi_m:&quot;,
+      f&quot;{np.max(np.abs(polar_back[:, 0]-ranges_m)):.3e}&quot;)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Bölüm 8: kutupsal ölçümden afin harita noktasına
+determinant: 1.012400000000
+rank: 2
+kosul_sayisi: 1.119919267
+homojen_artik_m: 0.000e+00
+gidis_donus_artigi_m: 1.776e-15
+menzil_artigi_m: 1.776e-15
+</code></pre></details><details><summary>Çözümlerdeki Python kodları</summary><p><a download href="downloads/bolum_08_cozum.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Ardışık ve bileşik afin dönüşüm ---
+import numpy as np
+from agbook import apply_affine_map, compose_affine_maps
+
+points = np.array([[0., 0.], [2., 1.], [-1., 3.], [4., -2.]])
+A1 = np.array([[1., 0.6], [0., 1.]])
+b1 = np.array([2., -1.])
+A2 = np.array([[1.8, 0.], [0., 0.5]])
+b2 = np.array([-3., 4.])
+
+sequential = apply_affine_map(apply_affine_map(points, A1, b1), A2, b2)
+combined = compose_affine_maps(A2, b2, A1, b1)
+direct = apply_affine_map(points, combined.matrix, combined.translation)
+
+residual = np.max(np.abs(direct - sequential))
+det_residual = abs(combined.determinant - np.linalg.det(A2)*np.linalg.det(A1))
+print(residual, det_residual)
+assert residual &lt; 1e-12
+assert det_residual &lt; 1e-12
+
+# --- 2. Alan ölçeği ve tekil çökme ---
+import numpy as np
+from agbook import apply_affine_map, polygon_signed_area
+
+polygon = np.array([[0., 0.], [4., 0.], [3., 2.], [0., 1.]])
+A = np.array([[1.5, 0.75], [0., -2.]])
+image = apply_affine_map(polygon, A, [10., -8.])
+ratio = polygon_signed_area(image) / polygon_signed_area(polygon)
+print(&quot;oran:&quot;, ratio, &quot;det:&quot;, np.linalg.det(A))
+assert abs(ratio - np.linalg.det(A)) &lt; 1e-12
+
+singular = np.array([[1., 0.6], [0.5, 0.3]])
+collapsed = apply_affine_map(polygon, singular, [0., 0.])
+print(&quot;tekil_alan:&quot;, polygon_signed_area(collapsed))
+assert abs(polygon_signed_area(collapsed)) &lt; 1e-12
+
+# --- 3. Kartezyen--kutupsal gidiş dönüş ---
+import numpy as np
+from agbook import cartesian_to_polar, polar_to_cartesian
+
+points = np.array([
+    [2., 3.], [-4., 5.], [-6., -1.5], [7., -2.], [0., 0.]
+])
+polar = cartesian_to_polar(points)
+recovered = polar_to_cartesian(polar)
+residual = np.max(np.abs(recovered - points))
+print(&quot;artik:&quot;, residual)
+print(&quot;orijin_kutupsal:&quot;, polar[-1])
+assert residual &lt; 1e-12
+assert np.array_equal(polar[-1], [0., 0.])
+
+# --- 4. Determinant, rank, koşul ve açık hata ---
+import numpy as np
+import pytest
+from agbook import inverse_affine_map
+
+matrices = {
+    &quot;iyi&quot;: np.array([[1.2, 0.1], [0.0, 0.9]]),
+    &quot;kotu&quot;: np.diag([1.0, 1.0e-10]),
+    &quot;tekil&quot;: np.array([[1.0, 2.0], [2.0, 4.0]]),
+}
+for name, A in matrices.items():
+    print(name, np.linalg.det(A), np.linalg.matrix_rank(A), np.linalg.cond(A))
+
+with pytest.raises(ValueError, match=&quot;tekildir&quot;):
+    inverse_affine_map(matrices[&quot;tekil&quot;], [0.0, 0.0])
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Ardışık ve bileşik afin dönüşüm
+0.0 0.0
+
+2. Alan ölçeği ve tekil çökme
+oran: -3.0 det: -2.9999999999999996
+tekil_alan: 0.0
+
+3. Kartezyen--kutupsal gidiş dönüş
+artik: 2.220446049250313e-15
+orijin_kutupsal: [0. 0.]
+
+4. Determinant, rank, koşul ve açık hata
+iyi 1.08 2 1.3540883358999016
+kotu 9.999999999999996e-11 2 10000000000.0
+tekil 0.0 1 2.7556760105735884e+16
+</code></pre></details><section id="kurulum"><h2>Çalıştırma rehberi</h2>
+<p>Önce <a href="downloads/analitik-geometri-python-v1.0.zip">tam Python paketini indirin</a> ve arşivi açın.
+Aşağıdaki komutları arşivin üst klasöründen başlatın. İlk kurulum internet bağlantısı ve Python 3.12 veya 3.13 gerektirir.
+Bağımlılıklar sabittir; sistem Python'unu değiştirmemek için ayrı sanal ortam kullanılır.</p>
+<details><summary>macOS / Linux</summary><pre><code>cd analitik-geometri-python-v1.0
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+python labs/bolum_08_afin_kutupsal_parametrik.py
+python -m pytest</code></pre></details>
+<details><summary>Windows PowerShell</summary><pre><code>cd analitik-geometri-python-v1.0
+py -3.13 -m venv .venv
+.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.venv\Scripts\python.exe labs/bolum_08_afin_kutupsal_parametrik.py
+.venv\Scripts\python.exe -m pytest</code></pre></details>
+<p class="meta">Laboratuvar dosyaları <code>agbook</code> yardımcı paketini kullanır; tek bir dosyayı indirmek
+paketi kurmanın yerini tutmaz. Metin/çözüm kodları kendi dosyaları içinde sırayla çalıştırılır;
+gizli bir notebook oturumu gerekmez. Son ondalık basamaklar platforma göre değişebilir.</p></section><nav aria-label="Bölümler"><a href="bolum-07.html">← Önceki bölüm</a><a href="index.html">Tüm bölümler</a><a href="bolum-09.html">Sonraki bölüm →</a></nav></main>
+<footer>Bu sayfalar kitabın tam metni veya PDF sürümü değildir. Kodlar eğitim amaçlıdır;
+sentetik örnekler gerçek cihaz, üretim veya güvenlik doğrulaması sayılmaz.</footer></body></html>

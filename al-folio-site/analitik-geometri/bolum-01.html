@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Koordinatlarla Geometrik Düşünme · Analitik Geometri</title>
+<meta name="description" content="Analitik Geometri kitabının bölüm bazlı Python uygulamaları, kodları ve doğrulama çıktıları.">
+<link rel="stylesheet" href="style.css"></head><body>
+<a class="skip" href="#content">İçeriğe geç</a>
+<header><nav aria-label="Ana gezinme"><a href="index.html">Analitik Geometri</a><a href="/books/">Kitaplar</a><a href="#kurulum">Çalıştırma rehberi</a></nav>
+<p class="eyebrow">TEORİDEN UYGULAMAYA · PYTHON EŞLİKÇİSİ</p><h1>Koordinatlarla Geometrik Düşünme</h1>
+<p class="authors">Prof. Dr. Zühal Küçükarslan Yüzbaşı · Prof. Dr. Bahadır Yüzbaşı</p><p class="meta">Bölüm 01 · v1.0 · Türkçe</p></header>
+<main id="content"><p>Bu bölümün laboratuvarı, kitaptaki örnekleri yeniden üretmek ve sayısal sonuçları
+incelemek için hazırlanmıştır. Matematiksel tanımlar, ispatlar ve sorular kitapta yer alır.</p>
+<div class="actions"><a class="button" download href="downloads/bolum_01_koordinatlarla_geometrik_dusunme.py">Laboratuvarı indir (.py)</a>
+<a class="button" href="downloads/analitik-geometri-python-v1.0.zip">Tam Python paketi (.zip)</a></div>
+<h2>Laboratuvar kodu</h2><pre><code>&quot;&quot;&quot;Bölüm 1 laboratuvarı: değişmezlik ve üçleme denetimi.&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import numpy as np
+
+from agbook import (
+    rigid_motion_diagnostics,
+    rotation_matrix_2d,
+    trilaterate_linear,
+)
+
+
+SEED = 20260907
+
+
+def main() -&gt; None:
+    triangle = np.array([[0.0, 0.0], [4.0, 0.0], [1.0, 3.0]])
+    rotation = rotation_matrix_2d(np.deg2rad(37.0))
+    diagnostics = rigid_motion_diagnostics(triangle, rotation, [2.5, -1.25])
+
+    anchors = np.array([[0.0, 0.0], [6.0, 0.0], [0.0, 5.0], [6.0, 5.0]])
+    true_point = np.array([2.3, 1.7])
+    rng = np.random.default_rng(SEED)
+    measured_ranges = np.linalg.norm(anchors - true_point, axis=1)
+    measured_ranges += rng.normal(loc=0.0, scale=0.01, size=anchors.shape[0])
+    estimate = trilaterate_linear(anchors, measured_ranges)
+
+    np.set_printoptions(precision=6, suppress=True)
+    print(f&quot;tohum: {SEED}&quot;)
+    print(f&quot;ortogonallik_artigi: {diagnostics.orthogonality_residual:.3e}&quot;)
+    print(f&quot;determinant: {diagnostics.determinant:.6f}&quot;)
+    print(f&quot;en_buyuk_uzaklik_hatasi: {diagnostics.maximum_distance_error:.3e}&quot;)
+    print(f&quot;gercek_nokta: {true_point}&quot;)
+    print(f&quot;tahmin: {estimate.point}&quot;)
+    print(f&quot;rank: {estimate.rank}&quot;)
+    print(f&quot;uzaklik_artik_normu: {estimate.residual_norm:.6f}&quot;)
+    print(f&quot;konum_hatasi: {np.linalg.norm(estimate.point - true_point):.6f}&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<details><summary>Doğrulama çalıştırmasının çıktısı</summary><pre><code>tohum: 20260907
+ortogonallik_artigi: 2.702e-17
+determinant: 1.000000
+en_buyuk_uzaklik_hatasi: 4.441e-16
+gercek_nokta: [2.3 1.7]
+tahmin: [2.302395 1.716606]
+rank: 2
+uzaklik_artik_normu: 0.018807
+konum_hatasi: 0.016778
+</code></pre></details><details><summary>Metindeki Python kodları</summary><p><a download href="downloads/bolum_01_metin.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Bölüm 1&#x27;in yeniden üretilebilir deneyi ---
+import numpy as np
+
+from agbook import (
+    rigid_motion_diagnostics,
+    rotation_matrix_2d,
+    trilaterate_linear,
+)
+
+SEED = 20260907
+
+triangle = np.array([[0.0, 0.0],
+                     [4.0, 0.0],
+                     [1.0, 3.0]])
+Q = rotation_matrix_2d(np.deg2rad(37.0))
+diag = rigid_motion_diagnostics(triangle, Q, [2.5, -1.25])
+
+anchors = np.array([[0.0, 0.0],
+                    [6.0, 0.0],
+                    [0.0, 5.0],
+                    [6.0, 5.0]])
+true_point = np.array([2.3, 1.7])
+rng = np.random.default_rng(SEED)
+ranges = np.linalg.norm(anchors - true_point, axis=1)
+ranges += rng.normal(0.0, 0.01, size=anchors.shape[0])
+fit = trilaterate_linear(anchors, ranges)
+
+print(f&quot;ortogonallik: {diag.orthogonality_residual:.3e}&quot;)
+print(f&quot;uzaklik_hatasi: {diag.maximum_distance_error:.3e}&quot;)
+print(f&quot;tahmin: {fit.point}&quot;)
+print(f&quot;rank: {fit.rank}&quot;)
+print(f&quot;artik_normu: {fit.residual_norm:.6f}&quot;)
+print(f&quot;konum_hatasi: {np.linalg.norm(fit.point-true_point):.6f}&quot;)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Bölüm 1&#x27;in yeniden üretilebilir deneyi
+ortogonallik: 2.702e-17
+uzaklik_hatasi: 4.441e-16
+tahmin: [2.30239524 1.71660613]
+rank: 2
+artik_normu: 0.018807
+konum_hatasi: 0.016778
+</code></pre></details><details><summary>Çözümlerdeki Python kodları</summary><p><a download href="downloads/bolum_01_cozum.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. H1 ve H2&#x27;nin yeniden hesaplanması ---
+import numpy as np
+from agbook import displacement, euclidean_distance, midpoint
+
+a2, b2 = np.array([-3., 2.]), np.array([5., -4.])
+a3, b3 = np.array([2., -1., 4.]), np.array([-2., 5., 0.])
+
+computed = np.r_[displacement(a2, b2),
+                 euclidean_distance(a2, b2),
+                 midpoint(a3, b3),
+                 euclidean_distance(a3, b3)]
+expected = np.array([8., -6., 10., 0., 2., 2., 2*np.sqrt(17.)])
+print(computed)
+print(np.max(np.abs(computed - expected)))
+
+# --- 2. 361 dönme matrisinin ortogonallik taraması ---
+import numpy as np
+from agbook import rotation_matrix_2d
+
+residuals = []
+for degree in range(361):
+    q = rotation_matrix_2d(np.deg2rad(degree))
+    residuals.append(np.linalg.norm(q.T @ q - np.eye(2)))
+
+index = int(np.argmax(residuals))
+print(index, f&quot;{residuals[index]:.3e}&quot;)
+print(max(residuals) &lt; 1e-12)
+
+# --- 3. Dört çıpayla gürültülü konum hesabı ---
+import numpy as np
+from agbook import trilaterate_linear
+
+anchors = np.array([[0., 0.], [10., 0.],
+                    [0., 8.], [10., 8.]])
+truth = np.array([4., 3.])
+rng = np.random.default_rng(20260907)
+ranges = np.linalg.norm(anchors - truth, axis=1)
+ranges += rng.normal(0., 0.02, size=4)
+fit = trilaterate_linear(anchors, ranges)
+
+print(fit.point)
+print(fit.rank)
+print(f&quot;{fit.residual_norm:.6f}&quot;)
+print(f&quot;{np.linalg.norm(fit.point-truth):.6f}&quot;)
+
+# --- 4. Rank ile koşulluluğun ayrılması ---
+import numpy as np
+from agbook import trilaterate_linear
+
+target = np.array([0.5, 1.0])
+collinear = np.array([[0., 0.], [1., 0.], [2., 0.]])
+near = np.array([[0., 0.], [1., 0.], [2., 1e-8]])
+
+try:
+    trilaterate_linear(collinear,
+                       np.linalg.norm(collinear-target, axis=1))
+except ValueError as error:
+    print(type(error).__name__)
+
+ranges = np.linalg.norm(near-target, axis=1)
+fit1 = trilaterate_linear(near, ranges)
+ranges[-1] += 1e-10
+fit2 = trilaterate_linear(near, ranges)
+print(fit1.singular_values)
+print(np.linalg.norm(fit2.point-fit1.point))
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. H1 ve H2&#x27;nin yeniden hesaplanması
+[ 8.         -6.         10.          0.          2.          2.
+  8.24621125]
+0.0
+
+2. 361 dönme matrisinin ortogonallik taraması
+225 3.198e-16
+True
+
+3. Dört çıpayla gürültülü konum hesabı
+[4.00512656 3.03327703]
+2
+0.039369
+0.033670
+
+4. Rank ile koşulluluğun ayrılması
+ValueError
+[4.47213595e+00 8.94427191e-09]
+0.01802773749828579
+</code></pre></details><section id="kurulum"><h2>Çalıştırma rehberi</h2>
+<p>Önce <a href="downloads/analitik-geometri-python-v1.0.zip">tam Python paketini indirin</a> ve arşivi açın.
+Aşağıdaki komutları arşivin üst klasöründen başlatın. İlk kurulum internet bağlantısı ve Python 3.12 veya 3.13 gerektirir.
+Bağımlılıklar sabittir; sistem Python'unu değiştirmemek için ayrı sanal ortam kullanılır.</p>
+<details><summary>macOS / Linux</summary><pre><code>cd analitik-geometri-python-v1.0
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+python labs/bolum_01_koordinatlarla_geometrik_dusunme.py
+python -m pytest</code></pre></details>
+<details><summary>Windows PowerShell</summary><pre><code>cd analitik-geometri-python-v1.0
+py -3.13 -m venv .venv
+.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.venv\Scripts\python.exe labs/bolum_01_koordinatlarla_geometrik_dusunme.py
+.venv\Scripts\python.exe -m pytest</code></pre></details>
+<p class="meta">Laboratuvar dosyaları <code>agbook</code> yardımcı paketini kullanır; tek bir dosyayı indirmek
+paketi kurmanın yerini tutmaz. Metin/çözüm kodları kendi dosyaları içinde sırayla çalıştırılır;
+gizli bir notebook oturumu gerekmez. Son ondalık basamaklar platforma göre değişebilir.</p></section><nav aria-label="Bölümler"><a href="index.html">Tüm bölümler</a><a href="bolum-02.html">Sonraki bölüm →</a></nav></main>
+<footer>Bu sayfalar kitabın tam metni veya PDF sürümü değildir. Kodlar eğitim amaçlıdır;
+sentetik örnekler gerçek cihaz, üretim veya güvenlik doğrulaması sayılmaz.</footer></body></html>

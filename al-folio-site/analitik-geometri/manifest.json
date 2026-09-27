@@ -1,0 +1,793 @@
+{
+  "version": "v1.0",
+  "authors": "Prof. Dr. Zühal Küçükarslan Yüzbaşı · Prof. Dr. Bahadır Yüzbaşı",
+  "chapters": 24,
+  "source_audit_sha256": "38f1a501ef26ec56939dcf63bf35c9d80cc3a58a766eee09628f8cb9bc3b2536",
+  "sources": [
+    {
+      "path": "manuscript/v1.0/chapters/bolum_01.tex",
+      "sha256": "bc7387d4401b2c3fac2dd2fbe7332f06c7121e6ed4173a10714a5e186ae239c6"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_01_cozumler.tex",
+      "sha256": "fac740e3f133f530b98b1a887a38c62a6d6cdec748afed017e921f134358f6b4"
+    },
+    {
+      "path": "labs/bolum_01_koordinatlarla_geometrik_dusunme.py",
+      "sha256": "be2eef0afa576b9ea8c4d80eb7c3f921065737f25cde7a99d2da0a39a3320fd9"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_02.tex",
+      "sha256": "0ac677568a470052c30ae70f6ab6a46e502672eccf145d054b370ed589f64384"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_02_cozumler.tex",
+      "sha256": "21e98a294751f797b901d80ef84fd6da8fc6d01f54c44ea7da9072f9a66b3fea"
+    },
+    {
+      "path": "labs/bolum_02_vektorler_izdusum.py",
+      "sha256": "38ca3d0c7285474ab3308be7d7b78d7a29430ca16156915f80c07f99208ac593"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_03.tex",
+      "sha256": "5709e66968140318154c61b96a17df01f4f97615fb85250ff226785aab74ecdc"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_03_cozumler.tex",
+      "sha256": "ad3514ac660e7f1a5aebd9acbe86c9e834bfab6e1ea1584247406c12468efe4d"
+    },
+    {
+      "path": "labs/bolum_03_determinant_alan_yonelim.py",
+      "sha256": "0c2042c3929bea0c4873e2138edf43f1e95cb1bf91d8983d3c2166d78953a405"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_04.tex",
+      "sha256": "927dd1115684f6ebf28f24e95d238e48d841d18380a4c564db3a9a89fd159268"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_04_cozumler.tex",
+      "sha256": "e6da04b354b5249ce0da697be3479cba1bc2716aa9637a26caf6b5560d76055b"
+    },
+    {
+      "path": "labs/bolum_04_hesaplamali_analitik_geometri.py",
+      "sha256": "c94bea2784ce2316d4b28c99a470715671bd7b1b774e31f9f4d395247f89c2a5"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_05.tex",
+      "sha256": "912e005f954d8661fb613dbf2695f7f9faaf8a320e40425cce715874d33f68da"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_05_cozumler.tex",
+      "sha256": "99824db21b525248a8ce026d30e05bc33e2e1f2d21455d201de6c25bbe8987ac"
+    },
+    {
+      "path": "labs/bolum_05_duzlemde_dogru_denklemleri.py",
+      "sha256": "64ce0c44d12a0b110d577c5a2df30c7035e10ae552c0add4a80cd7a1309819ac"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_06.tex",
+      "sha256": "45fed5f48051b366b98fe582fa9a71bb3e9fd0d059228e0177342cb6e13b2442"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_06_cozumler.tex",
+      "sha256": "c8a4d25c55b4d76458e25cfe7c9c0f65929a339bc08b66ee83e16074aa598c9d"
+    },
+    {
+      "path": "labs/bolum_06_kesisim_aci_uzaklik.py",
+      "sha256": "2a87eb8cd96f684031fb3bb571fee97eccd66fd85bc6055990fc9b75f4d64a84"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_07.tex",
+      "sha256": "a272b9818eb919219375aced26bab1b7485764d7d18bed99e7dc9847fa5a1687"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_07_cozumler.tex",
+      "sha256": "cb88418f6ebe06a27fac4f60e3ac76b76bb6f5e215347925527ae61621eed867"
+    },
+    {
+      "path": "labs/bolum_07_oteleme_donme_yansima.py",
+      "sha256": "dc037d8f4b2d180d3e70b770de8a287568387d1d843e7b89a6299f42af1c0168"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_08.tex",
+      "sha256": "3e387d7f4fd30a62196de7cdea268f79198af484bfecf57c5677995464e5a1bb"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_08_cozumler.tex",
+      "sha256": "df0ba84e557ee42fe6585dc1b8d2b4258be512810edbf697a8c1aebef8db6fe3"
+    },
+    {
+      "path": "labs/bolum_08_afin_kutupsal_parametrik.py",
+      "sha256": "3ebaa4eeaa0eb19702c0d48d4546772bb811128c9dc50ddc1294b9d286eab83a"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_09.tex",
+      "sha256": "38ade038d306cf6554c7ad314506cb53798cd41976d97008caffa68f8b400f5d"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_09_cozumler.tex",
+      "sha256": "cb835b6e734d84665aac46749efb34e126b473d2c5145fb249df5d849b74fe42"
+    },
+    {
+      "path": "labs/bolum_09_konik_geometrik_yer.py",
+      "sha256": "abed860fe2a89758a868410c19d4be26a369f9703d4bb12189459aa56ce981ef"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_10.tex",
+      "sha256": "b0778692a9d75f0110344f41f3f2b4d5f67767f6b9c5b0eee94317f4766c5f44"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_10_cozumler.tex",
+      "sha256": "e703e5082d82283188ae79bbb502656d21fd5286050d27f05e7ae8a88e71ebd3"
+    },
+    {
+      "path": "labs/bolum_10_cember_kiris_teget.py",
+      "sha256": "5cbace3a4b31b416be1f434e177e2f92db33348a999ed2fb8bc507e0d4654d07"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_11.tex",
+      "sha256": "af0e7c9267602b7229d406ec3c978420d82903934d75e1208b9980c4fac0fe8e"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_11_cozumler.tex",
+      "sha256": "f63c558c793776e7803153aa3ac77e3ef240d6137c8b190309a1cee0bd6b2850"
+    },
+    {
+      "path": "labs/bolum_11_kuvvet_radikal_eksen.py",
+      "sha256": "12c687dab3265e770a856398d0955343878ad1d1c770b0c79677ec5cf8e2eb6d"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_12.tex",
+      "sha256": "6e468b23f67715779590d15075929e768458e779a070d7c9ee19a964ddb7a346"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_12_cozumler.tex",
+      "sha256": "44119c7d1cc974e303ca16c1358dd816958eac6b1a1aacd78ab2c00c5081e91e"
+    },
+    {
+      "path": "labs/bolum_12_parabol_yansima.py",
+      "sha256": "c9f8ec08840c88ef58329de1c755e32bd8a51834a7a363cab9ee45d559a18068"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_13.tex",
+      "sha256": "5d204f1581fa1c5f51c980b3177323033823062b7ab559c592c67819dca6fd2b"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_13_cozumler.tex",
+      "sha256": "96f7ad53bc8f674ab8f4097916bfe2a8b69fff4331581bbf0043f1c37c954149"
+    },
+    {
+      "path": "labs/bolum_13_elips_yansima.py",
+      "sha256": "703614137b946a911cb8ff53584e87c325cfe15bcfb04ff7344a2e6067b6ec93"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_14.tex",
+      "sha256": "b53f8163cb4fad2b1b006d2cf14203a368e62e0c453e86907727da4dc2f7303d"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_14_cozumler.tex",
+      "sha256": "9618dc12fd95dfa2a833a984f47292cfbb7ccbc80e7fe4b46fcf35523b59e5eb"
+    },
+    {
+      "path": "labs/bolum_14_hiperbol_tdoa.py",
+      "sha256": "ab23da7ec664171f707142d115e348187a8e3f5ed9305e774bcf1266134325b8"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_15.tex",
+      "sha256": "7bd37b2770ab9649715cedc54c0563338b887484c46e9bc1fc3d1b86ac034f1b"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_15_cozumler.tex",
+      "sha256": "03e58c8b7e9cb79e1c873196364cfb3df52fa1a81fa6631511908f6f03084619"
+    },
+    {
+      "path": "labs/bolum_15_kutupsal_konikler.py",
+      "sha256": "9e35b600201a5869522e44ff852f009b1093a27f86c5dc8fbd8b9c8b49280cca"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_16.tex",
+      "sha256": "470dee5538e011daff6ee96575af884007d7336fca00052ee9c277b82d63160f"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_16_cozumler.tex",
+      "sha256": "602fa7183f360c6fa45f5e7c3d841fa451b3c132d4be082b504d3abf9740d4ae"
+    },
+    {
+      "path": "labs/bolum_16_genel_ikinci_derece.py",
+      "sha256": "583f47be3da9b98dabf98833c9d6e67ed913eafcbcd678ad4306fcc76d719117"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_17.tex",
+      "sha256": "6a88b7054b799e1c1620d5b6306ecfe37f27dbab922f79cc9ed45e5f73bc1a19"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_17_cozumler.tex",
+      "sha256": "f764edb81474d90e3656a15cda3637858a0ca06d978db007f660df1d9e8b4c8b"
+    },
+    {
+      "path": "labs/bolum_17_uzayda_vektorler.py",
+      "sha256": "fe5551173dd7726f58784dae8d1e57e576f9ece57fc9040baa1bbf46061fd252"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_18.tex",
+      "sha256": "2699e966f1ac8487fc692694b3b9c75462ed678da04e4883070b396912f2a294"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_18_cozumler.tex",
+      "sha256": "ed45f635025b92bd53cd1e934a8eed874447d7448f19994f1604e27f4c3a99b6"
+    },
+    {
+      "path": "labs/bolum_18_uzayda_dogrular_duzlemler.py",
+      "sha256": "0d66dcd34b2f67bfba7cd58c112d8e76bdc8d1bd96ffcb18f8750d2ceed32291"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_19.tex",
+      "sha256": "4cb2a941ac5f0d2e12637d47ebbd74827a3ab17c26942a64bbe2c0f18a7103bd"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_19_cozumler.tex",
+      "sha256": "c7b6e56fcfde6ff0e0eb9e1cad2b0878fd3caa5d687ed866ded69ea19b49a67a"
+    },
+    {
+      "path": "labs/bolum_19_uzayda_kesisim_aci_uzaklik.py",
+      "sha256": "d54d471488245eb4c8cd6cc3e855a3cf77771b18dd95d163da6ec3f4b4da7975"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_20.tex",
+      "sha256": "b9fe016004d1585ceec8eea0e3580aef8cae2b441972b0101eed630bf56a1ec0"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_20_cozumler.tex",
+      "sha256": "c88e289e0de90e03f8ac83272c31c69e138e3dc9d71d84f42494ed257a60d9e2"
+    },
+    {
+      "path": "labs/bolum_20_kure_sistemleri.py",
+      "sha256": "a7ccc6886cacf5c4a5d4806474222fc902b213f07272550491baa726ba8fe935"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_21.tex",
+      "sha256": "28fb42ac226ee2a5632a069d36a3e0a0db0f8fb04738ffc4f9c06335d87b1431"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_21_cozumler.tex",
+      "sha256": "e9a2538a8b02edcb0241057ff03b88108c51ecc6fe96ced5832297e1c84485f2"
+    },
+    {
+      "path": "labs/bolum_21_silindir_koni_donel_yuzeyler.py",
+      "sha256": "8bfa7d2daca44fb7109a1482bb0a6db67911149957f0a4b1f9bb4da319ef6f3b"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_22.tex",
+      "sha256": "a6ead8d49f72c198417a8bd740dddaba2205f85ed75e0cfdf2f4d84ee53ac93d"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_22_cozumler.tex",
+      "sha256": "32b481a8cc04cc6e8b365ca679f11562073de0d8ac26b0d479c7c0fd3bde82e9"
+    },
+    {
+      "path": "labs/bolum_22_kuadrik_yuzeyler.py",
+      "sha256": "600d27230bd6a83869a25134d55efc03d9597e31447ffd1c6eb5c19ea564b2eb"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_23.tex",
+      "sha256": "645aa746cb0c7c2ce692175807c26eb95b066e0f2e37e894136717cc566287e9"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_23_cozumler.tex",
+      "sha256": "809eedee8a414c781b89920e03e61edbb8dda98b979f1ebf32aab19546158d36"
+    },
+    {
+      "path": "labs/bolum_23_sayisal_kararlilik_model_uydurma.py",
+      "sha256": "3a8effbc91b0aa49aa427cf656529ae20744ae93af6bf2f0d869f2c22911a0b3"
+    },
+    {
+      "path": "manuscript/v1.0/chapters/bolum_24.tex",
+      "sha256": "8b15aa576950903a5c6b4c311c54194108f07b577e86cc4378b58a1beffdbc56"
+    },
+    {
+      "path": "companions/cozumler/v1.0/bolum_24_cozumler.tex",
+      "sha256": "714c62c6f3c772ca418889809c2ad536321510acf46e5edd1e900b1eb26e4d95"
+    },
+    {
+      "path": "labs/bolum_24_butunlestirici_uygulamalar.py",
+      "sha256": "cdb4178861a3992ddd6d96921519c18fa49541724323d2316214b07c3351190e"
+    }
+  ],
+  "files": [
+    {
+      "path": "bolum-01.html",
+      "bytes": 9210,
+      "sha256": "0d0c186100295bcee30bba5823b56e72fc4a9910cd361531deb3afd0b8a8a58e"
+    },
+    {
+      "path": "bolum-02.html",
+      "bytes": 9509,
+      "sha256": "fc0343dada039841cfda4f25ea8ee1b4e6bd74bf698d6bf197515d016ba37328"
+    },
+    {
+      "path": "bolum-03.html",
+      "bytes": 10772,
+      "sha256": "d0be761f92339753496ee5815f28f9e21473b2e1d7eec4b709d35739b1c2b5f6"
+    },
+    {
+      "path": "bolum-04.html",
+      "bytes": 12676,
+      "sha256": "a471fe9ea543bc17c15f47dbcaab62588a25cdc3a71e2f7412db125d2aedf9ed"
+    },
+    {
+      "path": "bolum-05.html",
+      "bytes": 10077,
+      "sha256": "c4c81afd772384d79007c43074404d4ad65d2c1364a06cd91edf3bba68d64bc9"
+    },
+    {
+      "path": "bolum-06.html",
+      "bytes": 13461,
+      "sha256": "76194772788c07ee7fe4863b309e4a6ae3b7109718ca546ad551e04e4e261516"
+    },
+    {
+      "path": "bolum-07.html",
+      "bytes": 13621,
+      "sha256": "b9a6861ca6880d900089d51556e458588957e70c922a68f351dd29fcb3cc6e86"
+    },
+    {
+      "path": "bolum-08.html",
+      "bytes": 12648,
+      "sha256": "48a894ad8ff89c0b95a7f0a6b475c74e5cba1362384608d64fef243e3aeecddd"
+    },
+    {
+      "path": "bolum-09.html",
+      "bytes": 13118,
+      "sha256": "8f6086720a687e5c2f7dd8835981fb3e66b788553e8fb2bf33f003b8c7d98e5d"
+    },
+    {
+      "path": "bolum-10.html",
+      "bytes": 14266,
+      "sha256": "960d8248881e12830b63e23c88f870daec63bb65a5bd444987a4f3239388e314"
+    },
+    {
+      "path": "bolum-11.html",
+      "bytes": 14615,
+      "sha256": "b36ccf2afe1cb7d08a8bf4b0b9f5ab1694e2d717b4580fdaa54f92c8b1c84582"
+    },
+    {
+      "path": "bolum-12.html",
+      "bytes": 14990,
+      "sha256": "fad5e0966fe2b53b461de33a13ef941f6f70bec8f061dd35afc9a2d7ea413fa3"
+    },
+    {
+      "path": "bolum-13.html",
+      "bytes": 16585,
+      "sha256": "725d3739db6bff0ec1fb14f1fc619a6fc4505b8812fb0540e2805046dc85ecb0"
+    },
+    {
+      "path": "bolum-14.html",
+      "bytes": 17853,
+      "sha256": "b318d7ba2a9bbdc1a36ea03c0c570fa38d215f41a1016f023391915ccbb45d8a"
+    },
+    {
+      "path": "bolum-15.html",
+      "bytes": 17970,
+      "sha256": "437b7c976590f63b834b4faafa61e71b95c0122da516b4efa2adf77e93ee55ad"
+    },
+    {
+      "path": "bolum-16.html",
+      "bytes": 14792,
+      "sha256": "3883378f7b5712951049cdb2e86e7028134f7bea79a299121c4f84ae270f227f"
+    },
+    {
+      "path": "bolum-17.html",
+      "bytes": 15102,
+      "sha256": "fe5d85128de85660c1e51022eaba34a5e5e6d23b3224fc927c38a0aaf69514e1"
+    },
+    {
+      "path": "bolum-18.html",
+      "bytes": 17262,
+      "sha256": "5b9cdec574a406615a40387dc544cd5f2c77e6f7bfc2e08b0fc148557f5526d0"
+    },
+    {
+      "path": "bolum-19.html",
+      "bytes": 15449,
+      "sha256": "3716a7c947570fed90125524a3d9a11baa853dcb7fb386dc4f518d35ee2f84e6"
+    },
+    {
+      "path": "bolum-20.html",
+      "bytes": 18918,
+      "sha256": "11129850c63714e662ca04c0864fe0e970518cf78098bc72501ebef3d9e7ede5"
+    },
+    {
+      "path": "bolum-21.html",
+      "bytes": 17902,
+      "sha256": "bd16ab6e7a6916e4658e9094a8c74b6b91c94a62660cf9e3a47bf446e0531662"
+    },
+    {
+      "path": "bolum-22.html",
+      "bytes": 18077,
+      "sha256": "80e345397fff39520a84dc66fb25a6a699746da12a9807c580d85ab802e8ca75"
+    },
+    {
+      "path": "bolum-23.html",
+      "bytes": 19571,
+      "sha256": "7c27c39fbbb7f6f02a6c6056f1065151786aed2f4bca305c2aee8ef75fc90b4c"
+    },
+    {
+      "path": "bolum-24.html",
+      "bytes": 19248,
+      "sha256": "516d9b42dafc30be0f0042d50ca8c012d0441c8bf894aae17785e1ed1a972ca6"
+    },
+    {
+      "path": "downloads/analitik-geometri-python-v1.0.zip",
+      "bytes": 254687,
+      "sha256": "8ad4ae439ab030c5cc6ac6dd640658dcb09c5ebedc167eeda6be7769e4ba42da"
+    },
+    {
+      "path": "downloads/bolum_01_cozum.py",
+      "bytes": 2102,
+      "sha256": "91435e78ab49a94e230c45ea0256a89cdf5b545eb9328b1f383c0f61386a18d3"
+    },
+    {
+      "path": "downloads/bolum_01_koordinatlarla_geometrik_dusunme.py",
+      "bytes": 1403,
+      "sha256": "be2eef0afa576b9ea8c4d80eb7c3f921065737f25cde7a99d2da0a39a3320fd9"
+    },
+    {
+      "path": "downloads/bolum_01_metin.py",
+      "bytes": 1106,
+      "sha256": "822d9669d8256af0104d39373293ca056a15e05f1b14a5fc5d3aae8b94916e06"
+    },
+    {
+      "path": "downloads/bolum_02_cozum.py",
+      "bytes": 1920,
+      "sha256": "9138336b38a560e91c9a6f852686d164705efd7e76dfbbe23ef93ebdb7796677"
+    },
+    {
+      "path": "downloads/bolum_02_metin.py",
+      "bytes": 1155,
+      "sha256": "8a77f125bf87021a917a4ac166cae3cff6422fe4b479dee12d929c913734b55c"
+    },
+    {
+      "path": "downloads/bolum_02_vektorler_izdusum.py",
+      "bytes": 1423,
+      "sha256": "38ca3d0c7285474ab3308be7d7b78d7a29430ca16156915f80c07f99208ac593"
+    },
+    {
+      "path": "downloads/bolum_03_cozum.py",
+      "bytes": 2007,
+      "sha256": "16cb265f0e6244aed154d4f97a441e3fbab78aa114955cfaabdad8df20e4ccc4"
+    },
+    {
+      "path": "downloads/bolum_03_determinant_alan_yonelim.py",
+      "bytes": 1862,
+      "sha256": "0c2042c3929bea0c4873e2138edf43f1e95cb1bf91d8983d3c2166d78953a405"
+    },
+    {
+      "path": "downloads/bolum_03_metin.py",
+      "bytes": 1800,
+      "sha256": "7ff7e00cef2c89e54149b92afa92bc0f508bd9513975c36379d67be8e2f5f0ba"
+    },
+    {
+      "path": "downloads/bolum_04_cozum.py",
+      "bytes": 2186,
+      "sha256": "a21382ac3f45cd2704703e372cec587940e155dddc2bcdc464d03113716356e1"
+    },
+    {
+      "path": "downloads/bolum_04_hesaplamali_analitik_geometri.py",
+      "bytes": 2759,
+      "sha256": "c94bea2784ce2316d4b28c99a470715671bd7b1b774e31f9f4d395247f89c2a5"
+    },
+    {
+      "path": "downloads/bolum_04_metin.py",
+      "bytes": 1981,
+      "sha256": "1d095a78ad8566796e64a5108921c9a1e8a8742fa529d2810a9086a000a1664f"
+    },
+    {
+      "path": "downloads/bolum_05_cozum.py",
+      "bytes": 1840,
+      "sha256": "9c9b83eb77b01bdb42ff7940b4b4bc03fb131ed9dd6de0fd179b6c2d5a429905"
+    },
+    {
+      "path": "downloads/bolum_05_duzlemde_dogru_denklemleri.py",
+      "bytes": 2242,
+      "sha256": "64ce0c44d12a0b110d577c5a2df30c7035e10ae552c0add4a80cd7a1309819ac"
+    },
+    {
+      "path": "downloads/bolum_05_metin.py",
+      "bytes": 909,
+      "sha256": "e078012d4d9e3eed846d7214a40502aba0c04ac6f443b19478fef792149606dc"
+    },
+    {
+      "path": "downloads/bolum_06_cozum.py",
+      "bytes": 2130,
+      "sha256": "002c20c1874690c8937f08147f44a21e9bb5ca5fb9e7431ad717fe73e531db00"
+    },
+    {
+      "path": "downloads/bolum_06_kesisim_aci_uzaklik.py",
+      "bytes": 3972,
+      "sha256": "2a87eb8cd96f684031fb3bb571fee97eccd66fd85bc6055990fc9b75f4d64a84"
+    },
+    {
+      "path": "downloads/bolum_06_metin.py",
+      "bytes": 1539,
+      "sha256": "ee247087750c9791a1cf6132a8f42a22c0bf9da0b642a6ea55e020d8f10b48d4"
+    },
+    {
+      "path": "downloads/bolum_07_cozum.py",
+      "bytes": 2593,
+      "sha256": "bec08e977ce02d92daf83cea7a556785d8837ac6ac7f4ce8a6771eaa7f499720"
+    },
+    {
+      "path": "downloads/bolum_07_metin.py",
+      "bytes": 1420,
+      "sha256": "250382e0687730a2e91fc5453678f33acca62213eaf727f21536fc19eb6cbafe"
+    },
+    {
+      "path": "downloads/bolum_07_oteleme_donme_yansima.py",
+      "bytes": 4330,
+      "sha256": "dc037d8f4b2d180d3e70b770de8a287568387d1d843e7b89a6299f42af1c0168"
+    },
+    {
+      "path": "downloads/bolum_08_afin_kutupsal_parametrik.py",
+      "bytes": 3548,
+      "sha256": "3ebaa4eeaa0eb19702c0d48d4546772bb811128c9dc50ddc1294b9d286eab83a"
+    },
+    {
+      "path": "downloads/bolum_08_cozum.py",
+      "bytes": 2381,
+      "sha256": "23707c103c2d4d51c8b58ceb769946cdb260c2f42a0e0d46e916b2fc54f632e7"
+    },
+    {
+      "path": "downloads/bolum_08_metin.py",
+      "bytes": 1331,
+      "sha256": "a4a4ae5c6af49fa574f79480d647774d059427c3b2553ed4554feb8d45e00bd4"
+    },
+    {
+      "path": "downloads/bolum_09_cozum.py",
+      "bytes": 2320,
+      "sha256": "41bab2eb5f3722bafc0297626515c36350d4a9b37cfb11f09b299c972464a3e2"
+    },
+    {
+      "path": "downloads/bolum_09_konik_geometrik_yer.py",
+      "bytes": 4101,
+      "sha256": "abed860fe2a89758a868410c19d4be26a369f9703d4bb12189459aa56ce981ef"
+    },
+    {
+      "path": "downloads/bolum_09_metin.py",
+      "bytes": 1128,
+      "sha256": "07b93ca01ca02cc1bd84be39c27fbdcad138d5fab5ecfc918ff62562842399c8"
+    },
+    {
+      "path": "downloads/bolum_10_cember_kiris_teget.py",
+      "bytes": 5104,
+      "sha256": "5cbace3a4b31b416be1f434e177e2f92db33348a999ed2fb8bc507e0d4654d07"
+    },
+    {
+      "path": "downloads/bolum_10_cozum.py",
+      "bytes": 2500,
+      "sha256": "fc0b1dbe147cb2a501806fd9918767ef3283f5d9d0411edf68c9cdafbb6288bd"
+    },
+    {
+      "path": "downloads/bolum_10_metin.py",
+      "bytes": 900,
+      "sha256": "be5a791d9deb11c8418a75289701aba1fee3e82762d12ee0e1880e2e05cd4513"
+    },
+    {
+      "path": "downloads/bolum_11_cozum.py",
+      "bytes": 2926,
+      "sha256": "e0d840511e27da100722db4c07700010e10a19b96ff04d653df981fb43e8806f"
+    },
+    {
+      "path": "downloads/bolum_11_kuvvet_radikal_eksen.py",
+      "bytes": 5342,
+      "sha256": "12c687dab3265e770a856398d0955343878ad1d1c770b0c79677ec5cf8e2eb6d"
+    },
+    {
+      "path": "downloads/bolum_11_metin.py",
+      "bytes": 808,
+      "sha256": "bf111996afc3abcc66cd97d99cc07111031b022ed70b7ffb5f855a7651f807d3"
+    },
+    {
+      "path": "downloads/bolum_12_cozum.py",
+      "bytes": 2522,
+      "sha256": "77e1e3797e8380449bf3f0e3065955607e27d830d87ff37f246e0d2ab939880a"
+    },
+    {
+      "path": "downloads/bolum_12_metin.py",
+      "bytes": 1641,
+      "sha256": "e581b6955a15434d85312c1348a738db5b636e6819db88733f9109e2a10220b6"
+    },
+    {
+      "path": "downloads/bolum_12_parabol_yansima.py",
+      "bytes": 5661,
+      "sha256": "c9f8ec08840c88ef58329de1c755e32bd8a51834a7a363cab9ee45d559a18068"
+    },
+    {
+      "path": "downloads/bolum_13_cozum.py",
+      "bytes": 3320,
+      "sha256": "f3a5d67ad993f542585b0f1b9b251c243d2988f177fc54476bce86fa770a4b67"
+    },
+    {
+      "path": "downloads/bolum_13_elips_yansima.py",
+      "bytes": 6205,
+      "sha256": "703614137b946a911cb8ff53584e87c325cfe15bcfb04ff7344a2e6067b6ec93"
+    },
+    {
+      "path": "downloads/bolum_13_metin.py",
+      "bytes": 1725,
+      "sha256": "571328c3289051cab7daa82ad60fcb9ec8c43abfe2241e0ac563fd2db9467ff9"
+    },
+    {
+      "path": "downloads/bolum_14_cozum.py",
+      "bytes": 3982,
+      "sha256": "ff1826f49d691b50975d37e995aa5387ccc106ce1b5208f24f4f2dc2648d0114"
+    },
+    {
+      "path": "downloads/bolum_14_hiperbol_tdoa.py",
+      "bytes": 7626,
+      "sha256": "ab23da7ec664171f707142d115e348187a8e3f5ed9305e774bcf1266134325b8"
+    },
+    {
+      "path": "downloads/bolum_14_metin.py",
+      "bytes": 877,
+      "sha256": "434493e2dd4944beb71b8365899d2d49088b4cbc5607346050b02f65d181625a"
+    },
+    {
+      "path": "downloads/bolum_15_cozum.py",
+      "bytes": 4092,
+      "sha256": "691a2deb41e306497d22bdb022e90ce2f7c22f3ae3d4b6bcaba6fad30b95f112"
+    },
+    {
+      "path": "downloads/bolum_15_kutupsal_konikler.py",
+      "bytes": 7098,
+      "sha256": "9e35b600201a5869522e44ff852f009b1093a27f86c5dc8fbd8b9c8b49280cca"
+    },
+    {
+      "path": "downloads/bolum_15_metin.py",
+      "bytes": 773,
+      "sha256": "a993b94373f5c2e3be6141258725a2a2a292a8feb11c073a8a8281c8b6d6b7e4"
+    },
+    {
+      "path": "downloads/bolum_16_cozum.py",
+      "bytes": 2937,
+      "sha256": "cf8d23476af4c0779f4e2d67ea7a29c971f1e764f82147a3d8e104bc03f4280d"
+    },
+    {
+      "path": "downloads/bolum_16_genel_ikinci_derece.py",
+      "bytes": 5507,
+      "sha256": "583f47be3da9b98dabf98833c9d6e67ed913eafcbcd678ad4306fcc76d719117"
+    },
+    {
+      "path": "downloads/bolum_16_metin.py",
+      "bytes": 1122,
+      "sha256": "8c6931a6f4a834b52fd0059fd744c0ffab71fa43aeb618cdf719cb62af550716"
+    },
+    {
+      "path": "downloads/bolum_17_cozum.py",
+      "bytes": 2527,
+      "sha256": "6aadd0f3ad403497e050cebdeead8ba39c715cc84167d1286534e33a498513ab"
+    },
+    {
+      "path": "downloads/bolum_17_metin.py",
+      "bytes": 774,
+      "sha256": "86ee9da05735bc1e1ca34a5d36a9005281eb38063236a036120d1a4fcb5c282a"
+    },
+    {
+      "path": "downloads/bolum_17_uzayda_vektorler.py",
+      "bytes": 6197,
+      "sha256": "fe5551173dd7726f58784dae8d1e57e576f9ece57fc9040baa1bbf46061fd252"
+    },
+    {
+      "path": "downloads/bolum_18_cozum.py",
+      "bytes": 2620,
+      "sha256": "1d7697998146e3d0c5621abfa77d73ecc12969a2800156a91fe44fbb37c255e5"
+    },
+    {
+      "path": "downloads/bolum_18_metin.py",
+      "bytes": 873,
+      "sha256": "1bc34de22cdcc43459f98300182e6a6416ba207c1d9405aaf72e9499fc8e5fab"
+    },
+    {
+      "path": "downloads/bolum_18_uzayda_dogrular_duzlemler.py",
+      "bytes": 8008,
+      "sha256": "0d66dcd34b2f67bfba7cd58c112d8e76bdc8d1bd96ffcb18f8750d2ceed32291"
+    },
+    {
+      "path": "downloads/bolum_19_cozum.py",
+      "bytes": 1006,
+      "sha256": "773f46f705bb0dc7c9e0349246472f320b925493097a332101064986d6abc69b"
+    },
+    {
+      "path": "downloads/bolum_19_metin.py",
+      "bytes": 881,
+      "sha256": "dc6e16bb055a22d9b85340fe44f5d3bca7adf44fdec999e8806d5850bf297242"
+    },
+    {
+      "path": "downloads/bolum_19_uzayda_kesisim_aci_uzaklik.py",
+      "bytes": 8098,
+      "sha256": "d54d471488245eb4c8cd6cc3e855a3cf77771b18dd95d163da6ec3f4b4da7975"
+    },
+    {
+      "path": "downloads/bolum_20_cozum.py",
+      "bytes": 4022,
+      "sha256": "ce8dc5a1447de61740f43ec21141533cd3b9e82ca6b1a18b93d12e1848dfcf2b"
+    },
+    {
+      "path": "downloads/bolum_20_kure_sistemleri.py",
+      "bytes": 8212,
+      "sha256": "a7ccc6886cacf5c4a5d4806474222fc902b213f07272550491baa726ba8fe935"
+    },
+    {
+      "path": "downloads/bolum_20_metin.py",
+      "bytes": 941,
+      "sha256": "de1dd49d9c69915cc3849ecb5f6db90288aa41b1b82098cf8e996753769b75ce"
+    },
+    {
+      "path": "downloads/bolum_21_cozum.py",
+      "bytes": 3229,
+      "sha256": "1ab3aed6a7010fb8a7d05fa7336a2ced9b80dedf86903de434663522fcc43c9e"
+    },
+    {
+      "path": "downloads/bolum_21_metin.py",
+      "bytes": 834,
+      "sha256": "81a30932de51c06da151a3e062d191662a1a17a555101ba77a52e464de8af70c"
+    },
+    {
+      "path": "downloads/bolum_21_silindir_koni_donel_yuzeyler.py",
+      "bytes": 7977,
+      "sha256": "8bfa7d2daca44fb7109a1482bb0a6db67911149957f0a4b1f9bb4da319ef6f3b"
+    },
+    {
+      "path": "downloads/bolum_22_cozum.py",
+      "bytes": 3182,
+      "sha256": "f3f93cd28520b15492d03fb47aa362faf6874e2a95770f040c6385f1cafd4ec1"
+    },
+    {
+      "path": "downloads/bolum_22_kuadrik_yuzeyler.py",
+      "bytes": 7491,
+      "sha256": "600d27230bd6a83869a25134d55efc03d9597e31447ffd1c6eb5c19ea564b2eb"
+    },
+    {
+      "path": "downloads/bolum_22_metin.py",
+      "bytes": 786,
+      "sha256": "208805ad124d85d5618f352977c66075455eb704ab4aba6cae164120691a8ef1"
+    },
+    {
+      "path": "downloads/bolum_23_cozum.py",
+      "bytes": 3947,
+      "sha256": "5ebb9629a452f5c4ff9aacb1328a49c3d0391476308a4f9142339e6207b82d1e"
+    },
+    {
+      "path": "downloads/bolum_23_metin.py",
+      "bytes": 243,
+      "sha256": "300f6489415b2c247604299b3870f5c95742623041b5fe55ec7d895f8326b0d4"
+    },
+    {
+      "path": "downloads/bolum_23_sayisal_kararlilik_model_uydurma.py",
+      "bytes": 7545,
+      "sha256": "3a8effbc91b0aa49aa427cf656529ae20744ae93af6bf2f0d869f2c22911a0b3"
+    },
+    {
+      "path": "downloads/bolum_24_butunlestirici_uygulamalar.py",
+      "bytes": 9561,
+      "sha256": "cdb4178861a3992ddd6d96921519c18fa49541724323d2316214b07c3351190e"
+    },
+    {
+      "path": "downloads/bolum_24_cozum.py",
+      "bytes": 3156,
+      "sha256": "58a63aeec67c7dbf337a6efa48bd7b7209ca832c103b9edc9723ed5286a47b3d"
+    },
+    {
+      "path": "downloads/bolum_24_metin.py",
+      "bytes": 239,
+      "sha256": "c095dc0dd1eba56e4d605d9f260f596ed9cf90c2c296ef82a64d9ffac2ca537c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 7160,
+      "sha256": "fdd0a8118ea9c3beb1d621bb662e4ea6ab72263d3d594a6b5235027613ad32ea"
+    },
+    {
+      "path": "style.css",
+      "bytes": 1990,
+      "sha256": "ac5b6c12aae57eeade63ae12c80f8d92bf7617b93a6bd09bb01fcb824641b71a"
+    }
+  ]
+}

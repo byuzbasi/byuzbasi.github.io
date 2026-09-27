@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Düzlemde Vektörler, İç Çarpım ve İzdüşüm · Analitik Geometri</title>
+<meta name="description" content="Analitik Geometri kitabının bölüm bazlı Python uygulamaları, kodları ve doğrulama çıktıları.">
+<link rel="stylesheet" href="style.css"></head><body>
+<a class="skip" href="#content">İçeriğe geç</a>
+<header><nav aria-label="Ana gezinme"><a href="index.html">Analitik Geometri</a><a href="/books/">Kitaplar</a><a href="#kurulum">Çalıştırma rehberi</a></nav>
+<p class="eyebrow">TEORİDEN UYGULAMAYA · PYTHON EŞLİKÇİSİ</p><h1>Düzlemde Vektörler, İç Çarpım ve İzdüşüm</h1>
+<p class="authors">Prof. Dr. Zühal Küçükarslan Yüzbaşı · Prof. Dr. Bahadır Yüzbaşı</p><p class="meta">Bölüm 02 · v1.0 · Türkçe</p></header>
+<main id="content"><p>Bu bölümün laboratuvarı, kitaptaki örnekleri yeniden üretmek ve sayısal sonuçları
+incelemek için hazırlanmıştır. Matematiksel tanımlar, ispatlar ve sorular kitapta yer alır.</p>
+<div class="actions"><a class="button" download href="downloads/bolum_02_vektorler_izdusum.py">Laboratuvarı indir (.py)</a>
+<a class="button" href="downloads/analitik-geometri-python-v1.0.zip">Tam Python paketi (.zip)</a></div>
+<h2>Laboratuvar kodu</h2><pre><code>&quot;&quot;&quot;Bölüm 2 laboratuvarı: rüzgâr altında rota bileşenleri.&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import numpy as np
+
+from agbook import angle_between, orthogonal_decomposition, vector_norm
+
+
+def main() -&gt; None:
+    air_velocity = np.array([15.0, 2.0])
+    wind_velocity = np.array([-3.0, 4.0])
+    route_direction = np.array([4.0, 3.0])
+    ground_velocity = air_velocity + wind_velocity
+
+    decomposition = orthogonal_decomposition(ground_velocity, route_direction)
+    scaled = orthogonal_decomposition(ground_velocity, 1.0e8 * route_direction)
+
+    np.set_printoptions(precision=6, suppress=True)
+    print(f&quot;hava_hizi: {air_velocity}&quot;)
+    print(f&quot;ruzgar_hizi: {wind_velocity}&quot;)
+    print(f&quot;yer_hizi: {ground_velocity}&quot;)
+    print(f&quot;yer_surati: {vector_norm(ground_velocity):.6f}&quot;)
+    print(f&quot;rota_bileseni: {decomposition.scalar_component:.6f}&quot;)
+    print(f&quot;paralel: {decomposition.parallel}&quot;)
+    print(f&quot;capraz: {decomposition.perpendicular}&quot;)
+    print(f&quot;capraz_surat: {vector_norm(decomposition.perpendicular):.6f}&quot;)
+    print(f&quot;rota_acisi_derece: {angle_between(ground_velocity, route_direction, degrees=True):.6f}&quot;)
+    print(f&quot;yeniden_kurma_artigi: {decomposition.reconstruction_residual:.3e}&quot;)
+    print(f&quot;diklik_artigi: {decomposition.orthogonality_residual:.3e}&quot;)
+    print(f&quot;olcek_degismezligi: {vector_norm(decomposition.parallel - scaled.parallel):.3e}&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<details><summary>Doğrulama çalıştırmasının çıktısı</summary><pre><code>hava_hizi: [15.  2.]
+ruzgar_hizi: [-3.  4.]
+yer_hizi: [12.  6.]
+yer_surati: 13.416408
+rota_bileseni: 13.200000
+paralel: [10.56  7.92]
+capraz: [ 1.44 -1.92]
+capraz_surat: 2.400000
+rota_acisi_derece: 10.304846
+yeniden_kurma_artigi: 0.000e+00
+diklik_artigi: 7.401e-16
+olcek_degismezligi: 0.000e+00
+</code></pre></details><details><summary>Metindeki Python kodları</summary><p><a download href="downloads/bolum_02_metin.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Bölüm 2&#x27;nin yeniden üretilebilir deneyi ---
+import numpy as np
+
+from agbook import angle_between, orthogonal_decomposition, vector_norm
+
+air_velocity = np.array([15.0, 2.0])
+wind_velocity = np.array([-3.0, 4.0])
+route_direction = np.array([4.0, 3.0])
+ground_velocity = air_velocity + wind_velocity
+
+decomp = orthogonal_decomposition(ground_velocity, route_direction)
+scaled = orthogonal_decomposition(
+    ground_velocity, 1.0e8 * route_direction
+)
+
+print(f&quot;yer_hizi: {ground_velocity}&quot;)
+print(f&quot;yer_surati: {vector_norm(ground_velocity):.6f}&quot;)
+print(f&quot;rota_bileseni: {decomp.scalar_component:.6f}&quot;)
+print(f&quot;paralel: {decomp.parallel}&quot;)
+print(f&quot;capraz: {decomp.perpendicular}&quot;)
+print(f&quot;capraz_surat: {vector_norm(decomp.perpendicular):.6f}&quot;)
+print(f&quot;rota_acisi_derece: &quot;
+      f&quot;{angle_between(ground_velocity, route_direction, degrees=True):.6f}&quot;)
+print(f&quot;yeniden_kurma_artigi: {decomp.reconstruction_residual:.3e}&quot;)
+print(f&quot;diklik_artigi: {decomp.orthogonality_residual:.3e}&quot;)
+print(f&quot;olcek_degismezligi: &quot;
+      f&quot;{vector_norm(decomp.parallel-scaled.parallel):.3e}&quot;)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Bölüm 2&#x27;nin yeniden üretilebilir deneyi
+yer_hizi: [12.  6.]
+yer_surati: 13.416408
+rota_bileseni: 13.200000
+paralel: [10.56  7.92]
+capraz: [ 1.44 -1.92]
+capraz_surat: 2.400000
+rota_acisi_derece: 10.304846
+yeniden_kurma_artigi: 0.000e+00
+diklik_artigi: 7.401e-16
+olcek_degismezligi: 0.000e+00
+</code></pre></details><details><summary>Çözümlerdeki Python kodları</summary><p><a download href="downloads/bolum_02_cozum.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Cauchy--Schwarz ve üçgen eşitsizliği taraması ---
+import numpy as np
+from agbook import inner_product, vector_norm
+
+pairs = [
+    (np.array([1., 2.]), np.array([-3., 4.])),
+    (np.array([1., 2.]), np.array([0.5, -2.])),
+    (np.array([-3., 4.]), np.array([5., 0.])),
+]
+tolerance = 1e-12
+cs = [vector_norm(u)*vector_norm(v) - abs(inner_product(u, v))
+      for u, v in pairs]
+triangle = [vector_norm(u)+vector_norm(v)-vector_norm(u+v)
+            for u, v in pairs]
+print(f&quot;min_cs_margin: {min(cs):.6e}&quot;)
+print(f&quot;min_triangle_margin: {min(triangle):.6e}&quot;)
+print(min(cs) &gt;= -tolerance and min(triangle) &gt;= -tolerance)
+
+# --- 2. Büyük bileşenlerde norm ve açı ---
+import numpy as np
+from agbook import angle_between, vector_norm
+
+u = np.array([1e307, 1e307])
+v = np.array([1e307, 9.99e306])
+with np.errstate(over=&quot;ignore&quot;):
+    direct = np.sqrt(np.sum(u*u))
+safe = vector_norm(u)
+theta = angle_between(u, v)
+print(direct)
+print(f&quot;{safe:.6e}&quot;)
+print(f&quot;{theta:.9e}&quot;)
+print(np.isfinite(theta) and 0.0 &lt;= theta &lt;= np.pi)
+
+# --- 3. Hedef ölçeği ve yönü ---
+import numpy as np
+from agbook import scalar_projection, vector_norm, vector_projection
+
+v = np.array([5., 1.])
+u = np.array([2., 1.])
+reference = vector_projection(v, u)
+for c in (1e8, -3., 1e-8):
+    projected = vector_projection(v, c*u)
+    difference = vector_norm(projected-reference)
+    component = scalar_projection(v, c*u)
+    print(f&quot;{c: .1e} {difference:.3e} {component:.6f}&quot;)
+
+# --- 4. Sıfır ve uygulama eşiği ---
+from agbook import unit_vector
+
+for label, vector, tolerance in (
+    (&quot;zero_default&quot;, [0., 0.], 0.0),
+    (&quot;small_default&quot;, [1e-10, 0.], 0.0),
+    (&quot;small_threshold&quot;, [1e-10, 0.], 1e-9),
+):
+    try:
+        print(label, unit_vector(vector, zero_tolerance=tolerance))
+    except ValueError as error:
+        print(label, type(error).__name__)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Cauchy--Schwarz ve üçgen eşitsizliği taraması
+min_cs_margin: 1.109772e+00
+min_triangle_margin: 9.115127e-01
+True
+
+2. Büyük bileşenlerde norm ve açı
+inf
+1.414214e+307
+5.002500833e-04
+True
+
+3. Hedef ölçeği ve yönü
+ 1.0e+08 1.986e-15 4.919350
+-3.0e+00 0.000e+00 -4.919350
+ 1.0e-08 0.000e+00 4.919350
+
+4. Sıfır ve uygulama eşiği
+zero_default ValueError
+small_default [1. 0.]
+small_threshold ValueError
+</code></pre></details><section id="kurulum"><h2>Çalıştırma rehberi</h2>
+<p>Önce <a href="downloads/analitik-geometri-python-v1.0.zip">tam Python paketini indirin</a> ve arşivi açın.
+Aşağıdaki komutları arşivin üst klasöründen başlatın. İlk kurulum internet bağlantısı ve Python 3.12 veya 3.13 gerektirir.
+Bağımlılıklar sabittir; sistem Python'unu değiştirmemek için ayrı sanal ortam kullanılır.</p>
+<details><summary>macOS / Linux</summary><pre><code>cd analitik-geometri-python-v1.0
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+python labs/bolum_02_vektorler_izdusum.py
+python -m pytest</code></pre></details>
+<details><summary>Windows PowerShell</summary><pre><code>cd analitik-geometri-python-v1.0
+py -3.13 -m venv .venv
+.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.venv\Scripts\python.exe labs/bolum_02_vektorler_izdusum.py
+.venv\Scripts\python.exe -m pytest</code></pre></details>
+<p class="meta">Laboratuvar dosyaları <code>agbook</code> yardımcı paketini kullanır; tek bir dosyayı indirmek
+paketi kurmanın yerini tutmaz. Metin/çözüm kodları kendi dosyaları içinde sırayla çalıştırılır;
+gizli bir notebook oturumu gerekmez. Son ondalık basamaklar platforma göre değişebilir.</p></section><nav aria-label="Bölümler"><a href="bolum-01.html">← Önceki bölüm</a><a href="index.html">Tüm bölümler</a><a href="bolum-03.html">Sonraki bölüm →</a></nav></main>
+<footer>Bu sayfalar kitabın tam metni veya PDF sürümü değildir. Kodlar eğitim amaçlıdır;
+sentetik örnekler gerçek cihaz, üretim veya güvenlik doğrulaması sayılmaz.</footer></body></html>

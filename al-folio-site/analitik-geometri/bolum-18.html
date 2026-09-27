@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uzayda Doğrular ve Düzlemler · Analitik Geometri</title>
+<meta name="description" content="Analitik Geometri kitabının bölüm bazlı Python uygulamaları, kodları ve doğrulama çıktıları.">
+<link rel="stylesheet" href="style.css"></head><body>
+<a class="skip" href="#content">İçeriğe geç</a>
+<header><nav aria-label="Ana gezinme"><a href="index.html">Analitik Geometri</a><a href="/books/">Kitaplar</a><a href="#kurulum">Çalıştırma rehberi</a></nav>
+<p class="eyebrow">TEORİDEN UYGULAMAYA · PYTHON EŞLİKÇİSİ</p><h1>Uzayda Doğrular ve Düzlemler</h1>
+<p class="authors">Prof. Dr. Zühal Küçükarslan Yüzbaşı · Prof. Dr. Bahadır Yüzbaşı</p><p class="meta">Bölüm 18 · v1.0 · Türkçe</p></header>
+<main id="content"><p>Bu bölümün laboratuvarı, kitaptaki örnekleri yeniden üretmek ve sayısal sonuçları
+incelemek için hazırlanmıştır. Matematiksel tanımlar, ispatlar ve sorular kitapta yer alır.</p>
+<div class="actions"><a class="button" download href="downloads/bolum_18_uzayda_dogrular_duzlemler.py">Laboratuvarı indir (.py)</a>
+<a class="button" href="downloads/analitik-geometri-python-v1.0.zip">Tam Python paketi (.zip)</a></div>
+<h2>Laboratuvar kodu</h2><pre><code>&quot;&quot;&quot;Bölüm 18: uzayda doğru, düzlem ve rank tanısı laboratuvarı.
+
+Uygulama, sentetik bir CAD datum düzlemi ile delik ekseninin eşdeğer
+gösterimlerini sınar. Ölçülmüş veri, üretim toleransı, delik kalitesi veya
+kabul kararı içermez.
+&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import numpy as np
+
+from agbook import (
+    affine_system_diagnostics_3d,
+    canonical_array_sha256,
+    canonical_plane_coefficients,
+    parametric_line_points_3d,
+    plane_from_points_3d,
+    plane_membership_diagnostics_3d,
+    plane_residuals_3d,
+)
+
+
+def main() -&gt; None:
+    length_unit = &quot;mm&quot;
+    rank_relative_tolerance = 1.0e-12
+    reference_scale_mm = 200.0
+
+    point_a = np.array([120.0, 80.0, 35.0])
+    point_b = np.array([156.0, 128.0, 35.0])
+    point_c = np.array([96.0, 98.0, 75.0])
+    datum_points_mm = np.vstack([point_a, point_b, point_c])
+
+    datum_plane_mm = plane_from_points_3d(point_a, point_b, point_c)
+    expected_normal = np.array([0.64, -0.48, 0.60])
+    scaled_plane = canonical_plane_coefficients(-25.0 * datum_plane_mm)
+
+    # Yön uzunluk birimindedir; t boyutsuzdur ve ||direction|| = 25 mm&#x27;dir.
+    axis_direction_mm = np.array([16.0, -12.0, 15.0])
+    axis_parameters = np.array([-2.0, -1.0, 0.0, 1.0, 2.0])
+    axis_points_mm = parametric_line_points_3d(
+        point_a,
+        axis_direction_mm,
+        axis_parameters,
+    )
+
+    # İki birim normalin düzlemleri delik eksenini ortak çözüm olarak verir.
+    tangent_1 = np.array([0.60, 0.80, 0.0])
+    tangent_2 = np.array([-0.48, 0.36, 0.80])
+    axis_matrix = np.vstack([tangent_1, tangent_2])
+    axis_rhs_mm = axis_matrix @ point_a
+    axis_diagnosis_mm = affine_system_diagnostics_3d(
+        axis_matrix,
+        axis_rhs_mm,
+        rank_relative_tolerance=rank_relative_tolerance,
+        reference_scale=reference_scale_mm,
+    )
+    axis_plane_residuals = np.column_stack(
+        [
+            plane_residuals_3d(
+                np.concatenate([axis_matrix[index], [-axis_rhs_mm[index]]]),
+                axis_points_mm,
+            )
+            for index in range(2)
+        ]
+    )
+
+    full_matrix = np.vstack([axis_matrix, expected_normal])
+    full_rhs_mm = full_matrix @ point_a
+    anchor_diagnosis_mm = affine_system_diagnostics_3d(
+        full_matrix,
+        full_rhs_mm,
+        rank_relative_tolerance=rank_relative_tolerance,
+        reference_scale=reference_scale_mm,
+    )
+
+    membership_b = plane_membership_diagnostics_3d(
+        datum_plane_mm,
+        point_b,
+        absolute_tolerance=1.0e-12,
+        relative_tolerance=0.0,
+        reference_scale=reference_scale_mm,
+    )
+    membership_c = plane_membership_diagnostics_3d(
+        datum_plane_mm,
+        point_c,
+        absolute_tolerance=1.0e-12,
+        relative_tolerance=0.0,
+        reference_scale=reference_scale_mm,
+    )
+
+    datum_points_m = datum_points_mm * 1.0e-3
+    datum_plane_m = plane_from_points_3d(*datum_points_m)
+    axis_rhs_m = axis_matrix @ (point_a * 1.0e-3)
+    axis_diagnosis_m = affine_system_diagnostics_3d(
+        axis_matrix,
+        axis_rhs_m,
+        rank_relative_tolerance=rank_relative_tolerance,
+        reference_scale=reference_scale_mm * 1.0e-3,
+    )
+
+    # Aynı tam verinin iki açık rank eşiğinde farklı sayısal çözünürlüğü.
+    perturbation = 1.0e-10
+    near_matrix = np.vstack([tangent_1, tangent_1 + perturbation * tangent_2])
+    near_rhs_mm = near_matrix @ point_a
+    coarse_rank = affine_system_diagnostics_3d(
+        near_matrix,
+        near_rhs_mm,
+        rank_relative_tolerance=1.0e-8,
+        reference_scale=reference_scale_mm,
+    )
+    fine_rank = affine_system_diagnostics_3d(
+        near_matrix,
+        near_rhs_mm,
+        rank_relative_tolerance=1.0e-12,
+        reference_scale=reference_scale_mm,
+    )
+
+    np.testing.assert_allclose(
+        datum_plane_mm,
+        [0.64, -0.48, 0.60, -59.4],
+        atol=2.0e-14,
+    )
+    np.testing.assert_allclose(scaled_plane, datum_plane_mm, atol=2.0e-14)
+    np.testing.assert_allclose(axis_direction_mm / 25.0, expected_normal)
+    np.testing.assert_allclose(axis_points_mm[2], point_a)
+    np.testing.assert_allclose(axis_plane_residuals, 0.0, atol=3.0e-14)
+    assert axis_diagnosis_mm.classification == &quot;line&quot;
+    assert axis_diagnosis_mm.coefficient_rank == 2
+    assert axis_diagnosis_mm.solution_dimension == 1
+    assert anchor_diagnosis_mm.classification == &quot;point&quot;
+    assert anchor_diagnosis_mm.coefficient_rank == 3
+    np.testing.assert_allclose(
+        anchor_diagnosis_mm.least_squares_point,
+        point_a,
+        atol=4.0e-14,
+    )
+    assert membership_b.on_plane and membership_c.on_plane
+    np.testing.assert_allclose(datum_plane_m[:3], datum_plane_mm[:3], atol=2.0e-15)
+    np.testing.assert_allclose(datum_plane_m[3], 1.0e-3 * datum_plane_mm[3], atol=2.0e-16)
+    assert axis_diagnosis_m.classification == axis_diagnosis_mm.classification
+    np.testing.assert_allclose(
+        axis_diagnosis_m.least_squares_point,
+        1.0e-3 * axis_diagnosis_mm.least_squares_point,
+        atol=3.0e-16,
+    )
+    assert coarse_rank.classification == &quot;plane&quot;
+    assert fine_rank.classification == &quot;line&quot;
+
+    signature_values = np.concatenate(
+        [
+            datum_points_mm.ravel(),
+            datum_plane_mm,
+            axis_direction_mm,
+            axis_parameters,
+            axis_points_mm.ravel(),
+            axis_matrix.ravel(),
+            axis_rhs_mm,
+            axis_diagnosis_mm.coefficient_singular_values,
+            axis_diagnosis_mm.augmented_singular_values,
+            full_matrix.ravel(),
+            full_rhs_mm,
+            anchor_diagnosis_mm.least_squares_point,
+            datum_points_m.ravel(),
+            datum_plane_m,
+            axis_rhs_m,
+            near_matrix.ravel(),
+            near_rhs_mm,
+            coarse_rank.coefficient_singular_values,
+            fine_rank.coefficient_singular_values,
+            np.array(
+                [
+                    rank_relative_tolerance,
+                    reference_scale_mm,
+                    perturbation,
+                    membership_b.normalized_residual,
+                    membership_c.normalized_residual,
+                ]
+            ),
+        ]
+    )
+
+    print(&quot;uzunluk_birimi:&quot;, length_unit)
+    print(&quot;model: sentetik_cad_datum_duzlemi_ve_delik_ekseni&quot;)
+    print(&quot;olculmus_veri_mi: False&quot;)
+    print(&quot;uretim_toleransi_hesabi_mi: False&quot;)
+    print(&quot;uretim_kabul_hesabi_mi: False&quot;)
+    print(&quot;datum_noktalari_mm:&quot;)
+    print(datum_points_mm)
+    print(&quot;datum_duzlemi_kanonik:&quot;, datum_plane_mm)
+    print(&quot;olceklenmis_denklem_ayni_duzlem_mi:&quot;, bool(np.allclose(scaled_plane, datum_plane_mm)))
+    print(&quot;delik_ekseni_baslangici_mm:&quot;, point_a)
+    print(&quot;delik_ekseni_yonu_mm:&quot;, axis_direction_mm)
+    print(&quot;delik_ekseni_iki_duzlem_ranki:&quot;, axis_diagnosis_mm.coefficient_rank)
+    print(&quot;delik_ekseni_cozum_boyutu:&quot;, axis_diagnosis_mm.solution_dimension)
+    print(&quot;delik_ekseni_sinifi:&quot;, axis_diagnosis_mm.classification)
+    print(&quot;uc_bagimsiz_duzlem_ranki:&quot;, anchor_diagnosis_mm.coefficient_rank)
+    print(&quot;uc_bagimsiz_duzlem_sinifi:&quot;, anchor_diagnosis_mm.classification)
+    print(&quot;tek_nokta_cozumu_mm:&quot;, anchor_diagnosis_mm.least_squares_point)
+    print(&quot;B_ve_C_datum_duzleminde_mi:&quot;, membership_b.on_plane and membership_c.on_plane)
+    print(&quot;metreye_geciste_normal_korundu_mu:&quot;, bool(np.allclose(datum_plane_m[:3], datum_plane_mm[:3])))
+    print(&quot;metreye_geciste_sabit_terim_olcegi:&quot;, f&quot;{datum_plane_m[3] / datum_plane_mm[3]:.12f}&quot;)
+    print(&quot;metreye_geciste_rank_sinifi_korundu_mu:&quot;, axis_diagnosis_m.classification == axis_diagnosis_mm.classification)
+    print(&quot;yakin_bagimli_sistem_kaba_esik:&quot;, coarse_rank.classification)
+    print(&quot;yakin_bagimli_sistem_ince_esik:&quot;, fine_rank.classification)
+    print(&quot;rank_bagil_esigi:&quot;, f&quot;{rank_relative_tolerance:.12e}&quot;)
+    print(&quot;referans_uzunlugu_mm:&quot;, f&quot;{reference_scale_mm:.12f}&quot;)
+    print(&quot;bilimsel_imza:&quot;, canonical_array_sha256(signature_values))
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<details><summary>Doğrulama çalıştırmasının çıktısı</summary><pre><code>uzunluk_birimi: mm
+model: sentetik_cad_datum_duzlemi_ve_delik_ekseni
+olculmus_veri_mi: False
+uretim_toleransi_hesabi_mi: False
+uretim_kabul_hesabi_mi: False
+datum_noktalari_mm:
+[[120.  80.  35.]
+ [156. 128.  35.]
+ [ 96.  98.  75.]]
+datum_duzlemi_kanonik: [  0.64  -0.48   0.6  -59.4 ]
+olceklenmis_denklem_ayni_duzlem_mi: True
+delik_ekseni_baslangici_mm: [120.  80.  35.]
+delik_ekseni_yonu_mm: [ 16. -12.  15.]
+delik_ekseni_iki_duzlem_ranki: 2
+delik_ekseni_cozum_boyutu: 1
+delik_ekseni_sinifi: line
+uc_bagimsiz_duzlem_ranki: 3
+uc_bagimsiz_duzlem_sinifi: point
+tek_nokta_cozumu_mm: [120.  80.  35.]
+B_ve_C_datum_duzleminde_mi: True
+metreye_geciste_normal_korundu_mu: True
+metreye_geciste_sabit_terim_olcegi: 0.001000000000
+metreye_geciste_rank_sinifi_korundu_mu: True
+yakin_bagimli_sistem_kaba_esik: plane
+yakin_bagimli_sistem_ince_esik: line
+rank_bagil_esigi: 1.000000000000e-12
+referans_uzunlugu_mm: 200.000000000000
+bilimsel_imza: fd88271e849c8c7abfcd0d8f05ad93b4216d1330321da8a8ccc9982c58db876e
+</code></pre></details><details><summary>Metindeki Python kodları</summary><p><a download href="downloads/bolum_18_metin.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Üç noktadan datum ve iki düzlemden eksen ---
+import numpy as np
+from agbook import (
+    affine_system_diagnostics_3d,
+    canonical_plane_coefficients,
+    plane_from_points_3d,
+)
+
+A = np.array([120.0, 80.0, 35.0])
+B = np.array([156.0, 128.0, 35.0])
+C = np.array([96.0, 98.0, 75.0])
+
+datum = plane_from_points_3d(A, B, C)
+same = canonical_plane_coefficients(-25.0 * datum)
+
+r1 = np.array([0.60, 0.80, 0.0])
+r2 = np.array([-0.48, 0.36, 0.80])
+M = np.vstack([r1, r2])
+b = M @ A
+diagnosis = affine_system_diagnostics_3d(
+    M,
+    b,
+    rank_relative_tolerance=1e-12,
+    reference_scale=200.0,
+)
+
+print(datum)
+print(np.allclose(datum, same))
+print(diagnosis.coefficient_rank)
+print(diagnosis.solution_dimension)
+print(diagnosis.classification)
+print(diagnosis.maximum_equation_residual)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Üç noktadan datum ve iki düzlemden eksen
+[  0.64  -0.48   0.6  -59.4 ]
+True
+2
+1
+line
+2.842170943040401e-14
+</code></pre></details><details><summary>Çözümlerdeki Python kodları</summary><p><a download href="downloads/bolum_18_cozum.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Parametrik doğru değişmezleri ---
+import numpy as np
+import pytest
+from agbook import parametric_line_points_3d
+
+P = np.array([2.0, -1.0, 3.0])
+v = np.array([4.0, 2.0, -2.0])
+t = np.array([-2.0, -0.5, 0.0, 1.0, 3.0])
+points = parametric_line_points_3d(P, v, t)
+
+for delta in points - P:
+    np.testing.assert_allclose(np.cross(delta, v), 0.0, atol=1e-13)
+
+with pytest.raises(ValueError):
+    parametric_line_points_3d(P, np.zeros(3), t)
+
+# --- 2. Düzlem ölçek eşdeğerliği ---
+import numpy as np
+from agbook import canonical_plane_coefficients, plane_residuals_3d
+
+plane = np.array([2.0, -4.0, 4.0, -10.0])
+factors = np.array([-7.0, -0.5, 0.25, 3.0, 20.0])
+points = np.array([
+    [0.0, 0.0, 0.0],
+    [1.0, 0.0, 2.0],
+    [5.0, 0.0, 0.0],
+    [2.0, -1.0, 1.0],
+])
+target = canonical_plane_coefficients(plane)
+base_residual = plane_residuals_3d(plane, points)
+
+for factor in factors:
+    scaled = factor * plane
+    np.testing.assert_allclose(
+        canonical_plane_coefficients(scaled), target, atol=1e-14
+    )
+    np.testing.assert_allclose(
+        plane_residuals_3d(scaled, points),
+        factor * base_residual,
+        atol=1e-13,
+    )
+
+# --- 3. Beş afin çözüm sınıfı ---
+import numpy as np
+from agbook import affine_system_diagnostics_3d
+
+systems = {
+    &quot;space&quot;: (np.empty((0, 3)), np.empty(0)),
+    &quot;plane&quot;: (np.array([[1.0, 0.0, 0.0]]), np.array([2.0])),
+    &quot;line&quot;: (
+        np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]]),
+        np.array([2.0, 3.0]),
+    ),
+    &quot;point&quot;: (np.eye(3), np.array([2.0, 3.0, 4.0])),
+    &quot;empty&quot;: (
+        np.array([[1.0, 0.0, 0.0], [1.0, 0.0, 0.0]]),
+        np.array([0.0, 1.0]),
+    ),
+}
+
+for expected, (A, b) in systems.items():
+    result = affine_system_diagnostics_3d(
+        A, b, rank_relative_tolerance=1e-12, reference_scale=10.0
+    )
+    assert result.classification == expected
+
+# --- 4. Yakın bağımlılık ve açık rank eşiği ---
+import numpy as np
+from agbook import affine_system_diagnostics_3d
+
+r1 = np.array([0.60, 0.80, 0.0])
+r2 = np.array([-0.48, 0.36, 0.80])
+P = np.array([120.0, 80.0, 35.0])
+
+for delta in [0.0, 1e-14, 1e-10, 1e-6]:
+    A = np.vstack([r1, r1 + delta * r2])
+    b = A @ P
+    for tolerance in [1e-8, 1e-12]:
+        result = affine_system_diagnostics_3d(
+            A,
+            b,
+            rank_relative_tolerance=tolerance,
+            reference_scale=200.0,
+        )
+        print(delta, tolerance, result.classification,
+              result.coefficient_singular_values,
+              result.maximum_equation_residual)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Parametrik doğru değişmezleri
+
+2. Düzlem ölçek eşdeğerliği
+
+3. Beş afin çözüm sınıfı
+
+4. Yakın bağımlılık ve açık rank eşiği
+0.0 1e-08 plane [1.41421356 0.        ] 0.0
+0.0 1e-12 plane [1.41421356 0.        ] 0.0
+1e-14 1e-08 plane [1.41421356e+00 7.06903370e-15] 0.0
+1e-14 1e-12 plane [1.41421356e+00 7.06903370e-15] 0.0
+1e-10 1e-08 plane [1.41421356e+00 7.07106802e-11] 4.0046188587439246e-11
+1e-10 1e-12 line [1.41421356e+00 7.07106802e-11] 2.842170943040401e-14
+1e-06 1e-08 line [1.41421356e+00 7.07106781e-07] 5.684341886080802e-14
+1e-06 1e-12 line [1.41421356e+00 7.07106781e-07] 5.684341886080802e-14
+</code></pre></details><section id="kurulum"><h2>Çalıştırma rehberi</h2>
+<p>Önce <a href="downloads/analitik-geometri-python-v1.0.zip">tam Python paketini indirin</a> ve arşivi açın.
+Aşağıdaki komutları arşivin üst klasöründen başlatın. İlk kurulum internet bağlantısı ve Python 3.12 veya 3.13 gerektirir.
+Bağımlılıklar sabittir; sistem Python'unu değiştirmemek için ayrı sanal ortam kullanılır.</p>
+<details><summary>macOS / Linux</summary><pre><code>cd analitik-geometri-python-v1.0
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+python labs/bolum_18_uzayda_dogrular_duzlemler.py
+python -m pytest</code></pre></details>
+<details><summary>Windows PowerShell</summary><pre><code>cd analitik-geometri-python-v1.0
+py -3.13 -m venv .venv
+.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.venv\Scripts\python.exe labs/bolum_18_uzayda_dogrular_duzlemler.py
+.venv\Scripts\python.exe -m pytest</code></pre></details>
+<p class="meta">Laboratuvar dosyaları <code>agbook</code> yardımcı paketini kullanır; tek bir dosyayı indirmek
+paketi kurmanın yerini tutmaz. Metin/çözüm kodları kendi dosyaları içinde sırayla çalıştırılır;
+gizli bir notebook oturumu gerekmez. Son ondalık basamaklar platforma göre değişebilir.</p></section><nav aria-label="Bölümler"><a href="bolum-17.html">← Önceki bölüm</a><a href="index.html">Tüm bölümler</a><a href="bolum-19.html">Sonraki bölüm →</a></nav></main>
+<footer>Bu sayfalar kitabın tam metni veya PDF sürümü değildir. Kodlar eğitim amaçlıdır;
+sentetik örnekler gerçek cihaz, üretim veya güvenlik doğrulaması sayılmaz.</footer></body></html>

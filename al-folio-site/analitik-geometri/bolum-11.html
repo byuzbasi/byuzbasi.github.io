@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kuvvet, Radikal Eksen ve Çember Sistemleri · Analitik Geometri</title>
+<meta name="description" content="Analitik Geometri kitabının bölüm bazlı Python uygulamaları, kodları ve doğrulama çıktıları.">
+<link rel="stylesheet" href="style.css"></head><body>
+<a class="skip" href="#content">İçeriğe geç</a>
+<header><nav aria-label="Ana gezinme"><a href="index.html">Analitik Geometri</a><a href="/books/">Kitaplar</a><a href="#kurulum">Çalıştırma rehberi</a></nav>
+<p class="eyebrow">TEORİDEN UYGULAMAYA · PYTHON EŞLİKÇİSİ</p><h1>Kuvvet, Radikal Eksen ve Çember Sistemleri</h1>
+<p class="authors">Prof. Dr. Zühal Küçükarslan Yüzbaşı · Prof. Dr. Bahadır Yüzbaşı</p><p class="meta">Bölüm 11 · v1.0 · Türkçe</p></header>
+<main id="content"><p>Bu bölümün laboratuvarı, kitaptaki örnekleri yeniden üretmek ve sayısal sonuçları
+incelemek için hazırlanmıştır. Matematiksel tanımlar, ispatlar ve sorular kitapta yer alır.</p>
+<div class="actions"><a class="button" download href="downloads/bolum_11_kuvvet_radikal_eksen.py">Laboratuvarı indir (.py)</a>
+<a class="button" href="downloads/analitik-geometri-python-v1.0.zip">Tam Python paketi (.zip)</a></div>
+<h2>Laboratuvar kodu</h2><pre><code>&quot;&quot;&quot;Bölüm 11: nokta kuvveti, radikal eksen ve güç diyagramı laboratuvarı.
+
+Model, üç sentetik dairesel hizmet bölgesini iki boyutlu Öklid düzleminde
+karşılaştırır. Sinyal yayılımı, nüfus, maliyet, engel, ölçüm gürültüsü veya
+gerçek hizmet kalitesi içermez.
+&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import numpy as np
+
+from agbook import (
+    canonical_array_sha256,
+    circle_pencil_member,
+    point_power,
+    radical_axis_diagnostics,
+    radical_center_diagnostics,
+    rotation_matrix_2d,
+)
+
+
+TOLERANCES = {
+    &quot;absolute_tolerance&quot;: 1e-10,
+    &quot;relative_tolerance&quot;: 1e-12,
+    &quot;reference_scale&quot;: 20.0,
+}
+
+CENTER_TOLERANCES = {
+    &quot;angular_tolerance&quot;: 1e-12,
+    **TOLERANCES,
+}
+
+
+def monic_circle(center: np.ndarray, radius: float) -&gt; np.ndarray:
+    &quot;&quot;&quot;Merkez-yarıçap verisini ``(1,D,E,F)`` katsayılarına dönüştürür.&quot;&quot;&quot;
+
+    return np.array(
+        [
+            1.0,
+            -2.0 * center[0],
+            -2.0 * center[1],
+            float(center @ center - radius**2),
+        ]
+    )
+
+
+def main() -&gt; None:
+    centers = np.array([[0.0, 0.0], [8.0, 0.0], [0.0, 6.0]])  # km
+    radii = np.array([5.0, 3.0, 4.0])  # km
+    pairs = ((0, 1), (0, 2), (1, 2))
+
+    axes = [
+        radical_axis_diagnostics(
+            centers[i], radii[i], centers[j], radii[j], **TOLERANCES
+        )
+        for i, j in pairs
+    ]
+    assert all(axis.relation == &quot;line&quot; for axis in axes)
+    axis_matrix = np.vstack([axis.line_coefficients for axis in axes])
+
+    radical_center = radical_center_diagnostics(
+        centers, radii, **CENTER_TOLERANCES
+    )
+    assert radical_center.relation == &quot;point&quot;
+    np.testing.assert_allclose(radical_center.point, [5.0, 3.75])
+    np.testing.assert_allclose(radical_center.power_values, 14.0625, atol=1e-12)
+    assert radical_center.max_axis_residual &lt;= radical_center.length_threshold
+
+    x_values = np.linspace(-4.0, 12.0, 65)
+    y_values = np.linspace(-4.0, 10.0, 57)
+    xx, yy = np.meshgrid(x_values, y_values)
+    grid = np.column_stack([xx.ravel(), yy.ravel()])
+    powers = np.sum(
+        (grid[:, None, :] - centers[None, :, :]) ** 2,
+        axis=2,
+    ) - radii[None, :] ** 2
+    labels = np.argmin(powers, axis=1)
+    label_counts = np.bincount(labels, minlength=3)
+
+    first_circle = monic_circle(centers[0], radii[0])
+    second_circle = monic_circle(centers[1], radii[1])
+    pencil_parameters = np.array([0.0, 0.5, 0.625, 1.0])
+    pencil_members = [
+        circle_pencil_member(first_circle, second_circle, parameter)
+        for parameter in pencil_parameters
+    ]
+    assert [member.locus_type for member in pencil_members] == [
+        &quot;circle&quot;,
+        &quot;circle&quot;,
+        &quot;point&quot;,
+        &quot;circle&quot;,
+    ]
+
+    rotation = rotation_matrix_2d(np.deg2rad(23.0))
+    translation = np.array([40.0, -25.0])  # km
+    moved_centers = centers @ rotation.T + translation
+    moved_grid = grid @ rotation.T + translation
+    moved_center = radical_center_diagnostics(
+        moved_centers, radii, **CENTER_TOLERANCES
+    )
+    expected_center = rotation @ radical_center.point + translation
+    np.testing.assert_allclose(moved_center.point, expected_center, atol=2e-13)
+    moved_powers = np.sum(
+        (moved_grid[:, None, :] - moved_centers[None, :, :]) ** 2,
+        axis=2,
+    ) - radii[None, :] ** 2
+    moved_labels = np.argmin(moved_powers, axis=1)
+    np.testing.assert_allclose(moved_powers, powers, atol=2e-12, rtol=0.0)
+    sorted_powers = np.sort(powers, axis=1)
+    power_gaps = sorted_powers[:, 1] - sorted_powers[:, 0]
+    stable_mask = power_gaps &gt; 1e-10  # km^2
+    assert np.array_equal(moved_labels[stable_mask], labels[stable_mask])
+    boundary_count = int(np.count_nonzero(~stable_mask))
+
+    center_powers = np.array(
+        [point_power(center, radius, radical_center.point) for center, radius in zip(centers, radii)]
+    )
+    signature_values = np.concatenate(
+        [
+            centers.ravel(),
+            radii,
+            axis_matrix.ravel(),
+            radical_center.point,
+            center_powers,
+            label_counts.astype(float),
+            np.array([member.radius_squared for member in pencil_members]),
+        ]
+    )
+
+    print(&quot;birim: km&quot;)
+    print(&quot;model: sentetik_dairesel_hizmet_bolgeleri&quot;)
+    print(&quot;gercek_kapsama_modeli_mi: False&quot;)
+    print(&quot;merkezler_km:&quot;, centers.tolist())
+    print(&quot;yaricaplar_km:&quot;, radii.tolist())
+    for pair, axis in zip(pairs, axes):
+        print(f&quot;radikal_eksen_{pair}: {axis.line_coefficients}&quot;)
+    print(&quot;radikal_merkez_km:&quot;, radical_center.point)
+    print(&quot;ortak_kuvvet_km2:&quot;, center_powers)
+    print(&quot;en_buyuk_eksen_artigi_km:&quot;, f&quot;{radical_center.max_axis_residual:.3e}&quot;)
+    print(&quot;eksen_sistem_kosul_sayisi:&quot;, f&quot;{radical_center.condition_number:.9f}&quot;)
+    print(&quot;izgara_nokta_sayisi:&quot;, grid.shape[0])
+    print(&quot;guc_hucre_sayimlari:&quot;, label_counts)
+    print(&quot;sinir_baglama_noktasi_sayisi:&quot;, boundary_count)
+    print(
+        &quot;demet_siniflari:&quot;,
+        [(parameter, member.locus_type, member.radius_squared) for parameter, member in zip(pencil_parameters, pencil_members)],
+    )
+    print(
+        &quot;rijit_ic_nokta_etiketleri_korundu_mu:&quot;,
+        bool(np.array_equal(moved_labels[stable_mask], labels[stable_mask])),
+    )
+    print(&quot;bilimsel_imza:&quot;, canonical_array_sha256(signature_values))
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<details><summary>Doğrulama çalıştırmasının çıktısı</summary><pre><code>birim: km
+model: sentetik_dairesel_hizmet_bolgeleri
+gercek_kapsama_modeli_mi: False
+merkezler_km: [[0.0, 0.0], [8.0, 0.0], [0.0, 6.0]]
+yaricaplar_km: [5.0, 3.0, 4.0]
+radikal_eksen_(0, 1): [ 1.  0. -5.]
+radikal_eksen_(0, 2): [ 0.    1.   -3.75]
+radikal_eksen_(1, 2): [ 0.8  -0.6  -1.75]
+radikal_merkez_km: [5.   3.75]
+ortak_kuvvet_km2: [14.0625 14.0625 14.0625]
+en_buyuk_eksen_artigi_km: 0.000e+00
+eksen_sistem_kosul_sayisi: 1.000000000
+izgara_nokta_sayisi: 3705
+guc_hucre_sayimlari: [1184 1368 1153]
+sinir_baglama_noktasi_sayisi: 74
+demet_siniflari: [(np.float64(0.0), &#x27;circle&#x27;, 25.0), (np.float64(0.5), &#x27;circle&#x27;, 1.0), (np.float64(0.625), &#x27;point&#x27;, 0.0), (np.float64(1.0), &#x27;circle&#x27;, 9.0)]
+rijit_ic_nokta_etiketleri_korundu_mu: True
+bilimsel_imza: a9ba85811fb6d413ddcf17ae4be811515ff3187b6958d8003861e0e13399729b
+</code></pre></details><details><summary>Metindeki Python kodları</summary><p><a download href="downloads/bolum_11_metin.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Bölüm 11: radikal eksen, merkez ve güç hücresi ---
+import numpy as np
+from agbook import (
+    point_power,
+    radical_axis_diagnostics,
+    radical_center_diagnostics,
+)
+
+centers = np.array([[0., 0.], [8., 0.], [0., 6.]])
+radii = np.array([5., 3., 4.])  # km
+tol = dict(
+    absolute_tolerance=1e-10,
+    relative_tolerance=1e-12,
+    reference_scale=20.0,
+)
+axis12 = radical_axis_diagnostics(
+    centers[0], radii[0], centers[1], radii[1], **tol
+)
+center = radical_center_diagnostics(
+    centers, radii, angular_tolerance=1e-12, **tol
+)
+powers = [
+    point_power(c, r, center.point)
+    for c, r in zip(centers, radii)
+]
+print(axis12.relation, axis12.line_coefficients)
+print(center.relation, center.point, powers)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Bölüm 11: radikal eksen, merkez ve güç hücresi
+line [ 1.  0. -5.]
+point [5.   3.75] [14.0625, 14.0625, 14.0625]
+</code></pre></details><details><summary>Çözümlerdeki Python kodları</summary><p><a download href="downloads/bolum_11_cozum.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Kuvvetin işaret, rijit hareket ve ölçek deneyi ---
+import numpy as np
+from agbook import point_power, rotation_matrix_2d
+
+C = np.array([0., 0.])
+r = 3.0
+points = np.array([[1., 1.], [0., 3.], [4., 2.]])
+before = np.array([point_power(C, r, p) for p in points])
+
+Q = rotation_matrix_2d(np.deg2rad(31.0))
+b = np.array([8., -5.])
+Cm = Q @ C + b
+moved = points @ Q.T + b
+after = np.array([point_power(Cm, r, p) for p in moved])
+
+s = 3.0
+scaled = np.array([
+    point_power(s * C, s * r, s * p) for p in points
+])
+print(before)
+print(np.allclose(after, before))
+print(np.allclose(scaled, s**2 * before))
+
+# --- 2. Radikal eksenin beş temel sınıfı ---
+import numpy as np
+from agbook import point_power, radical_axis_diagnostics
+
+tol = dict(
+    absolute_tolerance=1e-12,
+    relative_tolerance=1e-12,
+    reference_scale=20.0,
+)
+cases = {
+    &quot;kesisen&quot;: ((-2., 0.), 3., (2., 0.), 3.),
+    &quot;teget&quot;: ((0., 0.), 5., (8., 0.), 3.),
+    &quot;ayrik&quot;: ((0., 0.), 2., (8., 0.), 2.),
+    &quot;ozdes&quot;: ((1., 2.), 4., (1., 2.), 4.),
+    &quot;esmerkezli_farkli&quot;: ((1., 2.), 4., (1., 2.), 3.),
+}
+for name, (c1, r1, c2, r2) in cases.items():
+    out = radical_axis_diagnostics(c1, r1, c2, r2, **tol)
+    print(name, out.relation, out.line_coefficients)
+    if out.line_coefficients is not None:
+        a, b, c = out.line_coefficients
+        p = -c * np.array([a, b])
+        print(point_power(c1, r1, p)
+              - point_power(c2, r2, p))
+
+# --- 3. Radikal merkezde nokta, doğru, düzlem ve boş yer ---
+import numpy as np
+from agbook import radical_center_diagnostics
+
+tol = dict(
+    angular_tolerance=1e-12,
+    absolute_tolerance=1e-12,
+    relative_tolerance=1e-12,
+    reference_scale=20.0,
+)
+datasets = {
+    &quot;nokta&quot;: (
+        [[0., 0.], [8., 0.], [0., 6.]], [5., 3., 4.]
+    ),
+    &quot;dogru&quot;: (
+        [[2., 0.], [3., 0.], [4., 0.]], [2., 3., 4.]
+    ),
+    &quot;duzlem&quot;: (
+        [[1., 1.], [1., 1.], [1., 1.]], [2., 2., 2.]
+    ),
+    &quot;bos&quot;: (
+        [[0., 0.], [0., 0.], [3., 0.]], [2., 1., 2.]
+    ),
+}
+for name, (centers, radii) in datasets.items():
+    out = radical_center_diagnostics(centers, radii, **tol)
+    print(name, out.relation, out.point,
+          out.line_coefficients)
+
+# --- 4. Demette ölçek değişmezliği, nokta ve boş üye ---
+import numpy as np
+from agbook import circle_pencil_member
+
+tangent_1 = np.array([1., 0., 0., -25.])
+tangent_2 = np.array([1., -16., 0., 55.])
+point_a = circle_pencil_member(tangent_1, tangent_2, 0.625)
+point_b = circle_pencil_member(
+    -3. * tangent_1, 7. * tangent_2, 0.625
+)
+print(point_a.locus_type, point_a.center,
+      point_a.radius_squared)
+print(np.allclose(point_a.center, point_b.center))
+
+apart_1 = np.array([1., 0., 0., -4.])
+apart_2 = np.array([1., -16., 0., 60.])
+empty = circle_pencil_member(apart_1, apart_2, 0.5)
+print(empty.locus_type, empty.center,
+      empty.radius_squared)
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Kuvvetin işaret, rijit hareket ve ölçek deneyi
+[-7.  0. 11.]
+True
+True
+
+2. Radikal eksenin beş temel sınıfı
+kesisen line [1. 0. 0.]
+0.0
+teget line [ 1.  0. -5.]
+0.0
+ayrik line [ 1.  0. -4.]
+0.0
+ozdes all_plane None
+esmerkezli_farkli empty None
+
+3. Radikal merkezde nokta, doğru, düzlem ve boş yer
+nokta point [5.   3.75] None
+dogru line None [1. 0. 0.]
+duzlem all_plane None None
+bos empty None None
+
+4. Demette ölçek değişmezliği, nokta ve boş üye
+point [ 5. -0.] 0.0
+True
+empty [ 4. -0.] -12.0
+</code></pre></details><section id="kurulum"><h2>Çalıştırma rehberi</h2>
+<p>Önce <a href="downloads/analitik-geometri-python-v1.0.zip">tam Python paketini indirin</a> ve arşivi açın.
+Aşağıdaki komutları arşivin üst klasöründen başlatın. İlk kurulum internet bağlantısı ve Python 3.12 veya 3.13 gerektirir.
+Bağımlılıklar sabittir; sistem Python'unu değiştirmemek için ayrı sanal ortam kullanılır.</p>
+<details><summary>macOS / Linux</summary><pre><code>cd analitik-geometri-python-v1.0
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+python labs/bolum_11_kuvvet_radikal_eksen.py
+python -m pytest</code></pre></details>
+<details><summary>Windows PowerShell</summary><pre><code>cd analitik-geometri-python-v1.0
+py -3.13 -m venv .venv
+.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.venv\Scripts\python.exe labs/bolum_11_kuvvet_radikal_eksen.py
+.venv\Scripts\python.exe -m pytest</code></pre></details>
+<p class="meta">Laboratuvar dosyaları <code>agbook</code> yardımcı paketini kullanır; tek bir dosyayı indirmek
+paketi kurmanın yerini tutmaz. Metin/çözüm kodları kendi dosyaları içinde sırayla çalıştırılır;
+gizli bir notebook oturumu gerekmez. Son ondalık basamaklar platforma göre değişebilir.</p></section><nav aria-label="Bölümler"><a href="bolum-10.html">← Önceki bölüm</a><a href="index.html">Tüm bölümler</a><a href="bolum-12.html">Sonraki bölüm →</a></nav></main>
+<footer>Bu sayfalar kitabın tam metni veya PDF sürümü değildir. Kodlar eğitim amaçlıdır;
+sentetik örnekler gerçek cihaz, üretim veya güvenlik doğrulaması sayılmaz.</footer></body></html>

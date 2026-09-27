@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kesişim, Açı, Uzaklık ve Doğru Aileleri · Analitik Geometri</title>
+<meta name="description" content="Analitik Geometri kitabının bölüm bazlı Python uygulamaları, kodları ve doğrulama çıktıları.">
+<link rel="stylesheet" href="style.css"></head><body>
+<a class="skip" href="#content">İçeriğe geç</a>
+<header><nav aria-label="Ana gezinme"><a href="index.html">Analitik Geometri</a><a href="/books/">Kitaplar</a><a href="#kurulum">Çalıştırma rehberi</a></nav>
+<p class="eyebrow">TEORİDEN UYGULAMAYA · PYTHON EŞLİKÇİSİ</p><h1>Kesişim, Açı, Uzaklık ve Doğru Aileleri</h1>
+<p class="authors">Prof. Dr. Zühal Küçükarslan Yüzbaşı · Prof. Dr. Bahadır Yüzbaşı</p><p class="meta">Bölüm 06 · v1.0 · Türkçe</p></header>
+<main id="content"><p>Bu bölümün laboratuvarı, kitaptaki örnekleri yeniden üretmek ve sayısal sonuçları
+incelemek için hazırlanmıştır. Matematiksel tanımlar, ispatlar ve sorular kitapta yer alır.</p>
+<div class="actions"><a class="button" download href="downloads/bolum_06_kesisim_aci_uzaklik.py">Laboratuvarı indir (.py)</a>
+<a class="button" href="downloads/analitik-geometri-python-v1.0.zip">Tam Python paketi (.zip)</a></div>
+<h2>Laboratuvar kodu</h2><pre><code>&quot;&quot;&quot;Bölüm 6 laboratuvarı: iki ölçme ekseninin ilişkisi ve dikme ayağı.
+
+Model düzlemsel ve sentetiktir. Bütün koordinatlar metre, açı çıktısı
+derecedir. Yeryüzü eğriliği, projeksiyon ve ölçüm belirsizliği içermez.
+&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import numpy as np
+
+from agbook import (
+    canonical_array_sha256,
+    line_angle,
+    line_from_points,
+    line_intersection_diagnostics,
+    line_pencil_member,
+    line_residuals,
+    parallel_line_through_point,
+    perpendicular_line_through_point,
+    project_point_to_line,
+)
+
+
+def main() -&gt; None:
+    first_a = np.array([100.0, 200.0])  # metre
+    first_b = np.array([500.0, 400.0])  # metre
+    second_a = np.array([100.0, 500.0])  # metre
+    second_b = np.array([500.0, 100.0])  # metre
+    control = np.array([420.0, 320.0])  # metre
+
+    first_line = line_from_points(first_a, first_b)
+    second_line = line_from_points(second_a, second_b)
+    relation = line_intersection_diagnostics(
+        first_line,
+        second_line,
+        angular_tolerance=1.0e-12,
+        absolute_tolerance=0.001,
+        relative_tolerance=0.0,
+        reference_scale=1000.0,
+    )
+    if relation.point is None:
+        raise RuntimeError(&quot;Sentetik eksenlerin tek kesişim vermesi bekleniyordu.&quot;)
+
+    projection = project_point_to_line(first_line, control)
+    parallel = parallel_line_through_point(first_line, control)
+    perpendicular = perpendicular_line_through_point(first_line, control)
+    pencil = line_pencil_member(
+        first_line,
+        second_line,
+        2.0,
+        -1.0,
+        angular_tolerance=1.0e-12,
+    )
+    intersection_residuals = line_residuals(
+        np.array([1.0, 0.0, -relation.point[0]]),
+        relation.point[None, :],
+    )
+    pencil_residual = line_residuals(pencil, relation.point[None, :])
+
+    near_loose = line_intersection_diagnostics(
+        [0.0, 1.0, 0.0],
+        [1.0e-8, 1.0, -1.0],
+        angular_tolerance=1.0e-7,
+        absolute_tolerance=0.001,
+        relative_tolerance=0.0,
+        reference_scale=1.0,
+    )
+    near_strict = line_intersection_diagnostics(
+        [0.0, 1.0, 0.0],
+        [1.0e-8, 1.0, -1.0],
+        angular_tolerance=1.0e-10,
+        absolute_tolerance=0.001,
+        relative_tolerance=0.0,
+        reference_scale=1.0,
+    )
+
+    signature_values = np.concatenate(
+        [first_line, second_line, relation.point, projection.foot, parallel, perpendicular]
+    )
+    print(&quot;birim: m&quot;)
+    print(&quot;birinci_eksen:&quot;, np.round(first_line, 12))
+    print(&quot;ikinci_eksen:&quot;, np.round(second_line, 12))
+    print(&quot;iliski:&quot;, relation.relation)
+    print(&quot;kesisim:&quot;, np.round(relation.point, 12))
+    print(&quot;kesisim_artiklari:&quot;, np.format_float_scientific(np.max(np.abs(relation.residuals)), precision=3))
+    print(&quot;kontrol_artigi:&quot;, np.format_float_scientific(np.max(np.abs(intersection_residuals)), precision=3))
+    print(&quot;kucuk_aci_derece:&quot;, f&quot;{np.degrees(line_angle(first_line, second_line)):.6f}&quot;)
+    print(&quot;normal_matrisi_kosul_sayisi:&quot;, f&quot;{relation.condition_number:.6f}&quot;)
+    print(&quot;dikme_ayagi:&quot;, np.round(projection.foot, 12))
+    print(&quot;isaretli_uzaklik_m:&quot;, f&quot;{projection.signed_distance:.6f}&quot;)
+    print(&quot;uzaklik_m:&quot;, f&quot;{projection.distance:.6f}&quot;)
+    print(&quot;ayak_denklem_artigi:&quot;, np.format_float_scientific(abs(projection.foot_residual), precision=3))
+    print(&quot;ayak_diklik_artigi:&quot;, np.format_float_scientific(abs(projection.orthogonality_residual), precision=3))
+    print(&quot;paralel_dogru:&quot;, np.round(parallel, 12))
+    print(&quot;dik_dogru:&quot;, np.round(perpendicular, 12))
+    print(&quot;demet_ortak_nokta_artigi:&quot;, np.format_float_scientific(abs(pencil_residual[0]), precision=3))
+    print(&quot;yakin_paralel_gevsek_karar:&quot;, near_loose.relation)
+    print(&quot;yakin_paralel_siki_karar:&quot;, near_strict.relation)
+    print(&quot;yakin_paralel_kosul_sayisi:&quot;, f&quot;{near_strict.condition_number:.6e}&quot;)
+    print(&quot;bilimsel_imza:&quot;, canonical_array_sha256(signature_values))
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<details><summary>Doğrulama çalıştırmasının çıktısı</summary><pre><code>birim: m
+birinci_eksen: [  0.4472136   -0.89442719 134.16407865]
+ikinci_eksen: [   0.70710678    0.70710678 -424.26406871]
+iliski: intersecting
+kesisim: [300. 300.]
+kesisim_artiklari: 2.842e-14
+kontrol_artigi: 0.e+00
+kucuk_aci_derece: 71.565051
+normal_matrisi_kosul_sayisi: 1.387426
+dikme_ayagi: [404. 352.]
+isaretli_uzaklik_m: 35.777088
+uzaklik_m: 35.777088
+ayak_denklem_artigi: 2.842e-14
+ayak_diklik_artigi: 0.e+00
+paralel_dogru: [ 0.4472136  -0.89442719 98.38699101]
+dik_dogru: [ 8.94427191e-01  4.47213596e-01 -5.18767771e+02]
+demet_ortak_nokta_artigi: 5.684e-14
+yakin_paralel_gevsek_karar: parallel
+yakin_paralel_siki_karar: intersecting
+yakin_paralel_kosul_sayisi: 2.000000e+08
+bilimsel_imza: c6a85c6f7707139d6a4d78f27cd652a5d755467d73a822ebab5149ffc892e8b8
+</code></pre></details><details><summary>Metindeki Python kodları</summary><p><a download href="downloads/bolum_06_metin.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Bölüm 6 laboratuvarı: ilişki, açı ve dikme ayağı ---
+import numpy as np
+from agbook import (
+    line_angle,
+    line_from_points,
+    line_intersection_diagnostics,
+    line_pencil_member,
+    parallel_line_through_point,
+    perpendicular_line_through_point,
+    project_point_to_line,
+)
+
+A = np.array([100.0, 200.0])  # metre
+B = np.array([500.0, 400.0])
+C = np.array([100.0, 500.0])
+D = np.array([500.0, 100.0])
+P = np.array([420.0, 320.0])
+
+first = line_from_points(A, B)
+second = line_from_points(C, D)
+relation = line_intersection_diagnostics(
+    first,
+    second,
+    angular_tolerance=1.0e-12,
+    absolute_tolerance=0.001,
+    relative_tolerance=0.0,
+    reference_scale=1000.0,
+)
+projection = project_point_to_line(first, P)
+parallel = parallel_line_through_point(first, P)
+perpendicular = perpendicular_line_through_point(first, P)
+pencil = line_pencil_member(
+    first, second, 2.0, -1.0,
+    angular_tolerance=1.0e-12,
+)
+
+print(&quot;iliski:&quot;, relation.relation)
+print(&quot;kesisim:&quot;, np.round(relation.point, 12))
+print(&quot;kucuk_aci_derece:&quot;, f&quot;{np.degrees(line_angle(first, second)):.6f}&quot;)
+print(&quot;kosul_sayisi:&quot;, f&quot;{relation.condition_number:.6f}&quot;)
+print(&quot;dikme_ayagi:&quot;, np.round(projection.foot, 12))
+print(&quot;uzaklik_m:&quot;, f&quot;{projection.distance:.6f}&quot;)
+print(&quot;ayak_artiklari:&quot;, projection.foot_residual,
+      projection.orthogonality_residual)
+print(&quot;paralel_dogru:&quot;, np.round(parallel, 12))
+print(&quot;dik_dogru:&quot;, np.round(perpendicular, 12))
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Bölüm 6 laboratuvarı: ilişki, açı ve dikme ayağı
+iliski: intersecting
+kesisim: [300. 300.]
+kucuk_aci_derece: 71.565051
+kosul_sayisi: 1.387426
+dikme_ayagi: [404. 352.]
+uzaklik_m: 35.777088
+ayak_artiklari: 2.842170943040401e-14 0.0
+paralel_dogru: [ 0.4472136  -0.89442719 98.38699101]
+dik_dogru: [ 8.94427191e-01  4.47213596e-01 -5.18767771e+02]
+</code></pre></details><details><summary>Çözümlerdeki Python kodları</summary><p><a download href="downloads/bolum_06_cozum.py">Kod dosyasını indir</a></p><pre><code># Kitaptaki kod blokları; bu dosya içinde sırayla çalıştırılır.
+# --- 1. Üç doğru ilişkisini sınıflandırma ---
+import numpy as np
+from agbook import line_intersection_diagnostics
+
+pairs = {
+    &quot;kesisen&quot;: ([1.0, 1.0, -3.0], [1.0, -1.0, -1.0]),
+    &quot;ayri_paralel&quot;: ([1.0, 2.0, -3.0], [-2.0, -4.0, 10.0]),
+    &quot;cakisan&quot;: ([1.0, 2.0, -3.0], [-5.0, -10.0, 15.0]),
+}
+for name, (first, second) in pairs.items():
+    result = line_intersection_diagnostics(
+        first, second,
+        angular_tolerance=1e-12,
+        absolute_tolerance=1e-10,
+        relative_tolerance=0.0,
+        reference_scale=1.0,
+    )
+    print(name, result.relation)
+    if result.point is not None:
+        print(np.round(result.point, 12), result.residuals)
+
+# --- 2. Yakın paralellik tablosu ---
+import numpy as np
+from agbook import line_angle, line_intersection_diagnostics
+
+for k in (2, 4, 6, 8, 10):
+    eps = 10.0 ** (-k)
+    second = [eps, 1.0, -1.0]
+    result = line_intersection_diagnostics(
+        [0.0, 1.0, 0.0], second,
+        angular_tolerance=0.0,
+        absolute_tolerance=0.0,
+        relative_tolerance=0.0,
+        reference_scale=1.0,
+    )
+    print(k, np.degrees(line_angle([0, 1, 0], second)),
+          result.condition_number, result.point[0])
+
+# --- 3. Üç doğru için dikme ayağı denetimi ---
+import numpy as np
+from agbook import project_point_to_line
+
+cases = (
+    ([0.0, 1.0, -2.0], [3.0, 5.0]),
+    ([1.0, 0.0, 4.0], [2.0, -1.0]),
+    ([3.0, 4.0, -5.0], [4.0, 1.0]),
+)
+for line, point in cases:
+    result = project_point_to_line(line, point)
+    assert abs(result.foot_residual) &lt; 1e-12
+    assert abs(result.orthogonality_residual) &lt; 1e-12
+    print(np.round(result.foot, 12), result.distance)
+
+# --- 4. Doğru demetinde ölçek değişmezliği ---
+import numpy as np
+from agbook import line_pencil_member
+
+first = line_pencil_member(
+    [1.0, 0.0, -1.0], [0.0, 1.0, -2.0],
+    2.0, -3.0, angular_tolerance=1e-12,
+)
+second = line_pencil_member(
+    [-7.0, 0.0, 7.0], [0.0, 5.0, -10.0],
+    -20.0, 30.0, angular_tolerance=1e-12,
+)
+print(first)
+print(second)
+print(np.max(np.abs(first - second)))
+</code></pre><h3>Kaydedilen çıktı</h3><pre><code>1. Üç doğru ilişkisini sınıflandırma
+kesisen intersecting
+[2. 1.] [0. 0.]
+ayri_paralel parallel
+cakisan coincident
+
+2. Yakın paralellik tablosu
+2 0.5729386976834859 200.0049998750063 100.0
+4 0.005729577932209639 20000.000050000002 9999.999999999998
+6 5.729577951306322e-05 2000000.0000005 1000000.0
+8 5.729577951308232e-07 199999999.99999997 100000000.0
+10 5.729577951308233e-09 19999999999.999996 10000000000.0
+
+3. Üç doğru için dikme ayağı denetimi
+[3. 2.] 3.0
+[-4. -1.] 6.0
+[ 2.68 -0.76] 2.2
+
+4. Doğru demetinde ölçek değişmezliği
+[ 0.5547002  -0.83205029  1.10940039]
+[ 0.5547002  -0.83205029  1.10940039]
+0.0
+</code></pre></details><section id="kurulum"><h2>Çalıştırma rehberi</h2>
+<p>Önce <a href="downloads/analitik-geometri-python-v1.0.zip">tam Python paketini indirin</a> ve arşivi açın.
+Aşağıdaki komutları arşivin üst klasöründen başlatın. İlk kurulum internet bağlantısı ve Python 3.12 veya 3.13 gerektirir.
+Bağımlılıklar sabittir; sistem Python'unu değiştirmemek için ayrı sanal ortam kullanılır.</p>
+<details><summary>macOS / Linux</summary><pre><code>cd analitik-geometri-python-v1.0
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+python labs/bolum_06_kesisim_aci_uzaklik.py
+python -m pytest</code></pre></details>
+<details><summary>Windows PowerShell</summary><pre><code>cd analitik-geometri-python-v1.0
+py -3.13 -m venv .venv
+.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.venv\Scripts\python.exe labs/bolum_06_kesisim_aci_uzaklik.py
+.venv\Scripts\python.exe -m pytest</code></pre></details>
+<p class="meta">Laboratuvar dosyaları <code>agbook</code> yardımcı paketini kullanır; tek bir dosyayı indirmek
+paketi kurmanın yerini tutmaz. Metin/çözüm kodları kendi dosyaları içinde sırayla çalıştırılır;
+gizli bir notebook oturumu gerekmez. Son ondalık basamaklar platforma göre değişebilir.</p></section><nav aria-label="Bölümler"><a href="bolum-05.html">← Önceki bölüm</a><a href="index.html">Tüm bölümler</a><a href="bolum-07.html">Sonraki bölüm →</a></nav></main>
+<footer>Bu sayfalar kitabın tam metni veya PDF sürümü değildir. Kodlar eğitim amaçlıdır;
+sentetik örnekler gerçek cihaz, üretim veya güvenlik doğrulaması sayılmaz.</footer></body></html>
