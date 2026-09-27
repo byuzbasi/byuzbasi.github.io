@@ -36,8 +36,8 @@ latest_posts:
 </section>
 
 <section class="academic-summary" aria-label="Research profile">
-  <p>I am Professor of Statistics in the Department of Econometrics at İnönü University. I develop shrinkage, pretest and penalized estimation methods for high-dimensional, spatial and functional data, connecting them with statistical learning and elastic shape analysis.</p>
-  <p>I develop theory alongside simulation studies, real-data analyses and open-source software in R, Python and C++. My work focuses on producing reliable, interpretable insight from complex data in economics, biometry, the social sciences and digital platforms.</p>
+  <p>I am a Professor of Statistics and Econometrics in the Department of Econometrics at İnönü University. My research focuses on reliable estimation and variable selection for high-dimensional and complex data. I combine shrinkage, pretest and penalized regression methods with statistical learning and spatial and functional data analysis. My recent work examines variable selection with scaled group lasso and shrinkage estimation in geographically weighted regression, including an application to digital platform pricing.</p>
+  <p>In the TÜBİTAK 1001 project I lead, we aim to model heterogeneity in big spatial data using explainable machine learning. In our completed TÜBİTAK 3005 project, we studied migration dynamics in Van using geographically weighted regression. I support theoretical methods with simulation, real-data analysis and reproducible research tools developed in R, Python and C++.</p>
 </section>
 
 <div class="profile-actions" aria-label="Quick access">

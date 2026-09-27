@@ -34,8 +34,8 @@ latest_posts:
 </section>
 
 <section class="academic-summary" aria-label="Araştırma profili">
-  <p>İnönü Üniversitesi Ekonometri Bölümünde İstatistik Profesörüyüm. Yüksek boyutlu, uzamsal ve fonksiyonel veriler için küçültme, ön-test ve penalize kestirim yöntemleri geliştiriyor; bu yöntemleri istatistiksel öğrenme ve elastik şekil analiziyle birleştiriyorum.</p>
-  <p>Kuramsal sonuçları simülasyon, gerçek veri analizleri ve açık kaynaklı R, Python ve C++ yazılımlarıyla birlikte geliştiriyorum. Çalışmalarım ekonomi, biyometri, sosyal bilimler ve dijital platformlarda karmaşık veriden güvenilir, yorumlanabilir bilgi üretmeye odaklanıyor.</p>
+  <p>İnönü Üniversitesi Ekonometri Bölümünde İstatistik ve Ekonometri Profesörüyüm. Araştırmalarım, yüksek boyutlu ve karmaşık verilerde güvenilir kestirim ve değişken seçimine odaklanıyor. Küçültme, ön-test ve penalize regresyon yöntemlerini istatistiksel öğrenme, uzamsal ve fonksiyonel veri analiziyle birleştiriyorum. Son çalışmalarımda ölçeklendirilmiş grup lasso ile değişken seçimini ve coğrafi ağırlıklı regresyonda küçültme kestirimini dijital platform fiyatlaması uygulamasıyla ele aldım.</p>
+  <p>Yürütücüsü olduğum TÜBİTAK 1001 projesinde büyük mekânsal verilerdeki heterojenliği açıklanabilir makine öğrenmesiyle modellemeyi hedefliyoruz. Tamamlanan TÜBİTAK 3005 projemizde ise Van’ın göç dinamiklerini coğrafi ağırlıklı regresyonla inceledik. Kuramsal yöntemleri simülasyon, gerçek veri analizi ve R, Python, C++ ile geliştirilen yeniden üretilebilir araştırma araçlarıyla destekliyorum.</p>
 </section>
 
 <div class="profile-actions" aria-label="Hızlı erişim">
