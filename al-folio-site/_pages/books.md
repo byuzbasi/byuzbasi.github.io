@@ -18,7 +18,7 @@ translation_key: books
 
 {% include book-catalog.liquid %}
 
-### Regression Modeling with R — bölüm uygulamaları
+### Reasoning Through Regression — bölüm uygulamaları
 
 Prof. Dr. Bahadır Yüzbaşı tarafından hazırlanan İngilizce lisans ders kitabının R uygulamaları.
 

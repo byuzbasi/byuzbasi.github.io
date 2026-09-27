@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Regression Modeling with R
+title: Reasoning Through Regression
 permalink: /regression-modeling-with-r/
 description: Chapter-by-chapter R applications for undergraduate regression modeling.
 nav: false
 lang: en
 ---
 
-## Inference, Prediction, and Regularization
+## Inference, Prediction, and Regularization with R
 
 **Author: Prof. Dr. Bahadır Yüzbaşı**
 

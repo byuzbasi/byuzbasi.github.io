@@ -18,7 +18,7 @@ translation_key: books
 
 {% include book-catalog.liquid %}
 
-### Regression Modeling with R — chapter applications
+### Reasoning Through Regression — chapter applications
 
 English undergraduate regression textbook by Prof. Dr. Bahadır Yüzbaşı.
 
