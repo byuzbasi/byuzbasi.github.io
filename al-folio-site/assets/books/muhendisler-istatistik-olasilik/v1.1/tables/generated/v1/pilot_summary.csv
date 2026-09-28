@@ -1,8 +1,0 @@
-metric,value
-n,10.0
-mean_mpa,422.0
-median_mpa,420.5
-sample_sd_mpa,6.324555320336759
-q1_mpa,418.25
-q3_mpa,423.5
-iqr_mpa,5.25

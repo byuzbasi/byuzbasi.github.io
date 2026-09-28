@@ -13,7 +13,7 @@ translation_key: books
   <p class="section-eyebrow">FROM DATA TO EVIDENCE · FROM THEORY TO PRACTICE</p>
   <h2>Think, learn and put ideas into practice.</h2>
   <p>My books connect statistical thinking and advanced methods with mathematical explanations, substantive problems and R/Python applications.</p>
-  <p class="catalog-note">The books are being prepared for publication. Analytic Geometry provides a chapter-by-chapter Python companion and execution guide, not the full manuscript. The catalogue includes Turkish manuscripts and an English-language regression textbook; translated titles describe the Turkish books.</p>
+  <p class="catalog-note">The books are being prepared for publication. Book applications are stored in separate private GitHub repositories. Access requires authorization; application files are not published on this website. The catalogue includes Turkish manuscripts and an English-language regression textbook; translated titles describe the Turkish books.</p>
 </section>
 
 {% include book-catalog.liquid %}
@@ -22,12 +22,12 @@ translation_key: books
 
 English undergraduate regression textbook by Prof. Dr. Bahadır Yüzbaşı.
 
-[Open the companion]({{ '/regression-modeling-with-r/' | relative_url }})
+[Private GitHub repository — authorized access required](https://github.com/byuzbasi/regression-modeling-with-r)
 
 ## R Programming and Package Development — companion code
 
 Chapter-by-chapter R, C++ and Fortran examples for the Turkish textbook by
-**Prof. Dr. Bahadır Yüzbaşı** are available with prerequisites and run commands.
-The book edition remains in preparation; these are versioned code resources.
+**Prof. Dr. Bahadır Yüzbaşı** are stored with prerequisites and run commands in a private GitHub repository.
+The book edition remains in preparation; repository access requires authorization.
 
-[Browse the 32 chapters and download the complete code archive →](/r-programlama/)
+[Private GitHub repository — authorized access required](https://github.com/byuzbasi/r-programlama)

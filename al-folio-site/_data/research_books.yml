@@ -7,20 +7,21 @@
   subtitle_en: From Coordinates to Quadric Surfaces
   author: Prof. Dr. Zühal Küçükarslan Yüzbaşı ve Prof. Dr. Bahadır Yüzbaşı
   language: tr
-  description: Teori, geometrik sezgi, çözümlü örnekler ve Python uygulamalarını birleştiren 24 bölümlük kitap. Bölüm bazlı Python eşlikçisi, laboratuvarlar ve çalıştırma rehberi burada sunulur; kitap PDF'si bu bağlantı kapsamında değildir.
-  description_en: A 24-chapter textbook connecting theory, geometric intuition, worked examples and Python. The linked companion provides chapter laboratories, code and execution instructions; it does not include the book PDF.
+  description: Teori ve Python uygulamalarıyla 24 bölümlük kitap. Bölüm kodları ayrı özel GitHub deposundadır; erişim yetki gerektirir.
+  description_en: A 24-chapter book combining theory and Python applications. Chapter code is held in a separate private GitHub repository; authorized access is required.
   technologies: [Python, NumPy, SciPy, SymPy]
   chapters: 24
   version: v1.0
   audience: Lisans öğrencileri ve eğitmenler
   audience_en: Undergraduate students and instructors
   topics: [analytic-geometry, computational-geometry]
-  status: Python eşlikçisi · Kitap yayına hazırlanıyor
-  status_en: Python companion · Book in preparation
-  source_url: /analitik-geometri/
+  status: Kodlar özel depoda · Kitap yayına hazırlanıyor
+  status_en: Code in private repository · Book in preparation
+  source_url: https://github.com/byuzbasi/analitik-geometri
+  source_private: true
   published: true
   verified_links:
-    source_url: '2026-09-27'
+    source_url: '2026-09-28'
   related_projects: []
 
 - id: belirsizligi-okumak
@@ -75,20 +76,21 @@
   subtitle_en: Theory, Examples, Applications and Code
   author: Prof. Dr. Bahadır Yüzbaşı
   language: tr
-  description: Mühendislikte olasılık ve istatistik için 22 bölümün Python ve R uygulamaları, varsayım kontrolleri ve çalıştırma rehberi. Bu eşlikçi kitap PDF'sini ve öğretim elemanı çözümlerini içermez.
-  description_en: Python and R laboratories, assumption checks and execution instructions for 22 chapters. This companion does not include the book PDF or instructor solutions.
+  description: Mühendislikte olasılık ve istatistik için 22 bölümün Python ve R uygulamaları ayrı özel GitHub deposundadır; erişim yetki gerektirir.
+  description_en: Python and R applications for 22 chapters are held in a separate private GitHub repository; authorized access is required.
   technologies: [Python, R, Quarto]
   chapters: 22
   version: v1.1
   audience: Mühendislik öğrencileri
   audience_en: Engineering students
   topics: [probability, engineering, reliability]
-  status: Python ve R uygulamaları · Kitap yayına hazırlanıyor
-  status_en: Python and R companion · Book in preparation
-  source_url: /books/muhendisler-istatistik-olasilik/
+  status: Kodlar özel depoda · Kitap yayına hazırlanıyor
+  status_en: Code in private repository · Book in preparation
+  source_url: https://github.com/byuzbasi/muhendisler-istatistik-olasilik
+  source_private: true
   published: true
   verified_links:
-    source_url: '2026-09-27'
+    source_url: '2026-09-28'
   related_projects: []
 
 - id: ekonometri
