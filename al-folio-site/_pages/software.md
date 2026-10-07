@@ -13,7 +13,7 @@ Araştırma yazılımım; istatistiksel yöntemi, açık kaynak kodu ve yeniden 
 
 ## R paketleri
 
-Bu katalog tüm paketleri bir araya getirir. Her paketin kurulum bilgileri, başlangıç rehberi, çalıştırılabilir örnekleri ve fonksiyon başvurusu kendi dokümantasyon sitesinde yer alır. Henüz yayımlanmamış siteler aşağıda ayrıca belirtilmiştir.
+Kurulum, kullanım örnekleri ve fonksiyon belgeleri için **Paket sitesi**; ilk uygulamanız için **Başlangıç rehberi** bağlantısını kullanabilirsiniz. Dokümantasyonu yayında olan paketler ilk sırada yer alır. **GitHub deposu** bağlantısı kaynak koda ulaşmanızı sağlar.
 
 {% include package-catalog.liquid %}
 

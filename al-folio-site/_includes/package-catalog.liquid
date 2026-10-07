@@ -1,20 +1,36 @@
 {% assign catalog_lang = page.lang | default: 'tr' %}
+{% assign published_packages = site.data.research_packages | where_exp: 'package', 'package.docs.published == true' %}
+{% assign upcoming_packages = site.data.research_packages | where_exp: 'package', 'package.docs.published != true' %}
+{% assign catalog_packages = published_packages | concat: upcoming_packages %}
 <div class="package-catalog">
-  {% for package in site.data.research_packages %}
+  {% for package in catalog_packages %}
     <article id="{{ package.id | escape }}" class="package-card" aria-labelledby="package-{{ package.id | escape }}">
-      <h3 id="package-{{ package.id | escape }}">{{ package.name | escape }}</h3>
+      <h3 id="package-{{ package.id | escape }}">
+        {% if package.docs.published and package.verified_links.docs %}
+          <a href="{{ package.docs.path | absolute_url }}">{{ package.name | escape }} <span aria-hidden="true">↗</span></a>
+        {% elsif package.source_url and package.verified_links.source_url %}
+          <a href="{{ package.source_url | escape }}">{{ package.name | escape }} <span aria-hidden="true">↗</span></a>
+        {% else %}
+          {{ package.name | escape }}
+        {% endif %}
+      </h3>
       <p class="package-card__subtitle">{{ package.subtitle | escape }}</p>
       <p>{{ package.description[catalog_lang] | escape }}</p>
       <p class="package-card__meta">{{ package.technologies | escape }}</p>
       <div class="package-card__links">
         {% if package.docs.published and package.verified_links.docs %}
-          <a class="package-card__link" href="{{ package.docs.path | absolute_url }}">
-            {% if catalog_lang == 'en' %}Documentation &amp; vignettes{% else %}Dokümantasyon ve vignettes{% endif %}
+          <a class="package-card__link package-card__link--primary" href="{{ package.docs.path | absolute_url }}">
+            {% if catalog_lang == 'en' %}Package website{% else %}Paket sitesi{% endif %} <span aria-hidden="true">↗</span>
           </a>
+          {% if package.docs.guide_path and package.verified_links.guide %}
+            <a class="package-card__link" href="{{ package.docs.guide_path | absolute_url }}">
+              {% if catalog_lang == 'en' %}Get started{% else %}Başlangıç rehberi{% endif %}
+            </a>
+          {% endif %}
         {% endif %}
         {% if package.source_url and package.verified_links.source_url %}
           <a class="package-card__link" href="{{ package.source_url | escape }}">
-            {% if catalog_lang == 'en' %}Source code{% else %}Kaynak kod{% endif %}
+            {% if catalog_lang == 'en' %}GitHub repository{% else %}GitHub deposu{% endif %}
           </a>
         {% endif %}
         {% if package.reference_url and package.verified_links.reference_url %}

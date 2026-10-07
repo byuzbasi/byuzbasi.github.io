@@ -20,13 +20,15 @@
 - id: sglasso
   related_projects: []
   verified_links:
-    source_url: '2026-09-20'
+    source_url: '2026-10-07'
+    docs: '2026-10-07'
+    guide: '2026-10-07'
     article_url: '2026-09-20'
   name: sglasso
   subtitle: Scaled Group Lasso
   description:
-    tr: Yüksek boyutlu verilerde küçültme ve cezalı kestirim araştırmaları için geliştirilen R paketi. Hesaplama çekirdeğinde C++ ve RcppArmadillo kullanılır.
-    en: An R package for shrinkage and penalized estimation research in high-dimensional data. Its computational core uses C++ and RcppArmadillo.
+    tr: Gruplar arası çoklu doğrusal bağlantı altında ölçeklendirilmiş grup lasso ile değişken seçimi. Gaussian ve binomial yanıtlar, düzenlileştirme yolları ve çapraz doğrulama sunar; binomial modellerde ön işleme her eğitim katında ayrı yürütülür.
+    en: Scaled group lasso for variable selection with groupwise collinearity. Supports Gaussian and binomial responses, regularization paths and cross-validation, with fold-local preprocessing for binomial models.
   technologies: R · C++ · RcppArmadillo
   source_url: https://github.com/byuzbasi/sglasso
   article:
@@ -34,15 +36,37 @@
     url: https://doi.org/10.1080/00031305.2026.2709494
   docs:
     path: /sglasso/
-    published: false
+    guide_path: /sglasso/articles/getting-started.html
+    published: true
     status:
-      tr: Bağımsız dokümantasyon sitesi planlanıyor
-      en: Dedicated documentation site planned
+      tr: Dokümantasyon ve örnekler yayında
+      en: Documentation and examples available
+
+- id: lambertReg
+  related_projects: []
+  verified_links:
+    source_url: '2026-10-07'
+    docs: '2026-10-07'
+    guide: '2026-10-07'
+  name: lambertReg
+  subtitle: Sparse Gaussian Regression with the Lambert Penalty
+  description:
+    tr: Lambert cezasıyla seyrek Gaussian regresyon için R paketi. Sabit ceza şekli altında düzenlileştirme yolları, yalnızca eğitim verisiyle çapraz doğrulama, özgün ölçekte tahminler ve sayısal tanılar sunar.
+    en: Sparse Gaussian regression with the Lambert penalty. Provides regularization paths with a fixed penalty shape, training-only cross-validation, original-scale predictions and numerical diagnostics.
+  technologies: R · C++ · Rcpp
+  source_url: https://github.com/byuzbasi/lambertReg
+  docs:
+    path: /lambertReg/
+    guide_path: /lambertReg/articles/introduction.html
+    published: true
+    status:
+      tr: Dokümantasyon ve örnekler yayında
+      en: Documentation and examples available
 
 - id: rbridge
   related_projects: []
   verified_links:
-    source_url: '2026-09-20'
+    source_url: '2026-10-07'
     article_url: '2026-09-20'
   name: rbridge
   subtitle: Restricted Bridge Estimation
@@ -65,7 +89,8 @@
 
 - id: LHWL
   related_projects: []
-  verified_links: {}
+  verified_links:
+    source_url: '2026-10-07'
   name: LHWL
   subtitle: Lorentz Hyperbolic Weighted Learning
   description:
@@ -83,7 +108,7 @@
 - id: HDMaxShrink
   related_projects: []
   verified_links:
-    source_url: '2026-09-20'
+    source_url: '2026-10-07'
   name: HDMaxShrink
   subtitle: Test-Guided Shrinkage for High-Dimensional Linear Models
   description:
@@ -101,7 +126,7 @@
 - id: BernoulliRuns
   related_projects: []
   verified_links:
-    source_url: '2026-09-20'
+    source_url: '2026-10-07'
   name: BernoulliRuns
   subtitle: Exact Run-Count Distributions for Independent Bernoulli Trials
   description:

@@ -13,7 +13,7 @@ My research software connects statistical methodology, open-source implementatio
 
 ## R packages
 
-This catalogue brings the packages together. Each package has its own documentation site for installation, getting started, executable examples and the function reference. Sites that are not yet published are explicitly marked below.
+Choose **Package website** for installation, examples and function documentation, or **Get started** for your first application. Packages with published documentation appear first. Use **GitHub repository** to access the source code.
 
 {% include package-catalog.liquid %}
 

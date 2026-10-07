@@ -21,4 +21,18 @@
       </a>
     {% endif %}
   </div>
+  {% capture package_shortcuts %}
+    {% for package in site.data.research_packages %}
+      {% if package.docs.published and package.verified_links.docs %}
+        <a class="package-card__link" href="{{ package.docs.path | absolute_url }}">{{ package.name | escape }} <span aria-hidden="true">↗</span></a>
+      {% endif %}
+    {% endfor %}
+  {% endcapture %}
+  {% assign package_shortcuts = package_shortcuts | strip %}
+  {% if package_shortcuts != '' %}
+    <div class="research-library__packages">
+      <span>{% if library_lang == 'en' %}Package websites{% else %}Paket siteleri{% endif %}</span>
+      {{ package_shortcuts }}
+    </div>
+  {% endif %}
 </section>
