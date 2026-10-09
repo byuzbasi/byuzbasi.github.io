@@ -87,6 +87,23 @@
       tr: Bağımsız dokümantasyon sitesi planlanıyor
       en: Dedicated documentation site planned
 
+- id: penGWBR
+  related_projects: []
+  verified_links: {}
+  name: penGWBR
+  subtitle: Penalized Geographically Weighted Beta Regression
+  description:
+    tr: Oran yanıtları için coğrafi ağırlıklı beta regresyon, LASSO ve adaptive LASSO ile yerel değişken seçimi. Mekânsal çapraz doğrulama, katsayı haritaları ve tanılar sunar. Kaynak deposu özeldir; erişim yazar tarafından düzenlenir.
+    en: Geographically weighted beta regression for proportion responses, with LASSO and adaptive LASSO local variable selection. Includes spatial cross-validation, coefficient maps and diagnostics. The source repository is private; access is arranged with the author.
+  technologies: R · C++ · RcppArmadillo
+  citation: 'Yuzbasi, B. (2026). penGWBR: Penalized Geographically Weighted Beta Regression. R package source version 1.4.1.'
+  docs:
+    path: /penGWBR/
+    published: false
+    status:
+      tr: Yerel dokümantasyon hazır; kaynak deposu özel
+      en: Local documentation is ready; source repository is private
+
 - id: LHWL
   related_projects: []
   verified_links:
