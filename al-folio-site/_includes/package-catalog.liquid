@@ -17,6 +17,15 @@
       <p class="package-card__subtitle">{{ package.subtitle | escape }}</p>
       <p>{{ package.description[catalog_lang] | escape }}</p>
       <p class="package-card__meta">{{ package.technologies | escape }}</p>
+      {% if package.cran_url and package.verified_links.cran_url %}
+        <p class="package-card__meta">
+          <strong>CRAN{% if package.cran_version %} · {{ package.cran_version | escape }}{% endif %}</strong>
+          {% if package.cran_published_at %}
+            · {% if catalog_lang == 'en' %}Published{% else %}Yayımlanma{% endif %}
+            <time datetime="{{ package.cran_published_at | escape }}">{% if catalog_lang == 'en' %}{{ package.cran_published_at | date: '%b %d, %Y' }}{% else %}{{ package.cran_published_at | date: '%d.%m.%Y' }}{% endif %}</time>
+          {% endif %}
+        </p>
+      {% endif %}
       <div class="package-card__links">
         {% if package.docs.published and package.verified_links.docs %}
           <a class="package-card__link package-card__link--primary" href="{{ package.docs.path | absolute_url }}">
@@ -38,7 +47,14 @@
             {% if catalog_lang == 'en' %}CRAN reference manual{% else %}CRAN başvuru kılavuzu{% endif %}
           </a>
         {% endif %}
+        {% if package.cran_url and package.verified_links.cran_url %}
+          <a class="package-card__link" href="{{ package.cran_url | escape }}">CRAN</a>
+        {% endif %}
       </div>
+      {% if package.cran_url and package.verified_links.cran_url and package.install_command %}
+        <p class="package-card__meta mt-3 mb-1">{% if catalog_lang == 'en' %}Install from CRAN:{% else %}CRAN’dan kurulum:{% endif %}</p>
+        <pre><code class="language-r">{{ package.install_command | escape }}</code></pre>
+      {% endif %}
       {% unless package.docs.published %}
         <p class="package-card__status">{{ package.docs.status[catalog_lang] | escape }}.</p>
       {% endunless %}

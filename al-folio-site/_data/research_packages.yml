@@ -67,25 +67,33 @@
   related_projects: []
   verified_links:
     source_url: '2026-10-07'
+    cran_url: '2026-10-13'
+    reference_url: '2026-10-13'
+    docs: '2026-10-13'
+    guide: '2026-10-13'
     article_url: '2026-09-20'
   name: rbridge
   subtitle: Restricted Bridge Estimation
   description:
-    tr: Doğrusal kısıtlar altında restricted bridge kestirimi için R paketi.
-    en: An R package for restricted bridge estimation under linear constraints.
+    tr: Doğrusal katsayı kısıtları altında bridge regresyonu için R paketi. Kısıtlı ve kısıtsız doğrusal modellerde katsayı yolları, çapraz doğrulama, tahmin ve katsayı çıkarımı sunar; hesaplamalar RcppArmadillo ile yürütülür.
+    en: Bridge regression with linear coefficient restrictions. Provides coefficient paths, cross-validation, prediction and coefficient extraction for restricted and unrestricted linear models, with computation through RcppArmadillo.
   technologies: R · C++ · RcppArmadillo
   source_url: https://github.com/byuzbasi/rbridge
-  # This historical manual returned 404 on 2026-09-20; retained for maintenance, hidden in the catalogue.
+  cran_url: https://cran.r-project.org/package=rbridge
+  cran_version: '1.0.4'
+  cran_published_at: '2026-10-13'
+  install_command: 'install.packages("rbridge")'
   reference_url: https://cran.r-project.org/web/packages/rbridge/rbridge.pdf
   article:
     title: Penalized Regression via the Restricted Bridge Estimator
     url: https://doi.org/10.1007/s00500-021-05763-9
   docs:
     path: /rbridge/
-    published: false
+    guide_path: /rbridge/articles/getting-started.html
+    published: true
     status:
-      tr: Bağımsız dokümantasyon sitesi planlanıyor
-      en: Dedicated documentation site planned
+      tr: CRAN paketi, dokümantasyon ve örnekler yayında
+      en: CRAN package, documentation and examples available
 
 - id: penGWBR
   related_projects: []
