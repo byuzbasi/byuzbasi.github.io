@@ -1,21 +1,46 @@
 # One catalogue feeds /software/ and /en/software/.
-# Each package owns a separate documentation site at /<package>/.
+# R packages are the default ecosystem; Python software is marked explicitly.
+# Independent documentation sites are linked only when publicly available.
 # Enable docs.published only after that documentation site is publicly available.
 - id: gwrs
   related_projects: []
-  verified_links: {}
+  verified_links:
+    source_url: '2026-10-17'
+    docs: '2026-10-17'
+    guide: '2026-10-17'
   name: gwrs
   subtitle: Fast Geographically Weighted Regression and Selection
   description:
-    tr: Coğrafi ağırlıklı regresyon, cezalı tahmin ve yerel değişken seçimi için R paketi. Model kurma, çapraz doğrulama, tanılar ve haritalar aynı iş akışında sunulur.
-    en: An R package for geographically weighted regression, penalized estimation and local variable selection. Fitting, cross-validation, diagnostics and maps share one workflow.
+    tr: Coğrafi ağırlıklı regresyonda değişken alt kümesi, çekirdek ve bant genişliğinin ortak seçimi; Ridge, Lasso, Elastic Net, SCAD ve MCP ile yerel düzenlileştirme. Mekânsal çapraz doğrulama ve yeni konumlarda tahmin sunar.
+    en: Joint selection of predictor subsets, kernels and bandwidths in geographically weighted regression, with local Ridge, Lasso, Elastic Net, SCAD and MCP regularization. Includes spatial cross-validation and prediction at new locations.
   technologies: R · C++ · RcppArmadillo · RcppParallel
+  source_url: https://github.com/byuzbasi/gwrs
+  source_version: '0.4.0.9015'
   docs:
     path: /gwrs/
+    guide_path: /gwrs/articles/gwrs-introduction.html
+    published: true
+    status:
+      tr: Dokümantasyon ve örnekler yayında
+      en: Documentation and examples available
+
+- id: AdaReFun
+  related_projects: []
+  verified_links:
+    source_url: '2026-10-17'
+  name: AdaReFun
+  subtitle: Adaptive Regional Functional Regression
+  description:
+    tr: Fonksiyonel açıklayıcılardan skaler yanıtı modelleyen regresyonda adaptif bölgesel seyreklik. MCP ve SCAD cezalarıyla tek ve çok çözünürlüklü bölgesel kestirim, bağımsız doğrulama örneklemiyle model seçimi ve sabit çözünürlüklü fMCP/fSCAD yöntemleri sunar.
+    en: Adaptive regional sparsity for scalar-on-function regression. Provides single- and multi-resolution regional estimation with MCP and SCAD penalties, model selection using an independent validation sample, and fixed-resolution fMCP/fSCAD estimators.
+  technologies: R · C++17 · RcppArmadillo
+  source_url: https://github.com/byuzbasi/AdaReFun
+  source_version: '0.1.2'
+  docs:
     published: false
     status:
-      tr: Dokümantasyon yayına hazırlanıyor
-      en: Documentation being prepared for publication
+      tr: Kaynak kod, kullanım ve yeniden üretim rehberleri GitHub’da
+      en: Source code, usage and reproduction guides available on GitHub
 
 - id: sglasso
   related_projects: []
@@ -165,3 +190,21 @@
     status:
       tr: Bağımsız dokümantasyon sitesi planlanıyor
       en: Dedicated documentation site planned
+
+- id: ShapeAdaptiveEN
+  ecosystem: python
+  related_projects: []
+  verified_links:
+    source_url: '2026-10-17'
+  name: ShapeAdaptiveEN
+  subtitle: Shape-Adaptive Robust Regression
+  description:
+    tr: Çarpıklık ve ağır kuyruklar altında şekle uyarlanan elastic net (SA-EN) kestirimi için Python yazılımı. ShapeAdaptiveEN ve ShapePenalizedEN sınıfları, fit/predict arayüzleri, tanı araçları ve küçük bir kullanım örneği sunar.
+    en: Python software for shape-adaptive elastic net (SA-EN) estimation under skewness and heavy tails. Provides ShapeAdaptiveEN and ShapePenalizedEN classes, fit/predict interfaces, diagnostic tools and a small usage example.
+  technologies: Python 3.13
+  source_url: https://github.com/byuzbasi/shape-adaptive-robust-regression
+  docs:
+    published: false
+    status:
+      tr: GitHub’dan kurulabilir; kurulum ve kullanım örneği README’de
+      en: Installable from GitHub; installation and usage example in the README

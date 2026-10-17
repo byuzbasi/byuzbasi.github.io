@@ -1,8 +1,14 @@
 {% assign catalog_lang = page.lang | default: 'tr' %}
-{% assign published_packages = site.data.research_packages | where_exp: 'package', 'package.docs.published == true' %}
-{% assign upcoming_packages = site.data.research_packages | where_exp: 'package', 'package.docs.published != true' %}
+{% assign catalog_ecosystem = include.ecosystem | default: 'r' %}
+{% if catalog_ecosystem == 'python' %}
+  {% assign ecosystem_packages = site.data.research_packages | where: 'ecosystem', 'python' %}
+{% else %}
+  {% assign ecosystem_packages = site.data.research_packages | where_exp: 'package', 'package.ecosystem != "python"' %}
+{% endif %}
+{% assign published_packages = ecosystem_packages | where_exp: 'package', 'package.docs.published == true' %}
+{% assign upcoming_packages = ecosystem_packages | where_exp: 'package', 'package.docs.published != true' %}
 {% assign catalog_packages = published_packages | concat: upcoming_packages %}
-<div class="package-catalog">
+<div class="package-catalog" data-ecosystem="{{ catalog_ecosystem | escape }}">
   {% for package in catalog_packages %}
     <article id="{{ package.id | escape }}" class="package-card" aria-labelledby="package-{{ package.id | escape }}">
       <h3 id="package-{{ package.id | escape }}">
@@ -17,6 +23,9 @@
       <p class="package-card__subtitle">{{ package.subtitle | escape }}</p>
       <p>{{ package.description[catalog_lang] | escape }}</p>
       <p class="package-card__meta">{{ package.technologies | escape }}</p>
+      {% if package.source_version and package.source_url and package.verified_links.source_url %}
+        <p class="package-card__meta">{% if catalog_lang == 'en' %}GitHub source version{% else %}GitHub kaynak sürümü{% endif %} · {{ package.source_version | escape }}</p>
+      {% endif %}
       {% if package.cran_url and package.verified_links.cran_url %}
         <p class="package-card__meta">
           <strong>CRAN{% if package.cran_version %} · {{ package.cran_version | escape }}{% endif %}</strong>

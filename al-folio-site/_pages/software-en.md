@@ -15,13 +15,19 @@ My research software connects statistical methodology, open-source implementatio
 
 Choose **Package website** for installation, examples and function documentation, or **Get started** for your first application. Packages with published documentation appear first. Use **GitHub repository** to access the source code.
 
-{% include package-catalog.liquid %}
+{% include package-catalog.liquid ecosystem='r' %}
+
+## Python packages
+
+My Python research packages for robust regression and statistical learning. Installation requirements and usage examples are available in each **GitHub repository**.
+
+{% include package-catalog.liquid ecosystem='python' %}
 
 ## Research workflow
 
 | Area | Use |
 | --- | --- |
 | **R** | Statistical modelling, simulation, package development and visualisation |
-| **Python** | Data preparation, machine-learning workflows and reproducible analysis |
+| **Python** | Package development, robust regression, machine learning and reproducible analysis |
 | **C++ / RcppArmadillo** | Computationally intensive methods and performance-critical components in R packages |
 | **SPSS** | Applied data analysis in the social sciences |
