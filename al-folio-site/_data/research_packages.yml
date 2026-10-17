@@ -27,6 +27,8 @@
 - id: AdaReFun
   related_projects: []
   verified_links:
+    docs: '2026-10-17'
+    guide: '2026-10-17'
     source_url: '2026-10-17'
   name: AdaReFun
   subtitle: Adaptive Regional Functional Regression
@@ -37,10 +39,12 @@
   source_url: https://github.com/byuzbasi/AdaReFun
   source_version: '0.1.2'
   docs:
-    published: false
+    path: /AdaReFun/
+    guide_path: /AdaReFun/articles/getting-started.html
+    published: true
     status:
-      tr: Kaynak kod, kullanım ve yeniden üretim rehberleri GitHub’da
-      en: Source code, usage and reproduction guides available on GitHub
+      tr: Dokümantasyon ve örnekler yayında
+      en: Documentation and examples available
 
 - id: sglasso
   related_projects: []
@@ -140,6 +144,8 @@
 - id: LHWL
   related_projects: []
   verified_links:
+    docs: '2026-10-17'
+    guide: '2026-10-17'
     source_url: '2026-10-07'
   name: LHWL
   subtitle: Lorentz Hyperbolic Weighted Learning
@@ -148,16 +154,20 @@
     en: Local regression and penalized learning using Lorentz hyperbolic representations. Includes Gaussian and binomial models, tuning, diagnostics and coefficient maps; representations need not be geographic.
   technologies: R · C++ · RcppArmadillo
   source_url: https://github.com/byuzbasi/LHWL
+  source_version: '0.3.1'
   docs:
     path: /LHWL/
-    published: false
+    guide_path: /LHWL/articles/lorentz-hgwr-introduction.html
+    published: true
     status:
-      tr: Yerel dokümantasyon hazır; çevrim içi yayın bekliyor
-      en: Local documentation is ready and awaiting publication
+      tr: Dokümantasyon ve örnekler yayında
+      en: Documentation and examples available
 
 - id: HDMaxShrink
   related_projects: []
   verified_links:
+    docs: '2026-10-17'
+    guide: '2026-10-17'
     source_url: '2026-10-07'
   name: HDMaxShrink
   subtitle: Test-Guided Shrinkage for High-Dimensional Linear Models
@@ -166,16 +176,20 @@
     en: Test-guided shrinkage estimators for linear models, including settings with more predictors than observations. Combines maximum-statistic calibration with high-dimensional computational tools.
   technologies: R · C++ · RcppArmadillo
   source_url: https://github.com/byuzbasi/HDMaxShrink
+  source_version: '0.6.2'
   docs:
     path: /HDMaxShrink/
-    published: false
+    guide_path: /HDMaxShrink/articles/getting-started.html
+    published: true
     status:
-      tr: Bağımsız dokümantasyon sitesi planlanıyor
-      en: Dedicated documentation site planned
+      tr: Dokümantasyon ve örnekler yayında
+      en: Documentation and examples available
 
 - id: BernoulliRuns
   related_projects: []
   verified_links:
+    docs: '2026-10-17'
+    guide: '2026-10-17'
     source_url: '2026-10-07'
   name: BernoulliRuns
   subtitle: Exact Run-Count Distributions for Independent Bernoulli Trials
@@ -184,17 +198,21 @@
     en: Computes exact distributions of the total run count for independent Bernoulli trials with possibly different success probabilities. Provides probability masses, cumulative probabilities, expectations and one-sided tails.
   technologies: R
   source_url: https://github.com/byuzbasi/BernoulliRuns
+  source_version: '0.1.0'
   docs:
     path: /BernoulliRuns/
-    published: false
+    guide_path: /BernoulliRuns/articles/exact-run-count-distribution.html
+    published: true
     status:
-      tr: Bağımsız dokümantasyon sitesi planlanıyor
-      en: Dedicated documentation site planned
+      tr: Dokümantasyon ve örnekler yayında
+      en: Documentation and examples available
 
 - id: ShapeAdaptiveEN
   ecosystem: python
   related_projects: []
   verified_links:
+    docs: '2026-10-17'
+    guide: '2026-10-17'
     source_url: '2026-10-17'
   name: ShapeAdaptiveEN
   subtitle: Shape-Adaptive Robust Regression
@@ -203,8 +221,11 @@
     en: Python software for shape-adaptive elastic net (SA-EN) estimation under skewness and heavy tails. Provides ShapeAdaptiveEN and ShapePenalizedEN classes, fit/predict interfaces, diagnostic tools and a small usage example.
   technologies: Python 3.13
   source_url: https://github.com/byuzbasi/shape-adaptive-robust-regression
+  source_version: '0.1.0'
   docs:
-    published: false
+    path: /shape-adaptive-robust-regression/
+    guide_path: /shape-adaptive-robust-regression/getting-started/
+    published: true
     status:
-      tr: GitHub’dan kurulabilir; kurulum ve kullanım örneği README’de
-      en: Installable from GitHub; installation and usage example in the README
+      tr: Dokümantasyon ve örnekler yayında
+      en: Documentation and examples available
