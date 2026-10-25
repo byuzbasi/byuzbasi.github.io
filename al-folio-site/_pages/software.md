@@ -9,17 +9,17 @@ lang: tr
 translation_key: software
 ---
 
-Araştırma yazılımım; istatistiksel yöntemi, açık kaynak kodu ve yeniden üretilebilir uygulamayı birlikte ele alır. R paketlerinde C++ ve RcppArmadillo kullanarak hesaplama performansını destekliyorum; Python’ı veri işleme, makine öğrenmesi ve araştırma iş akışlarında kullanıyorum.
+İstatistiksel modelleme ve hesaplama için geliştirdiğim R ve Python yazılımları. R paketlerinde C++ ve RcppArmadillo; veri işleme, makine öğrenmesi ve yeniden üretilebilir araştırma iş akışlarında Python kullanıyorum.
 
 ## R paketleri
 
-Kurulum, kullanım örnekleri ve fonksiyon belgeleri için **Paket sitesi**; ilk uygulamanız için **Başlangıç rehberi** bağlantısını kullanabilirsiniz. Dokümantasyonu yayında olan paketler ilk sırada yer alır. **GitHub deposu** bağlantısı kaynak koda ulaşmanızı sağlar.
+Yüksek boyutlu regresyon, mekânsal ve fonksiyonel veri analizi, küçültme yöntemleri ve doz–yanıt modelleri.
 
 {% include package-catalog.liquid ecosystem='r' %}
 
 ## Python paketleri
 
-Sağlam regresyon ve istatistiksel öğrenme için geliştirdiğim Python paketleri. Kurulum gereksinimleri ve kullanım örnekleri ilgili **GitHub deposunda** bulunur.
+Çarpıklık ve ağır kuyruklar altında sağlam regresyon ve istatistiksel öğrenme.
 
 {% include package-catalog.liquid ecosystem='python' %}
 

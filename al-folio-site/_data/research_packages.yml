@@ -2,6 +2,75 @@
 # R packages are the default ecosystem; Python software is marked explicitly.
 # Independent documentation sites are linked only when publicly available.
 # Enable docs.published only after that documentation site is publicly available.
+- id: softridge
+  related_projects: []
+  verified_links:
+    source_url: '2026-10-25'
+    docs: '2026-10-25'
+    guide: '2026-10-25'
+  name: softridge
+  subtitle: Soft-Thresholded Ridge Estimation
+  description:
+    tr: Yüksek boyutlu doğrusal regresyonda yumuşak eşiklemeli ridge kestirimi. Sabit ayarlı Gauss modellerinde kestirilebilir izdüşüm için katsayı riskini ve tahmin için SURE değerini hesaplar; çapraz doğrulama ve en küçük karelerle yeniden uyum araçları sunar.
+    en: Soft-thresholded ridge estimation for high-dimensional linear regression. Computes fixed-tuning Gaussian coefficient risk for the estimable projection and prediction SURE, with cross-validation and least-squares refitting.
+  technologies: R · C++17 · RcppArmadillo
+  source_url: https://github.com/byuzbasi/softridge
+  source_version: '0.3.0.1'
+  citation: 'Arashi, M. and Yuzbasi, B. (2026). softridge: High-Dimensional Ridge Shrinkage and Selection by Soft Thresholding. R package version 0.3.0.1.'
+  docs:
+    path: /softridge/
+    guide_path: /softridge/articles/getting-started.html
+    published: true
+    status:
+      tr: Dokümantasyon, örnekler ve yeniden üretim rehberleri yayında
+      en: Documentation, examples and reproduction guides available
+
+- id: scaleCorrection
+  related_projects: []
+  verified_links:
+    source_url: '2026-10-25'
+    docs: '2026-10-25'
+    guide: '2026-10-25'
+  name: scaleCorrection
+  subtitle: Optimism-Corrected Ridge Scaling
+  description:
+    tr: softridge için eşlikçi araştırma paketi. Yumuşak eşikleme sonrasında iyimserlik düzeltmeli ölçeklendirme uygular; SSTR ve eşleştirilmiş Ridge-c0 yöntemlerini ortak bir çapraz doğrulama yüzeyinde karşılaştırır. Düzeltmenin başarımı ampirik olarak değerlendirilir.
+    en: A research companion to softridge. Applies optimism-corrected scaling after soft thresholding and tunes SSTR alongside a matched Ridge-c0 control on a shared cross-validation surface. The correction is evaluated empirically.
+  technologies: R · C++17 · RcppArmadillo
+  source_url: https://github.com/byuzbasi/softridge/tree/main/companion/scaleCorrection
+  source_version: '0.1.0'
+  citation: 'Arashi, M. and Yuzbasi, B. (2026). scaleCorrection: Research Companion for Optimism-Corrected Ridge Scaling. R package version 0.1.0.'
+  docs:
+    path: /softridge/scaleCorrection/
+    guide_path: /softridge/articles/scaling.html
+    published: true
+    status:
+      tr: Eşlikçi paket dokümantasyonu ve ölçeklendirme rehberi yayında
+      en: Companion documentation and scaling guide available
+
+- id: emaxProjection
+  related_projects: []
+  verified_links:
+    source_url: '2026-10-25'
+    docs: '2026-10-25'
+    guide: '2026-10-25'
+  name: emaxProjection
+  subtitle: Confidence-Region Projection for Integrated Emax Responses
+  description:
+    tr: Belirtilen bir doz ekseninde bütünleşik Emax yanıtı için güven bölgesi izdüşümü. Düz, doğrusal ve anlık doyum sınırlarını kapsar; dış aralıkları, uygulanabilir çözümleri, uç nokta açıklıklarını ve hesaplamanın sonlanma durumunu raporlar.
+    en: Confidence-region projection for an integrated Emax response on a specified dose axis. Includes flat, linear and immediate-saturation limits, and reports outer intervals, feasible witnesses, endpoint gaps and termination status.
+  technologies: R · C++17 · RcppArmadillo
+  source_url: https://github.com/byuzbasi/emaxProjection
+  source_version: '0.1.0'
+  citation: 'Yüzbaşı, B. (2026). emaxProjection: Confidence-Region Projection for Integrated Emax Responses. R package version 0.1.0.'
+  docs:
+    path: /emaxProjection/
+    guide_path: /emaxProjection/articles/getting-started.html
+    published: true
+    status:
+      tr: Dokümantasyon, örnek galerisi ve yeniden üretim rehberi yayında
+      en: Documentation, example gallery and reproduction guide available
+
 - id: gwrs
   related_projects: []
   verified_links:
@@ -60,6 +129,7 @@
     en: Scaled group lasso for variable selection with groupwise collinearity. Supports Gaussian and binomial responses, regularization paths and cross-validation, with fold-local preprocessing for binomial models.
   technologies: R · C++ · RcppArmadillo
   source_url: https://github.com/byuzbasi/sglasso
+  source_version: '1.2.0'
   article:
     title: Collinear Groupwise Selection via Scaled Group Lasso
     url: https://doi.org/10.1080/00031305.2026.2709494
@@ -84,6 +154,7 @@
     en: Sparse Gaussian regression with the Lambert penalty. Provides regularization paths with a fixed penalty shape, training-only cross-validation, original-scale predictions and numerical diagnostics.
   technologies: R · C++ · Rcpp
   source_url: https://github.com/byuzbasi/lambertReg
+  source_version: '0.1.11'
   docs:
     path: /lambertReg/
     guide_path: /lambertReg/articles/introduction.html

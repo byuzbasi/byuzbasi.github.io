@@ -9,17 +9,17 @@ lang: en
 translation_key: software
 ---
 
-My research software connects statistical methodology, open-source implementation and reproducible applications. I use C++ and RcppArmadillo in R packages for computational performance, and Python for data processing, machine learning and reproducible research workflows.
+R and Python software I develop for statistical modelling and computation. I use C++ and RcppArmadillo in R packages, and Python for data processing, machine learning and reproducible research workflows.
 
 ## R packages
 
-Choose **Package website** for installation, examples and function documentation, or **Get started** for your first application. Packages with published documentation appear first. Use **GitHub repository** to access the source code.
+High-dimensional regression, spatial and functional data analysis, shrinkage methods and dose–response models.
 
 {% include package-catalog.liquid ecosystem='r' %}
 
 ## Python packages
 
-My Python research packages for robust regression and statistical learning. Installation requirements and usage examples are available in each **GitHub repository**.
+Robust regression and statistical learning under skewness and heavy tails.
 
 {% include package-catalog.liquid ecosystem='python' %}
 
