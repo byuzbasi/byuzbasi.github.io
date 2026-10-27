@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketplace transparency: data and code | Bahadır Yüzbaşı</title>
+<style>body{max-width:850px;margin:3rem auto;padding:0 1.3rem;font:17px/1.6 system-ui,sans-serif;color:#18323d;background:#fafbfc}h1{font-size:2rem;line-height:1.2}h2{font-size:1.25rem;margin-top:2rem}a{color:#145a7a}code,pre{font:14px/1.5 monospace}pre{padding:1rem;background:#eaf0f3;overflow:auto}.note{border-left:3px solid #b56a38;padding-left:1rem}.small{font-size:.9rem;color:#50636b}li{margin:.5rem 0}footer{border-top:1px solid #cbd6dc;margin-top:2rem;padding-top:1rem}</style></head>
+<body><a href="/">← Academic profile</a><p class="small">RESEARCH MATERIALS · VERSION 1 · 27 OCTOBER 2026</p>
+<h1>Product Tags and the Observability of Marketplace Enforcement</h1><p>Evidence from DSA Transparency Data<br>Bahadır Yüzbaşı and Serkan Benk</p>
+<p>Frozen analytical data and a single Python script for reproducing the descriptive results for Amazon, AliExpress, Temu, Shein and eBay, September–November 2025.</p>
+<h2>Downloads</h2><ul><li><a href="data-and-code-v1.zip" download>Complete data-and-code archive</a> — extract before running; includes the frozen data, exact support weights, reference tables, guide and run.py.</li>
+<li><a href="run.py" download>Analysis script: run.py</a></li><li><a href="Supplementary_Materials_Guide.pdf">Supplementary Materials Guide</a></li><li><a href="README.txt">Instructions and data provenance</a></li><li><a href="manifest.json">Download checksums</a></li></ul>
+<h2>Run</h2><p>Requires Python 3.9 or later, using only the standard library. Open a terminal in the extracted archive directory:</p><pre>python3 run.py --check
+python3 run.py</pre><p>Results are written to <code>results/tables</code> and checked against the nine reference CSVs. Existing results are protected against overwriting.</p>
+<h2>Scope</h2><p class="note">20,528 aggregation cells have a source-frequency total of 346,993,630 statements. This is not a count of independent people, sellers, products or enforcement incidents.</p>
+<p>The study reports descriptive rates and standardized differences. Content populations and pairwise support are explicitly distinguished. No causal effects, model estimates or hypothesis tests are claimed.</p>
+<h2>Original source</h2><p>European Commission, <a href="https://transparency.dsa.ec.europa.eu/explore-data/download">DSA Transparency Database</a>. The archive contains the selected analytical snapshot, not the complete monthly source exports. Source data remain subject to their provider’s reuse terms.</p>
+<footer><p>Correspondence: <a href="mailto:serkan.benk@inonu.edu.tr">Serkan Benk</a> · <a href="https://byuzbasi.github.io/">Bahadır Yüzbaşı</a></p></footer></body></html>

@@ -1,0 +1,22 @@
+{
+  "README.txt": {
+    "bytes": 2542,
+    "sha256": "54352c0643e32492d11ab8562c58a7c533286ad5c5ea6e10115952490bfc5c20"
+  },
+  "Supplementary_Materials_Guide.pdf": {
+    "bytes": 114039,
+    "sha256": "8afffb1b27782ba59692121e44e0280fe062f06e2f6ac5337ba21fad546ca672"
+  },
+  "data-and-code-v1.zip": {
+    "bytes": 3207135,
+    "sha256": "aa35af43f7af5b72f41ab7c5ef1f5f8aed962bb88ae8bd74faded12778c820fd"
+  },
+  "index.html": {
+    "bytes": 2868,
+    "sha256": "db2843c903816bdbe9b4ab647fd1be724818150fb4dde00a482e1e2f3f7fcbfb"
+  },
+  "run.py": {
+    "bytes": 12043,
+    "sha256": "d24e5bf69ff40cc161cb2a86e3c1d4d59733accecbf81f68a4f273c65e9e34ae"
+  }
+}
