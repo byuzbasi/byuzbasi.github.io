@@ -148,10 +148,6 @@ cv:
         end_date: 2016
 
     Yazılım ve teknik yetkinlikler:
-      - name: sglasso
-        summary: "R/C++ paketi. Kaynak makale: Yüzbaşı ve Cao (2026), Collinear Groupwise Selection via Scaled Group Lasso, The American Statistician. DOI: 10.1080/00031305.2026.2709494."
-      - name: rbridge
-        summary: Restricted bridge estimation için R paketi; C++ ve RcppArmadillo ile geliştirilmiştir.
       - name: Python
         summary: İstatistiksel hesaplama, makine öğrenmesi, veri hazırlama ve yeniden üretilebilir araştırma iş akışları.
       - name: SPSS

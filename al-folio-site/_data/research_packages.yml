@@ -204,6 +204,7 @@
     tr: Oran yanıtları için coğrafi ağırlıklı beta regresyon, LASSO ve adaptive LASSO ile yerel değişken seçimi. Mekânsal çapraz doğrulama, katsayı haritaları ve tanılar sunar. Kaynak deposu özeldir; erişim yazar tarafından düzenlenir.
     en: Geographically weighted beta regression for proportion responses, with LASSO and adaptive LASSO local variable selection. Includes spatial cross-validation, coefficient maps and diagnostics. The source repository is private; access is arranged with the author.
   technologies: R · C++ · RcppArmadillo
+  source_version: '1.4.1'
   citation: 'Yuzbasi, B. (2026). penGWBR: Penalized Geographically Weighted Beta Regression. R package source version 1.4.1.'
   docs:
     path: /penGWBR/

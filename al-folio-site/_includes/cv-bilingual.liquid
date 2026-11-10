@@ -4,7 +4,7 @@
   {% assign appointments = profile.sections["Academic appointments"] %}
   {% assign education = profile.sections["Education and academic qualifications"] %}
   {% assign funding = profile.sections["Projects, fellowships and awards"] %}
-  {% assign software = profile.sections["Software and technical expertise"] %}
+  {% assign technical_skills = profile.sections["Software and technical expertise"] %}
   {% assign memberships = profile.sections["Professional memberships"] %}
   {% assign metrics = profile.sections["Bibliometric summary"] %}
   {% assign interests = profile.sections["Research interests"] %}
@@ -18,6 +18,9 @@
   {% assign education_label = "Education and academic qualifications" %}
   {% assign funding_label = "Projects, fellowships and awards" %}
   {% assign software_label = "Software and technical expertise" %}
+  {% assign technical_skills_label = "Technical skills" %}
+  {% assign version_label = "Version" %}
+  {% assign article_label = "Related article" %}
   {% assign memberships_label = "Professional memberships" %}
   {% assign metrics_label = "Bibliometric summary" %}
   {% assign interests_label = "Research interests" %}
@@ -31,7 +34,7 @@
   {% assign appointments = profile.sections["Akademik atamalar"] %}
   {% assign education = profile.sections["Eğitim ve akademik unvanlar"] %}
   {% assign funding = profile.sections["Projeler, burslar ve ödüller"] %}
-  {% assign software = profile.sections["Yazılım ve teknik yetkinlikler"] %}
+  {% assign technical_skills = profile.sections["Yazılım ve teknik yetkinlikler"] %}
   {% assign memberships = profile.sections["Mesleki üyelikler"] %}
   {% assign metrics = profile.sections["Bibliyometrik özet"] %}
   {% assign interests = profile.sections["Araştırma alanları"] %}
@@ -45,6 +48,9 @@
   {% assign education_label = "Eğitim ve akademik unvanlar" %}
   {% assign funding_label = "Projeler, burslar ve ödüller" %}
   {% assign software_label = "Yazılım ve teknik yetkinlikler" %}
+  {% assign technical_skills_label = "Teknik yetkinlikler" %}
+  {% assign version_label = "Sürüm" %}
+  {% assign article_label = "İlgili makale" %}
   {% assign memberships_label = "Mesleki üyelikler" %}
   {% assign metrics_label = "Bibliyometrik özet" %}
   {% assign interests_label = "Araştırma alanları" %}
@@ -130,8 +136,35 @@
 
   <section class="cv-section" id="{% if current_lang == 'en' %}software-and-technical-expertise{% else %}yazilim-ve-teknik-yetkinlikler{% endif %}" aria-labelledby="software-title">
     <h2 id="software-title">{{ software_label }}</h2>
-    <div class="cv-compact-list">
-      {% for entry in software %}<article><h3>{{ entry.name }}</h3><p>{{ entry.summary }}</p></article>{% endfor %}
+    {% for package in site.data.research_packages %}
+      <article class="cv-entry" id="cv-software-{{ package.id | escape }}">
+        <p class="cv-entry__dates">
+          {% if package.cran_version %}CRAN {{ package.cran_version | escape }}
+          {% elsif package.source_version %}{{ version_label }} {{ package.source_version | escape }}{% endif %}
+        </p>
+        <div class="cv-entry__content">
+          <h3>
+            {% if package.docs.published and package.verified_links.docs %}
+              <a href="{{ package.docs.path | absolute_url }}">{{ package.name | escape }} <span aria-hidden="true">↗</span></a>
+            {% else %}
+              {{ package.name | escape }}
+            {% endif %}
+          </h3>
+          <p class="cv-entry__institution">{{ package.technologies | escape }}</p>
+          <p>{{ package.description[current_lang] | escape }}</p>
+          {% if package.article and package.verified_links.article_url %}
+            <p>{{ article_label }}: <a href="{{ package.article.url | escape }}">{{ package.article.title | escape }}</a></p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+    <div class="cv-entry">
+      <h3 class="cv-entry__dates">{{ technical_skills_label }}</h3>
+      <div class="cv-entry__content">
+        {% for entry in technical_skills %}
+          <p><strong>{{ entry.name | escape }}.</strong> {{ entry.summary | escape }}</p>
+        {% endfor %}
+      </div>
     </div>
   </section>
 

@@ -148,10 +148,6 @@ cv:
         end_date: 2016
 
     Software and technical expertise:
-      - name: sglasso
-        summary: "R/C++ package. Reference: Yüzbaşı and Cao (2026), Collinear Groupwise Selection via Scaled Group Lasso, The American Statistician. DOI: 10.1080/00031305.2026.2709494."
-      - name: rbridge
-        summary: R package for restricted bridge estimation, developed with C++ and RcppArmadillo.
       - name: Python
         summary: Statistical computing, machine learning, data preparation and reproducible research workflows.
       - name: SPSS
