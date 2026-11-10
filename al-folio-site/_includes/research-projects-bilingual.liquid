@@ -4,6 +4,22 @@
   <p>{{ page.intro_text }}</p>
 </section>
 
+<section class="project-intro" id="research-materials" aria-labelledby="research-materials-title">
+  {% if current_lang == 'en' %}
+    <h2 id="research-materials-title">Research materials</h2>
+    <ul>
+      <li><a href="https://byuzbasi.github.io/periodic-momentum/">Two-periodic heavy ball</a>: manuscript companion, code and numerical examples.</li>
+      <li><a href="{{ '/research/dsa-marketplaces/' | relative_url }}">Marketplace transparency</a>: data, code and supplementary guide for the analysis of Digital Services Act transparency data.</li>
+    </ul>
+  {% else %}
+    <h2 id="research-materials-title">Araştırma materyalleri</h2>
+    <ul>
+      <li><a href="https://byuzbasi.github.io/periodic-momentum/">İki periyotlu heavy-ball yöntemi</a>: çalışma metnine eşlik eden kod ve sayısal örnekler.</li>
+      <li><a href="{{ '/research/dsa-marketplaces/' | relative_url }}">Çevrimiçi pazar yerlerinde şeffaflık</a>: Dijital Hizmetler Yasası kapsamındaki şeffaflık verilerinin analizine ait veri, kod ve ek materyal kılavuzu.</li>
+    </ul>
+  {% endif %}
+</section>
+
 <section class="project-list" aria-label="{% if current_lang == 'en' %}Research projects{% else %}Araştırma projeleri{% endif %}">
   {% for project in site.data.research_projects %}
     {% assign project_title = project.title %}

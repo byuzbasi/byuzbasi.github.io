@@ -154,7 +154,13 @@
   <section class="cv-section" id="book-reviews" aria-labelledby="book-reviews-title">
     <h2 id="book-reviews-title">{{ book_reviews_label }}</h2>
     <div class="cv-compact-list">
-      {% for entry in book_reviews %}<article><h3>{{ entry.name }}</h3><p>{{ entry.summary }}</p></article>{% endfor %}
+      {% for entry in book_reviews %}
+        <article>
+          <h3>{{ entry.name }}</h3>
+          <p>{{ entry.summary }}</p>
+          {% if entry.doi %}<p><a href="https://doi.org/{{ entry.doi | escape }}">DOI: {{ entry.doi | escape }}</a></p>{% endif %}
+        </article>
+      {% endfor %}
     </div>
   </section>
 </div>

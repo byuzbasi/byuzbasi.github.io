@@ -53,8 +53,8 @@ cv:
       - company: Brock University, Matematik ve İstatistik Bölümü
         position: Misafir Yardımcı Doçent
         location: St. Catharines, Kanada
-        start_date: 2016-05
-        end_date: 2016-06
+        start_date: '2016-05-17'
+        end_date: '2016-08-17'
         summary: Prof. S. Ejaz Ahmed ile yüksek boyutlu kestirim stratejileri üzerine araştırma.
       - company: Brock University, Matematik ve İstatistik Bölümü
         position: Uluslararası Misafir Araştırmacı (Doktora Araştırması)
@@ -124,8 +124,8 @@ cv:
         end_date: 2025
       - name: Van İlinin İç ve Dış Göçünün Coğrafi Ağırlıklı Regresyon ile İncelenmesi
         summary: TÜBİTAK 3005, proje 122G128; yürütücü; 327.137 TL.
-        start_date: 2022-10
-        end_date: 2024-04
+        start_date: '2022-10-01'
+        end_date: '2023-11-01'
       - name: Küçültme ve Cezalı Kestirim Stratejileri
         summary: TÜBİTAK 2214-A; yürütücü; Brock University; 15.600 USD.
         start_date: 2013
@@ -167,7 +167,8 @@ cv:
 
     Kitap değerlendirmeleri:
       - name: Using R for Introductory Statistics in Social Sciences
-        summary: "Mark A. Perkins'in kitabı üzerine değerlendirme. International Statistical Review; SCIE, Q1. Kabul edildi; yayın lisansı imzalandı."
+        summary: "Mark A. Perkins'in kitabı üzerine değerlendirme. International Statistical Review; SCIE, Q1. 30 Eylül 2026'da çevrimiçi yayımlandı."
+        doi: 10.1111/insr.70072
     Araştırma alanları:
       - name: İstatistiksel öğrenme ve yüksek boyutlu çıkarım
       - name: Fonksiyonel ve uzamsal veri analizi
