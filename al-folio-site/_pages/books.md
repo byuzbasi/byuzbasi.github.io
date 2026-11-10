@@ -16,6 +16,13 @@ translation_key: books
   <p class="catalog-note">Kitaplar yayına hazırlık aşamasındadır. Kitap uygulamaları her kitap için ayrı özel GitHub deposunda tutulmaktadır. Depolara erişim yetki gerektirir; uygulama dosyaları bu sitede yayımlanmaz.</p>
 </section>
 
+<section class="catalog-intro" aria-labelledby="lineer-cebir-atolyesi">
+  <p class="section-eyebrow">ETKİLEŞİMLİ DERS KAYNAĞI</p>
+  <h2 id="lineer-cebir-atolyesi">Lineer Cebir Atölyesi</h2>
+  <p><em>Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları</em> kitabına eşlik eden 13 laboratuvar. Formülleri inceleyin, girdileri değiştirin ve Python kodunu tarayıcınızda çalıştırın.</p>
+  <p><a class="package-card__link" href="https://byuzbasi.github.io/lineer-cebir-atolyesi/">Lineer Cebir Atölyesi’ni aç →</a></p>
+</section>
+
 {% include book-catalog.liquid %}
 
 ### Reasoning Through Regression — bölüm uygulamaları
