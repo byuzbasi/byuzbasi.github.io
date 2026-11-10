@@ -1,0 +1,816 @@
+\documentclass[10pt,a4paper]{article}
+							
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[shorthands=off,turkish]{babel}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage[a4paper,margin=0.72in]{geometry}
+\usepackage{enumitem}
+	%\textheight=700px                    % Saving trees ;-)
+%\usepackage{url}
+\usepackage[colorlinks=true,
+linkcolor=MidnightBlue,
+urlcolor=MidnightBlue]{hyperref}
+\hypersetup{pdftitle={Bahadır Yüzbaşı - Akademik Özgeçmiş},pdfauthor={Bahadır Yüzbaşı},pdflang={tr-TR}}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{needspace}
+
+\frenchspacing              % Better looking spacings after periods
+\setlength{\emergencystretch}{1.5em}
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+\setlist[itemize]{leftmargin=1.15em,itemsep=0.15em,topsep=0.25em}
+\setlist[enumerate]{leftmargin=1.35em,itemsep=0.18em,topsep=0.25em}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{0.65em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Large \sffamily\bfseries \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan}{optional)
+		\large \sffamily\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[2]{%
+	\Needspace{7\baselineskip}%
+	\vspace{0.45em}%
+	\section*{\sffamily\large\bfseries\color{MidnightBlue}#1 #2}%
+	\vspace{-0.7em}\noindent\color{MidnightBlue}\rule{\textwidth}{0.55pt}\color{Black}\vspace{0.25em}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name}{birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name}{birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\parbox{11.5em}{%
+			\hfill\color{Black}#2} \par  % Duration
+		\noindent \textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{White}{\color{White}#2} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\PaperEntry}[7]{
+		\noindent #1, ``\href{#7}{#2}'', \textit{#3} \textbf{#4}, #5 (#6).}
+
+\newcommand{\ArxivEntry}[3]{
+		\noindent #1, ``\href{http://arxiv.org/abs/#3}{#2}'', \textit{{cond-mat/}#3}.}
+        
+\newcommand{\BookEntry}[4]{
+		\noindent #1, ``\href{#3}{#4}'', \textit{#3}.}
+        
+\newcommand{\FundingEntry}[5]{
+        \noindent #1, ``#2'', \$#3 (#4, #5).}
+
+\newcommand{\TalkEntry}[4]{
+		\noindent #1, #2, #3 #4}
+
+\newcommand{\ThesisEntry}[5]{
+		\noindent #1 -- #2 #3 ``#4'' \textit{#5}}
+
+\newcommand{\CourseEntry}[3]{
+		\noindent \item{#1: \textbf{#2} \\ #3}}
+
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\newenvironment{etaremune}{\begin{enumerate}}{\end{enumerate}}
+\newcommand{\JournalInfo}[2]{\hspace{0.3em}{\small\textsf{[#1; #2]}}}
+\newcommand{\TubitakOutput}{{\small\textsf{[TÜBİTAK destekli araştırma]}}}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+
+
+\begin{document}
+
+%\layout
+
+\noindent
+\begin{minipage}[t]{0.25\textwidth}
+	\vspace{0pt}
+	\includegraphics[width=\linewidth,height=4.4cm,keepaspectratio]{cover_photo3_bahadir.jpeg}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.70\textwidth}
+\vspace{0pt}
+\MyName{Prof. Dr. Bahadır Yüzbaşı}
+\MyName{İstatistik ve Ekonometri}
+\MySlogan{\vspace{-0.18in}\begin{flushright}
+%\href{http://maps.google.com/maps/ms?ie=UTF&msa=0&msid=205373386241137011999.000494c753d05031c4fe4}
+{Uluslararası İstatistik Enstitüsü (ISI) Seçilmiş Üyesi, 2023--günümüz} \\
+{Ekonometri Bölümü}\\İnönü Üniversitesi, Malatya, Türkiye \\
+\href{https://avesis.inonu.edu.tr/bahadir.yuzbasi}{https://avesis.inonu.edu.tr/bahadir.yuzbasi}\\
+\href{https://byuzbasi.github.io}{https://byuzbasi.github.io}\\
+%Office Phone : +90 (422) 337-4311\\
+%Cell Phone : +90 (543) 207-0867\\
+\href{mailto:b.yzb@hotmail.com}{b.yzb@hotmail.com}\\
+%ORCID QR Code    \hspace*{3.3cm} 
+\href{mailto:bahadir.yuzbasi@inonu.edu.tr}{bahadir.yuzbasi@inonu.edu.tr}\\
+\sepspace
+\href{https://www.webofscience.com/wos/author/record/288269}{[WoS]}
+\href{https://orcid.org/0000-0002-6196-3201}{[Orcid]}
+\href{https://github.com/byuzbasi}{[Github]}
+\href{https://www.researchgate.net/profile/Bahadir_Yuezbasi}{[Researchgate]}
+\href{https://scholar.google.com.tr/citations?user=XTmhw_cAAAAJ&hl=tr&oi=ao}{[Google Scholar]}
+\href{https://www.scopus.com/authid/detail.uri?authorId=55581057800}{[Scopus]}
+\href{https://arxiv.org/find/math,stat/1/au:+Yuzbasi_B/0/1/0/all/0/1}{[arxiv.com]}
+\end{flushright}}
+\end{minipage}
+
+%\sepspace
+ \NewPart{Akademik Profil}{}
+Yüksek boyutlu, mekânsal ve fonksiyonel veriler için küçültme, ön test ve cezalı tahmin yöntemleri geliştiriyorum. Güncel çalışmalarım istatistiksel makine öğrenmesi, fonksiyonel veri analizi, elastik şekil analizi, tekrarlanabilir R/C++ yazılımları ve ekonomi, biyoistatistik ve sosyal bilimlerdeki veri bilimi uygulamaları üzerine yoğunlaşıyor.
+
+\sepspace
+\noindent\textbf{Araştırma alanları:} Makine öğrenmesi, mekânsal istatistik, fonksiyonel veri analizi, elastik şekil analizi, küçültme ve cezalı tahmin, istatistiksel çıkarım, yüksek boyutlu veri ve büyük veri analitiği.
+
+\sepspace
+\noindent\textbf{Bibliyometrik göstergeler:} 94 yayın; WoS'ta 35 yayın, 213 atıf ve h-indeksi 10; Scopus'ta 31 yayın, 440 atıf ve h-indeksi 14. Kaynak: \href{https://avesis.inonu.edu.tr/bahadir.yuzbasi}{AVESİS}, erişim tarihi 25 Eylül 2026.
+
+ \NewPart{Teknik Yetkinlikler}{}
+R ve Python ile programlama, C++/RcppArmadillo ile R paketi geliştirme, tekrarlanabilir istatistiksel hesaplama, SPSS ile istatistiksel analiz, makine öğrenmesi iş akışları, benzetim çalışmaları, uygulamalı ekonometrik ve biyomedikal veri analizi.
+
+%Web of Science: H-index (5), Sum of Times Cited (78). YOKDIL (86.25).
+
+
+
+ \NewPart{Araştırma Özeti}{}
+Karmaşık veri yapılarında parametre tahmini ve öngörü modellerini geliştirmeye odaklanıyorum. Ortak yazarlarımla doğrusal, yarı doğrusal, kantil ve yüksek boyutlu regresyon modelleri için küçültme, ön test ve cezalı tahmin yöntemleri geliştirdim ve inceledim. Son çalışmalarım bu yöntemleri dayanıklı tahmin, mekânsal ve fonksiyonel veri analizi ile istatistiksel makine öğrenmesine genişletiyor.
+
+Bu problemler bilgisayar bilimleri, sosyal bilimler, biyometri, finans, ağ güvenliği, sosyal medya analizi ve endüstri uygulamalarında ortaya çıkıyor. Gürültü birikimi, sahte korelasyonlar, yüksek hesaplama maliyeti ve algoritmik kararsızlık gibi sorunları kuramsal analiz, benzetim, gerçek veri uygulamaları ve R ile C++'ta tekrarlanabilir yazılımlar geliştirerek ele alıyorum.
+
+Özellikle istatistiksel yöntemleri farklı disiplinlerdeki bilimsel sorularla buluşturan ortak araştırmalarla ilgileniyorum.
+
+
+%%% Personal details
+%%% ------------------------------------------------------------
+% \NewPart{}{}
+
+% \PersonalEntry{Address}{\href{http://maps.google.com/maps/ms?ie=UTF&msa=0&msid=205373386241137011999.000494c753d05031c4fe4}{Physical Sciences Complex}, University of Maryland, College Park}
+% \PersonalEntry{Phone}{(301) 337-7461}
+% \PersonalEntry{Mail}{\href{mailto:appelbaum@physics.umd.edu}{appelbaum@physics.umd.edu}}
+% \PersonalEntry{WWW}{\href{http://appelbaumlab.umd.edu/CV.html}{http://appelbaum.physics.umd.edu}}
+
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Akademik Görevler}{}
+
+\EducationEntry{Dönemlik Öğretim Görevlisi}{Ocak--Mayıs 2025}{Simon Fraser Üniversitesi, İstatistik ve Aktüerya Bilimleri Bölümü, Burnaby, Kanada}
+{\begin{itemize}\item{Uygulamalı Kesikli Veri Analizi (STAT 475 / STAT 675)}\end{itemize}}
+\sepspace
+
+\EducationEntry{Misafir Profesör}{20.07.2024--20.07.2025}{Simon Fraser Üniversitesi, İstatistik ve Aktüerya Bilimleri Bölümü, Burnaby, Kanada}
+{\begin{itemize}\item{Prof. Jiguo Cao ile fonksiyonel veriler için makine öğrenmesi çalışması}\end{itemize}}
+
+%\sepspace
+%\EducationEntry{Associate Professor of Econometrics}{2024-}{\.{I}n\"{o}n\"{u} University, Deparment of Econometrics, Malatya, Turkey}
+
+\sepspace
+\EducationEntry{İstatistik Profesörü}{2023--günümüz}{İnönü Üniversitesi, Ekonometri Bölümü, Malatya, Türkiye}{}
+
+\sepspace
+\EducationEntry{Misafir Doçent}{Şubat--Ağustos 2019}{British Columbia Üniversitesi, İstatistik Bölümü, Vancouver, Kanada}
+{\begin{itemize}\item{Prof. Ruben H. Zamar ile ağ verilerinde dayanıklı cezalı tahmin çalışması}\end{itemize}}
+
+\sepspace
+\EducationEntry{İstatistik Doçenti}{2017--2023}{İnönü Üniversitesi, Ekonometri Bölümü, Malatya, Türkiye}{}
+
+\sepspace
+\EducationEntry{Misafir Öğretim Üyesi (Yardımcı Doçent)}{17.05.2016--17.08.2016}{Brock Üniversitesi, Matematik ve İstatistik Bölümü, St. Catharines, Kanada}
+{\begin{itemize}\item{Prof. S. Ejaz Ahmed ile yüksek boyutlu tahmin yöntemleri üzerine çalışma}\end{itemize}}
+
+
+%\noindent \textbf{Assistant Professor of Statistics} \hfill      
+%asdf
+%	\colorbox{White}{%
+%			\parbox{6em}{%
+%			\hfill\color{Black}2015-$\qquad$}} \par
+
+%\EducationEntry{\textattachfile[color=1 0 1]{research.pdf}{Associate Professor of Physics}}{2009-2016}{University of Maryland, College Park}{\begin{itemize}
+%\item{Semiconductor Physics Research: spin-polarized electron transport in Si and Ge, 2D semiconductors, methods for topological insulator surface state and Majorana fermion detection}
+%\item{Teaching: Solid-State Physics, Quantum Mechanics, Optics, Stat. Mechanics, and Scientific Computing}
+%\item{Affiliate Associate Professor of Electrical and Computer Engineering}\end{itemize}}
+
+%\sepspace
+%\EducationEntry{Postdoctoral Fellow}{2018--2019}{University of British Columbia, Department of Statistics, Vancover, Canada}
+%{\begin{itemize}\item{Robust statistics with Prof. Ruben H. Zamar}\end{itemize}}
+
+
+
+\sepspace
+\EducationEntry{Yardımcı Doçent (İstatistik)}{2015--2017}{İnönü Üniversitesi, Ekonometri Bölümü, Malatya, Türkiye}{}
+
+
+\sepspace
+\EducationEntry{Misafir Araştırmacı (Doktora Araştırması)}{01.01.2013--05.01.2014}{Brock Üniversitesi, Matematik ve İstatistik Bölümü, St. Catharines, Kanada}
+{\begin{itemize}\item{Prof. S. Ejaz Ahmed ile küçültme ve cezalı tahmin yöntemleri üzerine çalışma}\end{itemize}}
+
+%{\begin{itemize}\item{Research on optoelectronic devices, STM/BEEM, UHV wafer bonding, spin injection/~detection} \item{Teaching courses on Device Physics, Wave Physics, and Spintronics~\&~Magnetoelectronics}\end{itemize}}
+
+\sepspace
+\EducationEntry{Araştırma Görevlisi}{2009--2014}{İnönü Üniversitesi, Ekonometri Bölümü, Malatya, Türkiye}{}
+
+
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Öğrenim ve Doçentlik}{}
+
+\EducationEntry{Ekonometri Alanında Doçentlik}{Mart 2024}{}{}
+
+\EducationEntry{İstatistik Alanında Doçentlik}{Aralık 2017}{}{}
+
+
+\EducationEntry{Matematik Doktorası (İngilizce)}{2010--2014}{İnönü Üniversitesi, Malatya, Türkiye}{
+{``\href{http://openaccess.inonu.edu.tr:8080/xmlui/handle/11616/5947?locale-attribute=en}{
+Penalty and non-penalty estimation strategies for linear and partially linear models}"}\\
+Tez danışmanları: Mehmet Güngör (İnönü Üniversitesi) ve S. Ejaz Ahmed (Brock Üniversitesi)}
+
+
+
+
+
+\sepspace
+\EducationEntry{Matematik Yüksek Lisansı (Türkçe)}{2008--2010}{Fırat Üniversitesi, Elazığ, Türkiye}{{``\href{https://openaccess.firat.edu.tr/xmlui/handle/11508/17055?locale-attribute=en}{Generalized Statistical Convergence}''}
+% Thesis advisor: Rifat \c{C}olak (F{\i}rat University)
+}
+
+
+\sepspace
+\EducationEntry{Matematik Lisansı}{2004--2008}{Fırat Üniversitesi, Elazığ, Türkiye}{}
+
+%\newpage
+
+
+%%% Papers
+%%% ------------------------------------------------------------
+\clearpage\NewPart{Araştırma Yazılımları}{}
+
+\noindent\href{https://byuzbasi.github.io/software/}{Araştırma yazılımları kataloğu}
+
+\begin{etaremune}
+\renewcommand{\theenumi}{A\arabic{enumi}}
+
+\item \textbf{\texttt{softridge}} (sürüm 0.3.0.1). Yüksek boyutlu doğrusal modeller için yumuşak eşiklemeli ridge tahmini. Tahmin edilebilir izdüşüm için sabit ayarlama parametreli risk, öngörü için SURE, çapraz doğrulama ve en küçük karelerle yeniden tahmin. R/C++17, RcppArmadillo. Mohammad Arashi ile birlikte geliştirildi. \href{https://byuzbasi.github.io/softridge/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/softridge}{Kaynak kod}.
+
+\item \textbf{\texttt{scaleCorrection}} (sürüm 0.1.0). Yumuşak eşikleme sonrasında iyimserlik yanlılığını düzelten ölçekleme için \texttt{softridge} tamamlayıcısı; eşleştirilmiş Ridge-c0 parametre ayarlaması. R/C++17, RcppArmadillo. Mohammad Arashi ile birlikte geliştirildi. \href{https://byuzbasi.github.io/softridge/scaleCorrection/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/softridge/tree/main/companion/scaleCorrection}{Kaynak kod}.
+
+\item \textbf{\texttt{emaxProjection}} (sürüm 0.1.0). İntegrali alınmış Emax yanıtları için güven bölgesi izdüşümü; sınır durumları, kısıtları sağlayan örnek çözümler, uç nokta farkları ve durdurma tanıları. R/C++17, RcppArmadillo. \href{https://byuzbasi.github.io/emaxProjection/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/emaxProjection}{Kaynak kod}.
+
+\item \textbf{\texttt{gwrs}} (sürüm 0.4.0.9015). Açıklayıcı değişken alt kümesi, çekirdek ve bant genişliğinin birlikte seçildiği coğrafi ağırlıklı regresyon. Yerel ridge, lasso, elastic net, SCAD ve MCP düzenlileştirmesi. R/C++, RcppArmadillo ve RcppParallel. \href{https://byuzbasi.github.io/gwrs/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/gwrs}{Kaynak kod}.
+
+\item \textbf{\texttt{AdaReFun}} (sürüm 0.1.2). Skaler yanıt ve fonksiyonel açıklayıcı için uyarlamalı bölgesel regresyon. MCP ve SCAD cezaları, tek ve çok çözünürlüklü tahmin, doğrulamaya dayalı model seçimi. R/C++17, RcppArmadillo. Jiguo Cao ile birlikte geliştirildi. \href{https://byuzbasi.github.io/AdaReFun/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/AdaReFun}{Kaynak kod}.
+
+\item \textbf{\texttt{sglasso}} (sürüm 1.2.0). Normal ve binom yanıtlar için, doğrusal bağlantı içeren açıklayıcı gruplarının ölçeklendirilmiş grup lasso ile seçimi. R/C++, RcppArmadillo. Jiguo Cao ile birlikte geliştirildi. \href{https://byuzbasi.github.io/sglasso/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/sglasso}{Kaynak kod}. İlgili makale: \href{https://doi.org/10.1080/00031305.2026.2709494}{Y\"{u}zba\c{s}{\i} \& Cao (2026), ``Collinear Groupwise Selection via Scaled Group Lasso,'' \textit{The American Statistician}}.
+
+\item \textbf{\texttt{lambertReg}} (sürüm 0.1.11). Lambert cezasıyla seyrek normal regresyon; sabit şekil parametreli düzenlileştirme yolları, yalnızca eğitim verisinde çapraz doğrulama ve sayısal tanılar. R/C++, Rcpp. \href{https://byuzbasi.github.io/lambertReg/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/lambertReg}{Kaynak kod}.
+
+\item \textbf{\texttt{rbridge}} (sürüm 1.0.4, CRAN). Katsayılar üzerindeki doğrusal kısıtlar altında kısıtlı köprü tahmini. R/C++, RcppArmadillo. Mohammad Arashi ve Fikri Akdeniz ile birlikte geliştirildi. \href{https://byuzbasi.github.io/rbridge/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/rbridge}{Kaynak kod} \textbar{} \href{https://cran.r-project.org/package=rbridge}{CRAN}. İlgili makale: \href{https://doi.org/10.1007/s00500-021-05763-9}{Y\"{u}zba\c{s}{\i}, Arashi \& Akdeniz (2021), ``Penalized Regression via the Restricted Bridge Estimator,'' \textit{Soft Computing}, 25(13), 8401--8416}.
+
+\item \textbf{\texttt{LHWL}} (sürüm 0.3.1). Normal ve binom yanıtlar için Lorentz hiperbolik ağırlıklı yerel regresyon ve cezalı öğrenme; parametre ayarlaması, tanılar ve katsayı haritaları. R/C++, RcppArmadillo. Zühal Küçükarslan Yüzbaşı ile birlikte geliştirildi. \href{https://byuzbasi.github.io/LHWL/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/LHWL}{Kaynak kod}.
+
+\item \textbf{\texttt{HDMaxShrink}} (sürüm 0.6.2). Yüksek boyutlu doğrusal modeller için teste dayalı küçültme; maksimum istatistiğinin kalibrasyonu ve derlenmiş hesaplama araçları. R/C++, RcppArmadillo. \href{https://byuzbasi.github.io/HDMaxShrink/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/HDMaxShrink}{Kaynak kod}.
+
+\item \textbf{\texttt{BernoulliRuns}} (sürüm 0.1.0). Başarı olasılıkları değişebilen bağımsız Bernoulli denemelerinde koşu sayısının kesin dağılımı; olasılık kütlesi, birikimli dağılım, beklenen değer ve tek taraflı kuyruk olasılıkları. R. \href{https://byuzbasi.github.io/BernoulliRuns/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/BernoulliRuns}{Kaynak kod}.
+
+\item \textbf{\texttt{penGWBR}} (kaynak sürümü 1.4.1). Oran biçimindeki yanıtlar için cezalı coğrafi ağırlıklı beta regresyonu; lasso ve uyarlamalı lasso ile yerel değişken seçimi, mekânsal çapraz doğrulama, katsayı haritaları ve tanılar. R/C++, RcppArmadillo. Kaynak deposu özel erişimlidir.
+
+\item \textbf{\texttt{ShapeAdaptiveEN}} (sürüm 0.1.0). Çarpıklık ve ağır kuyruk durumlarında şekle uyarlanan elastic net regresyonu; model uydurma, öngörü ve tanı araçları. Python 3.13. \href{https://byuzbasi.github.io/shape-adaptive-robust-regression/}{Web sitesi} \textbar{} \href{https://github.com/byuzbasi/shape-adaptive-robust-regression}{Kaynak kod}.
+
+\end{etaremune}
+
+\smallskip
+\noindent\textbf{Programlama ve uygulamalı hesaplama.} İstatistiksel hesaplama, makine öğrenmesi, veri temizleme ve tekrarlanabilir araştırma iş akışları için Python programlama. Sosyal bilimler ve tıp araştırmalarında SPSS ile programlama ve uygulamalı istatistiksel analiz; uygulamalı SPSS kurslarında eğitmenlik.
+
+
+\NewPart{Projeler, Burslar, Ödüller ve Destekler}{}
+
+\begin{itemize}
+
+\item ``Büyük Mekânsal Verilerde Heterojenlik Probleminin Açıklanabilir ve Denetimli Makine Öğrenmesi ile Modellenmesi'', TÜBİTAK 1001, proje no. 126K746. Yürütücü. Destek kararı: 7 Ağustos 2026; proje sözleşmesi bekleniyor.
+
+\item ``Yapay Zekâ Kullanılarak Geliştirilen Türkçe Vergi Uyumu Ölçeğinin Geçerlilik ve Güvenilirlik Analizi'', İnönü Üniversitesi Bilimsel Araştırma Projesi, SBA-2026-4833, 01.04.2026--01.04.2027. Araştırmacı. Devam ediyor.
+
+\item ``Türkiye'de Yolsuzluk Algısının Siyasal Davranışlar Üzerindeki Etkilerinin Analizi'', İnönü Üniversitesi Bilimsel Araştırma Projesi, SBA-2026-4536, 17.02.2026--17.02.2027. Araştırmacı. Devam ediyor.
+
+\item ``Karmaşık Veri Yapıları için Ölçeklendirilmiş Küçültme Stratejisi'', İnönü Üniversitesi Bilimsel Araştırma Projesi, SBA-2025-4340, 13.11.2025--13.11.2026. Yürütücü. Devam ediyor.
+
+
+%\item Robust Penalized Estimation in Network Data, Inonu University,  International Research Project with number SUA-2019-1629, 22.01.2019--. (As Coordinator)
+
+
+\item ``Fonksiyonel Veriler için Makine Öğrenmesi'', TÜBİTAK 2219 Yurt Dışı Doktora Sonrası Araştırma Bursu. Ev sahibi kurum: Simon Fraser Üniversitesi, İstatistik ve Aktüerya Bilimleri Bölümü, Kanada. Burs: 20.07.2024--18.07.2025; araştırma ziyareti: 20.07.2024--20.07.2025. Görev: Koordinatör. Bütçe: 31.200 USD.
+
+\item ``Van İlinin Yurtiçi ve Yurtdışından Aldığı Göçün Coğrafi Ağırlıklı Regresyon Yöntemi ile İncelenmesi'', TÜBİTAK 3005 Sosyal ve Beşeri Bilimlerde Yenilikçi Çözümler Araştırma Projeleri Destek Programı, proje no. 122G128, 01.10.2022--01.11.2023. Görev: Koordinatör. Bütçe: 327.137 TL.
+
+\item ``Küçültme ve Cezalı Tahmin Stratejileri'', TÜBİTAK 2214-A Yurt Dışı Doktora Sırası Araştırma Bursu. Ev sahibi kurum: Brock Üniversitesi, Matematik ve İstatistik Bölümü, Kanada, 01.01.2013--05.01.2014. Görev: Koordinatör. Bütçe: 15.600 USD.
+
+\item ``Dayanıklı Düzenlileştirme ve Gauss Grafik Modeller'', İnönü Üniversitesi Uluslararası Araştırma Projesi, SUA-2019-1629, 22.01.2019--20.12.2019. Yürütücü. Araştırma ziyareti: British Columbia Üniversitesi, Kanada, Şubat--Ağustos 2019. Bütçe: 7.500 USD. Tamamlandı.
+ 
+\item ``Lineer Kantil Regresyon Modeller İçin Ön Test ve Stein Tipi Tahmincileri Stratejileri'', İnönü Üniversitesi Bilimsel Araştırma Projesi, SBA-2017-946, 12.12.2017--21.11.2018. Yürütücü. Tamamlandı.
+
+\item ``Doğrusal Regresyon Modellerinde Liu Tipi Tahmin'', Necmettin Erbakan Üniversitesi Bilimsel Araştırma Projesi, proje no. 171215001, 03.2017--12.2017. Araştırmacı.
+
+
+\item \href{http://www.fields.utoronto.ca}{The Fields Institute, Toronto Üniversitesi}, Toronto, Kanada, 2016. Kongre katılım desteği.
+
+%\item The Scientific and Research Council of Turkey (TUBITAK), \href{https://www.tubitak.gov.tr/sites/default/files/2214-2012_2_desteklenenler.pdf}{Tubitak-Bideb-2214/A International Fellowship Scholar, for Brock University, Canada, 2013-2014}.
+
+%\item The Scientific and Research Council of Turkey (TUBITAK),  Award for each paper of \ref{stat_paper},\ref{int_stat_paper},\ref{robert1_paper},\ref{robert2_paper}, \ref{by2013},\ref{by2015a}, \ref{by2015b}, \ref{by2016a}, \ref{by2016b}, \ref{by2017a}, \ref{by2017b}.
+
+\end{itemize}
+
+
+\NewPart{Kitaplar}{}
+\begin{etaremune}
+\renewcommand{\theenumi}{B\arabic{enumi}}
+
+\item Ahmed, SE, Ahmed, F \& {\bf Y\"{u}zba\c{s}{\i}, B.}, (2023) Post-shrinkage strategies in statistical and machine learning for high dimensional data. Chapman and Hall/CRC, London. (Routledge and CRC Press of Taylor \& Francis Group)
+
+
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.},  \& Cetin Gorur, (2019) Dinamik Dogrusal Modeller ile Turkiye'ye Ait Gayri Safi Yurt ici Hasila Tahmini, Gece Akademi, Türkiye.
+
+\end{etaremune}
+
+%%% Papers
+%%% ------------------------------------------------------------
+
+\NewPart{Hakemli Dergi Makaleleri}{}
+%{\href{http://scholar.google.com/citations?hl=en&user=1z6xR14AAAAJ}{[statistics]}
+%\href{http://arxiv.org/find/cond-mat/1/au:+Appelbaum_I/0/1/0/all/0/1}{[arXiv]}}
+
+%\begin{enumerate}[label=A\arabic*-]
+
+\begin{etaremune}
+\renewcommand{\theenumi}{A\arabic{enumi}}
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Cao, J. (2026). \href{https://doi.org/10.1080/00031305.2026.2709494}{Collinear Groupwise Selection via Scaled Group Lasso}. \textit{The American Statistician}. Çevrimiçi yayın: 17 Eylül 2026. \JournalInfo{SCIE}{Q1} \TubitakOutput
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed, S. E., \& Liu, S. (2026). \href{https://doi.org/10.1016/j.spasta.2026.100969}{Shrinkage Estimation in Geographically Weighted Regression with Applications to Digital Platform Pricing}. \textit{Spatial Statistics}, 73, 100969. \JournalInfo{SCIE}{Q1}
+
+\item Pehlivan, C., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Tuncel, G. (2026). The Role of Socio-Economic Development Level in Van Province on Migration. \textit{Sinop \"{U}niversitesi Sosyal Bilimler Dergisi}, 10(1), 23--54.
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& G\"{o}r\"{u}r, \c{C}. (2026). \href{https://doi.org/10.33458/uidergisi.1853672}{Analysis of Van Province's Migration from Iran by Geographically Weighted Regression Method}. \textit{Uluslararas{\i} \.{I}li\c{s}kiler / International Relations}, 23(89), 27--49. \JournalInfo{SSCI}{Q3} \TubitakOutput
+
+\item G\"{o}rm\"{u}\c{s}, S., Cengiz, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2026). \href{https://forestist.org/index.php/pub/article/view/2688}{A Spatio-Temporal Analysis of COVID-19 Spread in T\"{u}rkiye}. \textit{Forestist}, 76(1), 1--14. {\small\textsf{[ESCI; Scopus]}}
+
+\item Hassan, M. K., Bayat, T., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Kayhan, S. (2026). Was Digitalization Effective in Enhancing Financial Inclusion in the EU-27 During the COVID--19 Pandemic? \textit{Eastern European Economics}, 64(5), 778--794. \JournalInfo{SSCI}{Q3}
+
+\item Al-Momani, M., {\bf Y\"{u}zba\c{s}{\i}, B.}, Bataineh, M. S., Abdallah, R., \& Moideenkutty, A. (2025). \href{https://doi.org/10.3390/math13223733}{Shrinkage Approaches for Ridge-Type Estimators Under Multicollinearity}. \textit{Mathematics}, 13(22), 3733. \JournalInfo{SCIE}{Q1}
+
+\item McGee, R. W., {\bf Y\"{u}zba\c{s}{\i}, B.}, K{\i}sa, \"{O}., \& Benk, S. (2025). \href{https://doi.org/10.30927/ijpf.1725129}{The Role of Emotions in Attitudes toward Ethics of Tax Evasion: An Empirical Study}. \textit{International Journal of Public Finance}, 10(2), 325--340. {\small\textsf{[TR Dizin]}}
+
+\item Tuncel, G., Y{\i}lmaz, H., G\"{o}ktolga, O., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2024). \href{https://doi.org/10.29288/ilted.1486541}{The Impact of Religious Officials on Social Life: A Research on Scale Development, Validity and Reliability}. \textit{Journal of Ilahiyat Researches}, 62(1), 86--100. {\small\textsf{[ESCI; TR Dizin]}}
+
+\item Gorur, C., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2024). \href{https://doi.org/10.26650/JGEOG2024-1353398}{Study of the Factors Influencing Cultural Similarity in the Post-Migration Adaptation Process in the Province of Van Using the GWR Method}. \textit{Journal of Geography}, 48, 137--154. {\small\textsf{[TR Dizin]}}
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Gorur, C. (2023). Examining The Role of Job by Geographically Weighted Poisson Regression in The Post-Migration Adaptation Process: The Case of Van. Yüzüncü Yıl Üniversitesi Sosyal Bilimler Enstitüsü Dergisi, (Cumhuriyet Özel Sayısı), 11-27.
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Asar, Y., \& Ahmed, S. E. (2022). Liu-type shrinkage estimations in linear models. Statistics, 56(2), 396-420. \JournalInfo{SCIE}{Q2; WoS/JCR 2025}
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Pala, M. (2022) Ridge regression parameter selection: Turkey's example of foreign direct investment. Journal of Statisticians: Statistics and Actuarial Sciences, 15(1), 1-18.
+
+\item Arashi, M., Asar, Y., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2021). SLASSO: a scaled LASSO for multicollinear situations. Journal of Statistical Computation and Simulation, 91(15), 3170-3183. \JournalInfo{SCIE}{Q2}
+
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Arashi, M, \& Akdeniz, F. (2021). Penalized Regression via the Restricted Bridge Estimator. {\em Soft Computing}, 25(13), 8401-8416. \JournalInfo{SCIE}{Q3}
+
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Gorur, C. (2021). Examining Spatial Variability in the Association Between Some Factors and Number of Prisoners in Turkey: A GWR Analysis. Mugla Journal of Science and Technology, 7(1), 141-148.
+
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ahmed, S. E. (2020). Ridge Type Shrinkage Estimation of Seemingly Unrelated Regressions And Analytics of Economic and Financial Data from ``Fragile Five" Countries. {\em Journal of Risk and Financial Management}, 13(6), 131. 
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed, S. E., \& Aydin, D. (2020). Ridge-type pretest and shrinkage estimations in partially linear models. {\em Statistical Papers}, 61(2), 869--898. \JournalInfo{SCIE}{Q2; WoS/JCR 2025} \TubitakOutput
+\label{stat_paper}
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Arashi, M., \& Ejaz Ahmed, S. (2020). Shrinkage Estimation Strategies in Generalised Ridge Regression Models: Low/High-Dimension Regime. {\em International Statistical Review}, 88(1), 229--251. \JournalInfo{SCIE}{Q1}
+\label{int_stat_paper}
+
+\item McGee, R. W., Benk, S., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Budak, T. (2020). Does Religiosity Affect Attitudes toward the Ethics of Tax Evasion? The Case of Turkey. Religions, 11(9), 476. \JournalInfo{AHCI}{Q1}
+\label{robert1_paper}
+
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.},  \& Arashi, M. (2019). Double shrunken selection operator. {\em Communications in Statistics-Simulation and Computation}, 48(3), 666-674. \JournalInfo{SCIE}{Q3}
+
+\item
+McGee, R. W., Benk, S., \&  {\bf Y\"{u}zba\c{s}{\i}, B.}. (2019). Should Governments Tax the Rich and Subsidize the Poor? A Comparative Study of Muslim and Christian Respondents. {\em Religions, 10(2), 72}. \JournalInfo{AHCI}{Q1}
+\label{robert2_paper}
+
+
+
+
+\item
+Yilmaz, E., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Aydin, D. (2021).
+\href{https://www.ine.pt/revstat/pdf/REVSTAT-113-2017-R2.pdf}{ 
+Choice of smoothing parameter for kernel type ridge estimators in semiparametric regression  models}. 
+{\em REVSTAT-Statistical Journal}, 19(1), 47--69. \JournalInfo{SCIE}{Q2}
+
+
+\item
+{\bf Y\"{u}zba\c{s}{\i}, B.}, Asar, Y., Sik, M. S., \& Demiralp, A. (2018).  \href{http://thermalscience.vinca.rs/pdfs/papers-2018/TSCI170612275Y.pdf}{Improving Estimations in Quantile Regression Model with Autoregressive Errors}. Thermal Science. Cilt 22, Ek Sayı 1, s. S97--S107, \JournalInfo{SCIE}{Q4}
+
+
+
+
+\item 
+Arashi, M., Norouzirad, M., Ahmed, S. E., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2018). Rank-based Liu regression. {\em Computational Statistics}, 33(3), 1525-1561. \JournalInfo{SCIE}{Q2}
+
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed S.E, \& Gungor, M. (2017). 
+\href{https://www.ine.pt/revstat/pdf/rs170205.pdf}{Improved Penalty Strategies in Linear Regression Models}, 
+\emph{REVSTAT-Statistical Journal}, 15(2), 251--276. \JournalInfo{SCIE}{Q2; WoS/JCR 2025} \TubitakOutput
+\label{by2017a}
+
+ \item Benk, S., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& McGee, R. W. (2017). 
+\href{http://www.mdpi.com/2077-1444/8/1/8}{Confidence in Government and Attitudes toward Bribery: A Country-Cluster Analysis of Demographic and Religiosity Perspectives}. 
+\emph{Religions}, 8(1), 8. \JournalInfo{AHCI}{Q1}
+\label{by2017b}
+
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ejaz Ahmed, S. (2016). 
+\href{http://www.tandfonline.com/doi/abs/10.1080/00949655.2016.1171868?journalCode=gscs20}
+{Shrinkage and penalized estimation in semi-parametric models with multicollinear data}. 
+\emph{Journal of Statistical Computation and Simulation}, 86(17), 3543--3561. \JournalInfo{SCIE}{Q2} \TubitakOutput
+\label{by2016a}
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Bulut, Y., \& Gungor, M. (2016). 
+\href{https://www.degruyter.com/view/j/phys.2016.14.issue-1/phys-2016-0022/phys-2016-0022.xml}
+{On order statistics from nonidentical discrete random variables}. 
+\emph{Open Physics}, 14(1), 192-196. \JournalInfo{SCIE}{Q2}
+
+\item Ayd\i n, D., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ahmed, S. E. (2016). 
+\href{http://www.ingentaconnect.com/contentone/asp/jctn/2016/00000013/00000010/art00087?crawler=true&mimetype=application/pdf}{Modified ridge type estimator in partially linear regression models and numerical Comparisons}, 
+\emph{Journal of Computational and Theoretical Nanoscience}, Vol. 13, 1--14. 
+
+
+
+
+\item Bulut, Y., Gungor, M., {\bf Y\"{u}zba\c{s}{\i}, B.}, Ozbey, F., \& Canpolat, E. (2016). 
+\href{http://www.eudoxuspress.com/images/VOLUME-20-JOCAAA-2016-ISSUE-1.pdf}
+{On Distributions of Discrete Order Statistics}. 
+\emph{Journal of Computational Analysis \& Applications}, 20(1), 187-200. \JournalInfo{SCIE}{Q4}
+
+\item Ejaz Ahmed, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2016). 
+\href{http://www.tandfonline.com/doi/abs/10.1080/17509653.2016.1153252}{Big data analytics: integrating penalty strategies}. 
+\emph{International Journal of Management Science and Engineering Management}, 11(2), 105-115.
+
+
+
+\item Benk, S., Budak, T., {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Mohdali, R. (2016). 
+\href{http://www.mdpi.com/2077-1444/7/4/37}{The Impact of Religiosity on Tax Compliance among Turkish Self-Employed Taxpayers}. 
+\emph{Religions}, 7(4), 37. \JournalInfo{AHCI}{Q1}
+ \label{by2016b}
+ 
+
+
+\item Benk, S., McGee, R. W., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2015). 
+\href{http://jsri.ro/ojs/index.php/jsri/article/view/777}
+{How religions affect attitudes toward ethics of tax evasion? A comparative and demographic analysis}. 
+\emph{Journal for the Study of Religions and Ideologies}, 14(41), 202. \JournalInfo{AHCI}{Q1}
+ \label{by2015a}
+	
+\item McGee, R. W., Benk, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2015). 
+\href{http://www.mdpi.com/2077-1444/6/4/1168}{Religion and Ethical Attitudes toward Accepting a Bribe: A Comparative Study}. 
+\emph{Religions}, 6(4), 1168-1181. \JournalInfo{AHCI}{Q1}
+\label{by2015b}
+
+\item Kayhan, S., Bayat, T., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2013). 
+\href{http://www.sciencedirect.com/science/article/pii/S026499931300240X}
+{Government expenditures and trade deficits in Turkey: Time domain and frequency domain analyses}. 
+\emph{Economic Modelling}, 35, 153-158. \JournalInfo{SSCI}{Q1}
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Gungor, M. (2013). 
+\href{http://www.eudoxuspress.com/244/JOCAAA-VOL-15-2013.pdf}
+{On Joint Distributions of Order Statistics from Nonidentically Distributed Discrete Vectors}. 
+\emph{Journal of Computational Analysis \& Applications}, 15(5), 917--927. \JournalInfo{SCIE}{Q4}
+\label{by2013}
+
+\item Gungor, M., Bulut, Y., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2012). 
+\href{https://link.springer.com/article/10.1186/1029-242X-2012-264}
+{On joint distributions of order statistics for a discrete case}. 
+\emph{Journal of Inequalities and Applications}, 2012(1), 264. \JournalInfo{SCIE}{Q1; WoS/JCR 2025}
+
+%\end{enumerate}
+
+
+%\begin{itemize}
+%\item  \href{http://ip-science.thomsonreuters.com/cgi-bin/jrnlst/jlresults.cgi?PC=D}{Science Citation Index Expanded}  : {\bf SCI-E}
+%\item  \href{http://science.thomsonreuters.com/cgi-bin/jrnlst/jlsubcatg.cgi?PC=H}{Arts \& Humanities Citation Index} : {\bf AHCI}
+%\item  \href{http://ip-science.thomsonreuters.com/cgi-bin/jrnlst/jlsubcatg.cgi?PC=SS}{Social Sciences Citation Index}    : {\bf SSCI}
+%\item  \href{http://ip-science.thomsonreuters.com/cgi-bin/jrnlst/jlresults.cgi?PC=EX}{Emerging Sources Citation Index} : {\bf ESCI}
+%\end{itemize}
+
+
+\end{etaremune}
+
+
+
+
+
+%\NewPart{Pending manuscripts}{\href{http://arxiv.org/find/cond-mat/1/au:+Appelbaum_I/0/1/0/all/0/1}{[arxiv]}}
+%\begin{itemize}
+%\item \ArxivEntry{J. Li and \underline{I. Appelbaum}}{D$^-$ donor spin coupling to conduction electrons in silicon}{1308.5621}
+%\end{itemize}
+
+
+
+\NewPart{Kitap İncelemeleri}{}
+\begin{itemize}
+\item {\bf Y\"{u}zba\c{s}{\i}, B.} (2026). Mark A. Perkins'in \textit{Using R for Introductory Statistics in Social Sciences} adlı kitabının incelemesi (Springer, 2026, xiii + 207 s., ISBN 978-3-032-17144-3). \textit{International Statistical Review}. Çevrimiçi yayın: 30 Eylül 2026. \href{https://doi.org/10.1111/insr.70072}{doi:10.1111/insr.70072}. \JournalInfo{SCIE}{Q1}
+\end{itemize}
+
+\NewPart{Kitap Bölümleri ve Yayımlanmış Bildiriler}{}
+
+\begin{etaremune}
+\renewcommand{\theenumi}{B\arabic{enumi}}
+
+\item Gorur, C., Kucuk, B. \& {\bf Y\"{u}zba\c{s}{\i}, B.}, (2023), Examining the Effect of Education on the Post-Migration Adaptation Process with the Geographically Weighted Poisson Regression Method: Van Example. Globalization and Migration, Bölüm 8, s. 159-175, Holistence Publications, Çanakkale.
+
+\item McGee, R. W., Benk, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Jewish attitudes toward bribery. The Ethics of Bribery: Theoretical and Empirical Studies (s. 123-143). Cham: Springer International Publishing.
+
+\item McGee, R. W., Benk, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Buddhist attitudes toward bribery. The Ethics of Bribery: Theoretical and Empirical Studies (s. 145-165). Cham: Springer International Publishing.
+
+\item McGee, R. W., Benk, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Hindu attitudes toward bribery. The Ethics of Bribery: Theoretical and Empirical Studies (s. 101-121). Cham: Springer International Publishing.
+
+\item McGee, R. W., Benk, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Atheist attitudes toward bribery. The Ethics of Bribery: Theoretical and Empirical Studies (s. 79-99). Cham: Springer International Publishing.
+
+\item McGee, R. W., Benk, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Religious attitudes toward bribery: A comparative study. The Ethics of Bribery: Theoretical and Empirical Studies (s. 11-29). Cham: Springer International Publishing.
+
+\item McGee, R. W., Benk, S., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Christian attitudes toward bribery. The Ethics of Bribery: Theoretical and Empirical Studies (s. 31-55). Cham: Springer International Publishing.
+
+\item Ahmed, S. E., \& {\bf Y\"{u}zba\c{s}{\i}, B.} Big data analytics: integrating penalty strategies, Big Data and Information Theory, Routledge, 2022.
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed S.E., Arashi M., Norouzirad M. (2020) \href{https://link.springer.com/chapter/10.1007/978-3-030-21248-3_32}{LAD, LASSO and Related Strategies in Regression Models}. Xu J., Ahmed S., Cooke F., Duca G. (Ed.) Proceedings of the Thirteenth International Conference on Management Science and Engineering Management. ICMSEM2019. Advances in Intelligent Systems and Computing, cilt 1001. Springer, Cham
+
+
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Ahmed, S. E., \& Asar, Y. (Aralık 2018). \href{https://ieeexplore.ieee.org/document/8632795}{L1 Correlation-Based Penalty in High-Dimensional Quantile Regression}. 2018 4th International Conference on Big Data and Information Analytics (BigDIA) (s. 1-5). IEEE.
+
+
+ \item  Ahmed, S. E., Hwanwoo, K., Yildirim, G. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2019). \href{https://link.springer.com/chapter/10.1007/978-3-030-17519-1_11}{Matrices, Statistics and Big Data. IWMS 2016. Contributions to Statistics. Springer, Cham Bölüm adı: (High dimensional regression under correlated Design: an extensive simulation study)} Ahmed S., Carvalho F., Puntanen S. (Ed.)
+ 
+
+ 
+ 
+
+ \item  Asar, Y., Ahmed, S. E., \& {\bf Y\"{u}zba\c{s}{\i}, B.} (Ağustos 2018). \href{https://link.springer.com/chapter/10.1007/978-3-319-93351-1_27}{Efficient and Improved Estimation Strategy in Zero-Inflated Poisson Regression Models}. International Conference on Management Science and Engineering Management (s. 329-342). Springer, Cham.
+
+
+ \item  {\bf Y\"{u}zba\c{s}{\i}, B.}  \& Asar, Y. (2018). \href{https://www.gazikitabevi.com.tr/urun/econometrics-methods-applications}{Econometrics: Methods \& Applications}, Gazi Kitabevi, Bölüm adı: Ridge Type Estimation in the Zero-Inflated Negative Binomial Regression
+
+
+
+
+
+
+\item Ahmed, S. E. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2017) 
+\href{https://link.springer.com/chapter/10.1007\%2F978-3-319-41573-4_14}
+{High Dimensional Data Analysis: Integrating Submodels. In Big and Complex Data Analysis} (s. 285-304). 
+Springer International Publishing.
+
+
+ \item {\bf Y\"{u}zba\c{s}{\i}, B.}, \& Ahmed, S. E. (2015). 
+ \href{https://link.springer.com/chapter/10.1007/978-3-662-47241-5_67}
+ {Shrinkage Ridge Regression Estimators in High-Dimensional Linear Models}. 
+ Proceedings of the Ninth International Conference on Management Science and Engineering Management (s. 793-807). 
+ Springer Berlin Heidelberg.
+ 
+
+ 
+ 
+\end{etaremune}
+
+
+
+
+\NewPart{Davetli Konuşmalar ve Uluslararası Kongre Görevleri}{}
+\begin{etaremune}
+\renewcommand{\theenumi}{C1-\arabic{enumi}}
+
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.} (2026). The Scaled Group Lasso for High-Dimensional Genomic Data. \href{https://www.sharjah.ac.ae/Conferences/SICMS26}{The Second Sharjah International Conference on Mathematical Sciences (UOS-SICMS26)}, Sharjah Üniversitesi, Sharjah, Birleşik Arap Emirlikleri, 14--15 Ocak 2026. (Davetli konuşmacı)
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.} (2026). A Hybrid Regularization Framework for Correlated Feature Selection in High-Dimensional Data. \href{https://hdda2026.medipol.edu.tr}{15th Conference on High Dimensional Data Analysis (HDDA-XV)}, İstanbul Medipol Üniversitesi, İstanbul, Türkiye, 12--14 Ağustos 2026. (Davetli konuşmacı)
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.} (2025). Groupwise Feature Selection in High-Dimensional Data. \href{https://icsds.github.io/2025/assets/program_ICSDS2025.pdf}{International Conference on Statistics and Data Science}, 23--25 Haziran 2025, Vancouver, Kanada. (Davetli konuşmacı)
+
+\item\TalkEntry{\href{https://ssc.ca/en/2016-some-applications-james-stein-shrinkage-estimation\#by}{44th Annual Meeting of the Statistical Society of Canada}}{Brock Üniversitesi, Kanada}{Mayıs 2016}{(Davetli konuşmacı)} 
+
+\item\TalkEntry{\href{http://www.fields.utoronto.ca/talks/stein-type-generalized-ridge-regression-high-dimensional-sparse-models}{6th International Workshop on the Perspectives on High-Dimensional
+Data Analysis (HDDA-VI)}}{The Fields Institute, Toronto Üniversitesi, Kanada}{Mayıs 2016}{(Davetli konuşmacı ve düzenleme kurulu üyesi)} 
+
+
+\item\TalkEntry{\href{https://www.stat.ubc.ca/events-list?field_event_type_tid=All&page=5&year=2005}{$L_q$-type Penalty Estimation Under the Linear Restriction}}{British Columbia Üniversitesi, İstatistik Bölümü, Vancouver, Kanada}{Ağustos 2019}{(İstatistik semineri)} 
+
+
+
+\end{etaremune}
+
+
+\NewPart{Uluslararası Kongre Bildirileri}{}
+
+\begin{etaremune}
+\renewcommand{\theenumi}{C2-\arabic{enumi}}
+
+
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Liu Estimation on Geographically Weighted Regression. IV. International Applied Statistics Congress, Saraybosna, Bosna-Hersek.
+
+\item {\bf Y\"{u}zba\c{s}{\i}, B.} ve Yüzbaşı Z. (2023). Minkowski Distance on Geographically Weighted Regression, IV. International Applied Statistics Congress, Saraybosna, Bosna-Hersek
+\item Pehlivan, C. \& {\bf Y\"{u}zba\c{s}{\i}, B.} \& Tuncel, G.  (2023). Sosyo-Gelişmişlik Düzeyi ile Göç Arasındaki İlişki: Van İli Üzerine Bir Araştırma. The Migration Conference 2023, 23--26 Ağustos 2023, Hamburg, Almanya.
+\item Pehlivan, C. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Ekonomik Yetersizlik ile Göç Arasındaki İlişkinin Ampirik Analizi: Van İlinden Kanıtlar The Migration Conference 2023, 23--26 Ağustos 2023, Hamburg, Almanya.
+\item Küçük, B. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Van İlinin Göç Sonrası Uyum Sürecinde Eğitim Etkisi çalışması. 2nd International Artificial Intelligence and Social Sciences Congress, Ufuk Üniversitesi, Ankara, Türkiye.
+\item Küçük, B. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). The Effect of Climate and Geography on Migration to Van Province. The Seventh International Conference on Computational Mathematics and Engineering Sciences (CMES-2023), 20--21 Mayıs 2023, Elazığ, Türkiye.
+\item Karakaş, M. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Migration to Van Province to Access a Better Life. The Seventh International Conference on Computational Mathematics and Engineering Sciences (CMES-2023), 20--21 Mayıs 2023, Elazığ, Türkiye.
+\item Görür, Ç. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Van İlinin Eğitim İmkânsızlıkları Nedeniyle Aldığı Göçün Coğrafi Ağırlıklı Poisson Regresyon Yöntemiyle İncelenmesi. Ufuk Üniversitesi Sosyal Bilimler Enstitüsü, "Yapay Zeka ve Sosyal Bilimler" ana temalı II. Uluslararası Sosyal Bilimler Kongresi, 3--5 Mayıs 2023, Ankara, Türkiye.
+\item Görür, Ç. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Investigation of Work Effect in the Post-Migration Adaptation Process by Geographically Weighted Poisson Regression: The Case of Van. The Seventh International Conference on Computational Mathematics and Engineering Sciences (CMES-2023), 20--21 Mayıs 2023, Elazığ, Türkiye.
+\item Görür, Ç., {\bf Y\"{u}zba\c{s}{\i}, B.} \& Tuncel, G. (2023). Examining the Factors Affecting Cultural Similarity in the Post-Migration Adaptation Process by Geographically Weighted Regression Method: The Case of Van Province. The Migration Conference 2023, 23--26 Ağustos 2023, Hamburg, Almanya.
+\item Görür, Ç. \& {\bf Y\"{u}zba\c{s}{\i}, B.} (2023). Investigation of Migration due to Social Environmental Pressure by Geographical Regression: The Example of Van Province. The Migration Conference 2023, 23--26 Ağustos 2023, Hamburg, Almanya.
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.} (2022). Big Data Analytics via Penalized Estimation. 6th International Conference on Computational Mathematics and Engineering Sciences.
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, ASAR YASİN, YUZBASI ZK, (2018), A new quantile penalty estimator, 11th International Statistics Days Conference. 
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, DEMIRALP AHMED, GUNGOR MEHMET (2018).  Correlation Based Penalty Estimator in Vector Autoregressive Model.  11th International Statistics Days Conference.
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, Ejaz Ahmed, ASAR YASİN, (2018), Liu Pretest and Stein-Type Shrinkage Estimation in Linear Regression Models, 11th International Statistics Days Conference. 
+
+\item  ASAR YASİN, {\bf Y\"{u}zba\c{s}{\i}, B.} (2018), A biased estimation method in zero inflated count models, 3rd International Conference on Computational Mathematics and Engineering Sciences
+
+\item  ASAR YASİN, {\bf Y\"{u}zba\c{s}{\i}, B.} (2018), Quantile correlation based penalty estimator, 3rd International Conference on Computational Mathematics and Engineering Sciences. 
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, ASAR YASİN (2018), Improved Biased Estimation Methods in Logistic Regression, 3rd International Conference on Computational Mathematics and Engineering Sciences.
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.}, ASAR YASİN, (2017).  Pretest and Stein-Type Estimations in Quantile Regression Model. International Workshop on Mathematical Methods in Engineering, Rusya.
+
+\item  ASAR YASİN, {\bf Y\"{u}zba\c{s}{\i}, B.} (2017).  Linear Unified Shrinkage Estimators in Linear Models.  International Workshop on Mathematical Methods in Engineering, Rusya.
+
+\item  DEMİRALP AHMET,ASAR YASİN, {\bf Y\"{u}zba\c{s}{\i}, B.} (2017).  Shrinkage and penalty estimation in quantile regression model with autoregressive errors.  INTERNATIONAL CONFERENCE ON MATHEMATICAL MODELLING in Applied Sciences, Rusya.
+
+\item  ŞIK MUHAMMED ŞAMİL, {\bf Y\"{u}zba\c{s}{\i}, B.},ASAR YASİN (2017).  Preliminary and shrinkage estimation in quantile regression model with iid errors.  International Conference on Mathematical Modelling in Applied Sciences
+
+\item  ŞIK MUHAMMED ŞAMİL, {\bf Y\"{u}zba\c{s}{\i}, B.},ASAR YASİN (2017).  Controlling Bias in Quantile Regression Models under Gauss-Markov Assumptions.  3rd International Researchers, Statisticians and Young Statisticians Congress
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.},AHMED SYED EJAZ,ARASHI MOHAMMAD (2017).  Improved Estimation Strategies in Generalized Ridge Regression Models.  3. International Researchers, Statisticians and Young Statisticians Congress
+
+\item  DEMİRALP AHMET,ASAR YASİN, {\bf Y\"{u}zba\c{s}{\i}, B.} (2017).  Improved Estimation Strategies in Quantile Regression Model when Errors are Non-iid.  3.International Researchers, Statisticians and Young Statisticians Congress 2017
+
+\item  YILDIRIM GOKHAN,AHMED SYED EJAZ,KIM HWANWOO, {\bf Y\"{u}zba\c{s}{\i}, B.} (2016).  On Lasso trade off diagram under correlated random design matrix.  6th International Workshop on the Perspectives  on High-Dimensional Data Analysis (HDDA-VI), Fields Institute, Toronto Üniversitesi, Kanada. 
+
+\item  YILMAZ ERSİN, {\bf Y\"{u}zba\c{s}{\i}, B.},AYDIN DURSUN (2015).  Ridge type kernel smoothing in semi  parametric regression models  A Comparative Simulation Study.  9. International Statistics Congress
+
+\item  {\bf Y\"{u}zba\c{s}{\i}, B.} AHMED SYED EJAZ,GÜNGÖR MEHMET (2015).  Shrinkage Ridge Type Estimators in Linear Models.  9. International Statistics Congress.
+
+
+
+
+\end{etaremune}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\NewPart{Tez Danışmanlığı}{}
+\begin{itemize}
+
+
+\item Çetin Görür, Dinamik doğrusal modeller ile Türkiye'ye ait gayri safi yurt içi hasıla tahmini, yüksek lisans tezi, İnönü Üniversitesi, 2019.
+\item Emsal Çağla Avcu, Lasso VAR ve VARX modelleri üzerine bir uygulama, yüksek lisans tezi, İnönü Üniversitesi, 2019.
+\item Özlem Taya, Destek vektör makineleri ve lojistik regresyon yöntemi ile sınıflandırma: Türkiye'nin ithalat ve ihracat örneği, yüksek lisans tezi, İnönü Üniversitesi, 2022.
+\item Mustafa Pala, Ridge regresyon parametre seçimi: Türkiye'nin doğrudan yabancı yatırım örneği, yüksek lisans tezi, İnönü Üniversitesi, 2022.
+\item Merve Karakaş, Avrupa Birliği ülkeleri ve Türkiye için enerji yoğunluğu belirleyicileri: Coğrafi ağırlıklı regresyon analizinden kanıtlar, yüksek lisans tezi, İnönü Üniversitesi, 2024. Tamamlandı.
+%\item Tugce Alanel, An Econometrics data application for quantile regression, Master Thesis, Inonu University, 2021 - . 
+\item Çetin Görür, Van ilinin komşu illerden ve İran'dan aldığı göçün coğrafi ağırlıklı regresyon ile incelenmesi, doktora tezi, İnönü Üniversitesi, 2024. Tamamlandı.
+
+
+
+
+\end{itemize}
+
+
+\NewPart{Verilen Kurslar}{}
+
+\begin{itemize}
+\item Uygulamalı SPSS analizi, İnönü Üniversitesi, 2012 (iki ay). Eğitmen.
+\item Uygulamalı SPSS analizi, İnönü Üniversitesi, 2024 (iki ay). Eğitmen.
+\end{itemize}
+
+\NewPart{Bilimsel Kuruluş Üyelikleri}{}
+
+\begin{itemize}
+
+\item Uluslararası İstatistik Enstitüsü (International Statistical Institute, ISI), seçilmiş üye, 2023--günümüz.
+\item Uluslararası İstatistiksel Hesaplama Birliği (International Association for Statistical Computing, IASC), üye, 2023--günümüz.
+
+\end{itemize}
+
+
+
+
+%\NewPart{Theses Supervised}{}
+
+%\begin{enumerate}
+%\renewcommand{\theenumi}{E\arabic{enumi}}
+%\item\ThesisEntry{\href{http://www.linkedin.com/pub/hyun-soo-kim/48/28/191}{Hyun-Soo Kim}}{MS}{12/13}{\href{http://drum.lib.umd.edu/handle/1903/15485}{Hot Electron Injection into Uniaxially Strained Silicon}}{UMD}
+
+%\item\ThesisEntry{Tugba Yigmatepe}{MS,}{resuming}{Shrinkage estimation on Generalized Ridge Regression}{\.{I}n\"{o}n\"{u} University}
+
+%\end{enumerate}
+
+
+
+
+
+\NewPart{Çalıştay ve Sempozyum Görevleri}{}
+
+\begin{enumerate}
+
+\item \href{http://www.fields.utoronto.ca/activities/15-16/HDDA}{HDDA-VI: The Sixth International Workshop on the Perspectives on High-Dimensional Data Analysis}, The Fields Institute, Toronto, Mayıs 2016. Bilim kurulu ve düzenleme kurulu üyesi.
+
+\item International Symposium on Big Data and Applied Statistics (ISBDAS), Guangzhou, Çin, Kasım 2018. Kurul üyesi.
+
+\end{enumerate}
+
+
+
+\NewPart{Öğretim Deneyimi}{}
+
+Lisans düzeyinde deney tasarımı, olasılık, kategorik veri analizi, matematiksel istatistik, regresyon analizi, doğrusal cebir, sayısal analiz, çok değişkenli istatistik ve istatistiğe giriş dersleri verdim. Yüksek lisans ve doktora düzeyinde istatistiksel yöntemler, makine öğrenmesi ve büyük veri analitiği dersleri verdim.
+
+2022--2026 döneminde İnönü Üniversitesinde, biri İngilizce olmak üzere, her yarıyıl en az beş ders verdim. 2025 bahar döneminde Simon Fraser Üniversitesinde Uygulamalı Kesikli Veri Analizi (STAT 475/675) dersini verdim.
+
+
+\NewPart{Dergi Hakemlikleri}{}
+\begin{multicols}{2}
+\begin{enumerate}
+\item Uluslararası Bilimsel Dergilerde Hakemlik
+\item Journal of Statistical Computation and Simulation 
+\item IEEE Transactions on Signal Processing 
+\item Geo-Spatial Information Science 
+\item Plos One 
+\item IET Signal Processing 
+\item Concurrency and Computation: Practice and Experience 
+\item Wiley Interdisciplinary Reviews: Computational Statistics 
+\item Electronics Letters 
+\item Journal of Inequalities and Applications 
+\item Communications in Statistics - Simulation and Computation 
+\item Soft Computing 
+\item Iranian Journal of Science and Technology, Transactions A: Science 
+\item Journal of Public Affairs 
+\item Journal of Mathematics
+\item Computational Intelligence and Neuroscience
+\item Journal of Inverse and Ill-Posed Problems 
+\item Chemometrics and Intelligent Laboratory Systems
+\item Heliyon
+\item Computer Methods and Programs in Biomedicine
+\item Big Data Research
+\item İktisat Politikası Araştırmaları Dergisi
+\item Adıyaman Üniversitesi Fen Bilimleri Dergisi
+\item Bitlis Eren Üniversitesi Fen Bilimleri Dergisi
+\item EKEV Akademi Dergisi
+\item Erciyes Üniversitesi İktisadi ve İdari Bilimler Fakültesi Dergisi
+\item Elektronik Sosyal Bilimler Dergisi
+\item Fırat Üniversitesi Sosyal Bilimler Dergisi
+\item Gazi University Journal of Science
+\item Marmara Fen Bilimleri Dergisi
+\item Mugla Journal of Science and Technology
+\item Physical Sciences
+\item Social Sciences
+\item Bilecik Şeyh Edebali Üniversitesi Fen Bilimleri Dergisi
+\item Mehmet Akif Ersoy Üniversitesi İktisadi ve İdari Bilimler Fakültesi Dergisi
+\item Trakya Üniversitesi Sosyal Bilimler Dergisi
+\item Politeknik Dergisi
+\item International Journal of Advances in Engineering and Pure Sciences
+\item Fırat Üniversitesi Sosyal Bilimler Dergisi
+\end{enumerate}
+\end{multicols}
+
+\end{document}

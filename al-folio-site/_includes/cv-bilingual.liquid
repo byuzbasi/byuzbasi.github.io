@@ -25,6 +25,7 @@
   {% assign present_label = "present" %}
   {% assign download_label = "Download CV (PDF)" %}
   {% assign download_aria = "Download Bahadır Yüzbaşı's academic CV as a PDF" %}
+  {% assign download_path = '/assets/files/Bahadir-Yuzbasi-CV.pdf' %}
 {% else %}
   {% assign profile = site.data.cv.cv %}
   {% assign appointments = profile.sections["Akademik atamalar"] %}
@@ -49,8 +50,9 @@
   {% assign interests_label = "Araştırma alanları" %}
   {% assign book_reviews_label = "Kitap değerlendirmeleri" %}
   {% assign present_label = "günümüz" %}
-  {% assign download_label = "CV’yi indir (PDF, İngilizce)" %}
-  {% assign download_aria = "Bahadır Yüzbaşı'nın İngilizce akademik CV dosyasını PDF olarak indir" %}
+  {% assign download_label = "CV’yi indir (PDF)" %}
+  {% assign download_aria = "Bahadır Yüzbaşı'nın Türkçe akademik CV dosyasını PDF olarak indir" %}
+  {% assign download_path = '/assets/files/Bahadir-Yuzbasi-CV-TR.pdf' %}
 {% endif %}
 
 <div class="cv-page">
@@ -63,7 +65,7 @@
       <p class="cv-profile__actions">
         <a
           class="cv-download"
-          href="{{ '/assets/files/Bahadir-Yuzbasi-CV.pdf' | relative_url }}"
+          href="{{ download_path | relative_url }}"
           download
           aria-label="{{ download_aria }}"
         >{{ download_label }} <span aria-hidden="true">↓</span></a>

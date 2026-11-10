@@ -41,7 +41,7 @@ latest_posts:
 <div class="profile-actions" aria-label="Hızlı erişim">
   <a class="profile-action profile-action--primary" href="#selected-publications">Seçilmiş yayınlar <span aria-hidden="true">→</span></a>
   <a class="profile-action" href="{{ '/research-projects/#tubitak-1001-buyuk-mekansal-veri' | relative_url }}">TÜBİTAK 1001 projesi <span aria-hidden="true">→</span></a>
-  <a class="profile-action" href="{{ '/assets/files/Bahadir-Yuzbasi-CV.pdf' | relative_url }}" download>CV’yi indir <span aria-hidden="true">↓</span></a>
+  <a class="profile-action" href="{{ '/assets/files/Bahadir-Yuzbasi-CV-TR.pdf' | relative_url }}" download>CV’yi indir <span aria-hidden="true">↓</span></a>
 </div>
 
 {% include academic-impact.liquid %}

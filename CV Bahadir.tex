@@ -263,21 +263,43 @@ Thesis advisors: Mehmet G\"{u}ng\"{o}r (\.{I}n\"{o}n\"{u} University) \& S. Ejaz
 
 %%% Papers
 %%% ------------------------------------------------------------
-\NewPart{Software Experience}{}
+\clearpage\NewPart{Software Experience}{}
+
+\noindent\href{https://byuzbasi.github.io/en/software/}{Research software catalogue}
 
 \begin{etaremune}
 \renewcommand{\theenumi}{A\arabic{enumi}}
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.} \& Cao, J. (2026). \texttt{sglasso}: an R package for collinear groupwise selection via scaled group lasso, written with C++ and RcppArmadillo. Related article: \href{https://doi.org/10.1080/00031305.2026.2709494}{Y\"{u}zba\c{s}{\i} \& Cao (2026), ``Collinear Groupwise Selection via Scaled Group Lasso,'' \textit{The American Statistician}}.
+\item \textbf{\texttt{softridge}} (version 0.3.0.1). Soft-thresholded ridge for high-dimensional linear models; fixed-tuning risk for the estimable projection, prediction SURE, cross-validation and least-squares refitting. R/C++17, RcppArmadillo. Co-developed with Mohammad Arashi. \href{https://byuzbasi.github.io/softridge/}{Website} \textbar{} \href{https://github.com/byuzbasi/softridge}{Source}.
 
-\item {\bf Y\"{u}zba\c{s}{\i}, B.}, Arashi, M., \& Akdeniz, F. (2019). \href{https://cran.r-project.org/web/packages/rbridge/rbridge.pdf}{\texttt{rbridge}: Restricted Bridge Estimation}. R package version 1.0, written with C++ and RcppArmadillo. Related article: Y\"{u}zba\c{s}{\i} et al. (2021), Penalized regression via the restricted bridge estimator, \textit{Soft Computing}, 25(13), 8401--8416.
+\item \textbf{\texttt{scaleCorrection}} (version 0.1.0). Research companion to \texttt{softridge} for optimism-corrected scaling after soft thresholding, with matched Ridge-c0 tuning. R/C++17, RcppArmadillo. Co-developed with Mohammad Arashi. \href{https://byuzbasi.github.io/softridge/scaleCorrection/}{Website} \textbar{} \href{https://github.com/byuzbasi/softridge/tree/main/companion/scaleCorrection}{Source}.
 
+\item \textbf{\texttt{emaxProjection}} (version 0.1.0). Confidence-region projection for integrated Emax responses, including boundary cases, feasible witnesses, endpoint gaps and termination diagnostics. R/C++17, RcppArmadillo. \href{https://byuzbasi.github.io/emaxProjection/}{Website} \textbar{} \href{https://github.com/byuzbasi/emaxProjection}{Source}.
 
-\item Python programming for statistical computing, machine learning workflows, data cleaning and reproducible research pipelines.
+\item \textbf{\texttt{gwrs}} (version 0.4.0.9015). Geographically weighted regression with joint predictor-subset, kernel and bandwidth selection, and local ridge, lasso, elastic-net, SCAD and MCP regularization. R/C++, RcppArmadillo and RcppParallel. \href{https://byuzbasi.github.io/gwrs/}{Website} \textbar{} \href{https://github.com/byuzbasi/gwrs}{Source}.
 
-\item SPSS programming and applied statistical analysis for social science and medical research; lecturer for applied SPSS courses.
- 
- \end{etaremune}
+\item \textbf{\texttt{AdaReFun}} (version 0.1.2). Adaptive regional scalar-on-function regression with MCP and SCAD penalties, single- and multi-resolution estimation, and validation-based model selection. R/C++17, RcppArmadillo. Co-developed with Jiguo Cao. \href{https://byuzbasi.github.io/AdaReFun/}{Website} \textbar{} \href{https://github.com/byuzbasi/AdaReFun}{Source}.
+
+\item \textbf{\texttt{sglasso}} (version 1.2.0). Scaled group lasso for collinear groupwise selection with Gaussian and binomial responses. R/C++, RcppArmadillo. Co-developed with Jiguo Cao. \href{https://byuzbasi.github.io/sglasso/}{Website} \textbar{} \href{https://github.com/byuzbasi/sglasso}{Source}. Related article: \href{https://doi.org/10.1080/00031305.2026.2709494}{Y\"{u}zba\c{s}{\i} \& Cao (2026), ``Collinear Groupwise Selection via Scaled Group Lasso,'' \textit{The American Statistician}}.
+
+\item \textbf{\texttt{lambertReg}} (version 0.1.11). Sparse Gaussian regression with the Lambert penalty, fixed-shape regularization paths, training-only cross-validation and numerical diagnostics. R/C++, Rcpp. \href{https://byuzbasi.github.io/lambertReg/}{Website} \textbar{} \href{https://github.com/byuzbasi/lambertReg}{Source}.
+
+\item \textbf{\texttt{rbridge}} (version 1.0.4, CRAN). Restricted Bridge Estimation under linear coefficient restrictions. R/C++, RcppArmadillo. Co-developed with Mohammad Arashi and Fikri Akdeniz. \href{https://byuzbasi.github.io/rbridge/}{Website} \textbar{} \href{https://github.com/byuzbasi/rbridge}{Source} \textbar{} \href{https://cran.r-project.org/package=rbridge}{CRAN}. Related article: \href{https://doi.org/10.1007/s00500-021-05763-9}{Y\"{u}zba\c{s}{\i}, Arashi \& Akdeniz (2021), ``Penalized Regression via the Restricted Bridge Estimator,'' \textit{Soft Computing}, 25(13), 8401--8416}.
+
+\item \textbf{\texttt{LHWL}} (version 0.3.1). Lorentz hyperbolic weighted local regression and penalized learning for Gaussian and binomial responses, with tuning, diagnostics and coefficient maps. R/C++, RcppArmadillo. Co-developed with Z\"{u}hal K\"{u}\c{c}\"{u}karslan Y\"{u}zba\c{s}{\i}. \href{https://byuzbasi.github.io/LHWL/}{Website} \textbar{} \href{https://github.com/byuzbasi/LHWL}{Source}.
+
+\item \textbf{\texttt{HDMaxShrink}} (version 0.6.2). Test-guided shrinkage for high-dimensional linear models, with maximum-statistic calibration and compiled computational tools. R/C++, RcppArmadillo. \href{https://byuzbasi.github.io/HDMaxShrink/}{Website} \textbar{} \href{https://github.com/byuzbasi/HDMaxShrink}{Source}.
+
+\item \textbf{\texttt{BernoulliRuns}} (version 0.1.0). Exact run-count distributions for independent Bernoulli trials with possibly varying success probabilities; probability masses, cumulative distributions, expectations and one-sided tails. R. \href{https://byuzbasi.github.io/BernoulliRuns/}{Website} \textbar{} \href{https://github.com/byuzbasi/BernoulliRuns}{Source}.
+
+\item \textbf{\texttt{penGWBR}} (source version 1.4.1). Penalized geographically weighted beta regression for proportion responses, with lasso and adaptive-lasso local variable selection, spatial cross-validation, coefficient maps and diagnostics. R/C++, RcppArmadillo. Private source repository.
+
+\item \textbf{\texttt{ShapeAdaptiveEN}} (version 0.1.0). Shape-adaptive elastic-net regression under skewness and heavy tails, with fitting, prediction and diagnostic tools. Python 3.13. \href{https://byuzbasi.github.io/shape-adaptive-robust-regression/}{Website} \textbar{} \href{https://github.com/byuzbasi/shape-adaptive-robust-regression}{Source}.
+
+\end{etaremune}
+
+\smallskip
+\noindent\textbf{Programming and applied computing.} Python programming for statistical computing, machine learning workflows, data cleaning and reproducible research pipelines. SPSS programming and applied statistical analysis for social science and medical research; lecturer for applied SPSS courses.
 
 
 \NewPart{Projects, Scholars, Awards and Grants}{}
