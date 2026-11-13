@@ -13,7 +13,14 @@ translation_key: books
   <p class="section-eyebrow">VERİDEN KANITA · KURAMDAN UYGULAMAYA</p>
   <h2>Birlikte düşünmek, öğrenmek ve uygulamak.</h2>
   <p>İstatistiksel düşünmeden ileri yöntemlere uzanan kitaplarım; matematiksel açıklamaları, gerçek problem bağlamlarını ve R/Python uygulamalarını bir araya getiriyor.</p>
-  <p class="catalog-note">Kitaplar yayına hazırlık aşamasındadır. Kitap uygulamaları her kitap için ayrı özel GitHub deposunda tutulmaktadır. Depolara erişim yetki gerektirir; uygulama dosyaları bu sitede yayımlanmaz.</p>
+  <p class="catalog-note">Kitaplar yayına hazırlık aşamasındadır. Bu sayfada erişime açılan kitap uygulamalarının bağlantıları yer alır. Kitapların geliştirme depolarına erişim yetki gerektirir.</p>
+</section>
+
+<section class="catalog-intro" aria-labelledby="muhendisler-lineer-cebir-kodlar">
+  <h2 id="muhendisler-lineer-cebir-kodlar">Mühendisler İçin Lineer Cebir</h2>
+  <p>Teori ve Python Uygulamaları kitabının 13 bölümü için Python kodları,
+    örnek veriler ve çalıştırma komutları.</p>
+  <p><a class="package-card__link" href="/muhendisler-icin-lineer-cebir/kodlar/">Kitabın kod ve verilerini aç →</a></p>
 </section>
 
 <section class="catalog-intro" aria-labelledby="lineer-cebir-atolyesi">

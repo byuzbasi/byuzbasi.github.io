@@ -1,0 +1,17 @@
+book_title,book_chapter,topic,module,historical_chapter,tests,note
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,1,Model kurma,applications/python/bolum01_model_kurma.py,1,tests/test_bolum01.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,2,Vektörler ve geometri,applications/python/bolum02_vektor_geometri.py,2,tests/test_bolum02.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,3,Matrisler ve dönüşümler,applications/python/bolum03_matris_donusumleri.py,3,tests/test_bolum03.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,4,Determinantlar,applications/python/bolum07_koordinatlar_determinant.py,7,tests/test_bolum07.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,5,Lineer sistemler,applications/python/bolum04_lineer_sistemler.py,4,tests/test_bolum04.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,6,Vektör uzayları ve koordinatlar,applications/python/bolum05_vektor_uzaylari.py,5,tests/test_bolum05.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,6,Vektör uzayları ve koordinatlar,applications/python/bolum07_koordinatlar_determinant.py,7,tests/test_bolum07.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,7,Dört temel altuzay,applications/python/bolum06_temel_alt_uzaylar.py,6,tests/test_bolum06.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,8,Ortogonallik ve QR,applications/python/bolum08_ortogonallik_qr.py,8,tests/test_bolum08.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,9,En küçük kareler,applications/python/bolum09_en_kucuk_kareler.py,9,tests/test_bolum09.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,10,Sayısal doğruluk,applications/python/bolum10_sayisal_dogruluk.py,10,tests/test_bolum10.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,11,Simetri ve enerji,applications/python/bolum11_simetri_enerji.py,11,tests/test_bolum11.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,12,Özdeğerler ve modlar,applications/python/bolum12_ozdeger_modlar.py,12,tests/test_bolum12.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,13,SVD ve düşük rank,applications/python/bolum13_svd_dusuk_rank.py,13,tests/test_bolum13.py,Tarihsel API ve çıktı alanları korunur
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,4,Sarrus,sarrus_kontrol.py,,self_test,Yeni bölüm 4 eğitim betiği
+Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları,5,Cramer,cramer_kontrol.py,,self_test,Yeni bölüm 5 eğitim betiği

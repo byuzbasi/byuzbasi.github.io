@@ -1,0 +1,23 @@
+﻿Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları
+Prof. Dr. Zühal Küçükarslan Yüzbaşı ve Prof. Dr. Bahadır Yüzbaşı
+
+ZIP arşivini bir klasöre açın. Terminalde bu klasöre geçin.
+Python 3.12 ve NumPy 2.3.5 ile doğrulandı. NumPy'yi kendi Python
+ortamınıza kurmak için şu komutu kullanabilirsiniz:
+
+    python3 -m pip install -r python/requirements.txt
+
+Bölüm 9 örneğini çalıştırmak için:
+
+    python3 -B python/applications/python/bolum09_en_kucuk_kareler.py
+
+Sayfada her bölümün komutları ve indirilebilir dosyaları bulunur.
+python/chapter_map.csv, kitaptaki numara ile kod dosyalarını eşler.
+Bazı dosya adları önceki bölüm numaralarını taşır.
+
+veriler/ dizinindeki JSON dosyaları seçili kitap örneklerinin girdilerini,
+birimlerini ve Python kaynağını kaydeder. JSON'u okuyan programlar Unicode
+kaçışlarını Türkçe karakterlere dönüştürür. Sayfadaki “Örnek verileri
+görüntüle” bölümünde veriler doğrudan okunabilir. Kodlar varsayılan girdilerini
+kendi içlerinden yükler. Yük hücresi ve köprü sensörü tabloları ayrıca
+CSV olarak sunulur. Bunlar kitaptaki öğretim örnekleridir.

@@ -1,0 +1,45 @@
+{
+  "kitap_bolumu": 2,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "ruzgar_ve_drone": {
+      "kaynak": "bolum02_vektor_geometri.drone_case",
+      "coordinate_order": [
+        "east",
+        "north"
+      ],
+      "velocity_unit": "m/s",
+      "displacement_unit": "m",
+      "time_unit": "s",
+      "air_velocity_mps": [
+        12.0,
+        5.0
+      ],
+      "wind_velocity_mps": [
+        -4.0,
+        3.0
+      ],
+      "target_displacement_m": [
+        80.0,
+        60.0
+      ],
+      "update_time_s": 10.0
+    },
+    "gerilim_ornekleri": {
+      "kaynak": "bolum02_vektor_geometri.signal_case",
+      "sample_unit": "V",
+      "reference_v": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "observed_v": [
+        1.2,
+        1.8,
+        3.3,
+        3.7
+      ]
+    }
+  }
+}

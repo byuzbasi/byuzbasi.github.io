@@ -1,0 +1,28 @@
+{
+  "kitap_bolumu": 8,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "ivme_izdusumu": {
+      "kaynak": "bolum08_ortogonallik_qr.main_direction_matrix ve main_measurement_vector",
+      "direction_matrix_dimensionless": [
+        [
+          2.0,
+          3.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          2.0,
+          1.0
+        ]
+      ],
+      "acceleration_m_per_s2": [
+        1.0,
+        2.0,
+        -1.0
+      ]
+    }
+  }
+}

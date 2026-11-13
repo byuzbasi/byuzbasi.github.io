@@ -1,0 +1,27 @@
+{
+  "kitap_bolumu": 3,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "lidar_koordinat_zinciri": {
+      "kaynak": "bolum03_matris_donusumleri: SENSOR_* ve BODY_IN_MAP_*",
+      "sensor_point_m": [
+        2.0,
+        1.0
+      ],
+      "sensor_forward_unit": [
+        1.0,
+        0.0
+      ],
+      "sensor_in_body_translation_m": [
+        0.5,
+        0.2
+      ],
+      "body_in_map_translation_m": [
+        4.0,
+        3.0
+      ],
+      "sensor_in_body_angle_rad": 1.5707963267948966,
+      "body_in_map_angle_rad": 0.5235987755982988
+    }
+  }
+}

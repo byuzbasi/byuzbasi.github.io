@@ -1,0 +1,52 @@
+{
+  "kitap_bolumu": 11,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "mesnetli_yay": {
+      "kaynak": "bolum11_simetri_enerji.grounded_spring_case",
+      "incidence": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "spring_constants": [
+        1200.0,
+        800.0,
+        1500.0,
+        1000.0
+      ],
+      "applied_force": [
+        100.0,
+        -40.0,
+        60.0
+      ],
+      "perturbation": [
+        0.001,
+        -0.0005,
+        0.0008
+      ],
+      "units": {
+        "spring_constant": "N/m",
+        "applied_force": "N",
+        "displacement": "m"
+      }
+    }
+  }
+}

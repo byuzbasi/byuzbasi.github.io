@@ -1,0 +1,66 @@
+{
+  "kitap_bolumu": 7,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "eyleyici_sensor": {
+      "kaynak": "bolum06_temel_alt_uzaylar.chapter_results.actuator_sensor_case",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          2.0,
+          1.0
+        ]
+      ],
+      "input_labels": [
+        "u1",
+        "u2",
+        "u3",
+        "u4"
+      ],
+      "output_labels": [
+        "y1",
+        "y2",
+        "y3"
+      ],
+      "input_unit": "dimensionless_fraction_of_reference_command",
+      "output_unit": "dimensionless_calibrated_feature",
+      "reachable_target": [
+        2.0,
+        3.0,
+        5.0
+      ],
+      "inconsistent_target": [
+        2.0,
+        3.0,
+        5.2
+      ],
+      "same_output_commands": {
+        "first": [
+          2.0,
+          3.0,
+          0.0,
+          0.0
+        ],
+        "second": [
+          2.0,
+          2.0,
+          0.0,
+          1.0
+        ]
+      }
+    }
+  }
+}

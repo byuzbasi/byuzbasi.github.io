@@ -1,0 +1,74 @@
+{
+  "kitap_bolumu": 6,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "rijit_plaka": {
+      "kaynak": "bolum05_vektor_uzaylari.chapter_results.plate_case",
+      "measurement_order": [
+        "d1x",
+        "d1y",
+        "d2x",
+        "d2y"
+      ],
+      "displacement_unit": "m",
+      "basis_columns": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "observed_displacement_m": [
+        0.01,
+        0.02,
+        0.01,
+        0.04
+      ],
+      "deformation_candidate_m": [
+        0.01,
+        0.02,
+        0.03,
+        0.04
+      ]
+    },
+    "baz_degistirme": {
+      "kaynak": "bolum07_koordinatlar_determinant.canonical_bases",
+      "birim": "boyutsuz",
+      "source_basis_columns": [
+        [
+          2.0,
+          1.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "target_basis_columns": [
+        [
+          1.0,
+          -1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    }
+  }
+}

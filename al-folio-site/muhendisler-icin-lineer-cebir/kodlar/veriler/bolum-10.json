@@ -1,0 +1,67 @@
+{
+  "kitap_bolumu": 10,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "robot_yorungesi": {
+      "kaynak": "bolum10_sayisal_dogruluk.robot_trajectory_case",
+      "start_position_radian": 0.2,
+      "end_position_radian": 1.1,
+      "duration_seconds": 2.0,
+      "boundary_velocity_radian_per_second": [
+        0.0,
+        0.0
+      ],
+      "boundary_acceleration_radian_per_second_squared": [
+        0.0,
+        0.0
+      ]
+    },
+    "optik_ters_problem": {
+      "kaynak": "bolum10_sayisal_dogruluk.optical_inverse_problem_case",
+      "path_length_centimetre": 1.0,
+      "absorbance_unit": "dimensionless",
+      "concentration_unit": "mmol/L",
+      "sensitivity_entry_unit": "L/mmol",
+      "well_separated": {
+        "sensitivity_matrix": [
+          [
+            1.0,
+            0.2
+          ],
+          [
+            0.15,
+            1.1
+          ]
+        ],
+        "true_concentration_millimole_per_litre": [
+          0.8,
+          0.4
+        ],
+        "absorbance_perturbation": [
+          0.0001,
+          -0.0001
+        ]
+      },
+      "nearly_parallel": {
+        "sensitivity_matrix": [
+          [
+            1.0,
+            0.99
+          ],
+          [
+            0.98,
+            0.9703
+          ]
+        ],
+        "true_concentration_millimole_per_litre": [
+          0.8,
+          0.4
+        ],
+        "absorbance_perturbation": [
+          0.0001,
+          -0.0001
+        ]
+      }
+    }
+  }
+}

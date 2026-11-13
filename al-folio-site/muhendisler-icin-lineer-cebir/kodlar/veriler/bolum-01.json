@@ -1,0 +1,83 @@
+{
+  "kitap_bolumu": 1,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "uc_sensor": {
+      "kaynak": "bolum01_model_kurma.sensor_case",
+      "state_names": [
+        "temperature_change",
+        "pressure_change",
+        "humidity_change"
+      ],
+      "state_units": [
+        "degC_difference",
+        "kPa",
+        "percent_RH_difference"
+      ],
+      "output_names": [
+        "sensor_1",
+        "sensor_2",
+        "sensor_3"
+      ],
+      "output_units": [
+        "V",
+        "V",
+        "V"
+      ],
+      "coefficient_units": [
+        [
+          "V/degC_difference",
+          "V/kPa",
+          "V/percent_RH_difference"
+        ],
+        [
+          "V/degC_difference",
+          "V/kPa",
+          "V/percent_RH_difference"
+        ],
+        [
+          "V/degC_difference",
+          "V/kPa",
+          "V/percent_RH_difference"
+        ]
+      ],
+      "sensitivity_matrix": [
+        [
+          0.08,
+          0.01,
+          -0.002
+        ],
+        [
+          0.015,
+          0.12,
+          0.004
+        ],
+        [
+          -0.01,
+          0.02,
+          0.05
+        ]
+      ],
+      "state_change": [
+        10.0,
+        5.0,
+        20.0
+      ],
+      "offset_v": [
+        0.2,
+        -0.1,
+        0.05
+      ],
+      "state_scale": [
+        10.0,
+        5.0,
+        20.0
+      ],
+      "valid_absolute_change": [
+        12.0,
+        8.0,
+        25.0
+      ]
+    }
+  }
+}

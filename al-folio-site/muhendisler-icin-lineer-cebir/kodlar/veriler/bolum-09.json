@@ -1,0 +1,109 @@
+{
+  "kitap_bolumu": 9,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "yuk_hucresi": {
+      "kaynak": "bolum09_en_kucuk_kareler.load_cell_dataset",
+      "force_newton": [
+        0.0,
+        0.0,
+        250.0,
+        250.0,
+        500.0,
+        500.0,
+        750.0,
+        750.0,
+        1000.0,
+        1000.0
+      ],
+      "temperature_change_kelvin": [
+        -5.0,
+        -5.0,
+        5.0,
+        5.0,
+        0.0,
+        0.0,
+        -5.0,
+        -5.0,
+        5.0,
+        5.0
+      ],
+      "response_millivolt": [
+        0.16000000000000003,
+        0.14,
+        1.27,
+        1.23,
+        2.21,
+        2.1900000000000004,
+        3.1700000000000004,
+        3.1300000000000003,
+        4.26,
+        4.24
+      ],
+      "standard_deviation_millivolt": [
+        0.015,
+        0.015,
+        0.025,
+        0.025,
+        0.02,
+        0.02,
+        0.03,
+        0.03,
+        0.02,
+        0.02
+      ],
+      "deterministic_residual_millivolt": [
+        0.01,
+        -0.01,
+        0.02,
+        -0.02,
+        0.01,
+        -0.01,
+        0.02,
+        -0.02,
+        0.01,
+        -0.01
+      ],
+      "true_physical_coefficients": [
+        0.2,
+        0.004,
+        0.01
+      ],
+      "force_scale_newton": 250.0,
+      "temperature_scale_kelvin": 5.0,
+      "check": {
+        "force_newton": 625.0,
+        "temperature_change_kelvin": 2.0,
+        "observed_response_millivolt": 2.73
+      }
+    },
+    "nivelman_agi": {
+      "kaynak": "bolum09_en_kucuk_kareler.leveling_network_case",
+      "design": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "observed_height_differences_metre": [
+        1.02,
+        0.98,
+        2.01
+      ],
+      "standard_deviation_metre": [
+        0.01,
+        0.02,
+        0.01
+      ],
+      "reference_height_a_metre": 100.0
+    }
+  }
+}

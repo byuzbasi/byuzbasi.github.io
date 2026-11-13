@@ -1,0 +1,27 @@
+{
+  "kitap_bolumu": 12,
+  "tur": "\u00d6\u011fretim \u00f6rne\u011fi girdileri",
+  "ornekler": {
+    "uc_platform": {
+      "kaynak": "bolum12_ozdeger_modlar.three_platform_modal_case",
+      "masses_kg": [
+        2000.0,
+        1500.0,
+        1000.0
+      ],
+      "story_stiffnesses_n_per_m": [
+        8000000.0,
+        6000000.0,
+        4000000.0
+      ],
+      "assumptions": [
+        "small horizontal displacements",
+        "linear elastic story springs",
+        "lumped platform masses",
+        "fixed base",
+        "undamped free vibration for modal extraction",
+        "constant time-invariant parameters"
+      ]
+    }
+  }
+}
