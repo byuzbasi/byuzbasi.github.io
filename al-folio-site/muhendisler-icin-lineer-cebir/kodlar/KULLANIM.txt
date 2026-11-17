@@ -1,23 +1,41 @@
 ﻿Mühendisler İçin Lineer Cebir — Teori ve Python Uygulamaları
 Prof. Dr. Zühal Küçükarslan Yüzbaşı ve Prof. Dr. Bahadır Yüzbaşı
 
-ZIP arşivini bir klasöre açın. Terminalde bu klasöre geçin.
-Python 3.12 ve NumPy 2.3.5 ile doğrulandı. NumPy'yi kendi Python
-ortamınıza kurmak için şu komutu kullanabilirsiniz:
+Bu sürüm, kitabın Tahminden Deneye bölümündeki 13 çalışmayı içerir.
+ZIP'i açıp python/ ve veriler/ klasörlerinin bulunduğu dizine geçin.
+Python 3.12 ve NumPy 2.3.5 ile sınanmıştır. NumPy gerekirse kendi
+Python ortamınıza şu komutla kurulabilir:
 
     python3 -m pip install -r python/requirements.txt
 
-Bölüm 9 örneğini çalıştırmak için:
+Bir bölümün yerleşik örneklerini çalıştırmak için sayfadaki komutu
+kullanın. Örneğin Bölüm 9 için:
 
     python3 -B python/applications/python/bolum09_en_kucuk_kareler.py
 
-Sayfada her bölümün komutları ve indirilebilir dosyaları bulunur.
-python/chapter_map.csv, kitaptaki numara ile kod dosyalarını eşler.
-Bazı dosya adları önceki bölüm numaralarını taşır.
+python/chapter_map.csv, her bölümün numarasını Python dosyasıyla eşler.
+Bazı dosya adları eski bölüm numaralarını taşır.
 
-veriler/ dizinindeki JSON dosyaları seçili kitap örneklerinin girdilerini,
-birimlerini ve Python kaynağını kaydeder. JSON'u okuyan programlar Unicode
-kaçışlarını Türkçe karakterlere dönüştürür. Sayfadaki “Örnek verileri
-görüntüle” bölümünde veriler doğrudan okunabilir. Kodlar varsayılan girdilerini
-kendi içlerinden yükler. Yük hücresi ve köprü sensörü tabloları ayrıca
-CSV olarak sunulur. Bunlar kitaptaki öğretim örnekleridir.
+Tahminden Deneye
+Arşiv kökünden python/ dizinine geçin:
+
+    cd python
+    python3 lab_deneyleri.py 1 ilk
+    python3 lab_deneyleri.py 1 degistir
+
+Diğer deneyler için her iki komutta da 1'i 2–13 arasındaki bölüm
+numarasıyla değiştirin. İkinci komuttan önce tahmininizi yazın. İki JSON
+çıktısını yan yana inceleyip sonucu kitaptaki formülle açıklayın.
+
+JSON girdisiyle yük hücresi kalibrasyonu
+Arşiv kökünde aşağıdaki komutu çalıştırın:
+
+    python3 -B ornekler/bolum09_json_kalibrasyon.py --kitap-kontrolu
+
+Bu örnek veriler/bolum-09.json dosyasını okuyup Bölüm 9'un çözüm
+yordamına aktarır. Diğer bölüm modülleri varsayılan girdilerini kendi
+içlerinden alır. veriler/ altındaki JSON ve CSV dosyaları seçili
+öğretim örneklerinin girdilerini, birimlerini ve kaynaklarını belgeler.
+JSON okuyucuları Unicode kaçışlarını Türkçe karakterlere dönüştürür.
+
+SHA256SUMS arşivdeki öğrenci dosyalarının özetlerini listeler.
