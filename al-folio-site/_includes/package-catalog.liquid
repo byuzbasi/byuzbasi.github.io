@@ -23,8 +23,8 @@
       <p class="package-card__subtitle">{{ package.subtitle | escape }}</p>
       <p>{{ package.description[catalog_lang] | escape }}</p>
       <p class="package-card__meta">{{ package.technologies | escape }}</p>
-      {% if package.source_version and package.source_url and package.verified_links.source_url %}
-        <p class="package-card__meta">{% if catalog_lang == 'en' %}GitHub source version{% else %}GitHub kaynak sürümü{% endif %} · {{ package.source_version | escape }}</p>
+      {% if package.source_version %}
+        <p class="package-card__meta">{% if catalog_lang == 'en' %}Source version{% else %}Kaynak sürümü{% endif %} · {{ package.source_version | escape }}</p>
       {% endif %}
       {% if package.cran_url and package.verified_links.cran_url %}
         <p class="package-card__meta">

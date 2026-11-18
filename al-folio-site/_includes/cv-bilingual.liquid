@@ -146,6 +146,8 @@
           <h3>
             {% if package.docs.published and package.verified_links.docs %}
               <a href="{{ package.docs.path | absolute_url }}">{{ package.name | escape }} <span aria-hidden="true">↗</span></a>
+            {% elsif package.source_url and package.verified_links.source_url %}
+              <a href="{{ package.source_url | escape }}">{{ package.name | escape }} <span aria-hidden="true">↗</span></a>
             {% else %}
               {{ package.name | escape }}
             {% endif %}
@@ -166,6 +168,11 @@
         {% endfor %}
       </div>
     </div>
+  </section>
+
+  <section class="cv-section" id="research-materials" aria-labelledby="research-materials-title">
+    <h2 id="research-materials-title">{% if current_lang == 'en' %}Research and reproduction materials{% else %}Araştırma ve yeniden üretim materyalleri{% endif %}</h2>
+    {% include research-materials.liquid %}
   </section>
 
   <section class="cv-section" id="{% if current_lang == 'en' %}professional-memberships{% else %}mesleki-uyelikler{% endif %}" aria-labelledby="memberships-title">

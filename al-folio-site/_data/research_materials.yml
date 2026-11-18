@@ -1,0 +1,49 @@
+- id: ridge-liu-correlation-risk
+  title:
+    tr: Değişen açıklayıcı korelasyonlarında Ridge ve Liu tahmin riski
+    en: Ridge and Liu prediction risk under changing predictor correlations
+  description:
+    tr: Çoklu doğrusal bağlantı altında yanlı tahminciler konulu kitap bölümü için Python kodu, sabitlenmiş çalışma tasarımı ve yeniden üretim yönergeleri. Kaynak ve hedef açıklayıcı korelasyonları değiştiğinde tahmin riskini inceler.
+    en: Python code, frozen study configuration and reproduction instructions for a chapter on biased estimators under multicollinearity. Examines prediction risk as source and target predictor correlations change.
+  technologies: Python
+  source_url: https://github.com/byuzbasi/ridge-liu-correlation-risk
+  verified_links:
+    source_url: '2026-11-18'
+
+- id: ess-selective-prediction
+  title:
+    tr: Avrupa Sosyal Araştırması ülkelerinde tahmin kapsamı
+    en: Prediction coverage across European Social Survey countries
+  description:
+    tr: On dokuz ülkede CES-D-8 puanlarının tahmin kapsamını eğitim ve göç grupları açısından inceleyen araştırmanın kodu ve ESS veri kaynakları. CatBoost ve TabM için ortak tahmin kapasitesi ve yerel kalibrasyon tasarımı kullanılır.
+    en: Analysis code and ESS data sources for a study of educational and migration differences in CES-D-8 prediction coverage across 19 countries. CatBoost and TabM share a common prediction capacity and local calibration design.
+  technologies: Python · R
+  source_url: https://github.com/byuzbasi/ess-selective-prediction
+  verified_links:
+    source_url: '2026-11-18'
+
+- id: taya-maternal-education
+  title:
+    tr: Türkiye'de anne eğitimi ve genç yetişkinlerin toplumsal cinsiyet tutumları
+    en: Maternal education and young adult gender attitudes in Türkiye
+  description:
+    tr: TAYA 2021 anne ve genç yetişkin kayıtlarına dayalı araştırmanın R kodu ve toplulaştırılmış sonuçları. Mikroveriler depoda paylaşılmaz; TÜİK'in erişim koşulları geçerlidir.
+    en: R replication code and aggregate results for an analysis of linked mother and young adult records in TAYA 2021. Microdata are not distributed in the repository; TÜİK access conditions apply.
+  technologies: R
+  source_url: https://github.com/byuzbasi/taya-maternal-education
+  verified_links:
+    source_url: '2026-11-18'
+
+- id: periodic-momentum
+  title:
+    tr: İki periyotlu heavy-ball yöntemi için bağıl hata eşiği
+    en: A relative-error threshold for two-periodic heavy ball
+  description:
+    tr: Bahadır Yüzbaşı ve Mohammad Arashi'nin hazırlık aşamasındaki çalışması için kuramsal sonuçlara eşlik eden kod, sayısal örnekler ve İstanbul Menkul Kıymetler Borsası uygulaması. Araştırma kodudur; kurulabilir Python paketi değildir.
+    en: Research code, numerical illustrations and an Istanbul Stock Exchange application accompanying a working manuscript by Bahadır Yüzbaşı and Mohammad Arashi. This is research code, not an installable Python package.
+  technologies: Python · R · mpmath
+  source_url: https://github.com/byuzbasi/periodic-momentum
+  site_url: https://byuzbasi.github.io/periodic-momentum/
+  verified_links:
+    source_url: '2026-11-18'
+    site_url: '2026-11-18'

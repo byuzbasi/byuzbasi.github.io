@@ -163,7 +163,7 @@ cv:
 
     Kitap değerlendirmeleri:
       - name: Using R for Introductory Statistics in Social Sciences
-        summary: "Mark A. Perkins'in kitabı üzerine değerlendirme. International Statistical Review; SCIE, Q1. 30 Eylül 2026'da çevrimiçi yayımlandı."
+        summary: "Mark A. Perkins'in kitabı üzerine değerlendirme. International Statistical Review, 94(3), 786–788; SCIE, Q1. 30 Eylül 2026'da çevrimiçi yayımlandı."
         doi: 10.1111/insr.70072
     Araştırma alanları:
       - name: İstatistiksel öğrenme ve yüksek boyutlu çıkarım

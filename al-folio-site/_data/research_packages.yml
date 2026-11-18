@@ -152,7 +152,7 @@
   description:
     tr: Lambert cezasıyla seyrek Gaussian regresyon için R paketi. Sabit ceza şekli altında düzenlileştirme yolları, yalnızca eğitim verisiyle çapraz doğrulama, özgün ölçekte tahminler ve sayısal tanılar sunar.
     en: Sparse Gaussian regression with the Lambert penalty. Provides regularization paths with a fixed penalty shape, training-only cross-validation, original-scale predictions and numerical diagnostics.
-  technologies: R · C++ · Rcpp
+  technologies: R · C++ · RcppArmadillo
   source_url: https://github.com/byuzbasi/lambertReg
   source_version: '0.1.11'
   docs:
@@ -301,3 +301,21 @@
     status:
       tr: Dokümantasyon ve örnekler yayında
       en: Documentation and examples available
+
+- id: nocurve
+  related_projects: []
+  verified_links:
+    source_url: '2026-11-18'
+  name: nocurve
+  subtitle: Contextual Empirical Bayes Curve Estimation
+  description:
+    tr: Eşit aralıklı gözlem ızgarasında durağan dalgacık küçültmesiyle bağlamsal ampirik Bayes eğri tahmini. Gürültüye dik bağlamsal tahminci NOC, bağlamdan bağımsız EB0 ve izdüşümsüz RAW karşılaştırmalarını içerir; makalenin benzetim ve Raman uygulaması için yeniden üretim kodu sunar.
+    en: Contextual empirical Bayes curve estimation using stationary wavelet shrinkage on an equally spaced observation grid. Includes the noise-orthogonal contextual estimator NOC, the context-free EB0 baseline and the unprojected RAW comparison, with reproduction code for the manuscript's simulations and Raman application.
+  technologies: R · C++17 · RcppArmadillo
+  source_url: https://github.com/byuzbasi/nocurve
+  source_version: '0.1.0'
+  docs:
+    published: false
+    status:
+      tr: Kaynak kodu ve yeniden üretim yönergeleri GitHub deposunda
+      en: Source code and reproduction instructions in the GitHub repository

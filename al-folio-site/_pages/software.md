@@ -23,6 +23,10 @@ Yüksek boyutlu regresyon, mekânsal ve fonksiyonel veri analizi, küçültme y�
 
 {% include package-catalog.liquid ecosystem='python' %}
 
+## Araştırma ve yeniden üretim materyalleri
+
+{% include research-materials.liquid %}
+
 ## Araştırma iş akışı
 
 | Alan | Kullanım |

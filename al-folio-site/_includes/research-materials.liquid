@@ -1,0 +1,13 @@
+{% assign materials_lang = page.lang | default: site.lang %}
+{% for material in site.data.research_materials %}
+  <article class="cv-entry" id="research-material-{{ material.id | escape }}">
+    <p class="cv-entry__dates">{{ material.technologies | escape }}</p>
+    <div class="cv-entry__content">
+      <h3><a href="{{ material.source_url | escape }}">{{ material.title[materials_lang] | escape }} <span aria-hidden="true">↗</span></a></h3>
+      <p>{{ material.description[materials_lang] | escape }}</p>
+      {% if material.site_url and material.verified_links.site_url %}
+        <p><a href="{{ material.site_url | escape }}">{% if materials_lang == 'en' %}Research companion{% else %}Araştırma vitrini{% endif %} <span aria-hidden="true">↗</span></a></p>
+      {% endif %}
+    </div>
+  </article>
+{% endfor %}

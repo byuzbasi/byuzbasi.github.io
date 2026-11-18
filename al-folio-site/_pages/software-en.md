@@ -23,6 +23,10 @@ Robust regression and statistical learning under skewness and heavy tails.
 
 {% include package-catalog.liquid ecosystem='python' %}
 
+## Research and reproduction materials
+
+{% include research-materials.liquid %}
+
 ## Research workflow
 
 | Area | Use |
